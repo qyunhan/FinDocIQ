@@ -155,8 +155,10 @@ def classify_slide(client, img_bytes: bytes) -> list[str]:
 
     # Track usage (Pass 0 is cheap but we still count it)
     um  = getattr(resp, "usage_metadata", None)
-    pt  = getattr(um, "prompt_token_count", None) or 0
     ot  = getattr(um, "candidates_token_count", None) or 0
+    tt  = getattr(um, "thoughts_token_count", None) or 0
+    tot = getattr(um, "total_token_count", None) or 0
+    pt  = getattr(um, "prompt_token_count", None) or max(0, tot - ot - tt)
     cost = (pt / 1e6 * INPUT_PRICE_PER_M) + (ot / 1e6 * OUTPUT_PRICE_PER_M)
     _run_usage["calls"]  += 1
     _run_usage["prompt"] += pt
@@ -599,8 +601,12 @@ def call_gemini(client, prompt_parts: list, *, text_only: bool = False) -> tuple
 
     text = (resp.text or "").strip()
     um   = getattr(resp, "usage_metadata", None)
-    pt   = getattr(um, "prompt_token_count", None) or 0
     ot   = getattr(um, "candidates_token_count", None) or 0
+    tt   = getattr(um, "thoughts_token_count", None) or 0
+    tot  = getattr(um, "total_token_count", None) or 0
+    # Gemini 2.5 Flash with thinking_budget=0 often returns prompt_token_count=None;
+    # derive it from total - output - thinking.
+    pt   = getattr(um, "prompt_token_count", None) or max(0, tot - ot - tt)
     cost = (pt / 1e6 * INPUT_PRICE_PER_M) + (ot / 1e6 * OUTPUT_PRICE_PER_M)
     usage = {"prompt_tokens": pt, "output_tokens": ot, "est_cost_usd": round(cost, 6)}
     _run_usage["calls"]  += 1
