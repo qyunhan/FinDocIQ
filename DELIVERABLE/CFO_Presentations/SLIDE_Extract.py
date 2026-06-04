@@ -1010,13 +1010,9 @@ def _render_waterfall(ws, pts: list[DataPoint], cursor: int, brand: str,
             signed_val = val
         vc  = ws.cell(cursor, 2, signed_val)
         if isinstance(signed_val, (int, float)):
-            vc.number_format = '+#,##0;-#,##0;"-"'  # always show sign
+            vc.number_format = '+#,##0;-#,##0;"-"'
             vc.alignment = Alignment(horizontal="right")
-            if is_bridge:
-                sign_pos = (p.sign == "+" if p.sign else signed_val >= 0)
-                vc.font = Font(color=("00B050" if sign_pos else "C00000"), size=10)
-            else:
-                _style_row(vc, p.row_type, p.level, is_value=True)
+            vc.font = Font(size=10, bold=is_total)
         else:
             _style_row(vc, p.row_type, p.level, is_value=True)
         if p.source in ("chart", "unverified") and val not in (None, "", "-", "?"):
