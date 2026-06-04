@@ -324,163 +324,147 @@ class DataPoint(BaseModel):
 # ===========================================================================
 SINGLE_PASS_PROMPT = """Extract ALL financial data from this bank CFO presentation slide.
 
-Return a JSON object:
+Return a JSON object with this exact structure:
 {
-  "slide_title": "...",
+  "slide_title": "the main heading of this slide verbatim",
   "elements": [
     {
       "element_idx": 0,
       "element_type": "text_table|waterfall|stacked_bar|stacked_bar_with_overlay|trend_line|kpi_grid|pie|donut_dual_ring|other",
-      "element_title": "...",
-      "source": "table or chart",
-      "units": "S$m or % or other",
-      "self_check": "arithmetic check string or null",
+      "element_title": "the title printed above this element verbatim",
+      "source": "chart",
+      "units": "e.g. S$m, S$b, %, bps",
+      "self_check": "write the arithmetic check for this element e.g. '9755+658-1236=9177', or null",
       "data_points": [
         {
-          "series": "row/bar/segment label verbatim",
-          "period": "time period or null",
-          "value": "verbatim as printed",
+          "series":   "row / bar / segment label verbatim",
+          "period":   "time period as printed on slide e.g. FY25, 4Q25, Dec-25, or null",
+          "value":    "value VERBATIM as printed — keep commas, %, (), + signs",
           "row_type": "data|total|sub|start|end|bridge|note",
-          "level": 1,
-          "parent": null,
-          "group": null,
-          "sign": null,
-          "order": 0
+          "level":    1,
+          "parent":   null,
+          "group":    null,
+          "sign":     null,
+          "order":    0
         }
       ]
     }
   ]
 }
 
-Rules:
-- slide_title: the main heading printed at the top of the slide, verbatim.
-- value: ALWAYS verbatim as printed. Never convert. "5,948" not 5948.
-- Waterfall: sign="+" or "-" on every bridge component. Verify start+sum=end.
-- Bold rows: row_type="total". Indented rows: level=2.
-- Donut dual ring: read the label printed at the centre of each ring to identify
-  which period it represents BEFORE assigning values. Do NOT assume inner=earlier.
-- Add extra key/value pairs freely for any additional columns on the slide.
-- Return ONLY the JSON object, no markdown.
+EXTRACTION RULES:
+
+value field — always verbatim:
+  "5,948" not 5948.  "(244)" not -244.  "1.82%" not 0.0182.  "+14%" not 14.
+
+row_type:
+  start / end  → waterfall opening and closing bars
+  bridge       → waterfall delta bars (must have sign="+" or "-")
+  total        → bold rows, grand totals, subtotals
+  sub          → indented sub-items (level=2, parent="nearest level-1 label")
+  note         → footnotes, disclaimers
+  data         → everything else
+
+Waterfall charts:
+  Every bridge bar needs sign="+" or "-". Read the colour legend on the slide.
+  Verify: start_value + sum(signed_deltas) = end_value. Write this as self_check.
+
+Stacked bars with overlay line:
+  Bar segments → data_points with period = x-axis label.
+  Overlay line → separate data_points, row_type="note", extra field overlay_series="<line name>".
+
+Donut dual ring:
+  Trace each period label's callout line to identify which ring it points to.
+  Assign period from what you read on the slide. Do NOT assume inner=earlier or outer=later.
+  One data_point per (segment, period) combination.
+
+KPI grid:
+  One data_point per KPI box. period=null if no time axis.
+  Extra fields for change values: e.g. yoy_change="-2%", yoy_change_label="YoY".
+
+Extra fields:
+  Add freely for any additional data columns on the slide.
+  Always pair with a _label field: e.g. yoy_pct="-3%", yoy_pct_label="YoY %".
+
+order: sequential integer, 0-based, top-to-bottom / left-to-right reading order.
+
+Return ONLY the JSON object. No markdown fences. No explanation.
 """
 
 
 # ===========================================================================
-# PASS 1 PROMPT (text slides — multi-pass path)
+# PASS 1 PROMPT (text slides only — multi-pass path)
 # ===========================================================================
-PASS1_PROMPT = """Examine this bank CFO presentation slide carefully.
+PASS1_PROMPT = """Examine this bank CFO presentation slide. It contains text tables.
 
 ═══════════════════════════════════════════════════
-STEP 1 — INVENTORY (do this first, before any structure)
+STEP 1 — INVENTORY
 ═══════════════════════════════════════════════════
 
-Scan the entire slide and list EVERY printed number you can see.
-For each number write:
+List every printed number on the slide with:
   - the number exactly as printed (e.g. "2,296", "(1,236)", "1.91%")
-  - its approximate location on the slide (e.g. "top-left bar", "row 3 col 2")
-  - any adjacent label text (e.g. "Net Interest Income", "Volume", "4Q25")
+  - its row label and column header
+  - a "?" flag if it is partially obscured or ambiguous
 
-Do not skip any number, even if you are unsure what it represents.
-If a number is partially obscured or hard to read, write it with a "?" flag.
+Do not skip any number.
 
 ═══════════════════════════════════════════════════
 STEP 2 — STRUCTURE
 ═══════════════════════════════════════════════════
 
-For each distinct data element on the slide, describe:
-
-1. TYPE: what kind of visual is it?
-   (text_table | waterfall | stacked_bar | stacked_bar_with_overlay |
-    trend_line | kpi_grid | pie | donut_dual_ring | npa_movement_table | other)
-
-2. TITLE: the label printed above it (verbatim)
-
-3. STRUCTURE:
-   - text_table / npa_movement_table: how many rows, how many columns,
-     what are the column headers
-   - waterfall: how many bars total, opening bar label, closing bar label,
-     what does the colour legend say (e.g. "green = positive, red = negative"),
-     are % labels printed on bars and what do they represent (YoY? QoQ?)
-   - stacked_bar / stacked_bar_with_overlay: how many time periods,
-     how many stack components, what are the period labels, what are the
-     component labels; if overlay line present — what is its name and unit
-   - trend_line: how many series, how many periods, what are the series names
-   - kpi_grid: how many KPIs, what are the labels
-   - pie / donut_dual_ring: how many segments; for dual ring — which ring
-     is the earlier period and which is the later period
-
-4. UNITS: what unit are values in (S$m, S$b, %, bps, etc.)
-
-5. VISUAL CONVENTIONS on this specific slide:
-   - bold rows = totals?
-   - indented rows = sub-items?
-   - shaded/grey cells = not applicable?
-   - bracket groupings?
-   - any footnotes that change interpretation?
+For each table:
+  1. TITLE: the label printed above it (verbatim)
+  2. COLUMN HEADERS: left to right, exactly as printed
+  3. ROW COUNT: how many data rows (excluding headers and footnotes)
+  4. VISUAL CONVENTIONS on this specific slide:
+       bold rows          → totals or subtotals?
+       indented rows      → sub-items of a parent row?
+       shaded/grey cells  → not applicable (blank, not zero)?
+       parentheses        → negative values?
+       dash cells         → zero or negligible?
+       any footnotes that change interpretation of specific rows/cells?
 
 ═══════════════════════════════════════════════════
-STEP 3 — ASSIGN AND VERIFY
+STEP 3 — VERIFY
 ═══════════════════════════════════════════════════
 
-Using your inventory from Step 1 and the structure from Step 2:
+For each table, check whether sub-items sum to their parent total.
+Write the check explicitly: e.g. "Fee income: 312 + 187 + 95 = 594 ✓"
+Note any discrepancies without correcting the printed values.
 
-For each element, assign every number from your inventory to its structural
-role (which series, which period, which component).
-
-Then apply the arithmetic constraint from the chart contract (if one exists):
-  - Waterfall: start + sum(signed deltas) = end. If it does not balance,
-    find the misread or wrong sign in your inventory before proceeding.
-  - Stacked bar: components sum to bar total. Check each period.
-  - NPA table: opening + flows = closing. Check each column.
-  - Pie / donut: segments sum to ~100% (or printed total).
-
-If the arithmetic fails: DO NOT proceed. Return to your inventory, find the
-error (wrong number, wrong sign, missed bar), correct it, and re-verify.
-
-Write out the arithmetic check explicitly:
-  e.g. "Waterfall check: 9,755 + 658 - 1,236 - 27 = 9,150 ✓"
-  e.g. "Stacked bar 4Q25: 969 + 334 + 256 = 1,559 ✓"
-
-Only after the arithmetic check passes should you summarise the element.
+If a table has NPA movement structure (opening + flows = closing),
+check: opening + sum(flows) = closing for each column.
 
 ═══════════════════════════════════════════════════
 STEP 4 — PRE-MAP TO SCHEMA FIELDS
 ═══════════════════════════════════════════════════
 
-For every element, explicitly map each value to its schema fields
-using this exact format — one line per data point:
+For every table, map each cell using this exact format:
 
-  ELEMENT {idx} | {element_type} | "{element_title}"
-  series="{series}" period="{period}" value="{value}" row_type="{row_type}" level={level} [sign="{sign}"]
+  ELEMENT {idx} | text_table | "{title}"
+  series="{row label verbatim}" period="{column header verbatim}" value="{cell value verbatim}" row_type="{type}" level={n}
 
-Rules:
-- series = the row label verbatim (segment name, metric name, bar label)
-- period = the time period column ("FY24", "FY25", "4Q25", "Dec 24") or null if none
-- value  = verbatim as printed including commas, %, ()
-- row_type = data | total | sub | start | end | bridge | note
-- level  = 0 for totals/headers, 1 for primary rows, 2 for sub-items
-- sign   = "+" or "-" for waterfall bridge components only
-- For any extra columns on the slide (yoy_pct, pct_change etc.):
-  add them as key=value pairs on the same line
+row_type rules:
+  total  → bold row (grand total, subtotal)
+  sub    → indented row; add parent="{nearest non-indented label above it}"
+  note   → footnote row
+  data   → everything else
 
-For donut dual ring: series = segment name, period = "FY24" or "FY25" (NOT "inner"/"outer")
-For KPI grid: series = KPI label, period = null, value = the KPI value
-For waterfall: every bridge bar must have sign= set
+level rules:
+  0 → grand total / section header
+  1 → primary line item
+  2 → indented sub-item
 
-Example output for a waterfall:
-  ELEMENT 0 | waterfall | "Net Profit Bridge FY24-FY25"
-  series="Net Profit FY24" period="FY24" value="6,045" row_type="start" level=0
-  series="Net Interest Income" period=null value="-319" row_type="bridge" level=1 sign="-"
-  series="Fee Income" period=null value="+174" row_type="bridge" level=1 sign="+"
-  series="Net Profit FY25" period="FY25" value="4,682" row_type="end" level=0
+value rules:
+  Copy verbatim. Keep commas, dashes, parentheses, % symbols.
+  Shaded cell with no value → value=""
+  Printed dash → value="-"
 
-Example output for a donut dual ring (periods read from centre labels on the slide, not assumed):
-  ELEMENT 1 | donut_dual_ring | "Operating Profit by Key Businesses"
-  series="Global Wholesale Banking" period="FY25" value="51%" row_type="data" level=1
-  series="Global Wholesale Banking" period="FY24" value="46%" row_type="data" level=1
-  series="Insurance"                period="FY25" value="17%" row_type="data" level=1
-  series="Insurance"                period="FY24" value="15%" row_type="data" level=1
+For any extra columns (YoY%, QoQ%, Change):
+  add as key=value pairs on the same line with a matching _label key
+  e.g. yoy_pct="-5%" yoy_pct_label="YoY %"
 
-Complete this for EVERY element on the slide before finishing.
+Complete this for EVERY table on the slide before finishing.
 This pre-mapping is what Pass 2 will use — accuracy here is critical."""
 
 
@@ -488,32 +472,24 @@ This pre-mapping is what Pass 2 will use — accuracy here is critical."""
 # PASS 2 PROMPT
 # ===========================================================================
 def build_pass2_prompt(description: str, bank: str) -> str:
-    return f"""You are converting a pre-mapped field description into structured JSON.
-
-The following is a plain-text description of a {bank} CFO presentation slide,
-including an explicit field-level pre-mapping in Step 4.
+    return f"""Transcribe the Step 4 pre-mapping below into structured JSON.
+Do NOT re-interpret. Do NOT look at any image. Copy values exactly as written in Step 4.
 
 <slide_description>
 {description}
 </slide_description>
 
-YOUR TASK:
-Read the Step 4 pre-mapping section above and transcribe it into the JSON format below.
-Do NOT look at any image. Do NOT re-interpret anything.
-If Step 4 says series="Insurance" period="FY24" value="15%", output exactly that.
-For slide_title: use the main heading of the slide as stated in the description (Step 2 or the slide header — not "Slide N").
-
 OUTPUT FORMAT:
 {{
-  "slide_title": "...",
+  "slide_title": "main heading from the slide description — not 'Slide N'",
   "elements": [
     {{
       "element_idx": 0,
-      "element_type": "...",
+      "element_type": "text_table",
       "element_title": "...",
-      "source": "table" or "chart",
-      "units": "S$m",
-      "self_check": "arithmetic check string or null",
+      "source": "table",
+      "units": "...",
+      "self_check": "arithmetic check from Step 3 if present, else null",
       "data_points": [
         {{
           "series": "...",
@@ -532,14 +508,12 @@ OUTPUT FORMAT:
 }}
 
 RULES:
-- Transcribe the Step 4 pre-mapping exactly. Do not add, remove, or change values.
-- value field: ALWAYS verbatim as printed in Step 4. Never convert or round.
-- order field: sequential integer per element, 0-based, following Step 4 line order.
-- source: "table" if element_type is text_table or npa_movement_table, else "chart".
-- self_check: copy the arithmetic check from Step 3 for this element if present, else null.
-- Any extra key=value pairs from Step 4 lines go into extra_fields as a dict.
-- Always include a matching _label field for every extra_fields key.
-  e.g. if yoy_pct="-3%" then also add yoy_pct_label="YoY % Change"
+- One data_point per line in Step 4. Transcribe field values exactly.
+- order: sequential integer per element, 0-based, following Step 4 line order.
+- source: "table" for text_table and npa_movement_table.
+- self_check: copy the arithmetic check string from Step 3, else null.
+- Extra key=value pairs from Step 4 go into extra_fields dict.
+  Always add a matching _label key: yoy_pct="-3%" → yoy_pct_label="YoY %"
 
 Return ONLY the JSON object, no markdown fences."""
 
