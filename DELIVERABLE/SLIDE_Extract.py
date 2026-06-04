@@ -421,12 +421,12 @@ Example output for a waterfall:
   series="Fee Income" period=null value="+174" row_type="bridge" level=1 sign="+"
   series="Net Profit FY25" period="FY25" value="4,682" row_type="end" level=0
 
-Example output for a donut dual ring:
+Example output for a donut dual ring (periods read from centre labels on the slide, not assumed):
   ELEMENT 1 | donut_dual_ring | "Operating Profit by Key Businesses"
-  series="Global Wholesale Banking" period="FY24" value="46%" row_type="data" level=1
   series="Global Wholesale Banking" period="FY25" value="51%" row_type="data" level=1
-  series="Insurance"                period="FY24" value="15%" row_type="data" level=1
+  series="Global Wholesale Banking" period="FY24" value="46%" row_type="data" level=1
   series="Insurance"                period="FY25" value="17%" row_type="data" level=1
+  series="Insurance"                period="FY24" value="15%" row_type="data" level=1
 
 Complete this for EVERY element on the slide before finishing.
 This pre-mapping is what Pass 2 will use — accuracy here is critical."""
