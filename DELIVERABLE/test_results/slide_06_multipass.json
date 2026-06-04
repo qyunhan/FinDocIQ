@@ -1,0 +1,347 @@
+{
+  "slide_title": null,
+  "elements": [
+    {
+      "element_idx": 1,
+      "element_type": "integer",
+      "element_title": "Page Number",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "N/A",
+          "period": "N/A",
+          "value": "6",
+          "row_type": "N/A",
+          "level": 0,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 2,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Key Businesses",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Insurance",
+          "period": "FY25",
+          "value": "17",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 3,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Key Businesses",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Insurance",
+          "period": "FY24",
+          "value": "15",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 4,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Key Businesses",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Global Markets",
+          "period": "FY25",
+          "value": "11",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 5,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Key Businesses",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Global Markets",
+          "period": "FY24",
+          "value": "7",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 6,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Key Businesses",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Global Consumer / Private Banking",
+          "period": "FY25",
+          "value": "27",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 7,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Key Businesses",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Global Consumer / Private Banking",
+          "period": "FY24",
+          "value": "26",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 8,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Key Businesses",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Global Wholesale Banking",
+          "period": "FY25",
+          "value": "46",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 9,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Key Businesses",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Global Wholesale Banking",
+          "period": "FY24",
+          "value": "51",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 10,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Geography",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Others",
+          "period": "FY25",
+          "value": "7",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 11,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Geography",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Others",
+          "period": "FY24",
+          "value": "6",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 12,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Geography",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Greater China",
+          "period": "FY25",
+          "value": "21",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 13,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Geography",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Greater China",
+          "period": "FY24",
+          "value": "20",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 14,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Geography",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Indonesia",
+          "period": "FY25",
+          "value": "6",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 15,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Geography",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Indonesia",
+          "period": "FY24",
+          "value": "6",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 16,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Geography",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Malaysia",
+          "period": "FY25",
+          "value": "12",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 17,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Geography",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Malaysia",
+          "period": "FY24",
+          "value": "14",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 18,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Geography",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Singapore",
+          "period": "FY25",
+          "value": "52",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    },
+    {
+      "element_idx": 19,
+      "element_type": "donut_chart",
+      "element_title": "Operating Profit by Geography",
+      "source": "chart",
+      "units": null,
+      "data_points": [
+        {
+          "series": "Singapore",
+          "period": "FY24",
+          "value": "56",
+          "row_type": "data",
+          "level": 1,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    }
+  ]
+}

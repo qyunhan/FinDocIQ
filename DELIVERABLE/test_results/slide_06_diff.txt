@@ -1,0 +1,85 @@
+======================================================================
+SLIDE 06 — EXTRACTION COMPARISON
+======================================================================
+Multi-pass cost:  $0.01220
+Single-pass cost: $0.00404
+
+Total data keys:  19
+Matches:          14  (73.7%)
+Mismatches:       4
+Only in multi:    1
+Only in single:   0
+
+──────────────────────────────────────────────────────────────────────
+VALUE MISMATCHES:
+──────────────────────────────────────────────────────────────────────
+  [operating profit by geography] malaysia / fy24
+    multi:  14  sign=None
+    single: 12%  sign=None
+  [operating profit by geography] malaysia / fy25
+    multi:  12  sign=None
+    single: 14%  sign=None
+  [operating profit by key businesses] global consumer / private banking / fy24
+    multi:  26  sign=None
+    single: 27%  sign=None
+  [operating profit by key businesses] global consumer / private banking / fy25
+    multi:  27  sign=None
+    single: 26%  sign=None
+
+──────────────────────────────────────────────────────────────────────
+ONLY IN MULTI-PASS (missing from single):
+  [Page Number] N/A / N/A = 6
+
+──────────────────────────────────────────────────────────────────────
+MATCHES:
+  ✓ [operating profit by geography] greater china / fy24 = 20
+  ✓ [operating profit by geography] greater china / fy25 = 21
+  ✓ [operating profit by geography] indonesia / fy24 = 6
+  ✓ [operating profit by geography] indonesia / fy25 = 6
+  ✓ [operating profit by geography] others / fy24 = 6
+  ✓ [operating profit by geography] others / fy25 = 7
+  ✓ [operating profit by geography] singapore / fy24 = 56
+  ✓ [operating profit by geography] singapore / fy25 = 52
+  ✓ [operating profit by key businesses] global markets / fy24 = 7
+  ✓ [operating profit by key businesses] global markets / fy25 = 11
+  ✓ [operating profit by key businesses] global wholesale banking / fy24 = 51
+  ✓ [operating profit by key businesses] global wholesale banking / fy25 = 46
+  ✓ [operating profit by key businesses] insurance / fy24 = 15
+  ✓ [operating profit by key businesses] insurance / fy25 = 17
+
+──────────────────────────────────────────────────────────────────────
+PASS 1 DESCRIPTION (multi-pass):
+──────────────────────────────────────────────────────────────────────
+Step 4: Pre-map to Schema Fields
+
+**Donut Dual Ring Interpretation:**
+Based on the visual layout, the percentages closer to the center (inner ring) correspond to FY24, and the percentages further from the center (outer ring) correspond to FY25. The labels "FY24" and "FY25" are positioned to clearly indicate which set of percentages they refer to.
+
+**Page Number:**
+ELEMENT {1} | integer | "Page Number"
+series="N/A" period="N/A" value="6" row_type="N/A" level=0
+
+**Left Donut Chart (Operating Profit by Key Businesses):**
+ELEMENT {2} | donut_chart | "Operating Profit by Key Businesses"
+series="Insurance" period="FY25" value="17" row_type="data" level=1
+ELEMENT {3} | donut_chart | "Operating Profit by Key Businesses"
+series="Insurance" period="FY24" value="15" row_type="data" level=1
+ELEMENT {4} | donut_chart | "Operating Profit by Key Businesses"
+series="Global Markets" period="FY25" value="11" row_type="data" level=1
+ELEMENT {5} | donut_chart | "Operating Profit by Key Businesses"
+series="Global Markets" period="FY24" value="7" row_type="data" level=1
+ELEMENT {6} | donut_chart | "Operating Profit by Key Businesses"
+series="Global Consumer / Private Banking" period="FY25" value="27" row_type="data" level=1
+ELEMENT {7} | donut_chart | "Operating Profit by Key Businesses"
+series="Global Consumer / Private Banking" period="FY24" value="26" row_type="data" level=1
+ELEMENT {8} | donut_chart | "Operating Profit by Key Businesses"
+series="Global Wholesale Banking" period="FY25" value="46" row_type="data" level=1
+ELEMENT {9} | donut_chart | "Operating Profit by Key Businesses"
+series="Global Wholesale Banking" period="FY24" value="51" row_type="data" level=1
+
+**Right Donut Chart (Operating Profit by Geography):**
+ELEMENT {10} | donut_chart | "Operating Profit by Geography"
+series="Others" period="FY25" value="7" row_type="data" level=1
+ELEMENT {11} | donut_chart | "Operating Profit by Geography"
+series="Others" period="FY24" value="6" row_type="data" level=1
+ELEMENT {12} | donu

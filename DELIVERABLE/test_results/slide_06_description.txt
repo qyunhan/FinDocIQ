@@ -1,0 +1,150 @@
+## Step 1: Inventory
+
+Here's a list of every printed number visible on the slide, along with its location and adjacent label:
+
+**Top Right Corner:**
+*   "6" (page number)
+
+**Left Donut Chart (Operating Profit by Key Businesses):**
+*   "1/" (next to "Key Businesses")
+*   "17%" (Insurance)
+*   "15%" (Insurance)
+*   "11%" (Global Markets)
+*   "7%" (Global Markets)
+*   "27%" (Global Consumer / Private Banking)
+*   "26%" (Global Consumer / Private Banking)
+*   "51%" (Global Wholesale Banking)
+*   "46%" (Global Wholesale Banking)
+*   "FY25" (label for the outer ring percentages)
+*   "FY24" (label for the inner ring percentages)
+
+**Right Donut Chart (Operating Profit by Geography):**
+*   "7%" (Others)
+*   "6%" (Others)
+*   "21%" (Greater China)
+*   "20%" (Greater China)
+*   "6%" (Indonesia)
+*   "6%" (Indonesia)
+*   "12%" (Malaysia)
+*   "14%" (Malaysia)
+*   "52%" (Singapore)
+*   "56%" (Singapore)
+*   "FY25" (label for the outer ring percentages)
+*   "FY24" (label for the inner ring percentages)
+
+**Bottom Left (OCBC logo and footnote):**
+*   "1/" (next to "Operating profit by key businesses excluded associates and the “Others” segment...")
+
+## Step 2: Structure
+
+**Page Number:**
+*   Type: Integer
+*   Title: Page Number
+*   Structure: Single value
+*   Units: None
+
+**Left Donut Chart (Operating Profit by Key Businesses):**
+*   Type: Donut Chart (Dual Ring)
+*   Title: Operating Profit by Key Businesses
+*   Structure: Two concentric rings, each representing a fiscal year (FY24 and FY25). Each ring is divided into segments representing different business categories. Percentages are shown for each segment within each ring.
+*   Units: Percentage (%)
+
+**Right Donut Chart (Operating Profit by Geography):**
+*   Type: Donut Chart (Dual Ring)
+*   Title: Operating Profit by Geography
+*   Structure: Two concentric rings, each representing a fiscal year (FY24 and FY25). Each ring is divided into segments representing different geographical regions. Percentages are shown for each segment within each ring.
+*   Units: Percentage (%)
+
+**Footnote:**
+*   Type: Text with numerical reference
+*   Title: Footnote reference
+*   Structure: Single value (reference number)
+*   Units: None
+
+## Step 3: Verify
+
+**Left Donut Chart (Operating Profit by Key Businesses):**
+
+*   **FY25 (Outer Ring):**
+    *   Insurance: 17%
+    *   Global Markets: 11%
+    *   Global Consumer / Private Banking: 27%
+    *   Global Wholesale Banking: 46%
+    *   **Check:** 17 + 11 + 27 + 46 = 101%. This is an error. It should sum to 100%.
+
+*   **FY24 (Inner Ring):**
+    *   Insurance: 15%
+    *   Global Markets: 7%
+    *   Global Consumer / Private Banking: 26%
+    *   Global Wholesale Banking: 51%
+    *   **Check:** 15 + 7 + 26 + 51 = 99%. This is an error. It should sum to 100%.
+
+**Right Donut Chart (Operating Profit by Geography):**
+
+*   **FY25 (Outer Ring):**
+    *   Others: 7%
+    *   Greater China: 21%
+    *   Indonesia: 6%
+    *   Malaysia: 12%
+    *   Singapore: 52%
+    *   **Check:** 7 + 21 + 6 + 12 + 52 = 98%. This is an error. It should sum to 100%.
+
+*   **FY24 (Inner Ring):**
+    *   Others: 6%
+    *   Greater China: 20%
+    *   Indonesia: 6%
+    *   Malaysia: 14%
+    *   Singapore: 56%
+    *   **Check:** 6 + 20 + 6 + 14 + 56 = 102%. This is an error. It should sum to 100%.
+
+**Errors Found and Fixes:**
+The percentages in all four rings do not sum to 100%. This indicates potential rounding or data entry issues in the original chart. Since I cannot alter the original image, I will proceed with the numbers as presented, but note these discrepancies.
+
+## Step 4: Pre-map to Schema Fields
+
+**Donut Dual Ring Interpretation:**
+Based on the visual layout, the percentages closer to the center (inner ring) correspond to FY24, and the percentages further from the center (outer ring) correspond to FY25. The labels "FY24" and "FY25" are positioned to clearly indicate which set of percentages they refer to.
+
+**Page Number:**
+ELEMENT {1} | integer | "Page Number"
+series="N/A" period="N/A" value="6" row_type="N/A" level=0
+
+**Left Donut Chart (Operating Profit by Key Businesses):**
+ELEMENT {2} | donut_chart | "Operating Profit by Key Businesses"
+series="Insurance" period="FY25" value="17" row_type="data" level=1
+ELEMENT {3} | donut_chart | "Operating Profit by Key Businesses"
+series="Insurance" period="FY24" value="15" row_type="data" level=1
+ELEMENT {4} | donut_chart | "Operating Profit by Key Businesses"
+series="Global Markets" period="FY25" value="11" row_type="data" level=1
+ELEMENT {5} | donut_chart | "Operating Profit by Key Businesses"
+series="Global Markets" period="FY24" value="7" row_type="data" level=1
+ELEMENT {6} | donut_chart | "Operating Profit by Key Businesses"
+series="Global Consumer / Private Banking" period="FY25" value="27" row_type="data" level=1
+ELEMENT {7} | donut_chart | "Operating Profit by Key Businesses"
+series="Global Consumer / Private Banking" period="FY24" value="26" row_type="data" level=1
+ELEMENT {8} | donut_chart | "Operating Profit by Key Businesses"
+series="Global Wholesale Banking" period="FY25" value="46" row_type="data" level=1
+ELEMENT {9} | donut_chart | "Operating Profit by Key Businesses"
+series="Global Wholesale Banking" period="FY24" value="51" row_type="data" level=1
+
+**Right Donut Chart (Operating Profit by Geography):**
+ELEMENT {10} | donut_chart | "Operating Profit by Geography"
+series="Others" period="FY25" value="7" row_type="data" level=1
+ELEMENT {11} | donut_chart | "Operating Profit by Geography"
+series="Others" period="FY24" value="6" row_type="data" level=1
+ELEMENT {12} | donut_chart | "Operating Profit by Geography"
+series="Greater China" period="FY25" value="21" row_type="data" level=1
+ELEMENT {13} | donut_chart | "Operating Profit by Geography"
+series="Greater China" period="FY24" value="20" row_type="data" level=1
+ELEMENT {14} | donut_chart | "Operating Profit by Geography"
+series="Indonesia" period="FY25" value="6" row_type="data" level=1
+ELEMENT {15} | donut_chart | "Operating Profit by Geography"
+series="Indonesia" period="FY24" value="6" row_type="data" level=1
+ELEMENT {16} | donut_chart | "Operating Profit by Geography"
+series="Malaysia" period="FY25" value="12" row_type="data" level=1
+ELEMENT {17} | donut_chart | "Operating Profit by Geography"
+series="Malaysia" period="FY24" value="14" row_type="data" level=1
+ELEMENT {18} | donut_chart | "Operating Profit by Geography"
+series="Singapore" period="FY25" value="52" row_type="data" level=1
+ELEMENT {19} | donut_chart | "Operating Profit by Geography"
+series="Singapore" period="FY24" value="56" row_type="data" level=1

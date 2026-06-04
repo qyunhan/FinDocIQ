@@ -391,6 +391,23 @@ into production pipeline.
 
 ---
 
+### E-12 — Single-Pass vs Multi-Pass Extraction: donut_dual_ring ● INSIGHT / 2026-06-04
+
+| | |
+|---|---|
+| **Hypothesis** | A single-pass approach (image + schema in one call) might outperform the current multi-pass pipeline for visually complex chart types like donut_dual_ring, since Gemini can reason about the visual and schema simultaneously without context degradation between passes. |
+| **Test** | OCBC 4Q25 CFO slide 6 — two donut_dual_ring charts: "Operating Profit by Key Businesses" (4 segments) and "Operating Profit by Geography" (5 segments). Single-pass result saved to `DELIVERABLE/test_results/slide_06_singlepass.json`. Multi-pass result saved to `DELIVERABLE/test_results/slide_06_multipass.json`. Ground truth: inner ring = FY25, outer ring = FY24. GWB: FY24=46%, FY25=51%. Consumer/PB: FY24=27%, FY25=26%. Markets: FY24=11%, FY25=7%. Insurance: FY24=15%, FY25=17%. |
+| **Results — Key Businesses** | Single-pass: 4/4 segments correctly period-assigned. Multi-pass: 2/4 correct (GWB and Consumer/PB swapped — FY24/FY25 inverted). Single-pass clearly better. |
+| **Results — Geography** | Both approaches: all 5 segments correct. No difference. |
+| **Multi-pass structural failures** | Beyond the period swap, multi-pass JSON had two additional problems: (1) each (series, period) pair was emitted as a separate `element_idx` instead of being grouped into one element — 17 elements for what should be 2. (2) element_type was `donut_chart` not `donut_dual_ring`, meaning the contract wasn't applied. These are schema pressure artefacts from Pass 2 not having a strong enough grouping instruction. |
+| **Root cause** | The Step 4 pre-mapping in Pass 1 introduced the period inversion. When Gemini pre-mapped GWB, it assigned the inner ring value (51%) to FY25 and outer (46%) to FY24 — correct — but the multi-pass JSON shows FY25=46 and FY24=51, meaning Pass 2 transcribed the opposite. The pre-map was either written incorrectly in Step 4 or Pass 2 re-interpreted it under schema pressure. Single-pass avoided this by doing visual reasoning and schema filling in one step with the image present throughout. |
+| **Contract fix applied** | Removed hardcoded "INNER = earlier period" assumption from donut_dual_ring contract. New contract: identify period labels on each ring first, assign values second — no prior assumption about ring order. Also removed hardcoded sample values from waterfall, stacked_bar_with_overlay, and npa_movement_table contracts. |
+| **Slide title issue** | Both approaches fail to extract the slide-level title ("Earnings diversified across businesses and geographies"). Multi-pass fallback regex picks up the first element title instead. Fix: add explicit `SLIDE_TITLE:` line as first entry in Step 4 pre-map. Pending. |
+| **Decision** | Single-pass is more accurate for donut_dual_ring on this test. Multi-pass architecture is still correct for simpler chart types but needs refinement for visually ambiguous spatial encoding (inner/outer rings, floating bars). Next experiment: add `SLIDE_TITLE:` to Step 4 and test whether simplified contract language ("identify labels first, know what values you're looking at, then generate") improves multi-pass accuracy. |
+| **Learning** | (1) Schema pressure in Pass 2 can invert correct reasoning from Pass 1 — the pre-map may be right but the transcription wrong. (2) Single-pass preserves visual context through the entire reasoning-to-schema step, which is an advantage for spatially encoded charts. (3) Contract hardcoding is a silent failure mode — Gemini follows contract examples even when the slide contradicts them. Contracts must teach method, not encode expected outcomes. (4) Structural failures (wrong element_type, wrong grouping) compound value errors — a mistyped element_type means the contract isn't injected, which cascades into wrong extraction. |
+
+---
+
 ### E-11 — Two-Pass Visual Read + Chart Contracts ● IMPLEMENTED / 2026-06-04
 
 | | |
