@@ -857,8 +857,21 @@ def _hdr(cell, dark: bool = False):
 
 
 # ===========================================================================
-# PASS 3 — EXCEL RENDER (wide-format pivot)
+# PASS 3 — EXCEL RENDER (type-aware)
 # ===========================================================================
+
+# Element types that should be skipped entirely (commentary / bullets)
+_SKIP_TYPES = {"other", "none"}
+
+# Element types rendered as waterfall (vertical bridge list)
+_WATERFALL_TYPES = {"waterfall"}
+
+# Element types rendered as simple two-column KPI list
+_KPI_TYPES = {"kpi_grid"}
+
+# Extra field keys that are metadata labels, not data values — never become columns
+_META_EXTRA_KEYS = {"overlay_series"}
+
 
 def group_by_elem(points: list[DataPoint]) -> dict[int, list[DataPoint]]:
     result: dict[int, list[DataPoint]] = {}
@@ -887,199 +900,307 @@ def _ordered_series(pts: list[DataPoint]) -> list[str]:
     return seen
 
 
-def _extra_keys_for_period(pts: list[DataPoint], period: str | None) -> list[str]:
+def _extra_keys_global(pts: list[DataPoint]) -> list[str]:
+    """Extra field keys present on any row — appended as trailing columns."""
     keys: list[str] = []
     seen: set[str] = set()
-    for p in (x for x in pts if x.period == period):
+    for p in pts:
         for k in (p.extra_fields or {}):
-            if not k.endswith("_label") and k not in seen:
+            if (not k.endswith("_label")
+                    and k not in seen
+                    and k not in _META_EXTRA_KEYS):
                 keys.append(k)
                 seen.add(k)
     return keys
 
 
+_KEY_FRIENDLY: dict[str, str] = {
+    "yoy_pct": "YoY %", "yoy_change": "YoY %", "yoy": "YoY %",
+    "qoq_pct": "QoQ %", "qoq_change": "QoQ %", "qoq": "QoQ %",
+    "pct_change": "% Change", "change_pct": "% Change",
+    "bar_total": "Total", "overlay_value": "Overlay",
+}
+
 def _extra_col_header(key: str, pts: list[DataPoint]) -> str:
     label_key = key + "_label"
     for p in pts:
-        if label_key in (p.extra_fields or {}):
-            return p.extra_fields[label_key]
-    return key.replace("_", " ").title()
+        v = (p.extra_fields or {}).get(label_key)
+        if v and v not in _META_EXTRA_KEYS:
+            return v
+    return _KEY_FRIENDLY.get(key, key.replace("_", " ").title())
 
 
-def build_pivot(pts: list[DataPoint]) -> dict:
-    periods = _ordered_periods(pts)
-    series  = _ordered_series(pts)
-    is_kpi  = (len(periods) == 1 and periods[0] is None)
+def _style_row(cell, row_type: str, level: int, is_value: bool = False):
+    """Apply consistent row styling based on semantic row type."""
+    is_total  = row_type in ("total", "start", "end")
+    is_sub    = level >= 2
+    is_note   = row_type == "note"
+    if is_total:
+        cell.fill = PatternFill("solid", fgColor=TOTAL_BG)
+        cell.font = Font(bold=True, size=10)
+    elif is_note:
+        cell.font = Font(italic=True, color=MID_GREY, size=8)
+    elif is_sub:
+        cell.font = Font(italic=True, color=MID_GREY, size=9)
+    else:
+        cell.font = Font(size=10)
+    if is_value:
+        cell.alignment = Alignment(horizontal="right")
 
+
+def _write_value_cell(ws, row, col, dp: DataPoint | None, row_type: str,
+                      level: int, is_bridge: bool = False):
+    val  = coerce(dp.value) if dp else ""
+    cell = ws.cell(row, col, val)
+    if isinstance(val, (int, float)):
+        cell.number_format = NUM_FMT
+        cell.alignment = Alignment(horizontal="right")
+    if dp and dp.source in ("chart", "unverified") and val not in (None, "", "-", "?"):
+        cell.fill = PatternFill("solid", fgColor=YELLOW)
+    if is_bridge and isinstance(val, (int, float)):
+        cell.font = Font(color=("00B050" if val > 0 else "C00000"), size=10)
+    else:
+        _style_row(cell, row_type, level, is_value=True)
+    return cell
+
+
+# ── Waterfall renderer ────────────────────────────────────────────────────────
+
+def _render_waterfall(ws, pts: list[DataPoint], cursor: int, brand: str,
+                      unit: str, elem_title: str) -> int:
+    # Collect extra data columns (e.g. yoy_pct / pct_change)
+    extra_keys = _extra_keys_global(pts)
+    # De-duplicate rows by order (Gemini sometimes emits duplicates)
+    seen_series: set[str] = set()
+    rows = []
+    for p in sorted(pts, key=lambda x: x.order):
+        key = (p.series, p.row_type)
+        if key not in seen_series:
+            rows.append(p)
+            seen_series.add(key)
+
+    # Header
+    headers = [f"({unit})" if unit else "S$m"] + \
+              ["S$m"] + \
+              [_extra_col_header(k, pts) for k in extra_keys]
+    # Col 1 = label, col 2 = value, col 3+ = extra
+    _hdr(ws.cell(cursor, 1, f"({unit})" if unit else "Bridge component"), dark=True)
+    _hdr(ws.cell(cursor, 2, "S$m"))
+    for i, k in enumerate(extra_keys, 3):
+        _hdr(ws.cell(cursor, i, _extra_col_header(k, pts)))
+    ws.row_dimensions[cursor].height = 20
+    cursor += 1
+
+    for p in rows:
+        is_total  = p.row_type in ("total", "start", "end")
+        is_bridge = p.row_type == "bridge"
+        indent    = "    " if (is_bridge and not is_total) else ""
+
+        # Label
+        lbl = ws.cell(cursor, 1, indent + p.series)
+        lbl.alignment = Alignment(horizontal="left", vertical="center")
+        _style_row(lbl, p.row_type, p.level)
+
+        # Value
+        val = coerce(p.value)
+        vc  = ws.cell(cursor, 2, val)
+        if isinstance(val, (int, float)):
+            vc.number_format = NUM_FMT
+            vc.alignment = Alignment(horizontal="right")
+            if is_bridge:
+                vc.font = Font(color=("00B050" if val >= 0 else "C00000"), size=10)
+            else:
+                _style_row(vc, p.row_type, p.level, is_value=True)
+        else:
+            _style_row(vc, p.row_type, p.level, is_value=True)
+        if p.source in ("chart", "unverified") and val not in (None, "", "-", "?"):
+            vc.fill = PatternFill("solid", fgColor=YELLOW)
+        if is_total:
+            lbl.fill = PatternFill("solid", fgColor=TOTAL_BG)
+            vc.fill  = PatternFill("solid", fgColor=TOTAL_BG)
+            lbl.font = Font(bold=True, size=10)
+            vc.font  = Font(bold=True, size=10)
+
+        # Extra cols
+        for i, k in enumerate(extra_keys, 3):
+            raw = (p.extra_fields or {}).get(k, "")
+            ec  = ws.cell(cursor, i, coerce(raw) if raw else "")
+            ec.font = Font(color=MID_GREY, size=9)
+            ec.alignment = Alignment(horizontal="right")
+
+        cursor += 1
+
+    # Balance check
+    starts  = [p for p in rows if p.row_type == "start"]
+    ends    = [p for p in rows if p.row_type == "end"]
+    bridges = [p for p in rows if p.row_type == "bridge"]
+    if starts and ends and bridges:
+        opening = starts[0].value_num or 0
+        closing = ends[0].value_num or 0
+        total   = sum(p.value_num or 0 for p in bridges)
+        delta   = abs(opening + total - closing)
+        ok      = delta <= 5
+        msg = (f"✓ Balances: {opening:,.0f} + {total:+,.0f} = {closing:,.0f}"
+               if ok else
+               f"⚠ Off by {delta:.0f} — check signs in source")
+        c = ws.cell(cursor, 1, msg)
+        c.font = Font(italic=True, size=8, color="00B050" if ok else "FF0000")
+        n_cols = 2 + len(extra_keys)
+        ws.merge_cells(start_row=cursor, start_column=1,
+                       end_row=cursor, end_column=n_cols)
+        cursor += 1
+
+    return cursor + 1
+
+
+# ── KPI grid renderer ─────────────────────────────────────────────────────────
+
+def _render_kpi(ws, pts: list[DataPoint], cursor: int, brand: str) -> int:
+    # Render as two-column table: Metric | Value (one row per KPI)
+    _hdr(ws.cell(cursor, 1, "Metric"), dark=True)
+    _hdr(ws.cell(cursor, 2, "Value"))
+    ws.row_dimensions[cursor].height = 20
+    cursor += 1
+
+    seen: set[str] = set()
+    for p in sorted(pts, key=lambda x: x.order):
+        if p.series in seen:
+            continue
+        seen.add(p.series)
+        lbl = ws.cell(cursor, 1, p.series)
+        lbl.font = Font(size=10)
+        lbl.alignment = Alignment(horizontal="left", vertical="center")
+        val = coerce(p.value)
+        vc  = ws.cell(cursor, 2, val)
+        if isinstance(val, (int, float)):
+            vc.number_format = NUM_FMT
+            vc.alignment = Alignment(horizontal="right")
+        if p.source in ("chart", "unverified") and val not in (None, "", "-", "?"):
+            vc.fill = PatternFill("solid", fgColor=YELLOW)
+        # Extra fields as additional columns (e.g. period label)
+        for i, (k, v) in enumerate((p.extra_fields or {}).items(), 3):
+            if k.endswith("_label") or k in _META_EXTRA_KEYS:
+                continue
+            ec = ws.cell(cursor, i, coerce(v) if v else "")
+            ec.font = Font(color=MID_GREY, size=9)
+        cursor += 1
+
+    return cursor + 1
+
+
+# ── Wide pivot renderer (tables, stacked bars, donuts, trends) ────────────────
+
+def _render_pivot(ws, pts: list[DataPoint], cursor: int, unit: str) -> int:
+    periods     = _ordered_periods(pts)
+    series_list = _ordered_series(pts)
+    extra_keys  = _extra_keys_global(pts)
+
+    # cells lookup
     cells: dict[tuple, DataPoint] = {}
     for p in pts:
-        key = (p.series, p.period)
-        if key not in cells:
-            cells[key] = p
-
+        if (p.series, p.period) not in cells:
+            cells[(p.series, p.period)] = p
     meta: dict[str, DataPoint] = {}
     for p in sorted(pts, key=lambda x: x.order):
         if p.series not in meta:
             meta[p.series] = p
 
-    extra = {period: _extra_keys_for_period(pts, period) for period in periods}
+    # Build column list: label | period... | extra...
+    # Period columns use the actual period string; never "Value"
+    period_cols = [str(p) for p in periods if p is not None]
+    if not period_cols and periods == [None]:
+        # All period=None but not a waterfall — use unit as column header
+        period_cols = [unit or "Value"]
+        periods = [None]
 
-    return {
-        "is_kpi":  is_kpi,
-        "periods": periods,
-        "series":  series,
-        "extra":   extra,
-        "cells":   cells,
-        "meta":    meta,
-    }
+    n_data_cols = len(period_cols)
+
+    # Header row
+    _hdr(ws.cell(cursor, 1, f"({unit})" if unit else ""), dark=True)
+    for i, ph in enumerate(period_cols, 2):
+        _hdr(ws.cell(cursor, i, ph))
+    for i, k in enumerate(extra_keys, 2 + n_data_cols):
+        _hdr(ws.cell(cursor, i, _extra_col_header(k, pts)))
+    ws.row_dimensions[cursor].height = 20
+    cursor += 1
+
+    for series in series_list:
+        dp_meta = meta[series]
+        indent  = "    " * max(0, dp_meta.level - 1)
+
+        lbl = ws.cell(cursor, 1, indent + series)
+        lbl.alignment = Alignment(horizontal="left", vertical="center")
+        _style_row(lbl, dp_meta.row_type, dp_meta.level)
+
+        for i, period in enumerate(periods, 2):
+            dp = cells.get((series, period))
+            _write_value_cell(ws, cursor, i, dp, dp_meta.row_type, dp_meta.level)
+
+        for i, k in enumerate(extra_keys, 2 + n_data_cols):
+            # Use value from first period that has this key
+            raw = ""
+            for period in periods:
+                dp = cells.get((series, period))
+                raw = (dp.extra_fields or {}).get(k, "") if dp else ""
+                if raw:
+                    break
+            ec = ws.cell(cursor, i, coerce(raw) if raw else "")
+            ec.font = Font(color=MID_GREY, size=9)
+            ec.alignment = Alignment(horizontal="right")
+
+        cursor += 1
+
+    return cursor + 1
 
 
-def _build_col_layout(pivot: dict) -> list[dict]:
-    cols: list[dict] = []
-    if pivot["is_kpi"]:
-        cols.append({"kind": "label", "header": "Metric"})
-        for s in pivot["series"]:
-            dp = pivot["meta"][s]
-            cols.append({"kind": "kpi", "series": s, "header": s, "unit": dp.unit or ""})
-    else:
-        cols.append({"kind": "label", "header": ""})
-        for period in pivot["periods"]:
-            period_label = str(period) if period else "Value"
-            cols.append({"kind": "value", "period": period, "header": period_label})
-            for key in pivot["extra"].get(period, []):
-                header = _extra_col_header(key, list(pivot["cells"].values()))
-                cols.append({"kind": "extra", "period": period, "key": key, "header": header})
-    return cols
-
-
-def _compute_max_cols(points: list[DataPoint]) -> int:
-    by_elem = group_by_elem(points)
-    max_c = 1
-    for pts in by_elem.values():
-        pivot = build_pivot(pts)
-        cols  = _build_col_layout(pivot)
-        max_c = max(max_c, len(cols))
-    return max_c
-
+# ── Top-level element dispatcher ──────────────────────────────────────────────
 
 def render_element(ws, pts: list[DataPoint], cursor: int, brand: str) -> int:
     if not pts:
         return cursor
 
-    elem_title = pts[0].element_title
     elem_type  = pts[0].element_type
+    elem_title = pts[0].element_title
     unit       = pts[0].unit or "S$m"
 
+    # Skip commentary / bullet slides entirely
+    if elem_type in _SKIP_TYPES:
+        return cursor
+
+    # Element title header
     ws.cell(cursor, 1, elem_title).font = Font(bold=True, color=brand, size=10)
     cursor += 1
 
-    pivot  = build_pivot(pts)
-    cols   = _build_col_layout(pivot)
-    n_cols = len(cols)
-
-    # ── Header row ────────────────────────────────────────────────────────────
-    if pivot["is_kpi"]:
-        for ci, col in enumerate(cols, 1):
-            _hdr(ws.cell(cursor, ci, col["header"]), dark=(ci == 1))
-        ws.row_dimensions[cursor].height = 20
-        cursor += 1
-
-        for ci, col in enumerate(cols, 1):
-            if col["kind"] == "label":
-                ws.cell(cursor, ci, "Value")
-            elif col["kind"] == "kpi":
-                dp  = pivot["cells"].get((col["series"], None))
-                val = coerce(dp.value) if dp else ""
-                cell = ws.cell(cursor, ci, val)
-                if isinstance(val, (int, float)):
-                    cell.number_format = NUM_FMT
-                    cell.alignment = Alignment(horizontal="right")
-                if dp and dp.source in ("chart", "unverified") and val not in (None, "", "-", "?"):
-                    cell.fill = PatternFill("solid", fgColor=YELLOW)
-        cursor += 1
-
+    if elem_type in _WATERFALL_TYPES:
+        cursor = _render_waterfall(ws, pts, cursor, brand, unit, elem_title)
+    elif elem_type in _KPI_TYPES:
+        cursor = _render_kpi(ws, pts, cursor, brand)
     else:
-        cols[0]["header"] = f"({unit})" if unit else ""
-        for ci, col in enumerate(cols, 1):
-            _hdr(ws.cell(cursor, ci, col["header"]), dark=(ci == 1))
-        ws.row_dimensions[cursor].height = 20
-        cursor += 1
+        # Wide pivot: text_table, stacked_bar, trend_line, donut_dual_ring,
+        # pie, stacked_bar_with_overlay, npa_movement_table, bar_chart, etc.
+        cursor = _render_pivot(ws, pts, cursor, unit)
 
-        for series in pivot["series"]:
-            dp_meta   = pivot["meta"][series]
-            is_total  = dp_meta.row_type in ("total", "start", "end")
-            is_sub    = dp_meta.level >= 2
-            is_bridge = dp_meta.row_type == "bridge"
-            is_note   = dp_meta.row_type == "note"
-            indent    = "    " * max(0, dp_meta.level - 1)
+    return cursor
 
-            for ci, col in enumerate(cols, 1):
-                kind = col["kind"]
 
-                if kind == "label":
-                    cell = ws.cell(cursor, ci, indent + series)
-                    cell.alignment = Alignment(horizontal="left", vertical="center")
-                elif kind == "value":
-                    dp  = pivot["cells"].get((series, col["period"]))
-                    val = coerce(dp.value) if dp else ""
-                    cell = ws.cell(cursor, ci, val)
-                    if isinstance(val, (int, float)):
-                        cell.number_format = NUM_FMT
-                        cell.alignment = Alignment(horizontal="right")
-                    if dp and dp.source in ("chart", "unverified") and val not in (None, "", "-", "?"):
-                        cell.fill = PatternFill("solid", fgColor=YELLOW)
-                    if is_bridge and isinstance(val, (int, float)):
-                        colour = "00B050" if val > 0 else "C00000"
-                        cell.font = Font(color=colour, size=10, bold=is_total)
-                        if is_total:
-                            cell.fill = PatternFill("solid", fgColor=TOTAL_BG)
-                        cursor += 0  # font set; skip generic block
-                        continue
-                elif kind == "extra":
-                    dp  = pivot["cells"].get((series, col["period"]))
-                    raw = (dp.extra_fields or {}).get(col["key"], "") if dp else ""
-                    val = coerce(raw) if raw != "" else ""
-                    cell = ws.cell(cursor, ci, val)
-                    cell.font = Font(color=MID_GREY, size=9)
-                    cell.alignment = Alignment(horizontal="right")
-                    continue
-                else:
-                    cell = ws.cell(cursor, ci, "")
-
-                # Generic row styling
-                if is_total:
-                    cell.fill = PatternFill("solid", fgColor=TOTAL_BG)
-                    cell.font = Font(bold=True, size=10)
-                elif is_note:
-                    cell.font = Font(italic=True, color=MID_GREY, size=8)
-                elif is_sub:
-                    cell.font = Font(italic=True, color=MID_GREY, size=9)
-                else:
-                    cell.font = Font(size=10)
-
-            cursor += 1
-
-        # Waterfall balance check row
-        if elem_type == "waterfall":
-            starts  = [p for p in pts if p.row_type == "start"]
-            ends    = [p for p in pts if p.row_type == "end"]
-            bridges = [p for p in pts if p.row_type == "bridge"]
-            if starts and ends and bridges:
-                opening = starts[0].value_num or 0
-                closing = ends[0].value_num or 0
-                total   = sum(p.value_num or 0 for p in bridges)
-                delta   = abs(opening + total - closing)
-                ok      = delta <= 5
-                msg = (f"✓ Bridge balances: {opening:,.0f} + {total:+,.0f} = {closing:,.0f}"
-                       if ok else
-                       f"⚠ Bridge off by {delta:.0f} — check signs in source")
-                c = ws.cell(cursor, 1, msg)
-                c.font = Font(italic=True, size=8, color="00B050" if ok else "FF0000")
-                ws.merge_cells(start_row=cursor, start_column=1,
-                               end_row=cursor, end_column=n_cols)
-                cursor += 1
-
-    return cursor + 1  # 1-row spacer
+def _compute_max_cols(points: list[DataPoint]) -> int:
+    """Estimate max columns across all elements for banner merge width."""
+    by_elem = group_by_elem(points)
+    max_c = 4
+    for pts in by_elem.values():
+        etype = pts[0].element_type if pts else ""
+        if etype in _SKIP_TYPES:
+            continue
+        if etype in _WATERFALL_TYPES:
+            extra = len(_extra_keys_global(pts))
+            max_c = max(max_c, 2 + extra)
+        elif etype in _KPI_TYPES:
+            max_c = max(max_c, 2)
+        else:
+            periods = _ordered_periods(pts)
+            extra   = len(_extra_keys_global(pts))
+            max_c   = max(max_c, 1 + len(periods) + extra)
+    return max_c
 
 
 def render_slide(ws, points: list[DataPoint], slide_num: int, slide_title: str,
