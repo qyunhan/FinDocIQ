@@ -15,9 +15,10 @@ from pathlib import Path
 DEMO_DIR    = Path(__file__).parent.resolve()
 DELIVERABLE = DEMO_DIR.parent
 MDS_DIR     = DELIVERABLE.parent / "MDs"
-OUTPUTS_DIR = DELIVERABLE / "outputs" / "CFO_Presentation"
-AUDIT_DIR   = OUTPUTS_DIR / "audit"
-CONTRACTS_F = DELIVERABLE / "slides" / "chart_contracts.json"
+OUTPUTS_DIR  = DELIVERABLE / "outputs" / "CFO_Presentation"
+AUDIT_DIR    = OUTPUTS_DIR / "audit"
+P3_DIR       = DELIVERABLE / "outputs" / "pillar3"
+CONTRACTS_F  = DELIVERABLE / "slides" / "chart_contracts.json"
 
 # ---------------------------------------------------------------------------
 # HELPERS
@@ -571,15 +572,46 @@ def build_results(slides, summaries):
           </div>
         </div>"""
 
+    # ── Pillar 3 download buttons ──────────────────────────────────────────────
+    p3_banks = [
+        ("DBS",  "dbs"),
+        ("OCBC", "ocbc"),
+        ("UOB",  "uob"),
+    ]
+    p3_btns = ""
+    for bank, slug in p3_banks:
+        # Try _pillar3 naming first, fall back to plain bank name
+        xl = P3_DIR / f"{slug}_pillar3.xlsx"
+        if not xl.exists():
+            xl = P3_DIR / f"{slug}.xlsx"
+        xl_b64 = b64_xlsx(xl)
+        if xl_b64:
+            p3_btns += f"""
+            <div class="dl-card">
+              <div class="dl-bank">{bank_dot(bank)}</div>
+              <div class="dl-meta">Pillar 3 Disclosures · regulatory tables</div>
+              <a class="dl-btn" download="{slug}_pillar3.xlsx"
+                 href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{xl_b64}">
+                ↓ Download Excel
+              </a>
+            </div>"""
+
     return f"""
     <section class="section alt-bg" id="results">
       <div class="section-inner">
         <div class="section-eyebrow">Output</div>
         <h2 class="section-title">Extracted results</h2>
         <p class="section-sub">
-          {len(slides)} slides across DBS, OCBC, and UOB — all extracted, validated, and ready to download.
+          All outputs are ready to download. Pillar 3 regulatory tables and CFO slide data — structured, labelled, verbatim values.
         </p>
+
+        <div class="dl-section-label">📁 Pillar 3 Regulatory Disclosures</div>
+        <div class="dl-row">{p3_btns if p3_btns else '<p class="muted-p">No pillar3 Excel files found in outputs/pillar3/</p>'}</div>
+
+        <div class="dl-section-label">📊 CFO Presentation Slides</div>
         <div class="dl-row">{dl_btns}</div>
+
+        <div class="results-divider"></div>
         <div class="filter-bar">{filter_btns}</div>
         <div class="slides-grid" id="slides-grid">{cards}</div>
       </div>
@@ -872,6 +904,14 @@ body { font-family: var(--sans); background: var(--bg); color: var(--dark); font
 .principle-desc  { font-size: 14px; color: var(--mid); line-height: 1.65; }
 
 /* ── Downloads ── */
+.dl-section-label {
+  font-size: 13px; font-weight: 700; color: var(--mid);
+  text-transform: uppercase; letter-spacing: .06em;
+  margin-bottom: 16px;
+}
+.results-divider {
+  border-top: 1px solid var(--border); margin: 40px 0 32px;
+}
 .dl-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
 .dl-card {
   background: #fff; border: 1px solid var(--border);
