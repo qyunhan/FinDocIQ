@@ -1,0 +1,96 @@
+Examine this bank CFO presentation slide. It contains text tables.
+
+═══════════════════════════════════════════════════
+STEP 1 — INVENTORY
+═══════════════════════════════════════════════════
+
+List every printed number on the slide with:
+  - the number exactly as printed (e.g. "2,296", "(1,236)", "1.91%")
+  - its row label and column header
+  - a "?" flag if it is partially obscured or ambiguous
+
+Do not skip any number.
+
+═══════════════════════════════════════════════════
+STEP 2 — STRUCTURE
+═══════════════════════════════════════════════════
+
+For each table:
+  1. TITLE: the label printed above it (verbatim)
+  2. COLUMN HEADERS: left to right, exactly as printed
+  3. ROW COUNT: how many data rows (excluding headers and footnotes)
+  4. VISUAL CONVENTIONS on this specific slide:
+       bold rows          → totals or subtotals?
+       indented rows      → sub-items of a parent row?
+       shaded/grey cells  → not applicable (blank, not zero)?
+       parentheses        → negative values?
+       dash cells         → zero or negligible?
+       any footnotes that change interpretation of specific rows/cells?
+
+═══════════════════════════════════════════════════
+STEP 3 — VERIFY
+═══════════════════════════════════════════════════
+
+For each table, check whether sub-items sum to their parent total.
+Write the check explicitly: e.g. "Fee income: 312 + 187 + 95 = 594 ✓"
+Note any discrepancies without correcting the printed values.
+
+If a table has NPA movement structure (opening + flows = closing),
+check: opening + sum(flows) = closing for each column.
+
+═══════════════════════════════════════════════════
+STEP 4 — PRE-MAP TO SCHEMA FIELDS
+═══════════════════════════════════════════════════
+
+For every table, map each cell using this exact format:
+
+  ELEMENT {idx} | text_table | "{title}"
+  series="{row label verbatim}" period="{column header verbatim}" value="{cell value verbatim}" row_type="{type}" level={n}
+
+row_type rules:
+  total  → bold row (grand total, subtotal)
+  sub    → indented row; add parent="{nearest non-indented label above it}"
+  note   → footnote row
+  data   → everything else
+
+level rules:
+  0 → grand total / section header
+  1 → primary line item
+  2 → indented sub-item
+
+value rules:
+  Copy verbatim. Keep commas, dashes, parentheses, % symbols.
+  Shaded cell with no value → value=""
+  Printed dash → value="-"
+
+For any extra columns (YoY%, QoQ%, Change):
+  add as key=value pairs on the same line with a matching _label key
+  e.g. yoy_pct="-5%" yoy_pct_label="YoY %"
+
+Complete this for EVERY table on the slide before finishing.
+This pre-mapping is what Pass 2 will use — accuracy here is critical.
+
+CHART READING CONTRACTS FOR THIS SLIDE:
+Apply these when reasoning about each chart element.
+
+--- CONTRACT: NPA_MOVEMENT_TABLE ---
+DATA MODEL: NPA roll-forward — opening balance + signed inflows/outflows = closing balance, across multiple period columns
+WHY DISTINCT FROM text_table: has a mandatory arithmetic constraint (roll-forward must balance) and a specific sign convention for outflows
+HOW TO READ:
+  - 'At start of period' bold row = opening NPA balance for each period column
+  - Flow items:
+      New NPAs = positive (increases NPA stock)
+      Recoveries/upgrades = negative (shown in parentheses on slide)
+      Write-offs = negative (shown in parentheses on slide)
+  - Section subtotal = net movement for that section
+  - FX/translation adjustment = can be positive or negative, read sign from slide
+  - 'At end of period' bold row = closing NPA balance
+  - NPL Ratio row = closing NPA / total loans (%); not part of the roll-forward arithmetic
+CONSTRAINT: At start + sum(all signed flow items) = At end
+  Verify for EVERY period column
+  Parentheses = negative — failure to flip signs breaks the check
+EXTRACT AS: one DataPoint per (row_label, period_column)
+  series = row label as printed
+  period = column header as printed
+  value  = verbatim as printed including parentheses
+  extra_fields: { 'row_type': 'opening' | 'inflow' | 'outflow' | 'subtotal' | 'closing' | 'ratio', 'section': section header }

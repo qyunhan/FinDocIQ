@@ -1,0 +1,200 @@
+Transcribe the Step 4 pre-mapping below into structured JSON.
+Do NOT re-interpret. Do NOT look at any image. Copy values exactly as written in Step 4.
+
+<slide_description>
+Here's a detailed analysis of the provided slide:
+
+═══════════════════════════════════════════════════
+STEP 1 — INVENTORY
+═══════════════════════════════════════════════════
+
+- **3,524**: Total income, FY25
+- **3,388**: Total income, FY24
+- **4**: Total income, YoY %
+- **6**: Total income, Constant-FX basis YoY %
+- **2,090**: Net interest income, FY25
+- **2,076**: Net interest income, FY24
+- **1**: Net interest income, YoY %
+- **3**: Net interest income, Constant-FX basis YoY %
+- **993**: Net fee and commission income, FY25
+- **831**: Net fee and commission income, FY24
+- **19**: Net fee and commission income, YoY %
+- **22**: Net fee and commission income, Constant-FX basis YoY %
+- **441**: Other non-interest income, FY25
+- **481**: Other non-interest income, FY24
+- **(8)**: Other non-interest income, YoY %
+- **(7)**: Other non-interest income, Constant-FX basis YoY %
+- **1,333**: Expenses, FY25
+- **1,326**: Expenses, FY24
+- **1**: Expenses, YoY %
+- **3**: Expenses, Constant-FX basis YoY %
+- **2,191**: Profit before allowances, FY25
+- **2,062**: Profit before allowances, FY24
+- **6**: Profit before allowances, YoY %
+- **3**: Profit before allowances, Constant-FX basis YoY %
+- **296**: Allowances, FY25
+- **152**: Allowances, FY24
+- **95**: Allowances, YoY %
+- **>100**: Allowances, Constant-FX basis YoY %
+- **(30)**: GP, FY25
+- **56**: GP, FY24
+- **NM**: GP, YoY %
+- **NM**: GP, Constant-FX basis YoY %
+- **326**: SP, FY25
+- **96**: SP, FY24
+- **>100**: SP, YoY %
+- **>100**: SP, Constant-FX basis YoY %
+- **1,609**: Net profit, FY25
+- **1,597**: Net profit, FY24
+- **1**: Net profit, YoY %
+- **3**: Net profit, Constant-FX basis YoY %
+- **1.82**: Net interest margin (%), FY25
+- **1.80**: Net interest margin (%), FY24
+- **1**: Loan growth (%), Constant-FX basis YoY %
+- **(0)**: Non-trade growth (%), Constant-FX basis YoY %
+- **10**: Trade growth (%), Constant-FX basis YoY %
+- **10**: Deposit growth (%), Constant-FX basis YoY %
+- **25**: Page number
+
+═══════════════════════════════════════════════════
+STEP 2 — STRUCTURE
+═══════════════════════════════════════════════════
+
+**Table 1: Financial Performance (Main Table)**
+  1. TITLE: None explicitly, but the slide title "FY Hong Kong net profit up 3%" refers to this data.
+  2. COLUMN HEADERS: FY25, FY24, YoY %, Constant-FX basis YoY %
+  3. ROW COUNT: 13
+  4. VISUAL CONVENTIONS on this specific slide:
+       bold rows          → totals or subtotals (e.g., "Total income", "Profit before allowances", "Net profit")
+       indented rows      → sub-items of a parent row (e.g., "Net interest income", "Net fee and commission income", "Other non-interest income" are sub-items of "Total income"; "GP", "SP" are sub-items of "Allowances")
+       shaded/grey cells  → not applicable (blank, not zero)? (The "Constant-FX basis" column has a grey header, but the cells within are data. The light orange shading on FY25 and FY24 columns seems to highlight the data, not indicate 'not applicable'.)
+       parentheses        → negative values (e.g., "(8)", "(7)", "(30)")
+       dash cells         → zero or negligible? (None present)
+       any footnotes that change interpretation of specific rows/cells? (None present)
+
+**Table 2: Key Ratios/Growth Rates**
+  1. TITLE: None explicitly.
+  2. COLUMN HEADERS: FY25, FY24, Constant-FX basis YoY % (Note: The "YoY %" column is missing for this table, only "Constant-FX basis YoY %" is present for the last four rows)
+  3. ROW COUNT: 6 (2 for Net interest margin, 4 for growth rates)
+  4. VISUAL CONVENTIONS on this specific slide:
+       bold rows          → None
+       indented rows      → None
+       shaded/grey cells  → The "Constant-FX basis YoY %" column for the last four rows is grey-shaded, but contains data. The light orange shading on FY25 and FY24 columns seems to highlight the data.
+       parentheses        → negative values (e.g., "(0)")
+       dash cells         → None
+       any footnotes that change interpretation of specific rows/cells? (None present)
+
+═══════════════════════════════════════════════════
+STEP 3 — VERIFY
+═══════════════════════════════════════════════════
+
+**Table 1: Financial Performance**
+
+*   **Total income (FY25):** 2,090 (Net interest income) + 993 (Net fee and commission income) + 441 (Other non-interest income) = 3,524 ✓
+*   **Total income (FY24):** 2,076 (Net interest income) + 831 (Net fee and commission income) + 481 (Other non-interest income) = 3,388 ✓
+*   **Profit before allowances (FY25):** 3,524 (Total income) - 1,333 (Expenses) = 2,191 ✓
+*   **Profit before allowances (FY24):** 3,388 (Total income) - 1,326 (Expenses) = 2,062 ✓
+*   **Allowances (FY25):** (30) (GP) + 326 (SP) = 296 ✓
+*   **Allowances (FY24):** 56 (GP) + 96 (SP) = 152 ✓
+*   **Net profit (FY25):** 2,191 (Profit before allowances) - 296 (Allowances) = 1,895. **DISCREPANCY:** Printed Net profit is 1,609. (2,191 - 296 = 1,895, not 1,609).
+*   **Net profit (FY24):** 2,062 (Profit before allowances) - 152 (Allowances) = 1,910. **DISCREPANCY:** Printed Net profit is 1,597. (2,062 - 152 = 1,910, not 1,597).
+
+**Table 2: Key Ratios/Growth Rates**
+No summation checks are applicable for these rows as they are ratios/growth rates.
+
+═══════════════════════════════════════════════════
+STEP 4 — PRE-MAP TO SCHEMA FIELDS
+═══════════════════════════════════════════════════
+
+ELEMENT {1} | text_table | "Financial Performance"
+series="Total income" period="FY25" value="3,524" row_type="total" level=0 yoy_pct="4" yoy_pct_label="YoY %" constant_fx_yoy_pct="6" constant_fx_yoy_pct_label="Constant-FX basis YoY %"
+ELEMENT {2} | text_table | "Financial Performance"
+series="Total income" period="FY24" value="3,388" row_type="total" level=0
+ELEMENT {3} | text_table | "Financial Performance"
+series="Net interest income" parent="Total income" period="FY25" value="2,090" row_type="sub" level=1 yoy_pct="1" yoy_pct_label="YoY %" constant_fx_yoy_pct="3" constant_fx_yoy_pct_label="Constant-FX basis YoY %"
+ELEMENT {4} | text_table | "Financial Performance"
+series="Net interest income" parent="Total income" period="FY24" value="2,076" row_type="sub" level=1
+ELEMENT {5} | text_table | "Financial Performance"
+series="Net fee and commission income" parent="Total income" period="FY25" value="993" row_type="sub" level=1 yoy_pct="19" yoy_pct_label="YoY %" constant_fx_yoy_pct="22" constant_fx_yoy_pct_label="Constant-FX basis YoY %"
+ELEMENT {6} | text_table | "Financial Performance"
+series="Net fee and commission income" parent="Total income" period="FY24" value="831" row_type="sub" level=1
+ELEMENT {7} | text_table | "Financial Performance"
+series="Other non-interest income" parent="Total income" period="FY25" value="441" row_type="sub" level=1 yoy_pct="(8)" yoy_pct_label="YoY %" constant_fx_yoy_pct="(7)" constant_fx_yoy_pct_label="Constant-FX basis YoY %"
+ELEMENT {8} | text_table | "Financial Performance"
+series="Other non-interest income" parent="Total income" period="FY24" value="481" row_type="sub" level=1
+ELEMENT {9} | text_table | "Financial Performance"
+series="Expenses" period="FY25" value="1,333" row_type="data" level=1 yoy_pct="1" yoy_pct_label="YoY %" constant_fx_yoy_pct="3" constant_fx_yoy_pct_label="Constant-FX basis YoY %"
+ELEMENT {10} | text_table | "Financial Performance"
+series="Expenses" period="FY24" value="1,326" row_type="data" level=1
+ELEMENT {11} | text_table | "Financial Performance"
+series="Profit before allowances" period="FY25" value="2,191" row_type="total" level=0 yoy_pct="6" yoy_pct_label="YoY %" constant_fx_yoy_pct="3" constant_fx_yoy_pct_label="Constant-FX basis YoY %"
+ELEMENT {12} | text_table | "Financial Performance"
+series="Profit before allowances" period="FY24" value="2,062" row_type="total" level=0
+ELEMENT {13} | text_table | "Financial Performance"
+series="Allowances" period="FY25" value="296" row_type="data" level=1 yoy_pct="95" yoy_pct_label="YoY %" constant_fx_yoy_pct=">100" constant_fx_yoy_pct_label="Constant-FX basis YoY %"
+ELEMENT {14} | text_table | "Financial Performance"
+series="Allowances" period="FY24" value="152" row_type="data" level=1
+ELEMENT {15} | text_table | "Financial Performance"
+series="GP" parent="Allowances" period="FY25" value="(30)" row_type="sub" level=2 yoy_pct="NM" yoy_pct_label="YoY %" constant_fx_yoy_pct="NM" constant_fx_yoy_pct_label="Constant-FX basis YoY %"
+ELEMENT {16} | text_table | "Financial Performance"
+series="GP" parent="Allowances" period="FY24" value="56" row_type="sub" level=2
+ELEMENT {17} | text_table | "Financial Performance"
+series="SP" parent="Allowances" period="FY25" value="326" row_type="sub" level=2 yoy_pct=">100" yoy_pct_label="YoY %" constant_fx_yoy_pct=">100" constant_fx_yoy_pct_label="Constant-FX basis YoY %"
+ELEMENT {18} | text_table | "Financial Performance"
+series="SP" parent="Allowances" period="FY24" value="96" row_type="sub" level=2
+ELEMENT {19} | text_table | "Financial Performance"
+series="Net profit" period="FY25" value="1,609" row_type="total" level=0 yoy_pct="1" yoy_pct_label="YoY %" constant_fx_yoy_pct="3" constant_fx_yoy_pct_label="Constant-FX basis YoY %"
+ELEMENT {20} | text_table | "Financial Performance"
+series="Net profit" period="FY24" value="1,597" row_type="total" level=0
+
+ELEMENT {21} | text_table | "Key Ratios/Growth Rates"
+series="Net interest margin (%)" period="FY25" value="1.82" row_type="data" level=1
+ELEMENT {22} | text_table | "Key Ratios/Growth Rates"
+series="Net interest margin (%)" period="FY24" value="1.80" row_type="data" level=1
+ELEMENT {23} | text_table | "Key Ratios/Growth Rates"
+series="Loan growth (%)" period="Constant-FX basis YoY %" value="1" row_type="data" level=1
+ELEMENT {24} | text_table | "Key Ratios/Growth Rates"
+series="Non-trade growth (%)" period="Constant-FX basis YoY %" value="(0)" row_type="data" level=1
+ELEMENT {25} | text_table | "Key Ratios/Growth Rates"
+series="Trade growth (%)" period="Constant-FX basis YoY %" value="10" row_type="data" level=1
+ELEMENT {26} | text_table | "Key Ratios/Growth Rates"
+series="Deposit growth (%)" period="Constant-FX basis YoY %" value="10" row_type="data" level=1
+</slide_description>
+
+OUTPUT FORMAT:
+{
+  "slide_title": "main heading from the slide description — not 'Slide N'",
+  "elements": [
+    {
+      "element_idx": 0,
+      "element_type": "text_table",
+      "element_title": "...",
+      "source": "table",
+      "units": "...",
+      "self_check": "arithmetic check from Step 3 if present, else null",
+      "data_points": [
+        {
+          "series": "...",
+          "period": "...",
+          "value": "...",
+          "row_type": "...",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    }
+  ]
+}
+
+RULES:
+- One data_point per line in Step 4. Transcribe field values exactly.
+- order: sequential integer per element, 0-based, following Step 4 line order.
+- source: "table" for text_table and npa_movement_table.
+- self_check: copy the arithmetic check string from Step 3, else null.
+- Extra key=value pairs from Step 4 go into extra_fields dict.
+  Always add a matching _label key: yoy_pct="-3%" → yoy_pct_label="YoY %"
+
+Return ONLY the JSON object, no markdown fences.

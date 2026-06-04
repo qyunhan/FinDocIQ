@@ -1,0 +1,31 @@
+{
+  "slide": 27,
+  "cost_usd": 0.00838,
+  "n_points": 14,
+  "validation_errors": [
+    "Self-check unparseable: [Dec 25] Government securities: 25,807 + 3,600 + 2,469 + 326 = 32,202 \u2713\nTotal: 32,202 + 23,851 = 56,053 \u2713"
+  ],
+  "self_checks": [
+    "[Dec 25] Government securities: 25,807 + 3,600 + 2,469 + 326 = 32,202 \u2713\nTotal: 32,202 + 23,851 = 56,053 \u2713"
+  ],
+  "usages": [
+    {
+      "pass": 1,
+      "prompt_tokens": 0,
+      "output_tokens": 1351,
+      "est_cost_usd": 0.003377
+    },
+    {
+      "pass": 2,
+      "prompt_tokens": 1735,
+      "output_tokens": 1373,
+      "est_cost_usd": 0.003953
+    },
+    {
+      "pass": "2c",
+      "prompt_tokens": 1534,
+      "output_tokens": 236,
+      "est_cost_usd": 0.00105
+    }
+  ]
+}

@@ -1,0 +1,1046 @@
+[
+  {
+    "slide": 24,
+    "element_idx": 1,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Commercial book total income",
+    "period": "FY25",
+    "value": "21,526",
+    "value_num": null,
+    "unit": "",
+    "row_type": "total",
+    "level": 0,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "1",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 2,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Net interest income",
+    "period": "FY25",
+    "value": "14,494",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Commercial book total income",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "(4)",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 3,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Net fee and commission income",
+    "period": "FY25",
+    "value": "4,898",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Commercial book total income",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "18",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 4,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Treasury customer sales and other income",
+    "period": "FY25",
+    "value": "2,134",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Commercial book total income",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "(1)",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 5,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Markets trading income",
+    "period": "FY25",
+    "value": "1,374",
+    "value_num": null,
+    "unit": "",
+    "row_type": "total",
+    "level": 0,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "49",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 6,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Net interest income",
+    "period": "FY25",
+    "value": "6",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Markets trading income",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "NM",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 7,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Non-interest income",
+    "period": "FY25",
+    "value": "1,368",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Markets trading income",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "(11)",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 8,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Total income",
+    "period": "FY25",
+    "value": "22,900",
+    "value_num": null,
+    "unit": "",
+    "row_type": "total",
+    "level": 0,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "3",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 9,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Expenses",
+    "period": "FY25",
+    "value": "9,249",
+    "value_num": null,
+    "unit": "",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "4",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 10,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Profit before allowances and amortisation",
+    "period": "FY25",
+    "value": "13,651",
+    "value_num": null,
+    "unit": "",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "2",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 11,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Amortisation of intangible assets",
+    "period": "FY25",
+    "value": "23",
+    "value_num": null,
+    "unit": "",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "-",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 12,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Allowances for credit and other losses",
+    "period": "FY25",
+    "value": "791",
+    "value_num": null,
+    "unit": "",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "27",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 13,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "SP",
+    "period": "FY25",
+    "value": "854",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Allowances for credit and other losses",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "53",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 14,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "GP",
+    "period": "FY25",
+    "value": "(63)",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Allowances for credit and other losses",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "NM",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 15,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Share of profits/losses of associates and JVs",
+    "period": "FY25",
+    "value": "262",
+    "value_num": null,
+    "unit": "",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "5",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 16,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Profit before tax",
+    "period": "FY25",
+    "value": "13,099",
+    "value_num": null,
+    "unit": "",
+    "row_type": "total",
+    "level": 0,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "1",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 17,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Net profit",
+    "period": "FY25",
+    "value": "11,033",
+    "value_num": null,
+    "unit": "",
+    "row_type": "total",
+    "level": 0,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "(3)",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 18,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Reported net profit",
+    "period": "FY25",
+    "value": "10,933",
+    "value_num": null,
+    "unit": "",
+    "row_type": "total",
+    "level": 0,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "(3)",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 19,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Commercial book total income",
+    "period": "FY24",
+    "value": "21,375",
+    "value_num": null,
+    "unit": "",
+    "row_type": "total",
+    "level": 0,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "1",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 20,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Net interest income",
+    "period": "FY24",
+    "value": "15,043",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Commercial book total income",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "(4)",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 21,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Net fee and commission income",
+    "period": "FY24",
+    "value": "4,168",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Commercial book total income",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "18",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 22,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Treasury customer sales and other income",
+    "period": "FY24",
+    "value": "2,164",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Commercial book total income",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "(1)",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 23,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Markets trading income",
+    "period": "FY24",
+    "value": "922",
+    "value_num": null,
+    "unit": "",
+    "row_type": "total",
+    "level": 0,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "49",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 24,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Net interest income",
+    "period": "FY24",
+    "value": "(619)",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Markets trading income",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "NM",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 25,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Non-interest income",
+    "period": "FY24",
+    "value": "1,541",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Markets trading income",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "(11)",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 26,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Total income",
+    "period": "FY24",
+    "value": "22,297",
+    "value_num": null,
+    "unit": "",
+    "row_type": "total",
+    "level": 0,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "3",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 27,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Expenses",
+    "period": "FY24",
+    "value": "8,895",
+    "value_num": null,
+    "unit": "",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "4",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 28,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Profit before allowances and amortisation",
+    "period": "FY24",
+    "value": "13,402",
+    "value_num": null,
+    "unit": "",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "2",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 29,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Amortisation of intangible assets",
+    "period": "FY24",
+    "value": "23",
+    "value_num": null,
+    "unit": "",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "-",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 30,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Allowances for credit and other losses",
+    "period": "FY24",
+    "value": "622",
+    "value_num": null,
+    "unit": "",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "27",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 31,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "SP",
+    "period": "FY24",
+    "value": "559",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Allowances for credit and other losses",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "53",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 32,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "GP",
+    "period": "FY24",
+    "value": "63",
+    "value_num": null,
+    "unit": "",
+    "row_type": "sub",
+    "level": 1,
+    "parent": "Allowances for credit and other losses",
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "NM",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 33,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Share of profits/losses of associates and JVs",
+    "period": "FY24",
+    "value": "250",
+    "value_num": null,
+    "unit": "",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "5",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 34,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Profit before tax",
+    "period": "FY24",
+    "value": "13,007",
+    "value_num": null,
+    "unit": "",
+    "row_type": "total",
+    "level": 0,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "1",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 35,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Net profit",
+    "period": "FY24",
+    "value": "11,408",
+    "value_num": null,
+    "unit": "",
+    "row_type": "total",
+    "level": 0,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "(3)",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  },
+  {
+    "slide": 24,
+    "element_idx": 36,
+    "element_type": "text_table",
+    "element_title": "",
+    "series": "Reported net profit",
+    "period": "FY24",
+    "value": "11,289",
+    "value_num": null,
+    "unit": "",
+    "row_type": "total",
+    "level": 0,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "(3)",
+        "yoy_pct_label": "YoY %"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "DBS",
+    "doc_title": "DBS4Q25_CFO_presentation",
+    "doc_date": "",
+    "slide_title": ""
+  }
+]

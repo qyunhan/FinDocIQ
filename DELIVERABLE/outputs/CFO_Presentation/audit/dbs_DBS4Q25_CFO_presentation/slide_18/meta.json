@@ -1,0 +1,37 @@
+{
+  "slide": 18,
+  "cost_usd": 0.046081,
+  "n_points": 78,
+  "validation_errors": [
+    "Self-check unparseable: [FY SP at 19bp] FY24: 278 + 99 = 377 \u2713; FY25: 428 + 275 = 703 \u2713; 1Q25: 65 + 103 = 168 \u2713; 2Q25: 29 + 71 = 100 \u2713; 3Q25: 31 + 89 = 120 \u2713; 4Q25: 308 + 47 = 355 \u2713",
+    "Self-check unparseable: [FY SP at 19bp] FY24: 17 + 151 + 67 = 235 \u2713; FY25: 119 + 125 + 48 = 292 \u2713; 1Q25: 119 + 33 + 30 = 182 \u2713; 2Q25: 1 + 23 + 4 = 28 \u2713; 3Q25: 0 + 41 + 8 = 49 \u2713; 4Q25: 1 + 68 + 4 = 73 \u2713",
+    "Self-check unparseable: [FY SP at 19bp] FY24: 142 + 420 = 562 \u2713; FY25: 411 + 431 = 842 \u2713; 1Q25: (14) + 117 = 103 \u2713; 2Q25: 72 + 92 = 164 \u2713; 3Q25: 71 + 96 = 167 \u2713; 4Q25: 282 + 126 = 408 \u2713",
+    "Self-check unparseable: [FY SP at 19bp] FY24: 562 (SP charges for loans) + (2) (Other credit exposures) = 560 \u2713; FY25: 842 (SP charges for loans) + 3 (Other credit exposures) = 845 \u2713; 1Q25: 103 (SP charges for loans) + 8 (Other credit exposures) = 111 \u2713; 2Q25: 164 (SP charges for loans) + (15) (Other credit exposures) = 149 \u2713; 3Q25: 167 (SP charges for loans) + 3 (Other credit exposures) = 170 \u2713; 4Q25: 408 (SP charges for loans) + 7 (Other credit exposures) = 415 \u2713"
+  ],
+  "self_checks": [
+    "[FY SP at 19bp] FY24: 278 + 99 = 377 \u2713; FY25: 428 + 275 = 703 \u2713; 1Q25: 65 + 103 = 168 \u2713; 2Q25: 29 + 71 = 100 \u2713; 3Q25: 31 + 89 = 120 \u2713; 4Q25: 308 + 47 = 355 \u2713",
+    "[FY SP at 19bp] FY24: 17 + 151 + 67 = 235 \u2713; FY25: 119 + 125 + 48 = 292 \u2713; 1Q25: 119 + 33 + 30 = 182 \u2713; 2Q25: 1 + 23 + 4 = 28 \u2713; 3Q25: 0 + 41 + 8 = 49 \u2713; 4Q25: 1 + 68 + 4 = 73 \u2713",
+    "[FY SP at 19bp] FY24: 142 + 420 = 562 \u2713; FY25: 411 + 431 = 842 \u2713; 1Q25: (14) + 117 = 103 \u2713; 2Q25: 72 + 92 = 164 \u2713; 3Q25: 71 + 96 = 167 \u2713; 4Q25: 282 + 126 = 408 \u2713",
+    "[FY SP at 19bp] FY24: 562 (SP charges for loans) + (2) (Other credit exposures) = 560 \u2713; FY25: 842 (SP charges for loans) + 3 (Other credit exposures) = 845 \u2713; 1Q25: 103 (SP charges for loans) + 8 (Other credit exposures) = 111 \u2713; 2Q25: 164 (SP charges for loans) + (15) (Other credit exposures) = 149 \u2713; 3Q25: 167 (SP charges for loans) + 3 (Other credit exposures) = 170 \u2713; 4Q25: 408 (SP charges for loans) + 7 (Other credit exposures) = 415 \u2713"
+  ],
+  "usages": [
+    {
+      "pass": 1,
+      "prompt_tokens": 0,
+      "output_tokens": 6577,
+      "est_cost_usd": 0.016443
+    },
+    {
+      "pass": 2,
+      "prompt_tokens": 6961,
+      "output_tokens": 8312,
+      "est_cost_usd": 0.022868
+    },
+    {
+      "pass": "2c",
+      "prompt_tokens": 7316,
+      "output_tokens": 1830,
+      "est_cost_usd": 0.00677
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+Transcribe the Step 4 pre-mapping below into structured JSON.
+Do NOT re-interpret. Do NOT look at any image. Copy values exactly as written in Step 4.
+
+<slide_description>
+═══════════════════════════════════════════════════
+STEP 1 — INVENTORY
+═══════════════════════════════════════════════════
+
+- **21,526** (Commercial book total income, FY25)
+- **21,375** (Commercial book total income, FY24)
+- **1** (Commercial book total income, YoY %)
+- 14,494 (Net interest income, FY25)
+- 15,043 (Net interest income, FY24)
+- (4) (Net interest income, YoY %)
+- 4,898 (Net fee and commission income, FY25)
+- 4,168 (Net fee and commission income, FY24)
+- 18 (Net fee and commission income, YoY %)
+- 2,134 (Treasury customer sales and other income, FY25)
+- 2,164 (Treasury customer sales and other income, FY24)
+- (1) (Treasury customer sales and other income, YoY %)
+- **1,374** (Markets trading income, FY25)
+- **922** (Markets trading income, FY24)
+- **49** (Markets trading income, YoY %)
+- 6 (Net interest income, FY25)
+- (619) (Net interest income, FY24)
+- NM (Net interest income, YoY %)
+- 1,368 (Non-interest income, FY25)
+- 1,541 (Non-interest income, FY24)
+- (11) (Non-interest income, YoY %)
+- **22,900** (Total income, FY25)
+- **22,297** (Total income, FY24)
+- **3** (Total income, YoY %)
+- 9,249 (Expenses, FY25)
+- 8,895 (Expenses, FY24)
+- 4 (Expenses, YoY %)
+- 13,651 (Profit before allowances and amortisation, FY25)
+- 13,402 (Profit before allowances and amortisation, FY24)
+- 2 (Profit before allowances and amortisation, YoY %)
+- 23 (Amortisation of intangible assets, FY25)
+- 23 (Amortisation of intangible assets, FY24)
+- - (Amortisation of intangible assets, YoY %)
+- 791 (Allowances for credit and other losses, FY25)
+- 622 (Allowances for credit and other losses, FY24)
+- 27 (Allowances for credit and other losses, YoY %)
+- 854 (SP, FY25)
+- 559 (SP, FY24)
+- 53 (SP, YoY %)
+- (63) (GP, FY25)
+- 63 (GP, FY24)
+- NM (GP, YoY %)
+- 262 (Share of profits/losses of associates and JVs, FY25)
+- 250 (Share of profits/losses of associates and JVs, FY24)
+- 5 (Share of profits/losses of associates and JVs, YoY %)
+- **13,099** (Profit before tax, FY25)
+- **13,007** (Profit before tax, FY24)
+- **1** (Profit before tax, YoY %)
+- **11,033** (Net profit, FY25)
+- **11,408** (Net profit, FY24)
+- **(3)** (Net profit, YoY %)
+- **10,933** (Reported net profit, FY25)
+- **11,289** (Reported net profit, FY24)
+- **(3)** (Reported net profit, YoY %)
+- 24 (?)
+
+═══════════════════════════════════════════════════
+STEP 2 — STRUCTURE
+═══════════════════════════════════════════════════
+
+1. TITLE: None
+2. COLUMN HEADERS: FY25, FY24, YoY %
+3. ROW COUNT: 20
+4. VISUAL CONVENTIONS on this specific slide:
+    *   **bold rows** → totals or subtotals
+    *   indented rows → sub-items of a parent row
+    *   shaded/grey cells → not applicable (blank, not zero)? (The shading is for the FY25 column, not to indicate "not applicable")
+    *   parentheses → negative values
+    *   dash cells → zero or negligible
+    *   any footnotes that change interpretation of specific rows/cells? None
+
+═══════════════════════════════════════════════════
+STEP 3 — VERIFY
+═══════════════════════════════════════════════════
+
+**FY25 Column:**
+*   Commercial book total income: 14,494 + 4,898 + 2,134 = 21,526 ✓
+*   Markets trading income: 6 + 1,368 = 1,374 ✓
+*   Total income: 21,526 + 1,374 = 22,900 ✓
+*   Profit before allowances and amortisation: 22,900 - 9,249 = 13,651 ✓
+*   SP: 791 + (63) = 728. This does not sum to 854. Discrepancy.
+*   Profit before tax: 13,651 - 23 - 854 + 262 = 13,036. This does not sum to 13,099. Discrepancy.
+
+**FY24 Column:**
+*   Commercial book total income: 15,043 + 4,168 + 2,164 = 21,375 ✓
+*   Markets trading income: (619) + 1,541 = 922 ✓
+*   Total income: 21,375 + 922 = 22,297 ✓
+*   Profit before allowances and amortisation: 22,297 - 8,895 = 13,402 ✓
+*   SP: 622 + 63 = 685. This does not sum to 559. Discrepancy.
+*   Profit before tax: 13,402 - 23 - 559 + 250 = 13,070. This does not sum to 13,007. Discrepancy.
+
+═══════════════════════════════════════════════════
+STEP 4 — PRE-MAP TO SCHEMA FIELDS
+═══════════════════════════════════════════════════
+
+ELEMENT 1 | text_table | ""
+series="Commercial book total income" period="FY25" value="21,526" row_type="total" level=0 yoy_pct="1" yoy_pct_label="YoY %"
+ELEMENT 2 | text_table | ""
+series="Net interest income" period="FY25" value="14,494" row_type="sub" level=1 parent="Commercial book total income" yoy_pct="(4)" yoy_pct_label="YoY %"
+ELEMENT 3 | text_table | ""
+series="Net fee and commission income" period="FY25" value="4,898" row_type="sub" level=1 parent="Commercial book total income" yoy_pct="18" yoy_pct_label="YoY %"
+ELEMENT 4 | text_table | ""
+series="Treasury customer sales and other income" period="FY25" value="2,134" row_type="sub" level=1 parent="Commercial book total income" yoy_pct="(1)" yoy_pct_label="YoY %"
+ELEMENT 5 | text_table | ""
+series="Markets trading income" period="FY25" value="1,374" row_type="total" level=0 yoy_pct="49" yoy_pct_label="YoY %"
+ELEMENT 6 | text_table | ""
+series="Net interest income" period="FY25" value="6" row_type="sub" level=1 parent="Markets trading income" yoy_pct="NM" yoy_pct_label="YoY %"
+ELEMENT 7 | text_table | ""
+series="Non-interest income" period="FY25" value="1,368" row_type="sub" level=1 parent="Markets trading income" yoy_pct="(11)" yoy_pct_label="YoY %"
+ELEMENT 8 | text_table | ""
+series="Total income" period="FY25" value="22,900" row_type="total" level=0 yoy_pct="3" yoy_pct_label="YoY %"
+ELEMENT 9 | text_table | ""
+series="Expenses" period="FY25" value="9,249" row_type="data" level=1 yoy_pct="4" yoy_pct_label="YoY %"
+ELEMENT 10 | text_table | ""
+series="Profit before allowances and amortisation" period="FY25" value="13,651" row_type="data" level=1 yoy_pct="2" yoy_pct_label="YoY %"
+ELEMENT 11 | text_table | ""
+series="Amortisation of intangible assets" period="FY25" value="23" row_type="data" level=1 yoy_pct="-" yoy_pct_label="YoY %"
+ELEMENT 12 | text_table | ""
+series="Allowances for credit and other losses" period="FY25" value="791" row_type="data" level=1 yoy_pct="27" yoy_pct_label="YoY %"
+ELEMENT 13 | text_table | ""
+series="SP" period="FY25" value="854" row_type="sub" level=1 parent="Allowances for credit and other losses" yoy_pct="53" yoy_pct_label="YoY %"
+ELEMENT 14 | text_table | ""
+series="GP" period="FY25" value="(63)" row_type="sub" level=1 parent="Allowances for credit and other losses" yoy_pct="NM" yoy_pct_label="YoY %"
+ELEMENT 15 | text_table | ""
+series="Share of profits/losses of associates and JVs" period="FY25" value="262" row_type="data" level=1 yoy_pct="5" yoy_pct_label="YoY %"
+ELEMENT 16 | text_table | ""
+series="Profit before tax" period="FY25" value="13,099" row_type="total" level=0 yoy_pct="1" yoy_pct_label="YoY %"
+ELEMENT 17 | text_table | ""
+series="Net profit" period="FY25" value="11,033" row_type="total" level=0 yoy_pct="(3)" yoy_pct_label="YoY %"
+ELEMENT 18 | text_table | ""
+series="Reported net profit" period="FY25" value="10,933" row_type="total" level=0 yoy_pct="(3)" yoy_pct_label="YoY %"
+
+ELEMENT 19 | text_table | ""
+series="Commercial book total income" period="FY24" value="21,375" row_type="total" level=0 yoy_pct="1" yoy_pct_label="YoY %"
+ELEMENT 20 | text_table | ""
+series="Net interest income" period="FY24" value="15,043" row_type="sub" level=1 parent="Commercial book total income" yoy_pct="(4)" yoy_pct_label="YoY %"
+ELEMENT 21 | text_table | ""
+series="Net fee and commission income" period="FY24" value="4,168" row_type="sub" level=1 parent="Commercial book total income" yoy_pct="18" yoy_pct_label="YoY %"
+ELEMENT 22 | text_table | ""
+series="Treasury customer sales and other income" period="FY24" value="2,164" row_type="sub" level=1 parent="Commercial book total income" yoy_pct="(1)" yoy_pct_label="YoY %"
+ELEMENT 23 | text_table | ""
+series="Markets trading income" period="FY24" value="922" row_type="total" level=0 yoy_pct="49" yoy_pct_label="YoY %"
+ELEMENT 24 | text_table | ""
+series="Net interest income" period="FY24" value="(619)" row_type="sub" level=1 parent="Markets trading income" yoy_pct="NM" yoy_pct_label="YoY %"
+ELEMENT 25 | text_table | ""
+series="Non-interest income" period="FY24" value="1,541" row_type="sub" level=1 parent="Markets trading income" yoy_pct="(11)" yoy_pct_label="YoY %"
+ELEMENT 26 | text_table | ""
+series="Total income" period="FY24" value="22,297" row_type="total" level=0 yoy_pct="3" yoy_pct_label="YoY %"
+ELEMENT 27 | text_table | ""
+series="Expenses" period="FY24" value="8,895" row_type="data" level=1 yoy_pct="4" yoy_pct_label="YoY %"
+ELEMENT 28 | text_table | ""
+series="Profit before allowances and amortisation" period="FY24" value="13,402" row_type="data" level=1 yoy_pct="2" yoy_pct_label="YoY %"
+ELEMENT 29 | text_table | ""
+series="Amortisation of intangible assets" period="FY24" value="23" row_type="data" level=1 yoy_pct="-" yoy_pct_label="YoY %"
+ELEMENT 30 | text_table | ""
+series="Allowances for credit and other losses" period="FY24" value="622" row_type="data" level=1 yoy_pct="27" yoy_pct_label="YoY %"
+ELEMENT 31 | text_table | ""
+series="SP" period="FY24" value="559" row_type="sub" level=1 parent="Allowances for credit and other losses" yoy_pct="53" yoy_pct_label="YoY %"
+ELEMENT 32 | text_table | ""
+series="GP" period="FY24" value="63" row_type="sub" level=1 parent="Allowances for credit and other losses" yoy_pct="NM" yoy_pct_label="YoY %"
+ELEMENT 33 | text_table | ""
+series="Share of profits/losses of associates and JVs" period="FY24" value="250" row_type="data" level=1 yoy_pct="5" yoy_pct_label="YoY %"
+ELEMENT 34 | text_table | ""
+series="Profit before tax" period="FY24" value="13,007" row_type="total" level=0 yoy_pct="1" yoy_pct_label="YoY %"
+ELEMENT 35 | text_table | ""
+series="Net profit" period="FY24" value="11,408" row_type="total" level=0 yoy_pct="(3)" yoy_pct_label="YoY %"
+ELEMENT 36 | text_table | ""
+series="Reported net profit" period="FY24" value="11,289" row_type="total" level=0 yoy_pct="(3)" yoy_pct_label="YoY %"
+</slide_description>
+
+OUTPUT FORMAT:
+{
+  "slide_title": "main heading from the slide description — not 'Slide N'",
+  "elements": [
+    {
+      "element_idx": 0,
+      "element_type": "text_table",
+      "element_title": "...",
+      "source": "table",
+      "units": "...",
+      "self_check": "arithmetic check from Step 3 if present, else null",
+      "data_points": [
+        {
+          "series": "...",
+          "period": "...",
+          "value": "...",
+          "row_type": "...",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    }
+  ]
+}
+
+RULES:
+- One data_point per line in Step 4. Transcribe field values exactly.
+- order: sequential integer per element, 0-based, following Step 4 line order.
+- source: "table" for text_table and npa_movement_table.
+- self_check: copy the arithmetic check string from Step 3, else null.
+- Extra key=value pairs from Step 4 go into extra_fields dict.
+  Always add a matching _label key: yoy_pct="-3%" → yoy_pct_label="YoY %"
+
+Return ONLY the JSON object, no markdown fences.

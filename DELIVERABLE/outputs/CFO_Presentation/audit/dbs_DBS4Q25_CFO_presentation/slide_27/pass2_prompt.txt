@@ -1,0 +1,135 @@
+Transcribe the Step 4 pre-mapping below into structured JSON.
+Do NOT re-interpret. Do NOT look at any image. Copy values exactly as written in Step 4.
+
+<slide_description>
+═══════════════════════════════════════════════════
+STEP 1 — INVENTORY
+═══════════════════════════════════════════════════
+
+- 32,202: Government securities, FVOCI
+- 56,114: Government securities, HTC
+- 25,807: Less than 3 years, FVOCI
+- 43,687: Less than 3 years, HTC
+- 3,600: 3 to 5 years, FVOCI
+- 5,546: 3 to 5 years, HTC
+- 2,469: 5 to 10 years, FVOCI
+- 6,392: 5 to 10 years, HTC
+- 326: More than 10 years, FVOCI
+- 489: More than 10 years, HTC
+- 23,851: Supranational, bank and corporate bonds, FVOCI
+- 59,324: Supranational, bank and corporate bonds, HTC
+- 56,053: Total, FVOCI
+- 115,438: Total, HTC
+- 27: Page number
+
+═══════════════════════════════════════════════════
+STEP 2 — STRUCTURE
+═══════════════════════════════════════════════════
+
+1. TITLE: Dec 25
+2. COLUMN HEADERS: FVOCI, HTC
+3. ROW COUNT: 6
+4. VISUAL CONVENTIONS on this specific slide:
+    bold rows          → totals or subtotals
+    indented rows      → sub-items of a parent row
+    shaded/grey cells  → not applicable (blank, not zero)? No shaded cells.
+    parentheses        → negative values? No parentheses.
+    dash cells         → zero or negligible? No dash cells.
+    any footnotes that change interpretation of specific rows/cells? No footnotes.
+
+═══════════════════════════════════════════════════
+STEP 3 — VERIFY
+═══════════════════════════════════════════════════
+
+FVOCI column:
+Government securities: 25,807 + 3,600 + 2,469 + 326 = 32,202 ✓
+Total: 32,202 + 23,851 = 56,053 ✓
+
+HTC column:
+Government securities: 43,687 + 5,546 + 6,392 + 489 = 56,114 ✓
+Total: 56,114 + 59,324 = 115,438 ✓
+
+═══════════════════════════════════════════════════
+STEP 4 — PRE-MAP TO SCHEMA FIELDS
+═══════════════════════════════════════════════════
+
+ELEMENT 1 | text_table | "Dec 25"
+series="Government securities" period="FVOCI" value="32,202" row_type="total" level=1
+
+ELEMENT 2 | text_table | "Dec 25"
+series="Government securities" period="HTC" value="56,114" row_type="total" level=1
+
+ELEMENT 3 | text_table | "Dec 25"
+series="Less than 3 years" parent="Government securities" period="FVOCI" value="25,807" row_type="sub" level=2
+
+ELEMENT 4 | text_table | "Dec 25"
+series="Less than 3 years" parent="Government securities" period="HTC" value="43,687" row_type="sub" level=2
+
+ELEMENT 5 | text_table | "Dec 25"
+series="3 to 5 years" parent="Government securities" period="FVOCI" value="3,600" row_type="sub" level=2
+
+ELEMENT 6 | text_table | "Dec 25"
+series="3 to 5 years" parent="Government securities" period="HTC" value="5,546" row_type="sub" level=2
+
+ELEMENT 7 | text_table | "Dec 25"
+series="5 to 10 years" parent="Government securities" period="FVOCI" value="2,469" row_type="sub" level=2
+
+ELEMENT 8 | text_table | "Dec 25"
+series="5 to 10 years" parent="Government securities" period="HTC" value="6,392" row_type="sub" level=2
+
+ELEMENT 9 | text_table | "Dec 25"
+series="More than 10 years" parent="Government securities" period="FVOCI" value="326" row_type="sub" level=2
+
+ELEMENT 10 | text_table | "Dec 25"
+series="More than 10 years" parent="Government securities" period="HTC" value="489" row_type="sub" level=2
+
+ELEMENT 11 | text_table | "Dec 25"
+series="Supranational, bank and corporate bonds" period="FVOCI" value="23,851" row_type="data" level=1
+
+ELEMENT 12 | text_table | "Dec 25"
+series="Supranational, bank and corporate bonds" period="HTC" value="59,324" row_type="data" level=1
+
+ELEMENT 13 | text_table | "Dec 25"
+series="Total" period="FVOCI" value="56,053" row_type="total" level=0
+
+ELEMENT 14 | text_table | "Dec 25"
+series="Total" period="HTC" value="115,438" row_type="total" level=0
+</slide_description>
+
+OUTPUT FORMAT:
+{
+  "slide_title": "main heading from the slide description — not 'Slide N'",
+  "elements": [
+    {
+      "element_idx": 0,
+      "element_type": "text_table",
+      "element_title": "...",
+      "source": "table",
+      "units": "...",
+      "self_check": "arithmetic check from Step 3 if present, else null",
+      "data_points": [
+        {
+          "series": "...",
+          "period": "...",
+          "value": "...",
+          "row_type": "...",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    }
+  ]
+}
+
+RULES:
+- One data_point per line in Step 4. Transcribe field values exactly.
+- order: sequential integer per element, 0-based, following Step 4 line order.
+- source: "table" for text_table and npa_movement_table.
+- self_check: copy the arithmetic check string from Step 3, else null.
+- Extra key=value pairs from Step 4 go into extra_fields dict.
+  Always add a matching _label key: yoy_pct="-3%" → yoy_pct_label="YoY %"
+
+Return ONLY the JSON object, no markdown fences.

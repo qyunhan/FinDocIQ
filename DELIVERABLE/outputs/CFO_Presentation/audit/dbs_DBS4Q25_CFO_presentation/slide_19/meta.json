@@ -1,0 +1,25 @@
+{
+  "slide": 19,
+  "cost_usd": 0.006871,
+  "n_points": 25,
+  "validation_errors": [
+    "Self-check unparseable: [None] 3969+2545=6514; 4159+2491=6650; 4109+2332=6441; 4071+2354=6425; 3859+2422=6281"
+  ],
+  "self_checks": [
+    "[None] 3969+2545=6514; 4159+2491=6650; 4109+2332=6441; 4071+2354=6425; 3859+2422=6281"
+  ],
+  "usages": [
+    {
+      "pass": "1s",
+      "prompt_tokens": 0,
+      "output_tokens": 2331,
+      "est_cost_usd": 0.005828
+    },
+    {
+      "pass": "2c",
+      "prompt_tokens": 0,
+      "output_tokens": 417,
+      "est_cost_usd": 0.001043
+    }
+  ]
+}

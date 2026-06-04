@@ -1,0 +1,21 @@
+{
+  "slide": 10,
+  "cost_usd": 0.012085,
+  "n_points": 45,
+  "validation_errors": [],
+  "self_checks": [],
+  "usages": [
+    {
+      "pass": "1s",
+      "prompt_tokens": 0,
+      "output_tokens": 4150,
+      "est_cost_usd": 0.010375
+    },
+    {
+      "pass": "2c",
+      "prompt_tokens": 0,
+      "output_tokens": 684,
+      "est_cost_usd": 0.00171
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slide": 8,
+  "cost_usd": 0.003338,
+  "n_points": 13,
+  "validation_errors": [],
+  "self_checks": [
+    "[Net Interest Margin (%)] 1.82 - 0.15 + 0.19 - 0.02 = 1.84"
+  ],
+  "usages": [
+    {
+      "pass": "1s",
+      "prompt_tokens": 0,
+      "output_tokens": 1335,
+      "est_cost_usd": 0.003338
+    }
+  ]
+}

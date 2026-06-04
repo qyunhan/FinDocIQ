@@ -1,0 +1,27 @@
+{
+  "slide": 7,
+  "cost_usd": 0.013826999999999999,
+  "n_points": 51,
+  "validation_errors": [
+    "Self-check unparseable: [None] 1640+8034=9674; 1818+7538=9355",
+    "Self-check unparseable: [None] 404+2048=2451; 450+1959=2409; 450+1886=2336; 456+1809=2265; 464+1882=2346"
+  ],
+  "self_checks": [
+    "[None] 1640+8034=9674; 1818+7538=9355",
+    "[None] 404+2048=2451; 450+1959=2409; 450+1886=2336; 456+1809=2265; 464+1882=2346"
+  ],
+  "usages": [
+    {
+      "pass": "1s",
+      "prompt_tokens": 0,
+      "output_tokens": 4847,
+      "est_cost_usd": 0.012117
+    },
+    {
+      "pass": "2c",
+      "prompt_tokens": 0,
+      "output_tokens": 684,
+      "est_cost_usd": 0.00171
+    }
+  ]
+}

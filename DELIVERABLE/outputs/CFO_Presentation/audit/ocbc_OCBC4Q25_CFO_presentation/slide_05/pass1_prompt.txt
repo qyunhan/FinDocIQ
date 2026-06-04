@@ -1,0 +1,67 @@
+Extract ALL financial data from this bank CFO presentation slide.
+
+Return a JSON object with this exact structure:
+{
+  "slide_title": "the main heading of this slide verbatim",
+  "elements": [
+    {
+      "element_idx": 0,
+      "element_type": "text_table|waterfall|stacked_bar|stacked_bar_with_overlay|trend_line|kpi_grid|pie|donut_dual_ring|other",
+      "element_title": "the title printed above this element verbatim",
+      "source": "chart",
+      "units": "e.g. S$m, S$b, %, bps",
+      "self_check": "write the arithmetic check for this element e.g. '9755+658-1236=9177', or null",
+      "data_points": [
+        {
+          "series":   "row / bar / segment label verbatim",
+          "period":   "time period as printed on slide e.g. FY25, 4Q25, Dec-25, or null",
+          "value":    "value VERBATIM as printed — keep commas, %, (), + signs",
+          "row_type": "data|total|sub|start|end|bridge|note",
+          "level":    1,
+          "parent":   null,
+          "group":    null,
+          "sign":     null,
+          "order":    0
+        }
+      ]
+    }
+  ]
+}
+
+EXTRACTION RULES:
+
+value field — always verbatim:
+  "5,948" not 5948.  "(244)" not -244.  "1.82%" not 0.0182.  "+14%" not 14.
+
+row_type:
+  start / end  → waterfall opening and closing bars
+  bridge       → waterfall delta bars (must have sign="+" or "-")
+  total        → bold rows, grand totals, subtotals
+  sub          → indented sub-items (level=2, parent="nearest level-1 label")
+  note         → footnotes, disclaimers
+  data         → everything else
+
+Waterfall charts:
+  Every bridge bar needs sign="+" or "-". Read the colour legend on the slide.
+  Verify: start_value + sum(signed_deltas) = end_value. Write this as self_check.
+
+Stacked bars with overlay line:
+  Bar segments → data_points with period = x-axis label.
+  Overlay line → separate data_points, row_type="note", extra field overlay_series="<line name>".
+
+Donut dual ring:
+  Trace each period label's callout line to identify which ring it points to.
+  Assign period from what you read on the slide. Do NOT assume inner=earlier or outer=later.
+  One data_point per (segment, period) combination.
+
+KPI grid:
+  One data_point per KPI box. period=null if no time axis.
+  Extra fields for change values: e.g. yoy_change="-2%", yoy_change_label="YoY".
+
+Extra fields:
+  Add freely for any additional data columns on the slide.
+  Always pair with a _label field: e.g. yoy_pct="-3%", yoy_pct_label="YoY %".
+
+order: sequential integer, 0-based, top-to-bottom / left-to-right reading order.
+
+Return ONLY the JSON object. No markdown fences. No explanation.

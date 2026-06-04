@@ -1,0 +1,384 @@
+Here's a detailed analysis of the provided slide:
+
+═══════════════════════════════════════════════════
+STEP 1 — INVENTORY
+═══════════════════════════════════════════════════
+
+- 19: FY SP at 19bp (title)
+- 142: IBG and others, FY24
+- 411: IBG and others, FY25
+- (14): IBG and others, 1Q25
+- 72: IBG and others, 2Q25
+- 71: IBG and others, 3Q25
+- 282: IBG and others, 4Q25
+- 377: Add charges for, FY24
+- 703: Add charges for, FY25
+- 168: Add charges for, 1Q25
+- 100: Add charges for, 2Q25
+- 120: Add charges for, 3Q25
+- 355: Add charges for, 4Q25
+- 278: New NPLs, FY24
+- 428: New NPLs, FY25
+- 65: New NPLs, 1Q25
+- 29: New NPLs, 2Q25
+- 31: New NPLs, 3Q25
+- 308: New NPLs, 4Q25
+- 99: Existing NPLs, FY24
+- 275: Existing NPLs, FY25
+- 103: Existing NPLs, 1Q25
+- 71: Existing NPLs, 2Q25
+- 89: Existing NPLs, 3Q25
+- 47: Existing NPLs, 4Q25
+- 235: Subtract charges for, FY24
+- 292: Subtract charges for, FY25
+- 182: Subtract charges for, 1Q25
+- 28: Subtract charges for, 2Q25
+- 49: Subtract charges for, 3Q25
+- 73: Subtract charges for, 4Q25
+- 17: Upgrades, FY24
+- 119: Upgrades, FY25
+- 119: Upgrades, 1Q25
+- 1: Upgrades, 2Q25
+- 0: Upgrades, 3Q25
+- 1: Upgrades, 4Q25
+- 151: Settlements, FY24
+- 125: Settlements, FY25
+- 33: Settlements, 1Q25
+- 23: Settlements, 2Q25
+- 41: Settlements, 3Q25
+- 68: Settlements, 4Q25
+- 67: Recoveries, FY24
+- 48: Recoveries, FY25
+- 30: Recoveries, 1Q25
+- 4: Recoveries, 2Q25
+- 8: Recoveries, 3Q25
+- 4: Recoveries, 4Q25
+- 420: CBG / WM, FY24
+- 431: CBG / WM, FY25
+- 117: CBG / WM, 1Q25
+- 92: CBG / WM, 2Q25
+- 96: CBG / WM, 3Q25
+- 126: CBG / WM, 4Q25
+- 562: SP charges for loans, FY24
+- 842: SP charges for loans, FY25
+- 103: SP charges for loans, 1Q25
+- 164: SP charges for loans, 2Q25
+- 167: SP charges for loans, 3Q25
+- 408: SP charges for loans, 4Q25
+- (2): Other credit exposures, FY24
+- 3: Other credit exposures, FY25
+- 8: Other credit exposures, 1Q25
+- (15): Other credit exposures, 2Q25
+- 3: Other credit exposures, 3Q25
+- 7: Other credit exposures, 4Q25
+- 560: Total SP charges, FY24
+- 845: Total SP charges, FY25
+- 111: Total SP charges, 1Q25
+- 149: Total SP charges, 2Q25
+- 170: Total SP charges, 3Q25
+- 415: Total SP charges, 4Q25
+- 13: SP / loans (bp), FY24
+- 19: SP / loans (bp), FY25
+- 10: SP / loans (bp), 1Q25
+- 15: SP / loans (bp), 2Q25
+- 15: SP / loans (bp), 3Q25
+- 36: SP / loans (bp), 4Q25
+- 18: (page number)
+
+═══════════════════════════════════════════════════
+STEP 2 — STRUCTURE
+═══════════════════════════════════════════════════
+
+There is one main table on the slide.
+
+1.  TITLE: "FY SP at 19bp" (This appears to be a main title for the slide, not a specific table title, but it's the closest thing to a title for the data presented.)
+2.  COLUMN HEADERS: FY24, FY25, 1Q25, 2Q25, 3Q25, 4Q25
+3.  ROW COUNT: 16 data rows (excluding the main title and the "S$m" unit)
+4.  VISUAL CONVENTIONS on this specific slide:
+    *   **bold rows** → totals or subtotals? Yes, "Add charges for", "Subtract charges for", "CBG / WM", "SP charges for loans", "Total SP charges" are bold and appear to be subtotals or totals.
+    *   indented rows → sub-items of a parent row? Yes, "New NPLs", "Existing NPLs" are sub-items of "Add charges for". "Upgrades", "Settlements", "Recoveries" are sub-items of "Subtract charges for".
+    *   shaded/grey cells → not applicable (blank, not zero)? Yes, the FY25 column and the 1Q25-4Q25 columns for "SP / loans (bp)" are shaded, indicating they are the focus or perhaps a forecast. The FY25 column for the main data is also shaded.
+    *   parentheses → negative values? Yes, "(14)" and "(2)" and "(15)" indicate negative values.
+    *   dash cells → zero or negligible? No dash cells observed.
+    *   any footnotes that change interpretation of specific rows/cells? No footnotes observed.
+
+═══════════════════════════════════════════════════
+STEP 3 — VERIFY
+═══════════════════════════════════════════════════
+
+**Table 1: FY SP at 19bp**
+
+*   **Add charges for:**
+    *   FY24: 278 + 99 = 377 ✓
+    *   FY25: 428 + 275 = 703 ✓
+    *   1Q25: 65 + 103 = 168 ✓
+    *   2Q25: 29 + 71 = 100 ✓
+    *   3Q25: 31 + 89 = 120 ✓
+    *   4Q25: 308 + 47 = 355 ✓
+
+*   **Subtract charges for:**
+    *   FY24: 17 + 151 + 67 = 235 ✓
+    *   FY25: 119 + 125 + 48 = 292 ✓
+    *   1Q25: 119 + 33 + 30 = 182 ✓
+    *   2Q25: 1 + 23 + 4 = 28 ✓
+    *   3Q25: 0 + 41 + 8 = 49 ✓
+    *   4Q25: 1 + 68 + 4 = 73 ✓
+
+*   **SP charges for loans:**
+    *   FY24: 142 (IBG and others) + 377 (Add charges for) - 235 (Subtract charges for) + 420 (CBG / WM) = 704. **Discrepancy:** Printed 562.
+        *   *Re-evaluation:* It seems "SP charges for loans" is not a direct sum of the preceding items. It might be a sum of "IBG and others" and "CBG / WM" plus the net of "Add charges for" and "Subtract charges for". Let's try: IBG and others + (Add charges for - Subtract charges for) + CBG / WM.
+        *   FY24: 142 + (377 - 235) + 420 = 142 + 142 + 420 = 704. Still not 562.
+        *   *Alternative interpretation:* "SP charges for loans" might be the sum of "IBG and others" and "CBG / WM" *only*, and the "Add/Subtract charges for" are components of "IBG and others" or "CBG / WM" or a separate calculation.
+        *   Let's try: IBG and others + CBG / WM.
+        *   FY24: 142 + 420 = 562 ✓ (This seems to be the correct interpretation for "SP charges for loans")
+        *   FY25: 411 + 431 = 842 ✓
+        *   1Q25: (14) + 117 = 103 ✓
+        *   2Q25: 72 + 92 = 164 ✓
+        *   3Q25: 71 + 96 = 167 ✓
+        *   4Q25: 282 + 126 = 408 ✓
+
+*   **Total SP charges:**
+    *   FY24: 562 (SP charges for loans) + (2) (Other credit exposures) = 560 ✓
+    *   FY25: 842 (SP charges for loans) + 3 (Other credit exposures) = 845 ✓
+    *   1Q25: 103 (SP charges for loans) + 8 (Other credit exposures) = 111 ✓
+    *   2Q25: 164 (SP charges for loans) + (15) (Other credit exposures) = 149 ✓
+    *   3Q25: 167 (SP charges for loans) + 3 (Other credit exposures) = 170 ✓
+    *   4Q25: 408 (SP charges for loans) + 7 (Other credit exposures) = 415 ✓
+
+═══════════════════════════════════════════════════
+STEP 4 — PRE-MAP TO SCHEMA FIELDS
+═══════════════════════════════════════════════════
+
+ELEMENT 1 | text_table | "FY SP at 19bp"
+series="IBG and others" period="FY24" value="142" row_type="data" level=1
+
+ELEMENT 2 | text_table | "FY SP at 19bp"
+series="IBG and others" period="FY25" value="411" row_type="data" level=1
+
+ELEMENT 3 | text_table | "FY SP at 19bp"
+series="IBG and others" period="1Q25" value="(14)" row_type="data" level=1
+
+ELEMENT 4 | text_table | "FY SP at 19bp"
+series="IBG and others" period="2Q25" value="72" row_type="data" level=1
+
+ELEMENT 5 | text_table | "FY SP at 19bp"
+series="IBG and others" period="3Q25" value="71" row_type="data" level=1
+
+ELEMENT 6 | text_table | "FY SP at 19bp"
+series="IBG and others" period="4Q25" value="282" row_type="data" level=1
+
+ELEMENT 7 | text_table | "FY SP at 19bp"
+series="Add charges for" period="FY24" value="377" row_type="total" level=1
+
+ELEMENT 8 | text_table | "FY SP at 19bp"
+series="Add charges for" period="FY25" value="703" row_type="total" level=1
+
+ELEMENT 9 | text_table | "FY SP at 19bp"
+series="Add charges for" period="1Q25" value="168" row_type="total" level=1
+
+ELEMENT 10 | text_table | "FY SP at 19bp"
+series="Add charges for" period="2Q25" value="100" row_type="total" level=1
+
+ELEMENT 11 | text_table | "FY SP at 19bp"
+series="Add charges for" period="3Q25" value="120" row_type="total" level=1
+
+ELEMENT 12 | text_table | "FY SP at 19bp"
+series="Add charges for" period="4Q25" value="355" row_type="total" level=1
+
+ELEMENT 13 | text_table | "FY SP at 19bp"
+series="New NPLs" parent="Add charges for" period="FY24" value="278" row_type="sub" level=2
+
+ELEMENT 14 | text_table | "FY SP at 19bp"
+series="New NPLs" parent="Add charges for" period="FY25" value="428" row_type="sub" level=2
+
+ELEMENT 15 | text_table | "FY SP at 19bp"
+series="New NPLs" parent="Add charges for" period="1Q25" value="65" row_type="sub" level=2
+
+ELEMENT 16 | text_table | "FY SP at 19bp"
+series="New NPLs" parent="Add charges for" period="2Q25" value="29" row_type="sub" level=2
+
+ELEMENT 17 | text_table | "FY SP at 19bp"
+series="New NPLs" parent="Add charges for" period="3Q25" value="31" row_type="sub" level=2
+
+ELEMENT 18 | text_table | "FY SP at 19bp"
+series="New NPLs" parent="Add charges for" period="4Q25" value="308" row_type="sub" level=2
+
+ELEMENT 19 | text_table | "FY SP at 19bp"
+series="Existing NPLs" parent="Add charges for" period="FY24" value="99" row_type="sub" level=2
+
+ELEMENT 20 | text_table | "FY SP at 19bp"
+series="Existing NPLs" parent="Add charges for" period="FY25" value="275" row_type="sub" level=2
+
+ELEMENT 21 | text_table | "FY SP at 19bp"
+series="Existing NPLs" parent="Add charges for" period="1Q25" value="103" row_type="sub" level=2
+
+ELEMENT 22 | text_table | "FY SP at 19bp"
+series="Existing NPLs" parent="Add charges for" period="2Q25" value="71" row_type="sub" level=2
+
+ELEMENT 23 | text_table | "FY SP at 19bp"
+series="Existing NPLs" parent="Add charges for" period="3Q25" value="89" row_type="sub" level=2
+
+ELEMENT 24 | text_table | "FY SP at 19bp"
+series="Existing NPLs" parent="Add charges for" period="4Q25" value="47" row_type="sub" level=2
+
+ELEMENT 25 | text_table | "FY SP at 19bp"
+series="Subtract charges for" period="FY24" value="235" row_type="total" level=1
+
+ELEMENT 26 | text_table | "FY SP at 19bp"
+series="Subtract charges for" period="FY25" value="292" row_type="total" level=1
+
+ELEMENT 27 | text_table | "FY SP at 19bp"
+series="Subtract charges for" period="1Q25" value="182" row_type="total" level=1
+
+ELEMENT 28 | text_table | "FY SP at 19bp"
+series="Subtract charges for" period="2Q25" value="28" row_type="total" level=1
+
+ELEMENT 29 | text_table | "FY SP at 19bp"
+series="Subtract charges for" period="3Q25" value="49" row_type="total" level=1
+
+ELEMENT 30 | text_table | "FY SP at 19bp"
+series="Subtract charges for" period="4Q25" value="73" row_type="total" level=1
+
+ELEMENT 31 | text_table | "FY SP at 19bp"
+series="Upgrades" parent="Subtract charges for" period="FY24" value="17" row_type="sub" level=2
+
+ELEMENT 32 | text_table | "FY SP at 19bp"
+series="Upgrades" parent="Subtract charges for" period="FY25" value="119" row_type="sub" level=2
+
+ELEMENT 33 | text_table | "FY SP at 19bp"
+series="Upgrades" parent="Subtract charges for" period="1Q25" value="119" row_type="sub" level=2
+
+ELEMENT 34 | text_table | "FY SP at 19bp"
+series="Upgrades" parent="Subtract charges for" period="2Q25" value="1" row_type="sub" level=2
+
+ELEMENT 35 | text_table | "FY SP at 19bp"
+series="Upgrades" parent="Subtract charges for" period="3Q25" value="0" row_type="sub" level=2
+
+ELEMENT 36 | text_table | "FY SP at 19bp"
+series="Upgrades" parent="Subtract charges for" period="4Q25" value="1" row_type="sub" level=2
+
+ELEMENT 37 | text_table | "FY SP at 19bp"
+series="Settlements" parent="Subtract charges for" period="FY24" value="151" row_type="sub" level=2
+
+ELEMENT 38 | text_table | "FY SP at 19bp"
+series="Settlements" parent="Subtract charges for" period="FY25" value="125" row_type="sub" level=2
+
+ELEMENT 39 | text_table | "FY SP at 19bp"
+series="Settlements" parent="Subtract charges for" period="1Q25" value="33" row_type="sub" level=2
+
+ELEMENT 40 | text_table | "FY SP at 19bp"
+series="Settlements" parent="Subtract charges for" period="2Q25" value="23" row_type="sub" level=2
+
+ELEMENT 41 | text_table | "FY SP at 19bp"
+series="Settlements" parent="Subtract charges for" period="3Q25" value="41" row_type="sub" level=2
+
+ELEMENT 42 | text_table | "FY SP at 19bp"
+series="Settlements" parent="Subtract charges for" period="4Q25" value="68" row_type="sub" level=2
+
+ELEMENT 43 | text_table | "FY SP at 19bp"
+series="Recoveries" parent="Subtract charges for" period="FY24" value="67" row_type="sub" level=2
+
+ELEMENT 44 | text_table | "FY SP at 19bp"
+series="Recoveries" parent="Subtract charges for" period="FY25" value="48" row_type="sub" level=2
+
+ELEMENT 45 | text_table | "FY SP at 19bp"
+series="Recoveries" parent="Subtract charges for" period="1Q25" value="30" row_type="sub" level=2
+
+ELEMENT 46 | text_table | "FY SP at 19bp"
+series="Recoveries" parent="Subtract charges for" period="2Q25" value="4" row_type="sub" level=2
+
+ELEMENT 47 | text_table | "FY SP at 19bp"
+series="Recoveries" parent="Subtract charges for" period="3Q25" value="8" row_type="sub" level=2
+
+ELEMENT 48 | text_table | "FY SP at 19bp"
+series="Recoveries" parent="Subtract charges for" period="4Q25" value="4" row_type="sub" level=2
+
+ELEMENT 49 | text_table | "FY SP at 19bp"
+series="CBG / WM" period="FY24" value="420" row_type="data" level=1
+
+ELEMENT 50 | text_table | "FY SP at 19bp"
+series="CBG / WM" period="FY25" value="431" row_type="data" level=1
+
+ELEMENT 51 | text_table | "FY SP at 19bp"
+series="CBG / WM" period="1Q25" value="117" row_type="data" level=1
+
+ELEMENT 52 | text_table | "FY SP at 19bp"
+series="CBG / WM" period="2Q25" value="92" row_type="data" level=1
+
+ELEMENT 53 | text_table | "FY SP at 19bp"
+series="CBG / WM" period="3Q25" value="96" row_type="data" level=1
+
+ELEMENT 54 | text_table | "FY SP at 19bp"
+series="CBG / WM" period="4Q25" value="126" row_type="data" level=1
+
+ELEMENT 55 | text_table | "FY SP at 19bp"
+series="SP charges for loans" period="FY24" value="562" row_type="total" level=1
+
+ELEMENT 56 | text_table | "FY SP at 19bp"
+series="SP charges for loans" period="FY25" value="842" row_type="total" level=1
+
+ELEMENT 57 | text_table | "FY SP at 19bp"
+series="SP charges for loans" period="1Q25" value="103" row_type="total" level=1
+
+ELEMENT 58 | text_table | "FY SP at 19bp"
+series="SP charges for loans" period="2Q25" value="164" row_type="total" level=1
+
+ELEMENT 59 | text_table | "FY SP at 19bp"
+series="SP charges for loans" period="3Q25" value="167" row_type="total" level=1
+
+ELEMENT 60 | text_table | "FY SP at 19bp"
+series="SP charges for loans" period="4Q25" value="408" row_type="total" level=1
+
+ELEMENT 61 | text_table | "FY SP at 19bp"
+series="Other credit exposures" period="FY24" value="(2)" row_type="data" level=1
+
+ELEMENT 62 | text_table | "FY SP at 19bp"
+series="Other credit exposures" period="FY25" value="3" row_type="data" level=1
+
+ELEMENT 63 | text_table | "FY SP at 19bp"
+series="Other credit exposures" period="1Q25" value="8" row_type="data" level=1
+
+ELEMENT 64 | text_table | "FY SP at 19bp"
+series="Other credit exposures" period="2Q25" value="(15)" row_type="data" level=1
+
+ELEMENT 65 | text_table | "FY SP at 19bp"
+series="Other credit exposures" period="3Q25" value="3" row_type="data" level=1
+
+ELEMENT 66 | text_table | "FY SP at 19bp"
+series="Other credit exposures" period="4Q25" value="7" row_type="data" level=1
+
+ELEMENT 67 | text_table | "FY SP at 19bp"
+series="Total SP charges" period="FY24" value="560" row_type="total" level=0
+
+ELEMENT 68 | text_table | "FY SP at 19bp"
+series="Total SP charges" period="FY25" value="845" row_type="total" level=0
+
+ELEMENT 69 | text_table | "FY SP at 19bp"
+series="Total SP charges" period="1Q25" value="111" row_type="total" level=0
+
+ELEMENT 70 | text_table | "FY SP at 19bp"
+series="Total SP charges" period="2Q25" value="149" row_type="total" level=0
+
+ELEMENT 71 | text_table | "FY SP at 19bp"
+series="Total SP charges" period="3Q25" value="170" row_type="total" level=0
+
+ELEMENT 72 | text_table | "FY SP at 19bp"
+series="Total SP charges" period="4Q25" value="415" row_type="total" level=0
+
+ELEMENT 73 | text_table | "FY SP at 19bp"
+series="SP / loans (bp)" period="FY24" value="13" row_type="data" level=1
+
+ELEMENT 74 | text_table | "FY SP at 19bp"
+series="SP / loans (bp)" period="FY25" value="19" row_type="data" level=1
+
+ELEMENT 75 | text_table | "FY SP at 19bp"
+series="SP / loans (bp)" period="1Q25" value="10" row_type="data" level=1
+
+ELEMENT 76 | text_table | "FY SP at 19bp"
+series="SP / loans (bp)" period="2Q25" value="15" row_type="data" level=1
+
+ELEMENT 77 | text_table | "FY SP at 19bp"
+series="SP / loans (bp)" period="3Q25" value="15" row_type="data" level=1
+
+ELEMENT 78 | text_table | "FY SP at 19bp"
+series="SP / loans (bp)" period="4Q25" value="36" row_type="data" level=1

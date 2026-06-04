@@ -15,7 +15,7 @@ from pathlib import Path
 DEMO_DIR    = Path(__file__).parent.resolve()
 DELIVERABLE = DEMO_DIR.parent
 MDS_DIR     = DELIVERABLE.parent / "MDs"
-OUTPUTS_DIR = DELIVERABLE / "outputs" / "slides"
+OUTPUTS_DIR = DELIVERABLE / "outputs" / "CFO_Presentation"
 AUDIT_DIR   = OUTPUTS_DIR / "audit"
 CONTRACTS_F = DELIVERABLE / "slides" / "chart_contracts.json"
 

@@ -1,0 +1,200 @@
+Here's the analysis of the slide:
+
+═══════════════════════════════════════════════════
+STEP 1 — INVENTORY
+═══════════════════════════════════════════════════
+
+- 610: Deposits, Dec 25
+- 6: Deposits, HoH (%), Reported
+- 6: Deposits, HoH (%), Underlying
+- 9: Deposits, YoY (%), Reported
+- 12: Deposits, YoY (%), Underlying
+- 332: Casa, Dec 25
+- 11: Casa, HoH (%), Reported
+- 10: Casa, HoH (%), Underlying
+- 14: Casa, YoY (%), Reported
+- 17: Casa, YoY (%), Underlying
+- 278: Fixed deposits and others, Dec 25
+- 2: Fixed deposits and others, HoH (%), Reported
+- 1: Fixed deposits and others, HoH (%), Underlying
+- 3: Fixed deposits and others, YoY (%), Reported
+- 7: Fixed deposits and others, YoY (%), Underlying
+- 231: Singapore dollar, Dec 25
+- 7: Singapore dollar, HoH (%), Reported
+- 7: Singapore dollar, HoH (%), Underlying
+- 13: Singapore dollar, YoY (%), Reported
+- 13: Singapore dollar, YoY (%), Underlying
+- 241: US dollar, Dec 25
+- 10: US dollar, HoH (%), Reported
+- 9: US dollar, HoH (%), Underlying
+- 8: US dollar, YoY (%), Reported
+- 14: US dollar, YoY (%), Underlying
+- 32: HK dollar, Dec 25
+- (8): HK dollar, HoH (%), Reported
+- (9): HK dollar, HoH (%), Underlying
+- (4): HK dollar, YoY (%), Reported
+- 2: HK dollar, YoY (%), Underlying
+- 22: Taiwan dollar, Dec 25
+- (2): Taiwan dollar, HoH (%), Reported
+- 5: Taiwan dollar, HoH (%), Underlying
+- 11: Taiwan dollar, YoY (%), Reported
+- 12: Taiwan dollar, YoY (%), Underlying
+- 28: Chinese yuan, Dec 25
+- 23: Chinese yuan, HoH (%), Reported
+- 19: Chinese yuan, HoH (%), Underlying
+- 39: Chinese yuan, YoY (%), Reported
+- 41: Chinese yuan, YoY (%), Underlying
+- 56: Others, Dec 25
+- (3): Others, HoH (%), Reported
+- (3): Others, HoH (%), Underlying
+- (6): Others, YoY (%), Reported
+- (5): Others, YoY (%), Underlying
+- 73: Overall, Dec 25
+- 75: Overall, Jun 25
+- 77: Overall, Dec 24
+- 73: Singapore dollar, Dec 25
+- 78: Singapore dollar, Jun 25
+- 81: Singapore dollar, Dec 24
+- 50: US dollar, Dec 25
+- 49: US dollar, Jun 25
+- 49: US dollar, Dec 24
+
+═══════════════════════════════════════════════════
+STEP 2 — STRUCTURE
+═══════════════════════════════════════════════════
+
+**Table 1**
+1. TITLE: None (implied by slide title "Deposits up 6% HoH and 12% YoY in constant-FX terms")
+2. COLUMN HEADERS: (S$b) Dec 25, HoH (%) Reported, HoH (%) Underlying, YoY (%) Reported, YoY (%) Underlying
+3. ROW COUNT: 8
+4. VISUAL CONVENTIONS on this specific slide:
+    * bold rows → totals or subtotals? Yes, "Deposits" is a grand total, "By product" and "By currency" are section headers, "Casa" and "Fixed deposits and others" are subtotals for "By product", and the currency rows are sub-items for "By currency".
+    * indented rows → sub-items of a parent row? Yes, "Casa" and "Fixed deposits and others" are sub-items of "By product". "Singapore dollar", "US dollar", "HK dollar", "Taiwan dollar", "Chinese yuan", "Others" are sub-items of "By currency".
+    * shaded/grey cells → not applicable (blank, not zero)? Yes, the light orange shading indicates data cells.
+    * parentheses → negative values? Yes, e.g., "(8)" for HK dollar HoH (%).
+    * dash cells → zero or negligible? No dash cells present.
+    * any footnotes that change interpretation of specific rows/cells? No footnotes.
+
+**Table 2**
+1. TITLE: None (implied by "LDR (%)" row label)
+2. COLUMN HEADERS: Dec 25, Jun 25, Dec 24
+3. ROW COUNT: 3
+4. VISUAL CONVENTIONS on this specific slide:
+    * bold rows → totals or subtotals? Yes, "Overall" is a grand total.
+    * indented rows → sub-items of a parent row? Yes, "Singapore dollar" and "US dollar" are sub-items of "Overall".
+    * shaded/grey cells → not applicable (blank, not zero)? Yes, the light orange shading indicates data cells.
+    * parentheses → negative values? No parentheses present.
+    * dash cells → zero or negligible? No dash cells present.
+    * any footnotes that change interpretation of specific rows/cells? No footnotes.
+
+═══════════════════════════════════════════════════
+STEP 3 — VERIFY
+═══════════════════════════════════════════════════
+
+**Table 1: Deposits**
+
+*   **By product (Dec 25):** Casa (332) + Fixed deposits and others (278) = 610. Deposits (610) ✓
+*   **By product (HoH (%) Reported):** No direct sum check as these are percentages.
+*   **By product (HoH (%) Underlying):** No direct sum check as these are percentages.
+*   **By product (YoY (%) Reported):** No direct sum check as these are percentages.
+*   **By product (YoY (%) Underlying):** No direct sum check as these are percentages.
+
+*   **By currency (Dec 25):** Singapore dollar (231) + US dollar (241) + HK dollar (32) + Taiwan dollar (22) + Chinese yuan (28) + Others (56) = 610. Deposits (610) ✓
+*   **By currency (HoH (%) Reported):** No direct sum check as these are percentages.
+*   **By currency (HoH (%) Underlying):** No direct sum check as these are percentages.
+*   **By currency (YoY (%) Reported):** No direct sum check as these are percentages.
+*   **By currency (YoY (%) Underlying):** No direct sum check as these are percentages.
+
+**Table 2: LDR (%)**
+
+*   **Overall (Dec 25):** No sub-items to sum to Overall.
+*   **Overall (Jun 25):** No sub-items to sum to Overall.
+*   **Overall (Dec 24):** No sub-items to sum to Overall.
+
+═══════════════════════════════════════════════════
+STEP 4 — PRE-MAP TO SCHEMA FIELDS
+═══════════════════════════════════════════════════
+
+ELEMENT 1 | text_table | "Deposits"
+series="Deposits" period="Dec 25" value="610" row_type="total" level=0
+series="Deposits" period="HoH (%) Reported" value="6" row_type="total" level=0
+series="Deposits" period="HoH (%) Underlying" value="6" row_type="total" level=0
+series="Deposits" period="YoY (%) Reported" value="9" row_type="total" level=0
+series="Deposits" period="YoY (%) Underlying" value="12" row_type="total" level=0
+
+ELEMENT 2 | text_table | "Deposits"
+series="By product" period="" value="" row_type="total" level=0
+
+ELEMENT 3 | text_table | "Deposits"
+series="Casa" parent="By product" period="Dec 25" value="332" row_type="sub" level=1
+series="Casa" parent="By product" period="HoH (%) Reported" value="11" row_type="sub" level=1
+series="Casa" parent="By product" period="HoH (%) Underlying" value="10" row_type="sub" level=1
+series="Casa" parent="By product" period="YoY (%) Reported" value="14" row_type="sub" level=1
+series="Casa" parent="By product" period="YoY (%) Underlying" value="17" row_type="sub" level=1
+
+ELEMENT 4 | text_table | "Deposits"
+series="Fixed deposits and others" parent="By product" period="Dec 25" value="278" row_type="sub" level=1
+series="Fixed deposits and others" parent="By product" period="HoH (%) Reported" value="2" row_type="sub" level=1
+series="Fixed deposits and others" parent="By product" period="HoH (%) Underlying" value="1" row_type="sub" level=1
+series="Fixed deposits and others" parent="By product" period="YoY (%) Reported" value="3" row_type="sub" level=1
+series="Fixed deposits and others" parent="By product" period="YoY (%) Underlying" value="7" row_type="sub" level=1
+
+ELEMENT 5 | text_table | "Deposits"
+series="By currency" period="" value="" row_type="total" level=0
+
+ELEMENT 6 | text_table | "Deposits"
+series="Singapore dollar" parent="By currency" period="Dec 25" value="231" row_type="sub" level=1
+series="Singapore dollar" parent="By currency" period="HoH (%) Reported" value="7" row_type="sub" level=1
+series="Singapore dollar" parent="By currency" period="HoH (%) Underlying" value="7" row_type="sub" level=1
+series="Singapore dollar" parent="By currency" period="YoY (%) Reported" value="13" row_type="sub" level=1
+series="Singapore dollar" parent="By currency" period="YoY (%) Underlying" value="13" row_type="sub" level=1
+
+ELEMENT 7 | text_table | "Deposits"
+series="US dollar" parent="By currency" period="Dec 25" value="241" row_type="sub" level=1
+series="US dollar" parent="By currency" period="HoH (%) Reported" value="10" row_type="sub" level=1
+series="US dollar" parent="By currency" period="HoH (%) Underlying" value="9" row_type="sub" level=1
+series="US dollar" parent="By currency" period="YoY (%) Reported" value="8" row_type="sub" level=1
+series="US dollar" parent="By currency" period="YoY (%) Underlying" value="14" row_type="sub" level=1
+
+ELEMENT 8 | text_table | "Deposits"
+series="HK dollar" parent="By currency" period="Dec 25" value="32" row_type="sub" level=1
+series="HK dollar" parent="By currency" period="HoH (%) Reported" value="(8)" row_type="sub" level=1
+series="HK dollar" parent="By currency" period="HoH (%) Underlying" value="(9)" row_type="sub" level=1
+series="HK dollar" parent="By currency" period="YoY (%) Reported" value="(4)" row_type="sub" level=1
+series="HK dollar" parent="By currency" period="YoY (%) Underlying" value="2" row_type="sub" level=1
+
+ELEMENT 9 | text_table | "Deposits"
+series="Taiwan dollar" parent="By currency" period="Dec 25" value="22" row_type="sub" level=1
+series="Taiwan dollar" parent="By currency" period="HoH (%) Reported" value="(2)" row_type="sub" level=1
+series="Taiwan dollar" parent="By currency" period="HoH (%) Underlying" value="5" row_type="sub" level=1
+series="Taiwan dollar" parent="By currency" period="YoY (%) Reported" value="11" row_type="sub" level=1
+series="Taiwan dollar" parent="By currency" period="YoY (%) Underlying" value="12" row_type="sub" level=1
+
+ELEMENT 10 | text_table | "Deposits"
+series="Chinese yuan" parent="By currency" period="Dec 25" value="28" row_type="sub" level=1
+series="Chinese yuan" parent="By currency" period="HoH (%) Reported" value="23" row_type="sub" level=1
+series="Chinese yuan" parent="By currency" period="HoH (%) Underlying" value="19" row_type="sub" level=1
+series="Chinese yuan" parent="By currency" period="YoY (%) Reported" value="39" row_type="sub" level=1
+series="Chinese yuan" parent="By currency" period="YoY (%) Underlying" value="41" row_type="sub" level=1
+
+ELEMENT 11 | text_table | "Deposits"
+series="Others" parent="By currency" period="Dec 25" value="56" row_type="sub" level=1
+series="Others" parent="By currency" period="HoH (%) Reported" value="(3)" row_type="sub" level=1
+series="Others" parent="By currency" period="HoH (%) Underlying" value="(3)" row_type="sub" level=1
+series="Others" parent="By currency" period="YoY (%) Reported" value="(6)" row_type="sub" level=1
+series="Others" parent="By currency" period="YoY (%) Underlying" value="(5)" row_type="sub" level=1
+
+ELEMENT 12 | text_table | "LDR (%)"
+series="Overall" period="Dec 25" value="73" row_type="total" level=0
+series="Overall" period="Jun 25" value="75" row_type="total" level=0
+series="Overall" period="Dec 24" value="77" row_type="total" level=0
+
+ELEMENT 13 | text_table | "LDR (%)"
+series="Singapore dollar" parent="Overall" period="Dec 25" value="73" row_type="sub" level=1
+series="Singapore dollar" parent="Overall" period="Jun 25" value="78" row_type="sub" level=1
+series="Singapore dollar" parent="Overall" period="Dec 24" value="81" row_type="sub" level=1
+
+ELEMENT 14 | text_table | "LDR (%)"
+series="US dollar" parent="Overall" period="Dec 25" value="50" row_type="sub" level=1
+series="US dollar" parent="Overall" period="Jun 25" value="49" row_type="sub" level=1
+series="US dollar" parent="Overall" period="Dec 24" value="49" row_type="sub" level=1

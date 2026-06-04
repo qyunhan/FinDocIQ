@@ -1,0 +1,37 @@
+{
+  "slide": 25,
+  "cost_usd": 0.025334,
+  "n_points": 26,
+  "validation_errors": [
+    "Self-check unparseable: [Financial Performance] Allowances (FY25): (30) (GP) + 326 (SP) = 296 \u2713",
+    "Self-check unparseable: [Financial Performance] Allowances (FY24): 56 (GP) + 96 (SP) = 152 \u2713",
+    "Self-check unparseable: [Financial Performance] Net profit (FY25): 2,191 (Profit before allowances) - 296 (Allowances) = 1,895. DISCREPANCY: Printed Net profit is 1,609. (2,191 - 296 = 1,895, not 1,609).",
+    "Self-check unparseable: [Financial Performance] Net profit (FY24): 2,062 (Profit before allowances) - 152 (Allowances) = 1,910. DISCREPANCY: Printed Net profit is 1,597. (2,062 - 152 = 1,910, not 1,597)."
+  ],
+  "self_checks": [
+    "[Financial Performance] Allowances (FY25): (30) (GP) + 326 (SP) = 296 \u2713",
+    "[Financial Performance] Allowances (FY24): 56 (GP) + 96 (SP) = 152 \u2713",
+    "[Financial Performance] Net profit (FY25): 2,191 (Profit before allowances) - 296 (Allowances) = 1,895. DISCREPANCY: Printed Net profit is 1,609. (2,191 - 296 = 1,895, not 1,609).",
+    "[Financial Performance] Net profit (FY24): 2,062 (Profit before allowances) - 152 (Allowances) = 1,910. DISCREPANCY: Printed Net profit is 1,597. (2,062 - 152 = 1,910, not 1,597)."
+  ],
+  "usages": [
+    {
+      "pass": 1,
+      "prompt_tokens": 0,
+      "output_tokens": 3485,
+      "est_cost_usd": 0.008712
+    },
+    {
+      "pass": 2,
+      "prompt_tokens": 3869,
+      "output_tokens": 5278,
+      "est_cost_usd": 0.014356
+    },
+    {
+      "pass": "2c",
+      "prompt_tokens": 3853,
+      "output_tokens": 444,
+      "est_cost_usd": 0.002266
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "slide": 8,
+  "cost_usd": 0.008635,
+  "n_points": 38,
+  "validation_errors": [],
+  "self_checks": [
+    "[Gross loans (S$b)] 50+260+135+6=451",
+    "[Constant-FX change] 8+10+3+3=24"
+  ],
+  "usages": [
+    {
+      "pass": "1s",
+      "prompt_tokens": 0,
+      "output_tokens": 3454,
+      "est_cost_usd": 0.008635
+    }
+  ]
+}

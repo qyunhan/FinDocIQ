@@ -15,9 +15,9 @@ from pathlib import Path
 SCRIPT_DIR  = Path(__file__).parent.resolve()
 DELIVERABLE = SCRIPT_DIR.parent
 MDS_DIR     = DELIVERABLE.parent / "MDs"
-OUTPUTS_DIR = DELIVERABLE / "outputs" / "slides"
+OUTPUTS_DIR = DELIVERABLE / "outputs" / "CFO_Presentation"
 AUDIT_DIR   = OUTPUTS_DIR / "audit"
-REPORTS_DIR = DELIVERABLE / "reports"
+REPORTS_DIR = DELIVERABLE / "demo"
 
 # ---------------------------------------------------------------------------
 # HELPERS

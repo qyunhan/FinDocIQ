@@ -1365,7 +1365,7 @@ def main():
     bank_slug = bank.lower()
     brand     = BANKS[bank]["brand"]
 
-    _base     = Path(__file__).parent.parent / "outputs" / "slides"
+    _base     = Path(__file__).parent.parent / "outputs" / "CFO_Presentation"
     out_path  = args.out or str(_base / f"{bank_slug}_slides.xlsx")
     audit_dir = str(_base / "audit" / f"{bank_slug}_{doc_title}")
     os.makedirs(os.path.dirname(out_path), exist_ok=True)

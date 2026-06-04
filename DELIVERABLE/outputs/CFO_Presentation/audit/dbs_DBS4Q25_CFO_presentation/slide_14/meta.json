@@ -1,0 +1,37 @@
+{
+  "slide": 14,
+  "cost_usd": 0.016755,
+  "n_points": 18,
+  "validation_errors": [
+    "Self-check unparseable: [None] Total income (FY25): 3,414 (Loans) + 630 (Trade) + 3,672 (Cash / SFS) + 1,191 (Treasury and investment banking) = 8,907. Printed: 8,906. Discrepancy of 1.",
+    "Self-check unparseable: [None] Total income (FY24): 3,384 (Loans) + 638 (Trade) + 4,077 (Cash / SFS) + 1,060 (Treasury and investment banking) = 9,159. Printed: 9,159. \u2713",
+    "Self-check unparseable: [None] Profit before allowances (FY25): 8,906 (Total income) - 2,948 (Expenses) = 5,958. Printed: 5,958. \u2713",
+    "Self-check unparseable: [None] Profit before allowances (FY24): 9,159 (Total income) - 2,820 (Expenses) = 6,339. Printed: 6,339. \u2713"
+  ],
+  "self_checks": [
+    "[None] Total income (FY25): 3,414 (Loans) + 630 (Trade) + 3,672 (Cash / SFS) + 1,191 (Treasury and investment banking) = 8,907. Printed: 8,906. Discrepancy of 1.",
+    "[None] Total income (FY24): 3,384 (Loans) + 638 (Trade) + 4,077 (Cash / SFS) + 1,060 (Treasury and investment banking) = 9,159. Printed: 9,159. \u2713",
+    "[None] Profit before allowances (FY25): 8,906 (Total income) - 2,948 (Expenses) = 5,958. Printed: 5,958. \u2713",
+    "[None] Profit before allowances (FY24): 9,159 (Total income) - 2,820 (Expenses) = 6,339. Printed: 6,339. \u2713"
+  ],
+  "usages": [
+    {
+      "pass": 1,
+      "prompt_tokens": 0,
+      "output_tokens": 2129,
+      "est_cost_usd": 0.005322
+    },
+    {
+      "pass": 2,
+      "prompt_tokens": 2513,
+      "output_tokens": 3828,
+      "est_cost_usd": 0.010324
+    },
+    {
+      "pass": "2c",
+      "prompt_tokens": 2520,
+      "output_tokens": 141,
+      "est_cost_usd": 0.001109
+    }
+  ]
+}
