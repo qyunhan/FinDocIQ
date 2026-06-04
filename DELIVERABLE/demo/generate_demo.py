@@ -300,7 +300,13 @@ def build_how_it_works():
           <div class="fn-badge" style="background:#16a085">No API · Free</div>
           <div class="fn-step">Step 3 — Render to Excel</div>
           <div class="fn-title">Write structured workbook</div>
-          <div class="fn-desc">One tab per section. Hierarchy preserved (bold totals, indented sub-items). Brand colours applied. Every cell value is verbatim from the PDF — no rounding.</div>
+          <div class="fn-desc">
+            One tab per <strong>table</strong> (not per section — a single section like 9.3 Credit Risk
+            can produce 14 separate tables across 14 tabs). Each tab has a 3-row header:
+            bank name · table ID + title · source document and date.
+            Row hierarchy preserved: bold = totals, indented = sub-items.
+            Every cell value is verbatim from the PDF — no rounding, no conversion.
+          </div>
           <div class="fn-output">Output: ocbc_pillar3.xlsx · dbs_pillar3.xlsx · uob_pillar3.xlsx</div>
         </div>
 
