@@ -1,0 +1,27 @@
+{
+  "pass1": {
+    "ts": "2026-06-03T10:22:34",
+    "script": "extract_to_excel",
+    "label": "dbs_p84_v2_pass1",
+    "model": "gemini-3.5-flash",
+    "image_used": true,
+    "prompt_tokens": 505,
+    "output_tokens": 944,
+    "thinking_tokens": 0,
+    "total_tokens": 1449,
+    "est_cost_usd": 0.00925
+  },
+  "pass2": {
+    "ts": "2026-06-03T10:24:02",
+    "script": "extract_to_excel",
+    "label": "dbs_p84_v2_pass2",
+    "model": "gemini-3.5-flash",
+    "image_used": true,
+    "prompt_tokens": 1513,
+    "output_tokens": 7057,
+    "thinking_tokens": 0,
+    "total_tokens": 8570,
+    "est_cost_usd": 0.06578
+  },
+  "total_cost": 0.07503
+}

@@ -1,0 +1,27 @@
+{
+  "pass1": {
+    "ts": "2026-06-03T11:04:14",
+    "script": "extract_to_excel",
+    "label": "ocbc_p97_v4_pass1",
+    "model": "gemini-3.5-flash",
+    "image_used": true,
+    "prompt_tokens": 603,
+    "output_tokens": 1758,
+    "thinking_tokens": 0,
+    "total_tokens": 2361,
+    "est_cost_usd": 0.01673
+  },
+  "pass2": {
+    "ts": "2026-06-03T11:05:41",
+    "script": "extract_to_excel",
+    "label": "ocbc_p97_v4_pass2",
+    "model": "gemini-3.5-flash",
+    "image_used": true,
+    "prompt_tokens": 2327,
+    "output_tokens": 21340,
+    "thinking_tokens": 0,
+    "total_tokens": 23667,
+    "est_cost_usd": 0.19555
+  },
+  "total_cost": 0.21228
+}

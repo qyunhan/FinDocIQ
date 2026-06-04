@@ -1,0 +1,474 @@
+{
+  "tables": [
+    {
+      "title": "Differences between Accounting and Regulatory Scopes of Consolidation and Mapping of Financial Statements Categories with Regulatory Risk Categories\nAs at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "11.1",
+      "columns": [
+        {
+          "group": "Carrying values of items:",
+          "leaf": "Carrying values as reported in published financial statements"
+        },
+        {
+          "group": "Carrying values of items:",
+          "leaf": "Carrying values under scope of regulatory consolidation9"
+        },
+        {
+          "group": "Carrying values of items:",
+          "leaf": "Subject to credit risk requirements"
+        },
+        {
+          "group": "Carrying values of items:",
+          "leaf": "Subject to CCR requirements"
+        },
+        {
+          "group": "Carrying values of items:",
+          "leaf": "Subject to securitisation framework"
+        },
+        {
+          "group": "Carrying values of items:",
+          "leaf": "Subject to market risk requirements"
+        },
+        {
+          "group": "Carrying values of items:",
+          "leaf": "Not subject to capital requirements or subject to deduction from regulatory capital"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Assets",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cash, balances and placements with central banks",
+          "values": [
+            "35,742",
+            "35,742",
+            "32,872",
+            "583",
+            "-",
+            "2,308",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Singapore Government treasury bills and securities",
+          "values": [
+            "17,625",
+            "17,605",
+            "17,155",
+            "-",
+            "-",
+            "450",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other government treasury bills and securities",
+          "values": [
+            "45,070",
+            "45,070",
+            "42,670",
+            "-",
+            "-",
+            "2,399",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Trading securities",
+          "values": [
+            "5,556",
+            "5,556",
+            "#",
+            "-",
+            "-",
+            "5,556",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Placements and balances with banks",
+          "values": [
+            "32,954",
+            "32,898",
+            "27,128",
+            "4,508",
+            "-",
+            "4,943",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Loans to customers",
+          "values": [
+            "347,877",
+            "347,878",
+            "342,179",
+            "4,051",
+            "718",
+            "4,226",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Derivative financial assets",
+          "values": [
+            "10,893",
+            "10,892",
+            "-",
+            "10,892",
+            "-",
+            "9,792",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Investment securities",
+          "values": [
+            "51,840",
+            "51,383",
+            "48,220",
+            "-",
+            "3,164",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other assets",
+          "values": [
+            "12,138",
+            "12,098",
+            "12,088",
+            "#",
+            "10",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Deferred tax assets",
+          "values": [
+            "707",
+            "707",
+            "-",
+            "-",
+            "-",
+            "-",
+            "707"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Investment in associates and joint ventures",
+          "values": [
+            "1,252",
+            "1,252",
+            "1,248",
+            "-",
+            "-",
+            "-",
+            "4"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Investment in subsidiaries",
+          "values": [
+            "-",
+            "45",
+            "45",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Investment properties",
+          "values": [
+            "663",
+            "663",
+            "663",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Fixed assets",
+          "values": [
+            "4,791",
+            "4,736",
+            "4,736",
+            "-",
+            "-",
+            "#",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Intangible assets",
+          "values": [
+            "4,953",
+            "4,953",
+            "-",
+            "-",
+            "-",
+            "-",
+            "4,953"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total assets",
+          "values": [
+            "572,061",
+            "571,478",
+            "529,004",
+            "20,034",
+            "3,892",
+            "29,674",
+            "5,664"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Liabilities",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "sub_header",
+          "level": 1,
+          "parent": null,
+          "label": "Deposits and balances of:",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 2,
+          "parent": "h1",
+          "label": "Banks",
+          "values": [
+            "28,737",
+            "28,737",
+            "-",
+            "10,617",
+            "-",
+            "3,869",
+            "14,272"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 2,
+          "parent": "h1",
+          "label": "Customers",
+          "values": [
+            "425,938",
+            "425,945",
+            "-",
+            "871",
+            "-",
+            "1,297",
+            "423,980"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Bills and drafts payable",
+          "values": [
+            "566",
+            "566",
+            "-",
+            "-",
+            "-",
+            "-",
+            "566"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Derivative financial liabilities",
+          "values": [
+            "11,532",
+            "11,532",
+            "-",
+            "11,532",
+            "-",
+            "10,162",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other liabilities",
+          "values": [
+            "8,415",
+            "8,302",
+            "-",
+            "24",
+            "-",
+            "-",
+            "8,278"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Tax payable",
+          "values": [
+            "610",
+            "605",
+            "-",
+            "-",
+            "-",
+            "-",
+            "605"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Deferred tax liabilities",
+          "values": [
+            "347",
+            "334",
+            "-",
+            "-",
+            "-",
+            "-",
+            "334"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Debts issued",
+          "values": [
+            "44,423",
+            "44,423",
+            "-",
+            "-",
+            "-",
+            "2,615",
+            "41,809"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total liabilities",
+          "values": [
+            "520,568",
+            "520,444",
+            "-",
+            "23,044",
+            "-",
+            "17,943",
+            "489,844"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "9 The amounts shown in column (b) do not equal the sum of the amounts shown in columns (c) to (g) as some of the items are subject to capital requirements from more than one risk category.",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

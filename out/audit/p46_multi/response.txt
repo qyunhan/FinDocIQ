@@ -1,0 +1,108 @@
+{
+  "tables": [
+    {
+      "title": "12.13 IRBA – RWA Flow Statement for Credit Risk Exposures\nAs at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.13",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "RWA\namounts"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "RWA as at end of previous quarter",
+          "values": [
+            "190,310"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Asset size",
+          "values": [
+            "2,519"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Asset quality",
+          "values": [
+            "(3,500)"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Model updates",
+          "values": [
+            "(100)"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Methodology and policy",
+          "values": [
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Acquisitions and disposals",
+          "values": [
+            "-"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Foreign exchange movements",
+          "values": [
+            "509"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other",
+          "values": [
+            "74"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "RWA as at end of quarter",
+          "values": [
+            "189,812"
+          ]
+        }
+      ]
+    }
+  ]
+}

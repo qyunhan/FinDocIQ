@@ -1,0 +1,1201 @@
+{
+  "document": {
+    "title": "Pillar 3 Disclosures",
+    "pages": 102
+  },
+  "provenance": {
+    "method": "deterministic: printed contents + footer page-token scan (zero API)",
+    "toc_style": "numbered",
+    "granularity": "leaf_subsections",
+    "contents_page": 2,
+    "footer_tokens_found": 101,
+    "outline_entries": 0,
+    "sections_anchored": "55/55",
+    "heading_search_anchored": 0,
+    "warnings": [
+      "subsections share page 6: 2, 3 (tables on that page may need splitting between tabs)",
+      "subsections share page 61: 15.5, 15.6 (tables on that page may need splitting between tabs)",
+      "subsections share page 84: 19.2, 19.3 (tables on that page may need splitting between tabs)"
+    ]
+  },
+  "parts": [],
+  "sections": [
+    {
+      "section_id": "1",
+      "part": null,
+      "number": "1",
+      "title": "Attestation Statement",
+      "page_ref": "5",
+      "start_page": 5,
+      "end_page": 5
+    },
+    {
+      "section_id": "2",
+      "part": null,
+      "number": "2",
+      "title": "Introduction",
+      "page_ref": "6",
+      "start_page": 6,
+      "end_page": 7
+    },
+    {
+      "section_id": "3",
+      "part": null,
+      "number": "3",
+      "title": "Accounting and Regulatory Consolidation",
+      "page_ref": "6",
+      "start_page": 6,
+      "end_page": 7
+    },
+    {
+      "section_id": "4",
+      "part": null,
+      "number": "4",
+      "title": "Key Metrics",
+      "page_ref": "7",
+      "start_page": 7,
+      "end_page": 8
+    },
+    {
+      "section_id": "5.1",
+      "part": null,
+      "number": "5.1",
+      "title": "Disclosure of G-SIB Indicators",
+      "page_ref": "8",
+      "start_page": 8,
+      "end_page": 9
+    },
+    {
+      "section_id": "5.2",
+      "part": null,
+      "number": "5.2",
+      "title": "Geographical Distribution of Credit Exposures Used in the Countercyclical Capital Buffer",
+      "page_ref": "10",
+      "start_page": 10,
+      "end_page": 10
+    },
+    {
+      "section_id": "6.1",
+      "part": null,
+      "number": "6.1",
+      "title": "Reconciliation of Regulatory Capital to Balance Sheet",
+      "page_ref": "11",
+      "start_page": 11,
+      "end_page": 12
+    },
+    {
+      "section_id": "6.2",
+      "part": null,
+      "number": "6.2",
+      "title": "Composition of Regulatory Capital",
+      "page_ref": "13",
+      "start_page": 13,
+      "end_page": 15
+    },
+    {
+      "section_id": "6.3",
+      "part": null,
+      "number": "6.3",
+      "title": "Main Features of Regulatory Capital Instruments",
+      "page_ref": "16",
+      "start_page": 16,
+      "end_page": 19
+    },
+    {
+      "section_id": "7.1",
+      "part": null,
+      "number": "7.1",
+      "title": "Differences between Accounting and Regulatory Scopes of Consolidation and Mapping of Financial Statement Categories with Regulatory Risk Categories",
+      "page_ref": "20",
+      "start_page": 20,
+      "end_page": 21
+    },
+    {
+      "section_id": "7.2",
+      "part": null,
+      "number": "7.2",
+      "title": "Main Sources of Differences between Regulatory Exposure Amounts and Carrying Amounts in Financial Statements",
+      "page_ref": "22",
+      "start_page": 22,
+      "end_page": 22
+    },
+    {
+      "section_id": "7.3",
+      "part": null,
+      "number": "7.3",
+      "title": "Prudent Valuation Adjustments",
+      "page_ref": "23",
+      "start_page": 23,
+      "end_page": 23
+    },
+    {
+      "section_id": "8.1",
+      "part": null,
+      "number": "8.1",
+      "title": "Leverage Ratio Summary Comparison Table",
+      "page_ref": "24",
+      "start_page": 24,
+      "end_page": 24
+    },
+    {
+      "section_id": "8.2",
+      "part": null,
+      "number": "8.2",
+      "title": "Leverage Ratio Common Disclosure Table",
+      "page_ref": "25",
+      "start_page": 25,
+      "end_page": 26
+    },
+    {
+      "section_id": "9.1",
+      "part": null,
+      "number": "9.1",
+      "title": "Credit Quality of Assets",
+      "page_ref": "27",
+      "start_page": 27,
+      "end_page": 27
+    },
+    {
+      "section_id": "9.2",
+      "part": null,
+      "number": "9.2",
+      "title": "Changes in Stock of Defaulted Loans to Customers and Debt Securities",
+      "page_ref": "28",
+      "start_page": 28,
+      "end_page": 28
+    },
+    {
+      "section_id": "9.3",
+      "part": null,
+      "number": "9.3",
+      "title": "Additional Disclosures related to Credit Quality of Assets",
+      "page_ref": "29",
+      "start_page": 29,
+      "end_page": 33
+    },
+    {
+      "section_id": "9.4",
+      "part": null,
+      "number": "9.4",
+      "title": "Overview of Past Due Exposure and Impairment Allowances",
+      "page_ref": "34",
+      "start_page": 34,
+      "end_page": 40
+    },
+    {
+      "section_id": "9.5",
+      "part": null,
+      "number": "9.5",
+      "title": "Restructured Exposures",
+      "page_ref": "40",
+      "start_page": 40,
+      "end_page": 40
+    },
+    {
+      "section_id": "10",
+      "part": null,
+      "number": "10",
+      "title": "Asset Encumbrance",
+      "page_ref": "41",
+      "start_page": 41,
+      "end_page": 41
+    },
+    {
+      "section_id": "11",
+      "part": null,
+      "number": "11",
+      "title": "Key Approaches used for Computation of RWA",
+      "page_ref": "42",
+      "start_page": 42,
+      "end_page": 43
+    },
+    {
+      "section_id": "12",
+      "part": null,
+      "number": "12",
+      "title": "Overview of RWA",
+      "page_ref": "43",
+      "start_page": 43,
+      "end_page": 43
+    },
+    {
+      "section_id": "13.1",
+      "part": null,
+      "number": "13.1",
+      "title": "Comparison of Modelled and Standardised RWA at Risk Level",
+      "page_ref": "44",
+      "start_page": 44,
+      "end_page": 44
+    },
+    {
+      "section_id": "13.2",
+      "part": null,
+      "number": "13.2",
+      "title": "Comparison of Modelled and Standardised RWA for Credit Risk at Asset Class Level",
+      "page_ref": "45",
+      "start_page": 45,
+      "end_page": 45
+    },
+    {
+      "section_id": "14",
+      "part": null,
+      "number": "14",
+      "title": "IRBA - RWA Flow Statement for Credit Risk Exposures",
+      "page_ref": "46",
+      "start_page": 46,
+      "end_page": 47
+    },
+    {
+      "section_id": "15.1",
+      "part": null,
+      "number": "15.1",
+      "title": "SA(CR) \u2013 Credit Risk Exposures and CRM Effects",
+      "page_ref": "47",
+      "start_page": 47,
+      "end_page": 48
+    },
+    {
+      "section_id": "15.2",
+      "part": null,
+      "number": "15.2",
+      "title": "SA(CR) - Exposures by Asset Classes and Risk Weights",
+      "page_ref": "49",
+      "start_page": 49,
+      "end_page": 52
+    },
+    {
+      "section_id": "15.3",
+      "part": null,
+      "number": "15.3",
+      "title": "F-IRBA - Credit Exposures by Portfolio and PD Range",
+      "page_ref": "53",
+      "start_page": 53,
+      "end_page": 56
+    },
+    {
+      "section_id": "15.4",
+      "part": null,
+      "number": "15.4",
+      "title": "A-IRBA - Credit Exposures by Portfolio and PD Range",
+      "page_ref": "57",
+      "start_page": 57,
+      "end_page": 60
+    },
+    {
+      "section_id": "15.5",
+      "part": null,
+      "number": "15.5",
+      "title": "Overview of CRM Techniques",
+      "page_ref": "61",
+      "start_page": 61,
+      "end_page": 61
+    },
+    {
+      "section_id": "15.6",
+      "part": null,
+      "number": "15.6",
+      "title": "IRBA - Effect on RWA of Credit Derivatives used as CRM",
+      "page_ref": "61",
+      "start_page": 61,
+      "end_page": 61
+    },
+    {
+      "section_id": "16.1",
+      "part": null,
+      "number": "16.1",
+      "title": "F-IRBA \u2013 Backtesting of PD per portfolio",
+      "page_ref": "62",
+      "start_page": 62,
+      "end_page": 65
+    },
+    {
+      "section_id": "16.2",
+      "part": null,
+      "number": "16.2",
+      "title": "A-IRBA - Backtesting of PD per portfolio",
+      "page_ref": "66",
+      "start_page": 66,
+      "end_page": 69
+    },
+    {
+      "section_id": "17",
+      "part": null,
+      "number": "17",
+      "title": "IRBA - Specialised Lending under the Slotting Approach",
+      "page_ref": "70",
+      "start_page": 70,
+      "end_page": 70
+    },
+    {
+      "section_id": "18.1",
+      "part": null,
+      "number": "18.1",
+      "title": "Analysis of CCR Exposures by Approach",
+      "page_ref": "71",
+      "start_page": 71,
+      "end_page": 71
+    },
+    {
+      "section_id": "18.2",
+      "part": null,
+      "number": "18.2",
+      "title": "Exposures to Central Counterparties",
+      "page_ref": "72",
+      "start_page": 72,
+      "end_page": 73
+    },
+    {
+      "section_id": "18.3",
+      "part": null,
+      "number": "18.3",
+      "title": "SA - CCR Exposures by Portfolio and Risk Weights",
+      "page_ref": "74",
+      "start_page": 74,
+      "end_page": 74
+    },
+    {
+      "section_id": "18.4",
+      "part": null,
+      "number": "18.4",
+      "title": "F-IRBA - CCR Exposures by Portfolio and PD Range",
+      "page_ref": "75",
+      "start_page": 75,
+      "end_page": 78
+    },
+    {
+      "section_id": "18.5",
+      "part": null,
+      "number": "18.5",
+      "title": "A-IRBA - CCR Exposures by Portfolio and PD Range",
+      "page_ref": "79",
+      "start_page": 79,
+      "end_page": 80
+    },
+    {
+      "section_id": "18.6",
+      "part": null,
+      "number": "18.6",
+      "title": "Composition of Collateral for CCR Exposure",
+      "page_ref": "81",
+      "start_page": 81,
+      "end_page": 81
+    },
+    {
+      "section_id": "18.7",
+      "part": null,
+      "number": "18.7",
+      "title": "Credit Derivative Exposures",
+      "page_ref": "82",
+      "start_page": 82,
+      "end_page": 82
+    },
+    {
+      "section_id": "19.1",
+      "part": null,
+      "number": "19.1",
+      "title": "Securitisation Exposures in the Banking Book",
+      "page_ref": "83",
+      "start_page": 83,
+      "end_page": 83
+    },
+    {
+      "section_id": "19.2",
+      "part": null,
+      "number": "19.2",
+      "title": "Securitisation Exposures in the Trading Book",
+      "page_ref": "84",
+      "start_page": 84,
+      "end_page": 84
+    },
+    {
+      "section_id": "19.3",
+      "part": null,
+      "number": "19.3",
+      "title": "Securitisation Exposures in the Banking Book and associated Regulatory Capital Requirements \u2013 A Reporting Bank acting as Originator or as Sponsor",
+      "page_ref": "84",
+      "start_page": 84,
+      "end_page": 84
+    },
+    {
+      "section_id": "19.4",
+      "part": null,
+      "number": "19.4",
+      "title": "Securitisation Exposures in the Banking Book and associated Regulatory Capital Requirements \u2013 A Reporting Bank acting as Investor",
+      "page_ref": "85",
+      "start_page": 85,
+      "end_page": 85
+    },
+    {
+      "section_id": "20.1",
+      "part": null,
+      "number": "20.1",
+      "title": "Market Risk under Standardised Approach",
+      "page_ref": "86",
+      "start_page": 86,
+      "end_page": 86
+    },
+    {
+      "section_id": "20.2",
+      "part": null,
+      "number": "20.2",
+      "title": "CVA Risk Capital Requirements",
+      "page_ref": "87",
+      "start_page": 87,
+      "end_page": 87
+    },
+    {
+      "section_id": "21.1",
+      "part": null,
+      "number": "21.1",
+      "title": "Historical Losses",
+      "page_ref": "88",
+      "start_page": 88,
+      "end_page": 89
+    },
+    {
+      "section_id": "21.2",
+      "part": null,
+      "number": "21.2",
+      "title": "Business Indicator and Subcomponents",
+      "page_ref": "90",
+      "start_page": 90,
+      "end_page": 90
+    },
+    {
+      "section_id": "21.3",
+      "part": null,
+      "number": "21.3",
+      "title": "Minimum Required Operational Risk Capital",
+      "page_ref": "91",
+      "start_page": 91,
+      "end_page": 91
+    },
+    {
+      "section_id": "22",
+      "part": null,
+      "number": "22",
+      "title": "Interest Rate Risk in the Banking Book",
+      "page_ref": "92",
+      "start_page": 92,
+      "end_page": 94
+    },
+    {
+      "section_id": "23.1",
+      "part": null,
+      "number": "23.1",
+      "title": "Average Group All Currency LCR",
+      "page_ref": "94",
+      "start_page": 94,
+      "end_page": 94
+    },
+    {
+      "section_id": "23.2",
+      "part": null,
+      "number": "23.2",
+      "title": "Average Group SGD LCR",
+      "page_ref": "95",
+      "start_page": 95,
+      "end_page": 95
+    },
+    {
+      "section_id": "24",
+      "part": null,
+      "number": "24",
+      "title": "Net Stable Funding Ratio",
+      "page_ref": "96",
+      "start_page": 96,
+      "end_page": 98
+    },
+    {
+      "section_id": "25",
+      "part": null,
+      "number": "25",
+      "title": "Abbreviations",
+      "page_ref": "99",
+      "start_page": 99,
+      "end_page": 102
+    }
+  ],
+  "all_sections": [
+    {
+      "section_id": "1",
+      "part": null,
+      "number": "1",
+      "title": "Attestation Statement",
+      "page_ref": "5",
+      "start_page": 5,
+      "end_page": 5,
+      "is_leaf": true
+    },
+    {
+      "section_id": "2",
+      "part": null,
+      "number": "2",
+      "title": "Introduction",
+      "page_ref": "6",
+      "start_page": 6,
+      "end_page": 7,
+      "is_leaf": true
+    },
+    {
+      "section_id": "3",
+      "part": null,
+      "number": "3",
+      "title": "Accounting and Regulatory Consolidation",
+      "page_ref": "6",
+      "start_page": 6,
+      "end_page": 7,
+      "is_leaf": true
+    },
+    {
+      "section_id": "4",
+      "part": null,
+      "number": "4",
+      "title": "Key Metrics",
+      "page_ref": "7",
+      "start_page": 7,
+      "end_page": 8,
+      "is_leaf": true
+    },
+    {
+      "section_id": "5",
+      "part": null,
+      "number": "5",
+      "title": "Macroprudential Supervisory Measures",
+      "page_ref": "8",
+      "start_page": 8,
+      "end_page": 10,
+      "is_leaf": false
+    },
+    {
+      "section_id": "5.1",
+      "part": null,
+      "number": "5.1",
+      "title": "Disclosure of G-SIB Indicators",
+      "page_ref": "8",
+      "start_page": 8,
+      "end_page": 9,
+      "is_leaf": true
+    },
+    {
+      "section_id": "5.2",
+      "part": null,
+      "number": "5.2",
+      "title": "Geographical Distribution of Credit Exposures Used in the Countercyclical Capital Buffer",
+      "page_ref": "10",
+      "start_page": 10,
+      "end_page": 10,
+      "is_leaf": true
+    },
+    {
+      "section_id": "6",
+      "part": null,
+      "number": "6",
+      "title": "Composition of Capital",
+      "page_ref": "11",
+      "start_page": 11,
+      "end_page": 19,
+      "is_leaf": false
+    },
+    {
+      "section_id": "6.1",
+      "part": null,
+      "number": "6.1",
+      "title": "Reconciliation of Regulatory Capital to Balance Sheet",
+      "page_ref": "11",
+      "start_page": 11,
+      "end_page": 12,
+      "is_leaf": true
+    },
+    {
+      "section_id": "6.2",
+      "part": null,
+      "number": "6.2",
+      "title": "Composition of Regulatory Capital",
+      "page_ref": "13",
+      "start_page": 13,
+      "end_page": 15,
+      "is_leaf": true
+    },
+    {
+      "section_id": "6.3",
+      "part": null,
+      "number": "6.3",
+      "title": "Main Features of Regulatory Capital Instruments",
+      "page_ref": "16",
+      "start_page": 16,
+      "end_page": 19,
+      "is_leaf": true
+    },
+    {
+      "section_id": "7",
+      "part": null,
+      "number": "7",
+      "title": "Linkages between Financial Statements and Regulatory Exposures",
+      "page_ref": "20",
+      "start_page": 20,
+      "end_page": 23,
+      "is_leaf": false
+    },
+    {
+      "section_id": "7.1",
+      "part": null,
+      "number": "7.1",
+      "title": "Differences between Accounting and Regulatory Scopes of Consolidation and Mapping of Financial Statement Categories with Regulatory Risk Categories",
+      "page_ref": "20",
+      "start_page": 20,
+      "end_page": 21,
+      "is_leaf": true
+    },
+    {
+      "section_id": "7.2",
+      "part": null,
+      "number": "7.2",
+      "title": "Main Sources of Differences between Regulatory Exposure Amounts and Carrying Amounts in Financial Statements",
+      "page_ref": "22",
+      "start_page": 22,
+      "end_page": 22,
+      "is_leaf": true
+    },
+    {
+      "section_id": "7.3",
+      "part": null,
+      "number": "7.3",
+      "title": "Prudent Valuation Adjustments",
+      "page_ref": "23",
+      "start_page": 23,
+      "end_page": 23,
+      "is_leaf": true
+    },
+    {
+      "section_id": "8",
+      "part": null,
+      "number": "8",
+      "title": "Leverage Ratio",
+      "page_ref": "24",
+      "start_page": 24,
+      "end_page": 26,
+      "is_leaf": false
+    },
+    {
+      "section_id": "8.1",
+      "part": null,
+      "number": "8.1",
+      "title": "Leverage Ratio Summary Comparison Table",
+      "page_ref": "24",
+      "start_page": 24,
+      "end_page": 24,
+      "is_leaf": true
+    },
+    {
+      "section_id": "8.2",
+      "part": null,
+      "number": "8.2",
+      "title": "Leverage Ratio Common Disclosure Table",
+      "page_ref": "25",
+      "start_page": 25,
+      "end_page": 26,
+      "is_leaf": true
+    },
+    {
+      "section_id": "9",
+      "part": null,
+      "number": "9",
+      "title": "Credit Quality",
+      "page_ref": "27",
+      "start_page": 27,
+      "end_page": 40,
+      "is_leaf": false
+    },
+    {
+      "section_id": "9.1",
+      "part": null,
+      "number": "9.1",
+      "title": "Credit Quality of Assets",
+      "page_ref": "27",
+      "start_page": 27,
+      "end_page": 27,
+      "is_leaf": true
+    },
+    {
+      "section_id": "9.2",
+      "part": null,
+      "number": "9.2",
+      "title": "Changes in Stock of Defaulted Loans to Customers and Debt Securities",
+      "page_ref": "28",
+      "start_page": 28,
+      "end_page": 28,
+      "is_leaf": true
+    },
+    {
+      "section_id": "9.3",
+      "part": null,
+      "number": "9.3",
+      "title": "Additional Disclosures related to Credit Quality of Assets",
+      "page_ref": "29",
+      "start_page": 29,
+      "end_page": 33,
+      "is_leaf": true
+    },
+    {
+      "section_id": "9.4",
+      "part": null,
+      "number": "9.4",
+      "title": "Overview of Past Due Exposure and Impairment Allowances",
+      "page_ref": "34",
+      "start_page": 34,
+      "end_page": 40,
+      "is_leaf": true
+    },
+    {
+      "section_id": "9.5",
+      "part": null,
+      "number": "9.5",
+      "title": "Restructured Exposures",
+      "page_ref": "40",
+      "start_page": 40,
+      "end_page": 40,
+      "is_leaf": true
+    },
+    {
+      "section_id": "10",
+      "part": null,
+      "number": "10",
+      "title": "Asset Encumbrance",
+      "page_ref": "41",
+      "start_page": 41,
+      "end_page": 41,
+      "is_leaf": true
+    },
+    {
+      "section_id": "11",
+      "part": null,
+      "number": "11",
+      "title": "Key Approaches used for Computation of RWA",
+      "page_ref": "42",
+      "start_page": 42,
+      "end_page": 43,
+      "is_leaf": true
+    },
+    {
+      "section_id": "12",
+      "part": null,
+      "number": "12",
+      "title": "Overview of RWA",
+      "page_ref": "43",
+      "start_page": 43,
+      "end_page": 43,
+      "is_leaf": true
+    },
+    {
+      "section_id": "13",
+      "part": null,
+      "number": "13",
+      "title": "Comparison of Modelled and Standardised RWA",
+      "page_ref": "44",
+      "start_page": 44,
+      "end_page": 45,
+      "is_leaf": false
+    },
+    {
+      "section_id": "13.1",
+      "part": null,
+      "number": "13.1",
+      "title": "Comparison of Modelled and Standardised RWA at Risk Level",
+      "page_ref": "44",
+      "start_page": 44,
+      "end_page": 44,
+      "is_leaf": true
+    },
+    {
+      "section_id": "13.2",
+      "part": null,
+      "number": "13.2",
+      "title": "Comparison of Modelled and Standardised RWA for Credit Risk at Asset Class Level",
+      "page_ref": "45",
+      "start_page": 45,
+      "end_page": 45,
+      "is_leaf": true
+    },
+    {
+      "section_id": "14",
+      "part": null,
+      "number": "14",
+      "title": "IRBA - RWA Flow Statement for Credit Risk Exposures",
+      "page_ref": "46",
+      "start_page": 46,
+      "end_page": 47,
+      "is_leaf": true
+    },
+    {
+      "section_id": "15",
+      "part": null,
+      "number": "15",
+      "title": "Credit Exposures Under Standardised and IRB Approaches",
+      "page_ref": "47",
+      "start_page": 47,
+      "end_page": 61,
+      "is_leaf": false
+    },
+    {
+      "section_id": "15.1",
+      "part": null,
+      "number": "15.1",
+      "title": "SA(CR) \u2013 Credit Risk Exposures and CRM Effects",
+      "page_ref": "47",
+      "start_page": 47,
+      "end_page": 48,
+      "is_leaf": true
+    },
+    {
+      "section_id": "15.2",
+      "part": null,
+      "number": "15.2",
+      "title": "SA(CR) - Exposures by Asset Classes and Risk Weights",
+      "page_ref": "49",
+      "start_page": 49,
+      "end_page": 52,
+      "is_leaf": true
+    },
+    {
+      "section_id": "15.3",
+      "part": null,
+      "number": "15.3",
+      "title": "F-IRBA - Credit Exposures by Portfolio and PD Range",
+      "page_ref": "53",
+      "start_page": 53,
+      "end_page": 56,
+      "is_leaf": true
+    },
+    {
+      "section_id": "15.4",
+      "part": null,
+      "number": "15.4",
+      "title": "A-IRBA - Credit Exposures by Portfolio and PD Range",
+      "page_ref": "57",
+      "start_page": 57,
+      "end_page": 60,
+      "is_leaf": true
+    },
+    {
+      "section_id": "15.5",
+      "part": null,
+      "number": "15.5",
+      "title": "Overview of CRM Techniques",
+      "page_ref": "61",
+      "start_page": 61,
+      "end_page": 61,
+      "is_leaf": true
+    },
+    {
+      "section_id": "15.6",
+      "part": null,
+      "number": "15.6",
+      "title": "IRBA - Effect on RWA of Credit Derivatives used as CRM",
+      "page_ref": "61",
+      "start_page": 61,
+      "end_page": 61,
+      "is_leaf": true
+    },
+    {
+      "section_id": "16",
+      "part": null,
+      "number": "16",
+      "title": "IRBA \u2013 Backtesting of PD per portfolio",
+      "page_ref": "62",
+      "start_page": 62,
+      "end_page": 69,
+      "is_leaf": false
+    },
+    {
+      "section_id": "16.1",
+      "part": null,
+      "number": "16.1",
+      "title": "F-IRBA \u2013 Backtesting of PD per portfolio",
+      "page_ref": "62",
+      "start_page": 62,
+      "end_page": 65,
+      "is_leaf": true
+    },
+    {
+      "section_id": "16.2",
+      "part": null,
+      "number": "16.2",
+      "title": "A-IRBA - Backtesting of PD per portfolio",
+      "page_ref": "66",
+      "start_page": 66,
+      "end_page": 69,
+      "is_leaf": true
+    },
+    {
+      "section_id": "17",
+      "part": null,
+      "number": "17",
+      "title": "IRBA - Specialised Lending under the Slotting Approach",
+      "page_ref": "70",
+      "start_page": 70,
+      "end_page": 70,
+      "is_leaf": true
+    },
+    {
+      "section_id": "18",
+      "part": null,
+      "number": "18",
+      "title": "Counterparty Credit Risk",
+      "page_ref": "71",
+      "start_page": 71,
+      "end_page": 82,
+      "is_leaf": false
+    },
+    {
+      "section_id": "18.1",
+      "part": null,
+      "number": "18.1",
+      "title": "Analysis of CCR Exposures by Approach",
+      "page_ref": "71",
+      "start_page": 71,
+      "end_page": 71,
+      "is_leaf": true
+    },
+    {
+      "section_id": "18.2",
+      "part": null,
+      "number": "18.2",
+      "title": "Exposures to Central Counterparties",
+      "page_ref": "72",
+      "start_page": 72,
+      "end_page": 73,
+      "is_leaf": true
+    },
+    {
+      "section_id": "18.3",
+      "part": null,
+      "number": "18.3",
+      "title": "SA - CCR Exposures by Portfolio and Risk Weights",
+      "page_ref": "74",
+      "start_page": 74,
+      "end_page": 74,
+      "is_leaf": true
+    },
+    {
+      "section_id": "18.4",
+      "part": null,
+      "number": "18.4",
+      "title": "F-IRBA - CCR Exposures by Portfolio and PD Range",
+      "page_ref": "75",
+      "start_page": 75,
+      "end_page": 78,
+      "is_leaf": true
+    },
+    {
+      "section_id": "18.5",
+      "part": null,
+      "number": "18.5",
+      "title": "A-IRBA - CCR Exposures by Portfolio and PD Range",
+      "page_ref": "79",
+      "start_page": 79,
+      "end_page": 80,
+      "is_leaf": true
+    },
+    {
+      "section_id": "18.6",
+      "part": null,
+      "number": "18.6",
+      "title": "Composition of Collateral for CCR Exposure",
+      "page_ref": "81",
+      "start_page": 81,
+      "end_page": 81,
+      "is_leaf": true
+    },
+    {
+      "section_id": "18.7",
+      "part": null,
+      "number": "18.7",
+      "title": "Credit Derivative Exposures",
+      "page_ref": "82",
+      "start_page": 82,
+      "end_page": 82,
+      "is_leaf": true
+    },
+    {
+      "section_id": "19",
+      "part": null,
+      "number": "19",
+      "title": "Securitisation Exposures",
+      "page_ref": "83",
+      "start_page": 83,
+      "end_page": 85,
+      "is_leaf": false
+    },
+    {
+      "section_id": "19.1",
+      "part": null,
+      "number": "19.1",
+      "title": "Securitisation Exposures in the Banking Book",
+      "page_ref": "83",
+      "start_page": 83,
+      "end_page": 83,
+      "is_leaf": true
+    },
+    {
+      "section_id": "19.2",
+      "part": null,
+      "number": "19.2",
+      "title": "Securitisation Exposures in the Trading Book",
+      "page_ref": "84",
+      "start_page": 84,
+      "end_page": 84,
+      "is_leaf": true
+    },
+    {
+      "section_id": "19.3",
+      "part": null,
+      "number": "19.3",
+      "title": "Securitisation Exposures in the Banking Book and associated Regulatory Capital Requirements \u2013 A Reporting Bank acting as Originator or as Sponsor",
+      "page_ref": "84",
+      "start_page": 84,
+      "end_page": 84,
+      "is_leaf": true
+    },
+    {
+      "section_id": "19.4",
+      "part": null,
+      "number": "19.4",
+      "title": "Securitisation Exposures in the Banking Book and associated Regulatory Capital Requirements \u2013 A Reporting Bank acting as Investor",
+      "page_ref": "85",
+      "start_page": 85,
+      "end_page": 85,
+      "is_leaf": true
+    },
+    {
+      "section_id": "20",
+      "part": null,
+      "number": "20",
+      "title": "Market Risk",
+      "page_ref": "86",
+      "start_page": 86,
+      "end_page": 87,
+      "is_leaf": false
+    },
+    {
+      "section_id": "20.1",
+      "part": null,
+      "number": "20.1",
+      "title": "Market Risk under Standardised Approach",
+      "page_ref": "86",
+      "start_page": 86,
+      "end_page": 86,
+      "is_leaf": true
+    },
+    {
+      "section_id": "20.2",
+      "part": null,
+      "number": "20.2",
+      "title": "CVA Risk Capital Requirements",
+      "page_ref": "87",
+      "start_page": 87,
+      "end_page": 87,
+      "is_leaf": true
+    },
+    {
+      "section_id": "21",
+      "part": null,
+      "number": "21",
+      "title": "Operational Risk",
+      "page_ref": "88",
+      "start_page": 88,
+      "end_page": 91,
+      "is_leaf": false
+    },
+    {
+      "section_id": "21.1",
+      "part": null,
+      "number": "21.1",
+      "title": "Historical Losses",
+      "page_ref": "88",
+      "start_page": 88,
+      "end_page": 89,
+      "is_leaf": true
+    },
+    {
+      "section_id": "21.2",
+      "part": null,
+      "number": "21.2",
+      "title": "Business Indicator and Subcomponents",
+      "page_ref": "90",
+      "start_page": 90,
+      "end_page": 90,
+      "is_leaf": true
+    },
+    {
+      "section_id": "21.3",
+      "part": null,
+      "number": "21.3",
+      "title": "Minimum Required Operational Risk Capital",
+      "page_ref": "91",
+      "start_page": 91,
+      "end_page": 91,
+      "is_leaf": true
+    },
+    {
+      "section_id": "22",
+      "part": null,
+      "number": "22",
+      "title": "Interest Rate Risk in the Banking Book",
+      "page_ref": "92",
+      "start_page": 92,
+      "end_page": 94,
+      "is_leaf": true
+    },
+    {
+      "section_id": "23",
+      "part": null,
+      "number": "23",
+      "title": "Liquidity Coverage Ratio",
+      "page_ref": "93",
+      "start_page": 94,
+      "end_page": 95,
+      "is_leaf": false
+    },
+    {
+      "section_id": "23.1",
+      "part": null,
+      "number": "23.1",
+      "title": "Average Group All Currency LCR",
+      "page_ref": "94",
+      "start_page": 94,
+      "end_page": 94,
+      "is_leaf": true
+    },
+    {
+      "section_id": "23.2",
+      "part": null,
+      "number": "23.2",
+      "title": "Average Group SGD LCR",
+      "page_ref": "95",
+      "start_page": 95,
+      "end_page": 95,
+      "is_leaf": true
+    },
+    {
+      "section_id": "24",
+      "part": null,
+      "number": "24",
+      "title": "Net Stable Funding Ratio",
+      "page_ref": "96",
+      "start_page": 96,
+      "end_page": 98,
+      "is_leaf": true
+    },
+    {
+      "section_id": "25",
+      "part": null,
+      "number": "25",
+      "title": "Abbreviations",
+      "page_ref": "99",
+      "start_page": 99,
+      "end_page": 102,
+      "is_leaf": true
+    }
+  ]
+}

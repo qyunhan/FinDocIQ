@@ -1,0 +1,20 @@
+{
+  "unit_id": "p52_multi",
+  "pages": [
+    52
+  ],
+  "type": "multiple",
+  "image_used": false,
+  "usage": {
+    "ts": "2026-05-28T18:46:14",
+    "script": "extract_to_excel",
+    "label": "p52_multi",
+    "model": "gemini-3.5-flash",
+    "image_used": false,
+    "prompt_tokens": 1997,
+    "output_tokens": 1546,
+    "thinking_tokens": 0,
+    "total_tokens": 3543,
+    "est_cost_usd": 0.01691
+  }
+}

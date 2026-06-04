@@ -1,0 +1,313 @@
+{
+  "tables": [
+    {
+      "title": "4. KEY METRICS",
+      "label_header": "",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "Dec-25"
+        },
+        {
+          "group": "(b)",
+          "leaf": "Sep-25"
+        },
+        {
+          "group": "(c)",
+          "leaf": "Jun-25"
+        },
+        {
+          "group": "(d)",
+          "leaf": "Mar-25"
+        },
+        {
+          "group": "(e)",
+          "leaf": "Dec-24"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Available Capital (S$ million)",
+          "values": []
+        },
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CET1 Capital",
+          "values": ["41,938", "40,446", "40,740", "41,813", "40,388"]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Tier 1 Capital",
+          "values": ["43,676", "42,184", "42,477", "43,550", "42,124"]
+        },
+        {
+          "row_id": "3",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total Capital",
+          "values": ["48,184", "46,631", "46,876", "48,071", "46,619"]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Risk Weighted Assets (S$ million)",
+          "values": []
+        },
+        {
+          "row_id": "4",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total RWA",
+          "values": ["248,845", "239,853", "238,964", "238,236", "236,288"]
+        },
+        {
+          "row_id": "4a",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total RWA (pre-floor)",
+          "values": ["248,845", "239,853", "238,964", "238,236", "236,288"]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Risk-based Capital Ratios as a percentage of RWA (%)",
+          "values": []
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CET1 Ratio",
+          "values": ["16.9", "16.9", "17.0", "17.6", "17.1"]
+        },
+        {
+          "row_id": "5a",
+          "row_type": "data",
+          "level": 2,
+          "parent": "5",
+          "label": "CET1 Ratio (pre-floor)",
+          "values": ["16.9", "16.9", "17.0", "17.6", "17.1"]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Tier 1 Ratio",
+          "values": ["17.6", "17.6", "17.8", "18.3", "17.8"]
+        },
+        {
+          "row_id": "6a",
+          "row_type": "data",
+          "level": 2,
+          "parent": "6",
+          "label": "Tier 1 Ratio (pre-floor)",
+          "values": ["17.6", "17.6", "17.8", "18.3", "17.8"]
+        },
+        {
+          "row_id": "7",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total Capital Ratio",
+          "values": ["19.4", "19.4", "19.6", "20.2", "19.7"]
+        },
+        {
+          "row_id": "7a",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Total Capital Ratio (pre-floor)",
+          "values": ["19.4", "19.4", "19.6", "20.2", "19.7"]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Additional CET1 buffer requirements as a percentage of RWA (%)",
+          "values": []
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Capital conservation buffer requirement",
+          "values": ["2.5", "2.5", "2.5", "2.5", "2.5"]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Countercyclical buffer requirement",
+          "values": ["0.3", "0.3", "0.3", "0.3", "0.3"]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "G-SIB and/or D-SIB additional requirements",
+          "values": ["-", "-", "-", "-", "-"]
+        },
+        {
+          "row_id": "11",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total of Bank CET1 specific requirements 1/",
+          "values": ["2.8", "2.8", "2.8", "2.8", "2.8"]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CET1 available after meeting the Reporting Bank's minimum capital requirements",
+          "values": ["9.4", "9.4", "9.6", "10.2", "9.7"]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Leverage Ratio (S$ million)",
+          "values": []
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total Leverage Ratio exposure measure",
+          "values": ["612,322", "588,824", "579,677", "579,591", "569,084"]
+        },
+        {
+          "row_id": "14",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Leverage Ratio (%) 2/",
+          "values": ["7.1", "7.2", "7.3", "7.5", "7.4"]
+        },
+        {
+          "row_id": "14a",
+          "row_type": "data",
+          "level": 2,
+          "parent": "14",
+          "label": "Leverage Ratio (%) incorporating mean values for SFT assets",
+          "values": ["7.1", "7.2", "7.3", "7.5", "7.4"]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Liquidity Coverage Ratio (S$ million) 3/",
+          "values": []
+        },
+        {
+          "row_id": "15",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total HQLA",
+          "values": ["103,003", "98,298", "96,246", "92,303", "90,862"]
+        },
+        {
+          "row_id": "16",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total NCO",
+          "values": ["72,739", "69,771", "70,730", "69,907", "64,919"]
+        },
+        {
+          "row_id": "17",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "LCR (%)",
+          "values": ["142", "141", "136", "132", "140"]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Net Stable Funding Ratio (S$ million)",
+          "values": []
+        },
+        {
+          "row_id": "18",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total ASF",
+          "values": ["343,425", "334,152", "328,280", "329,108", "319,286"]
+        },
+        {
+          "row_id": "19",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total RSF",
+          "values": ["301,023", "292,385", "289,981", "289,401", "282,578"]
+        },
+        {
+          "row_id": "20",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "NSFR (%)",
+          "values": ["114", "114", "113", "114", "113"]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "1/ Sum of rows 8, 9 and 10",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "2/ Computed by row 2 / row 13",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "3/ Reported as simple averages of daily observations for the respective quarter",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

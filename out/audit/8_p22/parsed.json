@@ -1,0 +1,398 @@
+{
+  "tables": [
+    {
+      "title": "Overview of RWA",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "",
+      "columns": [
+        {
+          "group": "RWA",
+          "leaf": "As at 31 Dec 2025"
+        },
+        {
+          "group": "RWA",
+          "leaf": "As at 30 Sep 2025"
+        },
+        {
+          "group": "Minimum capital requirements",
+          "leaf": "As at 31 Dec 2025"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Credit risk (excluding CCR)",
+          "values": [
+            "227,426",
+            "227,203",
+            "22,743"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "of which: Standardised Approach",
+          "values": [
+            "37,614",
+            "36,893",
+            "3,762"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "of which: F-IRBA",
+          "values": [
+            "165,059",
+            "165,905",
+            "16,506"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "of which: supervisory slotting approach",
+          "values": [
+            "4,802",
+            "4,803",
+            "480"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "of which: A-IRBA",
+          "values": [
+            "19,951",
+            "19,602",
+            "1,995"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CCR",
+          "values": [
+            "7,161",
+            "6,779",
+            "716"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 2,
+          "parent": "6",
+          "label": "of which: SA-CCR",
+          "values": [
+            "6,300",
+            "6,071",
+            "630"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 2,
+          "parent": "6",
+          "label": "of which: CCR internal models method",
+          "values": [
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 2,
+          "parent": "6",
+          "label": "of which: other CCR",
+          "values": [
+            "527",
+            "329",
+            "53"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 2,
+          "parent": "6",
+          "label": "of which: CCP",
+          "values": [
+            "334",
+            "379",
+            "33"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CVA",
+          "values": [
+            "4,048",
+            "4,013",
+            "405"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity investments in funds – look through approach",
+          "values": [
+            "4",
+            "15",
+            "#"
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity investments in funds – mandate-based approach",
+          "values": [
+            "981",
+            "1,040",
+            "98"
+          ]
+        },
+        {
+          "row_id": "14",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity investments in funds – fall back approach",
+          "values": [
+            "#",
+            "#",
+            "#"
+          ]
+        },
+        {
+          "row_id": "15",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity investment in funds – partial use of an approach",
+          "values": [
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "16",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Unsettled transactions",
+          "values": [
+            "3",
+            "14",
+            "#"
+          ]
+        },
+        {
+          "row_id": "17",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Securitisation exposures in the banking book",
+          "values": [
+            "483",
+            "424",
+            "48"
+          ]
+        },
+        {
+          "row_id": "18",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "of which: SEC-IRBA",
+          "values": [
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "19",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "of which: SEC-ERBA",
+          "values": [
+            "402",
+            "386",
+            "40"
+          ]
+        },
+        {
+          "row_id": "20",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Of which: SEC-IAA",
+          "values": [
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "21",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "of which: SEC-SA",
+          "values": [
+            "81",
+            "38",
+            "8"
+          ]
+        },
+        {
+          "row_id": "22",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Market risk (excluding CVA and capital charge for switch between trading book and banking book)",
+          "values": [
+            "16,868",
+            "15,062",
+            "1,687"
+          ]
+        },
+        {
+          "row_id": "23",
+          "row_type": "data",
+          "level": 2,
+          "parent": "22",
+          "label": "of which: SA(MR)",
+          "values": [
+            "16,868",
+            "15,062",
+            "1,687"
+          ]
+        },
+        {
+          "row_id": "24",
+          "row_type": "data",
+          "level": 2,
+          "parent": "22",
+          "label": "Of which: SSA(MR)",
+          "values": [
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "25",
+          "row_type": "data",
+          "level": 2,
+          "parent": "22",
+          "label": "of which: IMA",
+          "values": [
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "26",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Capital charge for switch between trading book and banking book",
+          "values": [
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "27",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Operational risk",
+          "values": [
+            "16,364",
+            "16,046",
+            "1,636"
+          ]
+        },
+        {
+          "row_id": "28",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Amounts below the thresholds for deduction (subject to 250% risk weight)",
+          "values": [
+            "2,652",
+            "2,554",
+            "265"
+          ]
+        },
+        {
+          "row_id": "29",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Output floor calibration",
+          "values": [
+            "55%",
+            "55%",
+            "-"
+          ]
+        },
+        {
+          "row_id": "30",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Floor adjustment",
+          "values": [
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "31",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "275,990",
+            "273,150",
+            "27,599"
+          ]
+        }
+      ]
+    }
+  ]
+}

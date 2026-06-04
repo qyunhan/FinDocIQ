@@ -1,0 +1,138 @@
+{
+  "tables": [
+    {
+      "title": "15.3 Market Risk under Standardised Approach (cont'd)\n\nAs at 30 June 2025",
+      "label_header": "$m",
+      "continued_from_previous": true,
+      "section_id": "15.3",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "Capital Requirement"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "General interest rate risk",
+          "values": [
+            "83"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity risk",
+          "values": [
+            "20"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Commodity risk",
+          "values": [
+            "69"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Foreign exchange risk",
+          "values": [
+            "590"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Credit spread risk - non-securitisations",
+          "values": [
+            "164"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Credit spread risk - securitisations (non-correlation trading portfolio)",
+          "values": [
+            "-"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Credit spread risk - securitisations (correlation trading portfolio)",
+          "values": [
+            "-"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Default risk - non-securitisations",
+          "values": [
+            "108"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Default risk - securitisations (non-correlation trading portfolio)",
+          "values": [
+            "-"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Default risk - securitisations (correlation trading portfolio)",
+          "values": [
+            "-"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Residual risk add-on",
+          "values": [
+            "11"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "1,045"
+          ]
+        }
+      ]
+    }
+  ]
+}

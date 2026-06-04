@@ -1,0 +1,23 @@
+{
+  "unit_id": "C_1_1_p84-92_c1",
+  "pages": [
+    84,
+    85,
+    86,
+    87
+  ],
+  "type": "spanning",
+  "image_used": true,
+  "usage": {
+    "ts": "2026-05-28T17:07:49",
+    "script": "extract_to_excel",
+    "label": "C_1_1_p84-92_c1",
+    "model": "gemini-3.5-flash",
+    "image_used": true,
+    "prompt_tokens": 7755,
+    "output_tokens": 7756,
+    "thinking_tokens": 0,
+    "total_tokens": 15511,
+    "est_cost_usd": 0.08144
+  }
+}

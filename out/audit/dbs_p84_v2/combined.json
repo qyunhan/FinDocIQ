@@ -1,0 +1,742 @@
+{
+  "tables": [
+    {
+      "title": "31 Dec 2025",
+      "label_header": "ASF Item",
+      "continued_from_previous": false,
+      "section_id": "",
+      "columns": [
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "No maturity (1)"
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "< 6 months"
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "6 months to < 1 yr"
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "\"> 1yr"
+        },
+        {
+          "group": null,
+          "leaf": "WEIGHTED VALUE"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Capital:",
+          "values": [
+            {
+              "value": "70,928",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "70,928",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "Regulatory capital",
+          "values": [
+            {
+              "value": "70,928",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "70,928",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "Other capital instruments",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            }
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Retail deposits and deposits from small business customers:",
+          "values": [
+            {
+              "value": "216,272",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "121,583",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "3,118",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "199",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "311,925",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 2,
+          "parent": "4",
+          "label": "Stable deposits",
+          "values": [
+            {
+              "value": "87,893",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "8,944",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "170",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "10",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "92,166",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 2,
+          "parent": "4",
+          "label": "Less stable deposits",
+          "values": [
+            {
+              "value": "128,379",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "112,639",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "2,948",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "189",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "219,759",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Wholesale funding:",
+          "values": [
+            {
+              "value": "127,073",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "252,101",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "18,850",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "29,541",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "134,921",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Operational deposits",
+          "values": [
+            {
+              "value": "42,023",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "21,012",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Other wholesale funding",
+          "values": [
+            {
+              "value": "85,050",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "252,101",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "18,850",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "29,541",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "113,909",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Liabilities with matching interdependent assets",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "2,129",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            }
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other liabilities:",
+          "values": [
+            {
+              "value": "18,032",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "13,739",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "1,444",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "NSFR derivative liabilities",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "3,144",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            }
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "All other liabilities and equity not included in the above categories",
+          "values": [
+            {
+              "value": "18,032",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "10,595",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "1,444",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "14",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total ASF",
+          "values": [
+            {
+              "value": "",
+              "span": 4,
+              "merge_type": "blank"
+            },
+            {
+              "value": "519,218",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "15",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total NSFR high-quality liquid assets (HQLA)",
+          "values": [
+            {
+              "value": "",
+              "span": 4,
+              "merge_type": "blank"
+            },
+            {
+              "value": "19,880",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "16",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Deposits held at other financial institutions for operational purposes",
+          "values": [
+            {
+              "value": "520",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 3,
+              "merge_type": "blank"
+            },
+            {
+              "value": "260",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "17",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Performing loans and securities:",
+          "values": [
+            {
+              "value": "14,186",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "274,396",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "48,609",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "333,308",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "384,245",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "18",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing loans to financial institutions secured by Level 1 HQLA",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "33,357",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "916",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "1,356",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "5,149",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "19",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing loans to financial institutions secured by non-Level 1 HQLA and unsecured performing loans to financial institutions",
+          "values": [
+            {
+              "value": "10,605",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "35,527",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "11,003",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "36,621",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "49,045",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "20",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing loans to non-financial corporate clients, loans to retail and small business customers, and loans to sovereigns, central banks and PSEs, of which:",
+          "values": [
+            {
+              "value": "3,581",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "191,325",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "28,528",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "160,352",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "213,687",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "21",
+          "row_type": "data",
+          "level": 3,
+          "parent": "20",
+          "label": "With a risk weight of less than or equal to 35% under MAS Notice 637's standardised approach to credit risk",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "97,166",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "1,339",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "4,749",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "43,890",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "22",
+          "row_type": "data",
+          "level": 3,
+          "parent": "20",
+          "label": "Performing residential mortgages, of which:",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "4,626",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "2,164",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "82,913",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "64,328",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

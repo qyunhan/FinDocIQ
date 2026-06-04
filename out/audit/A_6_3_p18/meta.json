@@ -1,0 +1,20 @@
+{
+  "unit_id": "A_6_3_p18",
+  "pages": [
+    18
+  ],
+  "type": "single",
+  "image_used": true,
+  "usage": {
+    "ts": "2026-05-28T15:32:55",
+    "script": "extract_to_excel",
+    "label": "A_6_3_p18",
+    "model": "gemini-3.5-flash",
+    "image_used": true,
+    "prompt_tokens": 2862,
+    "output_tokens": 9,
+    "thinking_tokens": 0,
+    "total_tokens": 2871,
+    "est_cost_usd": 0.00437
+  }
+}

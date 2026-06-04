@@ -1,0 +1,18 @@
+```json
+{"rows": [
+  {
+    "row_id": null,
+    "label": "Unweighted value by residual maturity",
+    "merges": [
+      {"start_col": 1, "span": 4}
+    ]
+  },
+  {
+    "row_id": null,
+    "label": "No",
+    "merges": [
+      {"start_col": 2, "span": 2}
+    ]
+  }
+]}
+```

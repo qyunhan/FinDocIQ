@@ -1,0 +1,333 @@
+{
+  "tables": [
+    {
+      "title": "Historical Losses\nAs at 31 December 2025",
+      "label_header": "",
+      "continued_from_previous": false,
+      "section_id": "16.2",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "2025"
+        },
+        {
+          "group": null,
+          "leaf": "2024"
+        },
+        {
+          "group": null,
+          "leaf": "2023"
+        },
+        {
+          "group": null,
+          "leaf": "2022"
+        },
+        {
+          "group": null,
+          "leaf": "2021"
+        },
+        {
+          "group": null,
+          "leaf": "2020"
+        },
+        {
+          "group": null,
+          "leaf": "2019"
+        },
+        {
+          "group": null,
+          "leaf": "2018"
+        },
+        {
+          "group": null,
+          "leaf": "2017"
+        },
+        {
+          "group": null,
+          "leaf": "9-year\naverage18"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Using S$30,000 threshold",
+          "values": []
+        },
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total amount of operational risk losses net of recoveries (no exclusions) ($m)",
+          "values": [
+            "10",
+            "8",
+            "26",
+            "1",
+            "4",
+            "4",
+            "4",
+            "5",
+            "10",
+            "8"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total number of operational risk losses",
+          "values": [
+            "38",
+            "41",
+            "48",
+            "12",
+            "19",
+            "30",
+            "26",
+            "33",
+            "37",
+            "32"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total amount of excluded operational risk losses ($m)",
+          "values": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total number of exclusions",
+          "values": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total amount of operational risk losses net of recoveries and net of excluded operational risk losses ($m)",
+          "values": [
+            "10",
+            "8",
+            "26",
+            "1",
+            "4",
+            "4",
+            "4",
+            "5",
+            "10",
+            "8"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Using S$150,000 threshold",
+          "values": []
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total amount of operational risk losses net of recoveries (no exclusions) ($m)",
+          "values": [
+            "8",
+            "6",
+            "25",
+            "#",
+            "2",
+            "2",
+            "3",
+            "4",
+            "9",
+            "7"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total number of operational risk losses",
+          "values": [
+            "8",
+            "9",
+            "13",
+            "1",
+            "7",
+            "7",
+            "8",
+            "9",
+            "15",
+            "9"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total amount of excluded operational risk losses ($m)",
+          "values": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total number of exclusions",
+          "values": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total amount of operational risk losses net of recoveries and net of excluded operational risk losses ($m)",
+          "values": [
+            "8",
+            "6",
+            "25",
+            "#",
+            "2",
+            "2",
+            "3",
+            "4",
+            "9",
+            "7"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Details of operational risk capital calculations",
+          "values": []
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Are losses used to calculate the ILM?",
+          "values": [
+            "Yes",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "If \"no\" in row 11, is the exclusion of internal loss data due to non-compliance with the criteria set out in paragraphs 9.1.16 to 9.1.41?",
+          "values": [
+            "Not Applicable.",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Threshold of S$30,000 or S$150,000 for the operational risk capital calculation, if applicable",
+          "values": [
+            "Loss event threshold of S$150,000 has been applied for the calculation of operational risk capital.",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "18 The Bank’s use of internal loss data from FY2017 onwards was approved by the MAS. Additional years of loss data will be utilized for computation of ILM until the 10 years requirement is met.",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

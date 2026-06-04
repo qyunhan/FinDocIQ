@@ -1,0 +1,22 @@
+{
+  "unit_id": "21_p72-74",
+  "pages": [
+    72,
+    73,
+    74
+  ],
+  "type": "spanning",
+  "image_used": false,
+  "usage": {
+    "ts": "2026-05-28T18:50:20",
+    "script": "extract_to_excel",
+    "label": "21_p72-74",
+    "model": "gemini-3.5-flash",
+    "image_used": false,
+    "prompt_tokens": 3045,
+    "output_tokens": 7677,
+    "thinking_tokens": 0,
+    "total_tokens": 10722,
+    "est_cost_usd": 0.07366
+  }
+}

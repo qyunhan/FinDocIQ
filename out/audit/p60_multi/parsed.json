@@ -1,0 +1,103 @@
+{
+  "tables": [
+    {
+      "title": "Securitisation Exposures in the Banking Book",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "14.2",
+      "columns": [
+        {
+          "group": "As at \n31 Dec 2025\nUOB acts as investor",
+          "leaf": "(a)\nTraditional"
+        },
+        {
+          "group": "As at \n31 Dec 2025\nUOB acts as investor",
+          "leaf": "(b)\nOf\nwhich\nSTC"
+        },
+        {
+          "group": "As at \n30 Jun 2025\nUOB acts as investor",
+          "leaf": "(a)\nTraditional"
+        },
+        {
+          "group": "As at \n30 Jun 2025\nUOB acts as investor",
+          "leaf": "(b)\nOf\nwhich\nSTC"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Total retail",
+          "values": [
+            "5,019",
+            "4,435",
+            "4,722",
+            "4,226"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "of which: residential mortgage",
+          "values": [
+            "4,922",
+            "4,435",
+            "4,684",
+            "4,226"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "of which: other retail exposures",
+          "values": [
+            "97",
+            "-",
+            "38",
+            "-"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Total wholesale",
+          "values": [
+            "67",
+            "-",
+            "65",
+            "-"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 2,
+          "parent": "4",
+          "label": "of which: commercial mortgage",
+          "values": [
+            "67",
+            "-",
+            "65",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "Note: The group does not have any securitisation exposures where it acts as sponsor or originator.",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

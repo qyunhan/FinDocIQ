@@ -1,0 +1,480 @@
+{
+  "tables": [
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "13.8",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "EAD (post-CRM)"
+        },
+        {
+          "group": "(b)",
+          "leaf": "RWA"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total exposures to qualifying CCPs",
+          "values": [
+            "",
+            "334"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Exposures to qualifying CCPs (excluding",
+          "values": [
+            "13,625",
+            "273"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 2,
+          "parent": "2",
+          "label": "arising from: OTC derivative transactions;",
+          "values": [
+            "13,364",
+            "268"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 2,
+          "parent": "2",
+          "label": "arising from: Exchange-traded derivative transactions;",
+          "values": [
+            "261",
+            "5"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 2,
+          "parent": "2",
+          "label": "arising from: SFTs; and",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 2,
+          "parent": "2",
+          "label": "arising from: Netting sets where cross-product netting has been approved",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Segregated collateral",
+          "values": [
+            "-",
+            ""
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Unsegregated collateral",
+          "values": [
+            "3,061",
+            "61"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Pre-funded default fund contributions",
+          "values": [
+            "11",
+            "0"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Unfunded default fund contributions",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Exposures to non-QCCPs (total)",
+          "values": [
+            "-",
+            ""
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Exposures to non-qualifying CCPs (excluding",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 2,
+          "parent": "12",
+          "label": "arising from: OTC derivative transactions;",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "14",
+          "row_type": "data",
+          "level": 2,
+          "parent": "12",
+          "label": "arising from: Exchange-traded derivative transactions;",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "15",
+          "row_type": "data",
+          "level": 2,
+          "parent": "12",
+          "label": "arising from: SFTs; and",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "16",
+          "row_type": "data",
+          "level": 2,
+          "parent": "12",
+          "label": "arising from: Netting sets where cross-product netting has been approved",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "17",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Segregated collateral",
+          "values": [
+            "-",
+            ""
+          ]
+        },
+        {
+          "row_id": "18",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Unsegregated collateral",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "19",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Pre-funded default fund contributions",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "20",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Unfunded default fund contributions",
+          "values": [
+            "-",
+            "-"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "As at 30 June 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "13.8",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "EAD (post-CRM)"
+        },
+        {
+          "group": "(b)",
+          "leaf": "RWA"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total exposures to qualifying CCPs",
+          "values": [
+            "",
+            "415"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Exposures to qualifying CCPs (excluding",
+          "values": [
+            "16,589",
+            "332"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 2,
+          "parent": "2",
+          "label": "arising from: OTC derivative transactions;",
+          "values": [
+            "14,131",
+            "283"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 2,
+          "parent": "2",
+          "label": "arising from: Exchange-traded derivative transactions;",
+          "values": [
+            "2,458",
+            "49"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 2,
+          "parent": "2",
+          "label": "arising from: SFTs; and",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 2,
+          "parent": "2",
+          "label": "arising from: Netting sets where cross-product netting has been approved",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Segregated collateral",
+          "values": [
+            "-",
+            ""
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Unsegregated collateral",
+          "values": [
+            "4,082",
+            "81"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Pre-funded default fund contributions",
+          "values": [
+            "20",
+            "2"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Unfunded default fund contributions",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Exposures to non-QCCPs (total)",
+          "values": [
+            "-",
+            ""
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Exposures to non-qualifying CCPs (excluding",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 2,
+          "parent": "12",
+          "label": "arising from: OTC derivative transactions;",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "14",
+          "row_type": "data",
+          "level": 2,
+          "parent": "12",
+          "label": "arising from: Exchange-traded derivative transactions;",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "15",
+          "row_type": "data",
+          "level": 2,
+          "parent": "12",
+          "label": "arising from: SFTs; and",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "16",
+          "row_type": "data",
+          "level": 2,
+          "parent": "12",
+          "label": "arising from: Netting sets where cross-product netting has been approved",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "17",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Segregated collateral",
+          "values": [
+            "-",
+            ""
+          ]
+        },
+        {
+          "row_id": "18",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Unsegregated collateral",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "19",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Pre-funded default fund contributions",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "20",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Unfunded default fund contributions",
+          "values": [
+            "-",
+            "-"
+          ]
+        }
+      ]
+    }
+  ]
+}

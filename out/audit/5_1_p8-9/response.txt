@@ -1,0 +1,362 @@
+{
+  "tables": [
+    {
+      "title": "5.1 Disclosure of G-SIB Indicators\n31 Dec 2025",
+      "label_header": "Category",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Indicators used for assessing G-SIB 2/"
+        },
+        {
+          "group": null,
+          "leaf": "Amount"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cross-jurisdictional activity",
+          "values": [
+            "Cross-jurisdictional claims",
+            "334,715"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cross-jurisdictional activity",
+          "values": [
+            "Cross-jurisdictional liabilities",
+            "266,094"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Size",
+          "values": [
+            "Total exposures as defined for use in the Basel III leverage ratio1/",
+            "740,812"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Interconnectedness",
+          "values": [
+            "Intra-financial system assets",
+            "188,197"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Interconnectedness",
+          "values": [
+            "Intra-financial system liabilities",
+            "82,370"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Interconnectedness",
+          "values": [
+            "Securities outstanding",
+            "153,664"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Substitutability / financial institution infrastructure",
+          "values": [
+            "Assets under custody",
+            "200,068"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Substitutability / financial institution infrastructure",
+          "values": [
+            "Payments activity",
+            "8,964,136"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Substitutability / financial institution infrastructure",
+          "values": [
+            "Underwritten transactions in debt and equity markets",
+            "11,622"
+          ]
+        },
+        {
+          "row_id": "10a",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Substitutability / financial institution infrastructure",
+          "values": [
+            "Trading Volume - Fixed income securities",
+            "195,167"
+          ]
+        },
+        {
+          "row_id": "10b",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Substitutability / financial institution infrastructure",
+          "values": [
+            "- Equities and other securities",
+            "193,131"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Complexity",
+          "values": [
+            "Notional amount of OTC derivatives",
+            "1,701,260"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Complexity",
+          "values": [
+            "Level 3 assets",
+            "7,222"
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Complexity",
+          "values": [
+            "Trading and available-for-sale securities",
+            "52,175"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "5.1 Disclosure of G-SIB Indicators (continued)\n31 Dec 2024",
+      "label_header": "Category",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Indicators used for assessing G-SIB 2/"
+        },
+        {
+          "group": null,
+          "leaf": "Amount"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cross-jurisdictional activity",
+          "values": [
+            "Cross-jurisdictional claims",
+            "312,703"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cross-jurisdictional activity",
+          "values": [
+            "Cross-jurisdictional liabilities",
+            "236,067"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Size",
+          "values": [
+            "Total exposures as defined for use in the Basel III leverage ratio1/",
+            "688,795"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Interconnectedness",
+          "values": [
+            "Intra-financial system assets",
+            "190,959"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Interconnectedness",
+          "values": [
+            "Intra-financial system liabilities",
+            "65,257"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Interconnectedness",
+          "values": [
+            "Securities outstanding",
+            "131,772"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Substitutability / financial institution infrastructure",
+          "values": [
+            "Assets under custody",
+            "170,285"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Substitutability / financial institution infrastructure",
+          "values": [
+            "Payments activity",
+            "8,148,577"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Substitutability / financial institution infrastructure",
+          "values": [
+            "Underwritten transactions in debt and equity markets",
+            "11,080"
+          ]
+        },
+        {
+          "row_id": "10a",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Substitutability / financial institution infrastructure",
+          "values": [
+            "Trading Volume - Fixed income securities",
+            "190,661"
+          ]
+        },
+        {
+          "row_id": "10b",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Substitutability / financial institution infrastructure",
+          "values": [
+            "- Equities and other securities",
+            "134,479"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Complexity",
+          "values": [
+            "Notional amount of OTC derivatives",
+            "1,445,752"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Complexity",
+          "values": [
+            "Level 3 assets",
+            "6,291"
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Complexity",
+          "values": [
+            "Trading and available-for-sale securities",
+            "46,495"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "1/ Total exposures differ from the total exposures disclosed under Leverage Ratio as the computation as required by the Basel Committee for the purposes of the G-SIB assessment disclosures excludes regulatory adjustments",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "2/ The scope of consolidation has been extended to include insurance subsidiaries for Total exposures; Intra-financial system assets; Intra-financial system liabilities; Securities outstanding; Notional amount of OTC derivatives; and Level 3 assets indicators",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

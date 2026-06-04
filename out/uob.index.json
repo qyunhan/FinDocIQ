@@ -1,0 +1,380 @@
+[
+  {
+    "section_id": "4",
+    "title": "Key Metrics",
+    "sheet": "4 Table 1",
+    "pages": "7",
+    "first_page": 7,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "5.1",
+    "title": "Reconciliation of Regulatory Capital to Balance Sheet",
+    "sheet": "5.1 Table 5",
+    "pages": "8-12",
+    "first_page": 8,
+    "table_n": 5,
+    "n_tables": 5
+  },
+  {
+    "section_id": "5.2",
+    "title": "Main Features of Regulatory Instruments",
+    "sheet": "5.2 Table 5",
+    "pages": "12-17",
+    "first_page": 12,
+    "table_n": 5,
+    "n_tables": 5
+  },
+  {
+    "section_id": "6.1",
+    "title": "Leverage Ratio Summary Comparison Table",
+    "sheet": "6.1 Table 1",
+    "pages": "18",
+    "first_page": 18,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "6.2",
+    "title": "Leverage Ratio Common Disclosure Template",
+    "sheet": "6.2 Table 1",
+    "pages": "19",
+    "first_page": 19,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "7.1",
+    "title": "Geographical Distribution of Credit Exposures Used in the Countercyclical Capital Buffer",
+    "sheet": "7.1 Table 1",
+    "pages": "20",
+    "first_page": 20,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "7.2",
+    "title": "Disclosure of G-SIB Indicators",
+    "sheet": "7.2 Table 1",
+    "pages": "21",
+    "first_page": 21,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "8",
+    "title": "Overview of RWA",
+    "sheet": "8 Table 1",
+    "pages": "22-23",
+    "first_page": 22,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "10",
+    "title": "Comparison of Modelled and Standardised RWA for Credit Risk at Asset Class Level",
+    "sheet": "10 Table 1",
+    "pages": "23",
+    "first_page": 23,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "9",
+    "title": "Comparison of Modelled and Standardised RWA at Risk Level",
+    "sheet": "9 Table 1 (2)",
+    "pages": "23-24",
+    "first_page": 23,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "11.1",
+    "title": "Differences between Accounting and Regulatory Scopes of Consolidation and Mapping of Financial Statements Categories with Regulatory Risk Categories",
+    "sheet": "11.1 Table 1 (2)",
+    "pages": "24",
+    "first_page": 24,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "11.2",
+    "title": "Main Sources of Differences between Regulatory Exposure Amounts and Carrying Amounts in Financial Statements",
+    "sheet": "11.2 Table 1",
+    "pages": "25",
+    "first_page": 25,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "11.4",
+    "title": "Prudent Valuation Adjustments",
+    "sheet": "11.4 Table 2",
+    "pages": "26-27",
+    "first_page": 26,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "12.2",
+    "title": "Credit Quality of Assets",
+    "sheet": "12.2 Table 2",
+    "pages": "27-28",
+    "first_page": 27,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "12.3",
+    "title": "Changes in Stock of Defaulted Loans and Debt Securities",
+    "sheet": "12.3 Table 1",
+    "pages": "28",
+    "first_page": 28,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "12.4",
+    "title": "Additional Disclosures Related to the Credit Quality of Assets",
+    "sheet": "12.4 Table 16",
+    "pages": "28-36",
+    "first_page": 28,
+    "table_n": 16,
+    "n_tables": 16
+  },
+  {
+    "section_id": "12.6",
+    "title": "Overview of CRM Techniques",
+    "sheet": "12.6 Table 2",
+    "pages": "36",
+    "first_page": 36,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "12.8",
+    "title": "SA(CR) \u2013 Credit Risk Exposure and CRM Effects",
+    "sheet": "12.8 Table 2",
+    "pages": "37",
+    "first_page": 37,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "12.9",
+    "title": "SA(CR) \u2013 Exposures by Asset Classes and Risk Weights",
+    "sheet": "12.9 Table 7",
+    "pages": "38-41",
+    "first_page": 38,
+    "table_n": 7,
+    "n_tables": 7
+  },
+  {
+    "section_id": "12.11",
+    "title": "IRBA \u2013 Credit Risk Exposures by Portfolio and PD Range",
+    "sheet": "12.11 Table 4",
+    "pages": "42-45",
+    "first_page": 42,
+    "table_n": 4,
+    "n_tables": 4
+  },
+  {
+    "section_id": "12.13",
+    "title": "IRBA \u2013 RWA Flow Statement for Credit Risk Exposures",
+    "sheet": "12.13 Table 1",
+    "pages": "46",
+    "first_page": 46,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "12.14",
+    "title": "IRBA \u2013 Backtesting of PD per portfolio",
+    "sheet": "12.14 Table 4",
+    "pages": "47-50",
+    "first_page": 47,
+    "table_n": 4,
+    "n_tables": 4
+  },
+  {
+    "section_id": "12.15",
+    "title": "IRBA \u2013 Specialised Lending under the Slotting Approach",
+    "sheet": "12.15 Table 2",
+    "pages": "51",
+    "first_page": 51,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "13.2",
+    "title": "Analysis of CCR Exposure by Approach",
+    "sheet": "13.2 Table 2",
+    "pages": "52",
+    "first_page": 52,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "13.3",
+    "title": "Standardised Approach \u2013 CCR Exposures by Portfolio and Risk Weights",
+    "sheet": "13.3 Table 2",
+    "pages": "53",
+    "first_page": 53,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "13.4",
+    "title": "IRBA \u2013 CCR Exposures by Portfolio and PD Range",
+    "sheet": "13.4 Table 4",
+    "pages": "53-56",
+    "first_page": 53,
+    "table_n": 4,
+    "n_tables": 4
+  },
+  {
+    "section_id": "13.5",
+    "title": "Composition of Collateral for CCR Exposures",
+    "sheet": "13.5 Table 2",
+    "pages": "57",
+    "first_page": 57,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "13.6",
+    "title": "Credit Derivative Exposures",
+    "sheet": "13.6 Table 2",
+    "pages": "58",
+    "first_page": 58,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "13.8",
+    "title": "Exposures to Central Counterparties",
+    "sheet": "13.8 Table 2",
+    "pages": "58-59",
+    "first_page": 58,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "14.2",
+    "title": "Securitisation Exposures in the Banking Book",
+    "sheet": "14.2 Table 1",
+    "pages": "60",
+    "first_page": 60,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "14.5",
+    "title": "Securitisation Exposures in the Banking Book and associated Regulatory Capital Requirements \u2013 UOB acting as Investor",
+    "sheet": "14.5 Table 2",
+    "pages": "61",
+    "first_page": 61,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "15.3",
+    "title": "Market Risk under Standardised Approach",
+    "sheet": "15.3 Table 2",
+    "pages": "62-63",
+    "first_page": 62,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "16.2",
+    "title": "Historical Losses",
+    "sheet": "16.2 Table 1",
+    "pages": "64",
+    "first_page": 64,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "16.3",
+    "title": "Business Indicator and Subcomponents",
+    "sheet": "16.3 Table 1",
+    "pages": "65",
+    "first_page": 65,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "16.4",
+    "title": "Minimum Required Operational Risk Capital",
+    "sheet": "16.4 Table 1",
+    "pages": "65",
+    "first_page": 65,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "17.2",
+    "title": "Quantitative Information on IRRBB",
+    "sheet": "17.2 Table 1",
+    "pages": "67",
+    "first_page": 67,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "18",
+    "title": "Asset Encumbrance",
+    "sheet": "18 Table 2",
+    "pages": "67",
+    "first_page": 67,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "19.2",
+    "title": "The Reduced BA-CVA",
+    "sheet": "19.2 Table 1",
+    "pages": "68",
+    "first_page": 68,
+    "table_n": 1,
+    "n_tables": 1
+  },
+  {
+    "section_id": "20.2",
+    "title": "Average Group All Currency LCR",
+    "sheet": "20.2 Table 2",
+    "pages": "70",
+    "first_page": 70,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "20.3",
+    "title": "Average Group SGD Currency LCR",
+    "sheet": "20.3 Table 2",
+    "pages": "71",
+    "first_page": 71,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "21",
+    "title": "Net Stable Funding Ratio Disclosures",
+    "sheet": "21 Table 2",
+    "pages": "72-74",
+    "first_page": 72,
+    "table_n": 2,
+    "n_tables": 2
+  },
+  {
+    "section_id": "23",
+    "title": "Abbreviations",
+    "sheet": "23 Table 1",
+    "pages": "75-77",
+    "first_page": 75,
+    "table_n": 1,
+    "n_tables": 1
+  }
+]

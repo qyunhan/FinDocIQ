@@ -1,0 +1,3472 @@
+{
+  "tables": [
+    {
+      "title": "(A) Main parameters used for calculations of capital requirements for credit exposures under FIRB\nAs at 31 December 2025",
+      "label_header": "PD range\n%",
+      "continued_from_previous": false,
+      "section_id": "12.11",
+      "columns": [
+        {
+          "group": "Original on-balance sheet gross exposures",
+          "leaf": "$m"
+        },
+        {
+          "group": "Off-balance sheet exposures pre-CCF",
+          "leaf": "$m"
+        },
+        {
+          "group": "Average CCF",
+          "leaf": "%"
+        },
+        {
+          "group": "EAD post-CRM and post-CCF",
+          "leaf": "$m"
+        },
+        {
+          "group": "Average PD",
+          "leaf": "%"
+        },
+        {
+          "group": "Number of Obligors",
+          "leaf": ""
+        },
+        {
+          "group": "Average LGD",
+          "leaf": "%"
+        },
+        {
+          "group": "Average Maturity",
+          "leaf": "Years"
+        },
+        {
+          "group": "RWA",
+          "leaf": "$m"
+        },
+        {
+          "group": "RWA density",
+          "leaf": "%"
+        },
+        {
+          "group": "EL",
+          "leaf": "$m"
+        },
+        {
+          "group": "TEP",
+          "leaf": "$m"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Sovereign",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "95,183",
+            "1,964",
+            "66",
+            "96,994",
+            "0.0",
+            "47",
+            "45",
+            "2.9",
+            "3,985",
+            "4",
+            "3",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "1,994",
+            " -",
+            " -",
+            "1,994",
+            "0.2",
+            "5",
+            "45",
+            "3.1",
+            "1,033",
+            "52",
+            "2",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "71",
+            "19",
+            "50",
+            "81",
+            "0.4",
+            "1",
+            "45",
+            "2.7",
+            "49",
+            "60",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "138",
+            " -",
+            " -",
+            "138",
+            "0.6",
+            "2",
+            "45",
+            "2.8",
+            "107",
+            "78",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "7",
+            " -",
+            " -",
+            "7",
+            "18.5",
+            "1",
+            "45",
+            "0.0",
+            "14",
+            "208",
+            "1",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "97,393",
+            "1,983",
+            "66",
+            "99,214",
+            "0.0",
+            "56",
+            "45",
+            "2.9",
+            "5,188",
+            "5",
+            "6",
+            "84"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Bank",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "31,931",
+            "1,958",
+            "42",
+            "33,065",
+            "0.1",
+            "157",
+            "45",
+            "1.7",
+            "6,762",
+            "20",
+            "8",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "6,792",
+            "227",
+            "30",
+            "6,861",
+            "0.2",
+            "22",
+            "45",
+            "0.8",
+            "2,630",
+            "38",
+            "7",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "659",
+            "339",
+            "22",
+            "745",
+            "0.4",
+            "16",
+            "45",
+            "0.3",
+            "330",
+            "44",
+            "1",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "55",
+            "109",
+            "42",
+            "100",
+            "0.6",
+            "15",
+            "45",
+            "0.1",
+            "52",
+            "52",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "749",
+            "55",
+            "73",
+            "776",
+            "1.2",
+            "9",
+            "45",
+            "0.4",
+            "560",
+            "72",
+            "4",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "556",
+            " -",
+            " -",
+            "550",
+            "4.3",
+            "4",
+            "45",
+            "0.3",
+            "641",
+            "117",
+            "11",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "9",
+            " -",
+            " -",
+            "9",
+            "20.5",
+            "7",
+            "45",
+            "0.0",
+            "19",
+            "218",
+            "1",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "40,751",
+            "2,688",
+            "39",
+            "42,106",
+            "0.2",
+            "230",
+            "45",
+            "1.5",
+            "10,994",
+            "26",
+            "32",
+            "179"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "General Corporate",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "18,255",
+            "31,363",
+            "15",
+            "26,046",
+            "0.1",
+            "352",
+            "41",
+            "2.0",
+            "5,503",
+            "21",
+            "9",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "5,753",
+            "17,811",
+            "19",
+            "10,199",
+            "0.2",
+            "494",
+            "39",
+            "2.1",
+            "3,616",
+            "35",
+            "8",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "22,971",
+            "41,146",
+            "15",
+            "32,572",
+            "0.4",
+            "1,337",
+            "38",
+            "1.6",
+            "14,415",
+            "44",
+            "47",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "10,611",
+            "11,508",
+            "14",
+            "13,385",
+            "0.5",
+            "582",
+            "39",
+            "1.2",
+            "6,416",
+            "48",
+            "27",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "32,337",
+            "32,865",
+            "17",
+            "37,225",
+            "1.2",
+            "2,005",
+            "35",
+            "2.0",
+            "26,405",
+            "71",
+            "158",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "15,638",
+            "10,531",
+            "19",
+            "13,844",
+            "5.1",
+            "817",
+            "34",
+            "1.2",
+            "14,044",
+            "101",
+            "221",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "1,653",
+            "2,248",
+            "37",
+            "918",
+            "20.6",
+            "195",
+            "41",
+            "1.4",
+            "1,850",
+            "202",
+            "82",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            "982",
+            "305",
+            "28",
+            "1,068",
+            "100.0",
+            "106",
+            "37",
+            "1.0",
+            " -",
+            " -",
+            "395",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "108,200",
+            "147,777",
+            "16",
+            "135,257",
+            "2.0",
+            "5,888",
+            "38",
+            "1.7",
+            "72,249",
+            "53",
+            "947",
+            "1,508"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Corporate small business",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "28",
+            "476",
+            "7",
+            "63",
+            "0.1",
+            "18",
+            "38",
+            "1.7",
+            "13",
+            "20",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "222",
+            "914",
+            "23",
+            "460",
+            "0.2",
+            "262",
+            "35",
+            "2.2",
+            "129",
+            "28",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "592",
+            "2,126",
+            "15",
+            "1,331",
+            "0.4",
+            "643",
+            "34",
+            "1.9",
+            "490",
+            "37",
+            "2",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "698",
+            "1,920",
+            "16",
+            "1,199",
+            "0.5",
+            "523",
+            "34",
+            "1.7",
+            "500",
+            "42",
+            "2",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "7,222",
+            "6,534",
+            "17",
+            "8,908",
+            "1.5",
+            "2,672",
+            "33",
+            "1.8",
+            "5,485",
+            "62",
+            "43",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "5,661",
+            "4,059",
+            "17",
+            "5,913",
+            "5.3",
+            "2,025",
+            "33",
+            "1.7",
+            "5,273",
+            "89",
+            "104",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "1,342",
+            "450",
+            "22",
+            "1,065",
+            "18.4",
+            "473",
+            "30",
+            "1.7",
+            "1,397",
+            "131",
+            "58",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            "714",
+            "129",
+            "12",
+            "730",
+            "100.0",
+            "219",
+            "34",
+            "1.4",
+            " -",
+            " -",
+            "246",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "16,479",
+            "16,608",
+            "17",
+            "19,669",
+            "7.0",
+            "6,835",
+            "33",
+            "1.8",
+            "13,287",
+            "68",
+            "455",
+            "463"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "SL",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "7,372",
+            "2,383",
+            "31",
+            "8,080",
+            "0.2",
+            "94",
+            "40",
+            "2.4",
+            "3,032",
+            "38",
+            "6",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "25,467",
+            "3,548",
+            "32",
+            "26,179",
+            "0.4",
+            "299",
+            "40",
+            "2.2",
+            "13,523",
+            "52",
+            "40",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "7,905",
+            "1,614",
+            "28",
+            "8,214",
+            "0.5",
+            "153",
+            "40",
+            "1.9",
+            "4,691",
+            "57",
+            "17",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "35,896",
+            "5,261",
+            "31",
+            "36,332",
+            "1.1",
+            "960",
+            "40",
+            "2.1",
+            "28,590",
+            "79",
+            "161",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "9,062",
+            "745",
+            "37",
+            "9,011",
+            "5.9",
+            "212",
+            "40",
+            "1.8",
+            "11,784",
+            "131",
+            "211",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "783",
+            "109",
+            "40",
+            "825",
+            "27.1",
+            "23",
+            "40",
+            "1.1",
+            "1,721",
+            "209",
+            "89",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            "1,730",
+            "67",
+            "39",
+            "1,756",
+            "100.0",
+            "59",
+            "40",
+            "1.0",
+            " -",
+            " -",
+            "702",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "88,215",
+            "13,727",
+            "32",
+            "90,397",
+            "3.4",
+            "1,800",
+            "40",
+            "2.1",
+            "63,341",
+            "70",
+            "1,226",
+            "1,238"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total (sum of portfolios)",
+          "values": [
+            "351,038",
+            "182,783",
+            "18",
+            "386,643",
+            "1.9",
+            "14,809",
+            "41",
+            "2.1",
+            "165,059",
+            "43",
+            "2,666",
+            "3,472"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "12.11 IRBA – Credit Risk Exposures by Portfolio and PD Range (cont’d)\nAs at 30 June 2025",
+      "label_header": "PD range\n%",
+      "continued_from_previous": false,
+      "section_id": "12.11",
+      "columns": [
+        {
+          "group": "Original on-balance sheet gross exposures",
+          "leaf": "$m"
+        },
+        {
+          "group": "Off-balance sheet exposures pre-CCF",
+          "leaf": "$m"
+        },
+        {
+          "group": "Average CCF",
+          "leaf": "%"
+        },
+        {
+          "group": "EAD post-CRM and post-CCF",
+          "leaf": "$m"
+        },
+        {
+          "group": "Average PD",
+          "leaf": "%"
+        },
+        {
+          "group": "Number of Obligors",
+          "leaf": ""
+        },
+        {
+          "group": "Average LGD",
+          "leaf": "%"
+        },
+        {
+          "group": "Average Maturity",
+          "leaf": "Years"
+        },
+        {
+          "group": "RWA",
+          "leaf": "$m"
+        },
+        {
+          "group": "RWA density",
+          "leaf": "%"
+        },
+        {
+          "group": "EL",
+          "leaf": "$m"
+        },
+        {
+          "group": "TEP",
+          "leaf": "$m"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Sovereign",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "83,881",
+            "913",
+            "74",
+            "85,284",
+            "0.0",
+            "43",
+            "45",
+            "2.6",
+            "5,240",
+            "6",
+            "6",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "2,039",
+            " -",
+            " -",
+            "2,039",
+            "0.2",
+            "3",
+            "45",
+            "2.9",
+            "1,015",
+            "50",
+            "2",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "173",
+            " -",
+            " -",
+            "173",
+            "0.6",
+            "4",
+            "45",
+            "2.7",
+            "132",
+            "76",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "5",
+            "#",
+            "10",
+            "5",
+            "18.5",
+            "2",
+            "45",
+            "0.0",
+            "10",
+            "209",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "86,098",
+            "913",
+            "74",
+            "87,501",
+            "0.0",
+            "52",
+            "45",
+            "2.6",
+            "6,397",
+            "7",
+            "8",
+            "86"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Bank",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "28,308",
+            "2,120",
+            "42",
+            "29,440",
+            "0.1",
+            "148",
+            "45",
+            "2.0",
+            "6,611",
+            "22",
+            "7",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "2,293",
+            "907",
+            "38",
+            "2,634",
+            "0.2",
+            "17",
+            "45",
+            "1.2",
+            "1,093",
+            "41",
+            "2",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "950",
+            "175",
+            "35",
+            "1,022",
+            "0.4",
+            "18",
+            "45",
+            "0.3",
+            "460",
+            "45",
+            "2",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "3,126",
+            "1,150",
+            "43",
+            "3,624",
+            "0.6",
+            "18",
+            "45",
+            "0.6",
+            "2,427",
+            "67",
+            "9",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "301",
+            "113",
+            "26",
+            "331",
+            "1.3",
+            "6",
+            "45",
+            "0.9",
+            "265",
+            "80",
+            "2",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "86",
+            " -",
+            " -",
+            "68",
+            "4.3",
+            "4",
+            "45",
+            "0.2",
+            "83",
+            "121",
+            "1",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "8",
+            "1",
+            "10",
+            "8",
+            "18.7",
+            "8",
+            "45",
+            "0.0",
+            "16",
+            "209",
+            "1",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "35,072",
+            "4,466",
+            "41",
+            "37,127",
+            "0.1",
+            "219",
+            "45",
+            "1.7",
+            "10,955",
+            "30",
+            "24",
+            "147"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "General Corporate",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "14,635",
+            "33,334",
+            "14",
+            "21,958",
+            "0.1",
+            "365",
+            "40",
+            "1.9",
+            "4,576",
+            "21",
+            "8",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "4,916",
+            "14,337",
+            "19",
+            "7,719",
+            "0.2",
+            "446",
+            "38",
+            "1.6",
+            "2,399",
+            "31",
+            "6",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "20,141",
+            "29,533",
+            "14",
+            "27,808",
+            "0.4",
+            "1,183",
+            "38",
+            "1.9",
+            "13,070",
+            "47",
+            "41",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "7,407",
+            "12,072",
+            "13",
+            "9,670",
+            "0.5",
+            "571",
+            "38",
+            "1.6",
+            "5,004",
+            "52",
+            "19",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "37,327",
+            "38,174",
+            "16",
+            "43,696",
+            "1.3",
+            "2,066",
+            "36",
+            "1.8",
+            "31,565",
+            "72",
+            "197",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "13,899",
+            "11,822",
+            "19",
+            "13,291",
+            "5.2",
+            "850",
+            "33",
+            "1.2",
+            "12,818",
+            "96",
+            "217",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "2,895",
+            "3,926",
+            "20",
+            "1,416",
+            "17.9",
+            "201",
+            "28",
+            "1.2",
+            "1,901",
+            "134",
+            "75",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            "1,024",
+            "192",
+            "15",
+            "1,054",
+            "100.0",
+            "107",
+            "36",
+            "1.0",
+            " -",
+            " -",
+            "384",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "102,244",
+            "143,390",
+            "15",
+            "126,612",
+            "2.2",
+            "5,789",
+            "37",
+            "1.7",
+            "71,333",
+            "56",
+            "947",
+            "1,420"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Corporate small business",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "200",
+            "199",
+            "9",
+            "23",
+            "0.1",
+            "14",
+            "38",
+            "1.1",
+            "4",
+            "19",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "208",
+            "950",
+            "21",
+            "462",
+            "0.2",
+            "267",
+            "34",
+            "2.2",
+            "149",
+            "32",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "477",
+            "1,722",
+            "17",
+            "1,315",
+            "0.4",
+            "684",
+            "34",
+            "1.8",
+            "467",
+            "36",
+            "2",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "475",
+            "1,423",
+            "16",
+            "768",
+            "0.5",
+            "495",
+            "31",
+            "1.9",
+            "294",
+            "38",
+            "1",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "5,851",
+            "6,615",
+            "16",
+            "7,462",
+            "1.4",
+            "2,732",
+            "32",
+            "1.9",
+            "4,315",
+            "58",
+            "34",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "5,249",
+            "3,161",
+            "19",
+            "5,585",
+            "5.2",
+            "2,093",
+            "33",
+            "1.6",
+            "4,687",
+            "84",
+            "95",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "1,156",
+            "449",
+            "18",
+            "945",
+            "20.4",
+            "490",
+            "31",
+            "2.2",
+            "1,313",
+            "139",
+            "58",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            "786",
+            "104",
+            "7",
+            "794",
+            "100.0",
+            "226",
+            "33",
+            "1.3",
+            " -",
+            " -",
+            "265",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "14,402",
+            "14,623",
+            "17",
+            "17,354",
+            "8.0",
+            "7,001",
+            "33",
+            "1.8",
+            "11,229",
+            "65",
+            "455",
+            "371"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "SL",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            " -",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "7,027",
+            "2,403",
+            "29",
+            "7,717",
+            "0.2",
+            "94",
+            "40",
+            "2.3",
+            "2,821",
+            "37",
+            "6",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "25,353",
+            "3,245",
+            "38",
+            "26,427",
+            "0.4",
+            "288",
+            "40",
+            "2.2",
+            "13,688",
+            "52",
+            "41",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "10,000",
+            "1,565",
+            "31",
+            "10,360",
+            "0.5",
+            "166",
+            "40",
+            "1.8",
+            "5,808",
+            "56",
+            "22",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "39,605",
+            "5,759",
+            "29",
+            "40,064",
+            "1.1",
+            "1,003",
+            "40",
+            "1.9",
+            "31,092",
+            "78",
+            "182",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "5,446",
+            "400",
+            "33",
+            "4,889",
+            "6.5",
+            "226",
+            "40",
+            "1.7",
+            "6,629",
+            "136",
+            "127",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "117",
+            "16",
+            "41",
+            "124",
+            "21.9",
+            "14",
+            "40",
+            "1.9",
+            "252",
+            "204",
+            "11",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            "1,469",
+            "9",
+            "43",
+            "1,473",
+            "100.0",
+            "54",
+            "40",
+            "1.2",
+            " -",
+            " -",
+            "589",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "89,017",
+            "13,397",
+            "32",
+            "91,054",
+            "2.7",
+            "1,845",
+            "40",
+            "2.0",
+            "60,290",
+            "66",
+            "978",
+            "1,208"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total (sum of portfolios)",
+          "values": [
+            "326,833",
+            "176,789",
+            "18",
+            "359,648",
+            "1.8",
+            "14,906",
+            "40",
+            "2.0",
+            "160,204",
+            "45",
+            "2,412",
+            "3,232"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "(B) Main parameters used for calculations of capital requirements for credit exposures under AIRB\nAs at 31 December 2025",
+      "label_header": "PD range\n%",
+      "continued_from_previous": false,
+      "section_id": "12.11",
+      "columns": [
+        {
+          "group": "Original on-balance sheet gross exposures",
+          "leaf": "$m"
+        },
+        {
+          "group": "Off-balance sheet exposures pre-CCF",
+          "leaf": "$m"
+        },
+        {
+          "group": "Average CCF",
+          "leaf": "%"
+        },
+        {
+          "group": "EAD post-CRM and post-CCF",
+          "leaf": "$m"
+        },
+        {
+          "group": "Average PD",
+          "leaf": "%"
+        },
+        {
+          "group": "Number of Obligors",
+          "leaf": ""
+        },
+        {
+          "group": "Average LGD",
+          "leaf": "%"
+        },
+        {
+          "group": "Average Maturity",
+          "leaf": "Years"
+        },
+        {
+          "group": "RWA",
+          "leaf": "$m"
+        },
+        {
+          "group": "RWA density",
+          "leaf": "%"
+        },
+        {
+          "group": "EL",
+          "leaf": "$m"
+        },
+        {
+          "group": "TEP",
+          "leaf": "$m"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Residential mortgage",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "457",
+            "222",
+            "96",
+            "670",
+            "0.1",
+            "5,601",
+            "25",
+            "",
+            "30",
+            "4",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "28,669",
+            "1,905",
+            "41",
+            "29,452",
+            "0.2",
+            "55,411",
+            "13",
+            "",
+            "1,384",
+            "5",
+            "7",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "31,948",
+            "1,755",
+            "58",
+            "32,972",
+            "0.3",
+            "129,196",
+            "12",
+            "",
+            "2,205",
+            "7",
+            "12",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "19,282",
+            "1,702",
+            "41",
+            "19,988",
+            "0.7",
+            "34,665",
+            "11",
+            "",
+            "2,024",
+            "10",
+            "14",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "4,235",
+            "420",
+            "44",
+            "4,418",
+            "1.0",
+            "34,509",
+            "22",
+            "",
+            "1,291",
+            "29",
+            "11",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "1,245",
+            "42",
+            "57",
+            "1,270",
+            "3.9",
+            "12,309",
+            "19",
+            "",
+            "690",
+            "54",
+            "10",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "1,444",
+            "13",
+            "43",
+            "1,450",
+            "23.4",
+            "9,108",
+            "21",
+            "",
+            "1,598",
+            "110",
+            "72",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            "922",
+            "9",
+            "41",
+            "926",
+            "100.0",
+            "5,341",
+            "25",
+            "",
+            "726",
+            "78",
+            "179",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "88,202",
+            "6,068",
+            "49",
+            "91,146",
+            "1.8",
+            "276,954",
+            "13",
+            "",
+            "9,948",
+            "11",
+            "305",
+            "338"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "QRRE",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "1,296",
+            "7,861",
+            "25",
+            "3,259",
+            "0.1",
+            "475,732",
+            "54",
+            "",
+            "111",
+            "3",
+            "2",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "1,109",
+            "9,998",
+            "50",
+            "6,076",
+            "0.2",
+            "844,060",
+            "58",
+            "",
+            "369",
+            "6",
+            "7",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "724",
+            "5,035",
+            "47",
+            "3,077",
+            "0.3",
+            "625,555",
+            "52",
+            "",
+            "254",
+            "8",
+            "5",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "736",
+            "1,945",
+            "49",
+            "1,684",
+            "0.6",
+            "238,698",
+            "57",
+            "",
+            "248",
+            "15",
+            "6",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "1,466",
+            "2,925",
+            "57",
+            "3,127",
+            "1.4",
+            "445,574",
+            "58",
+            "",
+            "907",
+            "29",
+            "26",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "797",
+            "868",
+            "62",
+            "1,331",
+            "5.5",
+            "245,333",
+            "63",
+            "",
+            "1,052",
+            "79",
+            "45",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "372",
+            "227",
+            "55",
+            "498",
+            "30.4",
+            "103,857",
+            "64",
+            "",
+            "774",
+            "156",
+            "96",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            "107",
+            " -",
+            " -",
+            "107",
+            "100.0",
+            "17,929",
+            "68",
+            "",
+            "93",
+            "88",
+            "65",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "6,607",
+            "28,859",
+            "43",
+            "19,159",
+            "2.1",
+            "2,681,656",
+            "57",
+            "",
+            "3,808",
+            "20",
+            "252",
+            "127"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Other retail exposures",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "89",
+            "419",
+            "36",
+            "240",
+            "0.1",
+            "3,438",
+            "40",
+            "",
+            "23",
+            "9",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "1,281",
+            "797",
+            "63",
+            "1,781",
+            "0.2",
+            "20,880",
+            "29",
+            "",
+            "202",
+            "11",
+            "1",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "2,422",
+            "1,018",
+            "63",
+            "3,060",
+            "0.4",
+            "11,328",
+            "26",
+            "",
+            "479",
+            "16",
+            "3",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "4,181",
+            "591",
+            "66",
+            "4,570",
+            "0.6",
+            "24,329",
+            "18",
+            "",
+            "616",
+            "13",
+            "4",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "5,890",
+            "1,811",
+            "65",
+            "7,063",
+            "1.4",
+            "46,606",
+            "29",
+            "",
+            "2,297",
+            "33",
+            "29",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "2,209",
+            "359",
+            "75",
+            "2,477",
+            "4.8",
+            "79,476",
+            "44",
+            "",
+            "1,592",
+            "64",
+            "53",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "536",
+            "40",
+            "61",
+            "561",
+            "24.1",
+            "22,211",
+            "40",
+            "",
+            "490",
+            "87",
+            "55",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            "389",
+            "15",
+            "17",
+            "391",
+            "100.0",
+            "5,277",
+            "34",
+            "",
+            "496",
+            "127",
+            "102",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "16,997",
+            "5,050",
+            "62",
+            "20,143",
+            "3.9",
+            "210,574",
+            "28",
+            "",
+            "6,195",
+            "31",
+            "247",
+            "205"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total (sum of portfolios)",
+          "values": [
+            "111,806",
+            "39,978",
+            "47",
+            "130,448",
+            "2.2",
+            "2,992,742",
+            "22",
+            "",
+            "19,951",
+            "15",
+            "804",
+            "670"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "12.11 IRBA – Credit Risk Exposures by Portfolio and PD Range (cont’d)\nAs at 30 June 2025",
+      "label_header": "PD range\n%",
+      "continued_from_previous": false,
+      "section_id": "12.11",
+      "columns": [
+        {
+          "group": "Original on-balance sheet gross exposures",
+          "leaf": "$m"
+        },
+        {
+          "group": "Off-balance sheet exposures pre-CCF",
+          "leaf": "$m"
+        },
+        {
+          "group": "Average CCF",
+          "leaf": "%"
+        },
+        {
+          "group": "EAD post-CRM and post-CCF",
+          "leaf": "$m"
+        },
+        {
+          "group": "Average PD",
+          "leaf": "%"
+        },
+        {
+          "group": "Number of Obligors",
+          "leaf": ""
+        },
+        {
+          "group": "Average LGD",
+          "leaf": "%"
+        },
+        {
+          "group": "Average Maturity",
+          "leaf": "Years"
+        },
+        {
+          "group": "RWA",
+          "leaf": "$m"
+        },
+        {
+          "group": "RWA density",
+          "leaf": "%"
+        },
+        {
+          "group": "EL",
+          "leaf": "$m"
+        },
+        {
+          "group": "TEP",
+          "leaf": "$m"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Residential mortgage",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "404",
+            "227",
+            "96",
+            "621",
+            "0.1",
+            "5,498",
+            "24",
+            "",
+            "27",
+            "4",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "28,236",
+            "1,470",
+            "42",
+            "28,849",
+            "0.2",
+            "55,082",
+            "13",
+            "",
+            "1,363",
+            "5",
+            "7",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "30,592",
+            "1,578",
+            "62",
+            "31,565",
+            "0.3",
+            "127,967",
+            "12",
+            "",
+            "2,125",
+            "7",
+            "12",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "19,495",
+            "1,783",
+            "42",
+            "20,236",
+            "0.7",
+            "35,468",
+            "11",
+            "",
+            "2,050",
+            "10",
+            "14",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "4,020",
+            "374",
+            "43",
+            "4,182",
+            "1.1",
+            "34,365",
+            "23",
+            "",
+            "1,295",
+            "31",
+            "11",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "1,241",
+            "47",
+            "60",
+            "1,269",
+            "4.0",
+            "12,287",
+            "18",
+            "",
+            "655",
+            "52",
+            "9",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "1,430",
+            "11",
+            "43",
+            "1,436",
+            "22.7",
+            "8,595",
+            "21",
+            "",
+            "1,536",
+            "107",
+            "67",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            "920",
+            "1",
+            "40",
+            "921",
+            "100.0",
+            "5,590",
+            "25",
+            "",
+            "666",
+            "72",
+            "191",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "86,338",
+            "5,491",
+            "50",
+            "89,079",
+            "1.8",
+            "275,428",
+            "13",
+            "",
+            "9,717",
+            "11",
+            "311",
+            "312"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "QRRE",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "1,204",
+            "7,348",
+            "25",
+            "3,038",
+            "0.1",
+            "461,969",
+            "54",
+            "",
+            "102",
+            "3",
+            "2",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "979",
+            "9,127",
+            "50",
+            "5,543",
+            "0.2",
+            "792,080",
+            "61",
+            "",
+            "351",
+            "6",
+            "6",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "625",
+            "4,976",
+            "46",
+            "2,935",
+            "0.3",
+            "660,282",
+            "53",
+            "",
+            "244",
+            "8",
+            "5",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "663",
+            "1,686",
+            "48",
+            "1,469",
+            "0.6",
+            "209,088",
+            "58",
+            "",
+            "218",
+            "15",
+            "5",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "1,301",
+            "3,050",
+            "55",
+            "2,980",
+            "1.4",
+            "435,379",
+            "59",
+            "",
+            "828",
+            "28",
+            "24",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "726",
+            "888",
+            "61",
+            "1,265",
+            "5.5",
+            "245,160",
+            "63",
+            "",
+            "1,001",
+            "79",
+            "43",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "372",
+            "233",
+            "57",
+            "504",
+            "29.6",
+            "104,840",
+            "65",
+            "",
+            "781",
+            "155",
+            "95",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            "96",
+            " -",
+            " -",
+            "96",
+            "100.0",
+            "17,454",
+            "69",
+            "",
+            "141",
+            "146",
+            "55",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "5,966",
+            "27,308",
+            "43",
+            "17,830",
+            "2.2",
+            "2,588,332",
+            "58",
+            "",
+            "3,666",
+            "21",
+            "235",
+            "104"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Other retail exposures",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to < 0.15",
+          "values": [
+            "78",
+            "395",
+            "35",
+            "215",
+            "0.1",
+            "3,512",
+            "41",
+            "",
+            "21",
+            "10",
+            "#",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "1,080",
+            "683",
+            "63",
+            "1,510",
+            "0.2",
+            "19,904",
+            "29",
+            "",
+            "172",
+            "11",
+            "1",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "2,383",
+            "885",
+            "61",
+            "2,924",
+            "0.4",
+            "11,667",
+            "26",
+            "",
+            "445",
+            "15",
+            "3",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "4,178",
+            "545",
+            "66",
+            "4,538",
+            "0.4",
+            "24,944",
+            "29",
+            "",
+            "1,009",
+            "22",
+            "4",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to < 2.50",
+          "values": [
+            "5,995",
+            "1,868",
+            "67",
+            "7,240",
+            "1.4",
+            "46,283",
+            "32",
+            "",
+            "2,692",
+            "37",
+            "34",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to < 10.00",
+          "values": [
+            "1,941",
+            "303",
+            "69",
+            "2,151",
+            "5.1",
+            "70,684",
+            "43",
+            "",
+            "1,358",
+            "63",
+            "48",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "537",
+            "49",
+            "73",
+            "572",
+            "23.6",
+            "22,126",
+            "41",
+            "",
+            "512",
+            "89",
+            "56",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)",
+          "values": [
+            "346",
+            "10",
+            "12",
+            "347",
+            "100.0",
+            "4,625",
+            "36",
+            "",
+            "512",
+            "147",
+            "88",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "16,538",
+            "4,738",
+            "62",
+            "19,497",
+            "3.7",
+            "200,941",
+            "32",
+            "",
+            "6,721",
+            "34",
+            "234",
+            "180"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total (sum of portfolios)",
+          "values": [
+            "108,842",
+            "37,537",
+            "47",
+            "126,406",
+            "2.2",
+            "2,887,181",
+            "22",
+            "",
+            "20,104",
+            "16",
+            "780",
+            "596"
+          ]
+        }
+      ]
+    }
+  ]
+}

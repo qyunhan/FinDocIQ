@@ -1,0 +1,1109 @@
+{
+  "tables": [
+    {
+      "title": "Major On-balance sheet credit exposures as at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.4",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Loans to customers (gross)"
+        },
+        {
+          "group": null,
+          "leaf": "Government treasury bills and securities"
+        },
+        {
+          "group": null,
+          "leaf": "Placements and balances with banks"
+        },
+        {
+          "group": null,
+          "leaf": "Debt securities"
+        },
+        {
+          "group": null,
+          "leaf": "Total"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Analysed by geographya",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Singapore",
+          "values": [
+            "176,830",
+            "17,627",
+            "1,273",
+            "13,140",
+            "208,870"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Malaysia",
+          "values": [
+            "36,074",
+            "9,896",
+            "2,446",
+            "4,243",
+            "52,659"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Thailand",
+          "values": [
+            "27,339",
+            "7,651",
+            "1,728",
+            "865",
+            "37,583"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Indonesia",
+          "values": [
+            "11,094",
+            "3,881",
+            "2,216",
+            "97",
+            "17,288"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Greater China",
+          "values": [
+            "45,326",
+            "2,412",
+            "6,814",
+            "6,730",
+            "61,282"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "55,517",
+            "21,228",
+            "18,477",
+            "29,464",
+            "124,686"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "352,180",
+            "62,695",
+            "32,954",
+            "54,539",
+            "502,368"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "a By borrower’s country of incorporation / operation (for non-individuals) and residence (for individuals).",
+          "values": []
+        }
+      ]
+    },
+    {
+      "title": "Major On-balance sheet credit exposures as at 31 December 2025 (by industry)",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.4",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Loans to customers (gross)"
+        },
+        {
+          "group": null,
+          "leaf": "Government treasury bills and securities"
+        },
+        {
+          "group": null,
+          "leaf": "Placements and balances with banks"
+        },
+        {
+          "group": null,
+          "leaf": "Debt securities"
+        },
+        {
+          "group": null,
+          "leaf": "Total"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Analysed by industry",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Transport, storage and communication",
+          "values": [
+            "20,847",
+            "-",
+            "-",
+            "2,979",
+            "23,826"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Building and construction",
+          "values": [
+            "90,815",
+            "-",
+            "-",
+            "4,303",
+            "95,118"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Manufacturing",
+          "values": [
+            "27,533",
+            "-",
+            "-",
+            "2,191",
+            "29,724"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Financial institutions, investment and holding companies",
+          "values": [
+            "38,996",
+            "-",
+            "32,954",
+            "25,672",
+            "97,622"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "General commerce",
+          "values": [
+            "38,311",
+            "-",
+            "-",
+            "1,218",
+            "39,529"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Professionals and private individuals",
+          "values": [
+            "30,595",
+            "-",
+            "-",
+            "-",
+            "30,595"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Housing loans",
+          "values": [
+            "84,962",
+            "-",
+            "-",
+            "-",
+            "84,962"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Government",
+          "values": [
+            "-",
+            "62,695",
+            "-",
+            "-",
+            "62,695"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "20,121",
+            "-",
+            "-",
+            "18,176",
+            "38,297"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "352,180",
+            "62,695",
+            "32,954",
+            "54,539",
+            "502,368"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Major On-balance sheet credit exposures as at 31 December 2024",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.4",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Loans to customers (gross)"
+        },
+        {
+          "group": null,
+          "leaf": "Government treasury bills and securities"
+        },
+        {
+          "group": null,
+          "leaf": "Placements and balances with banks"
+        },
+        {
+          "group": null,
+          "leaf": "Debt securities"
+        },
+        {
+          "group": null,
+          "leaf": "Total"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Analysed by geographya",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Singapore",
+          "values": [
+            "164,255",
+            "13,284",
+            "780",
+            "11,463",
+            "189,782"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Malaysia",
+          "values": [
+            "33,651",
+            "10,071",
+            "3,542",
+            "2,484",
+            "49,748"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Thailand",
+          "values": [
+            "26,607",
+            "6,706",
+            "2,268",
+            "1,143",
+            "36,724"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Indonesia",
+          "values": [
+            "10,899",
+            "2,520",
+            "2,201",
+            "75",
+            "15,695"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Greater China",
+          "values": [
+            "52,177",
+            "1,955",
+            "13,471",
+            "6,063",
+            "73,666"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "50,242",
+            "12,315",
+            "15,170",
+            "24,789",
+            "102,516"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "337,831",
+            "46,851",
+            "37,432",
+            "46,017",
+            "468,131"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "a By borrower’s country of incorporation / operation (for non-individuals) and residence (for individuals).",
+          "values": []
+        }
+      ]
+    },
+    {
+      "title": "Major On-balance sheet credit exposures as at 31 December 2024 (by industry)",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.4",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Loans to customers (gross)"
+        },
+        {
+          "group": null,
+          "leaf": "Government treasury bills and securities"
+        },
+        {
+          "group": null,
+          "leaf": "Placements and balances with banks"
+        },
+        {
+          "group": null,
+          "leaf": "Debt securities"
+        },
+        {
+          "group": null,
+          "leaf": "Total"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Analysed by industry",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Transport, storage and communication",
+          "values": [
+            "16,065",
+            "-",
+            "-",
+            "2,471",
+            "18,536"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Building and construction",
+          "values": [
+            "91,713",
+            "-",
+            "-",
+            "3,229",
+            "94,942"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Manufacturing",
+          "values": [
+            "23,394",
+            "-",
+            "-",
+            "2,003",
+            "25,397"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Financial institutions, investment and holding companies",
+          "values": [
+            "39,768",
+            "-",
+            "37,432",
+            "20,118",
+            "97,318"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "General commerce",
+          "values": [
+            "35,507",
+            "-",
+            "-",
+            "1,065",
+            "36,572"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Professionals and private individuals",
+          "values": [
+            "29,914",
+            "-",
+            "-",
+            "-",
+            "29,914"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Housing loans",
+          "values": [
+            "82,036",
+            "-",
+            "-",
+            "-",
+            "82,036"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Government",
+          "values": [
+            "-",
+            "46,851",
+            "-",
+            "-",
+            "46,851"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "19,434",
+            "-",
+            "-",
+            "17,131",
+            "36,565"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "337,831",
+            "46,851",
+            "37,432",
+            "46,017",
+            "468,131"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Contingent liabilities",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.4",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "31 Dec 2025"
+        },
+        {
+          "group": null,
+          "leaf": "31 Dec 2024"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Analysed by geographya",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Singapore",
+          "values": [
+            "15,720",
+            "15,400"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Malaysia",
+          "values": [
+            "4,203",
+            "3,766"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Thailand",
+          "values": [
+            "2,205",
+            "2,190"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Indonesia",
+          "values": [
+            "3,128",
+            "2,289"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Greater China",
+          "values": [
+            "5,219",
+            "4,962"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "5,920",
+            "3,491"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "36,395",
+            "32,098"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "a By borrower’s country of incorporation / operation (for non-individuals) and residence (for individuals).",
+          "values": []
+        }
+      ]
+    },
+    {
+      "title": "Contingent liabilities (by industry)",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.4",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "31 Dec 2025"
+        },
+        {
+          "group": null,
+          "leaf": "31 Dec 2024"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Analysed by industry",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Transport, storage and communication",
+          "values": [
+            "2,642",
+            "2,218"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Building and construction",
+          "values": [
+            "10,103",
+            "10,213"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Manufacturing",
+          "values": [
+            "8,797",
+            "4,474"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Financial institutions, investment and holding companies",
+          "values": [
+            "2,878",
+            "2,616"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "General commerce",
+          "values": [
+            "8,097",
+            "8,611"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Professionals and private individuals",
+          "values": [
+            "197",
+            "204"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "3,681",
+            "3,762"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "36,395",
+            "32,098"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Commitments (excluding operating lease and capital commitments)",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.4",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "31 Dec 2025"
+        },
+        {
+          "group": null,
+          "leaf": "31 Dec 2024"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Analysed by geographya",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Singapore",
+          "values": [
+            "110,004",
+            "105,246"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Malaysia",
+          "values": [
+            "27,417",
+            "23,792"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Thailand",
+          "values": [
+            "28,309",
+            "27,537"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Indonesia",
+          "values": [
+            "9,888",
+            "9,595"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Greater China",
+          "values": [
+            "45,674",
+            "38,066"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "30,541",
+            "28,369"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "251,833",
+            "232,605"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "a By borrower’s country of incorporation / operation (for non-individuals) and residence (for individuals).",
+          "values": []
+        }
+      ]
+    },
+    {
+      "title": "Commitments (excluding operating lease and capital commitments) (by industry)",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.4",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "31 Dec 2025"
+        },
+        {
+          "group": null,
+          "leaf": "31 Dec 2024"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Analysed by industry",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Transport, storage and communication",
+          "values": [
+            "11,216",
+            "8,865"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Building and construction",
+          "values": [
+            "35,689",
+            "33,893"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Manufacturing",
+          "values": [
+            "38,710",
+            "31,863"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Financial institutions, investment and holding companies",
+          "values": [
+            "28,959",
+            "28,974"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "General commerce",
+          "values": [
+            "52,809",
+            "51,682"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Professionals and private individuals",
+          "values": [
+            "50,899",
+            "47,715"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Housing Loans",
+          "values": [
+            "5,725",
+            "4,637"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "27,826",
+            "24,976"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "251,833",
+            "232,605"
+          ]
+        }
+      ]
+    }
+  ]
+}

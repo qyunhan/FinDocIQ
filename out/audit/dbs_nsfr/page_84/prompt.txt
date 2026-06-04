@@ -1,0 +1,16 @@
+You are given a SINGLE PDF page (physical page 84) — the '' subsection of a bank's regulatory disclosure. It contains ONE OR MORE data tables, all belonging to this subsection. Extract EVERY distinct data table on the page as a SEPARATE entry, each with its printed heading as `title`. If the page shows two or more separate grids — e.g. they have different column headers, or a sub-heading / blank gap separates them — return them as SEPARATE tables. IMPORTANT: each distinct table will be written to its OWN Excel tab. Return every table as a SEPARATE entry in the output list — never merge two distinct tables into one, even if they appear on the same page.
+
+Transcribe every table in this PDF page into a JSON structure exactly as printed.
+
+For each table return:
+- title: verbatim printed title including date
+- label_header: header of the row-label column; "" if none
+- continued_from_previous: true if this is a continuation of a table from the previous page (same columns, header not repeated); otherwise false
+- columns: leaf-level column headers only — do NOT include group headers that span sub-columns as their own entry; if a header has two levels set both "group" and "leaf"; scope/currency labels above the headers (e.g. "Group - ALL Currency") are NOT columns
+- rows: every row top to bottom, each with row_id (printed number or null), row_type (data/total/section_header/sub_header/note), level (0=header or grand total, 1=primary, 2=sub-item, 3=sub-sub-item), parent (row_id of nearest row one level above; null for level 0 and 1), label (verbatim), values
+
+For values: represent a normal cell as a plain string e.g. "54,485". Represent a merged cell as {"value":"X","span":N,"merge_type":"aggregate"}. The sum of all spans must equal the number of columns. Use {"value":"","span":N,"merge_type":"blank"} for empty merged regions.
+
+The critical rule for data alignment is the Vertical Border Rule: two columns are merged if and only if there is no vertical line between them. If a value is centered across multiple columns without dividers, it is a merged cell. If a cell is blocked out (greyed) but lacks a vertical divider to the next column, treat it as part of a merged region.
+
+Copy every value exactly as printed including commas, signs, and dashes. Never invent, reorder, or omit any row, column, or value. Every category/section label must appear as a section_header row even if shaded.

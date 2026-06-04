@@ -1,0 +1,20 @@
+{
+  "unit_id": "24_nsfr_test",
+  "pages": [
+    97,
+    98
+  ],
+  "model": "gemini-2.5-flash",
+  "usage": {
+    "ts": "2026-06-02T17:42:01",
+    "script": "extract_to_excel",
+    "label": "24_nsfr_test",
+    "model": "gemini-3.5-flash",
+    "image_used": false,
+    "prompt_tokens": 3620,
+    "output_tokens": 9757,
+    "thinking_tokens": 0,
+    "total_tokens": 13377,
+    "est_cost_usd": 0.09324
+  }
+}

@@ -1,0 +1,368 @@
+{
+  "tables": [
+    {
+      "title": "9 Comparison of Modelled and Standardised RWA at Risk Level\nAs at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "9",
+      "columns": [
+        {
+          "group": "RWA",
+          "leaf": "RWA for portfolios where the Reporting Bank uses modelled approaches"
+        },
+        {
+          "group": "RWA",
+          "leaf": "RWA for portfolios where the Reporting Bank uses standardised approaches"
+        },
+        {
+          "group": "RWA",
+          "leaf": "Total RWA (a + b)"
+        },
+        {
+          "group": "RWA",
+          "leaf": "Total RWA calculated using only standardised approaches"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Credit risk (excluding counterparty credit risk)",
+          "values": [
+            "189,812",
+            "37,614",
+            "227,426",
+            "332,017"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Counterparty credit risk",
+          "values": [
+            "5,971",
+            "1,190",
+            "7,161",
+            "9,938"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Credit valuation adjustment",
+          "values": [
+            "-",
+            "4,048",
+            "4,048",
+            "4,048"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Securitisation exposures in the banking book",
+          "values": [
+            "-",
+            "4,83",
+            "483",
+            "483"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Market risk",
+          "values": [
+            "-",
+            "16,868",
+            "16,868",
+            "16,868"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Operational risk",
+          "values": [
+            "",
+            "16,364",
+            "16,364",
+            "16,364"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Residual RWA",
+          "values": [
+            "",
+            "3,640",
+            "3,640",
+            "3,640"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "195,783",
+            "80,207",
+            "275,990",
+            "383,358"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "10 Comparison of Modelled and Standardised RWA for Credit Risk at Asset Class Level\nAs at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "10",
+      "columns": [
+        {
+          "group": "RWA",
+          "leaf": "RWA for IRBA exposures calculated using IRBA"
+        },
+        {
+          "group": "RWA",
+          "leaf": "RWA for IRBA exposures calculated using SA(CR)"
+        },
+        {
+          "group": "RWA",
+          "leaf": "Total RWA for IRBA exposures and SA(CR) exposures calculated using nominated approaches"
+        },
+        {
+          "group": "RWA",
+          "leaf": "Total RWA for IRBA exposures and SA(CR) exposures calculated using SA(CR)"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Sovereign",
+          "values": [
+            "5,188",
+            "2,639",
+            "5,290",
+            "2,741"
+          ]
+        },
+        {
+          "row_id": "1A",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "Of which: categorised as MDB/PSE in SA",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Banks and other financial institutions treated as banks",
+          "values": [
+            "10,994",
+            "14,138",
+            "12,550",
+            "15,695"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity",
+          "values": [
+            "-",
+            "-",
+            "3,667",
+            "3,667"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Purchased receivables",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Corporates",
+          "values": [
+            "85,536",
+            "136,368",
+            "98,329",
+            "149,162"
+          ]
+        },
+        {
+          "row_id": "5A",
+          "row_type": "data",
+          "level": 2,
+          "parent": "5",
+          "label": "Of which: F-IRBA is applied",
+          "values": [
+            "85,536",
+            "136,368",
+            "85,536",
+            "136,368"
+          ]
+        },
+        {
+          "row_id": "5B",
+          "row_type": "data",
+          "level": 2,
+          "parent": "5",
+          "label": "Of which: A-IRBA is applied",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Retail",
+          "values": [
+            "19,951",
+            "48,908",
+            "30,238",
+            "59,176"
+          ]
+        },
+        {
+          "row_id": "6A",
+          "row_type": "data",
+          "level": 2,
+          "parent": "6",
+          "label": "Of which: QRRE",
+          "values": [
+            "3,808",
+            "6,734",
+            "8,294",
+            "11,219"
+          ]
+        },
+        {
+          "row_id": "6B",
+          "row_type": "data",
+          "level": 2,
+          "parent": "6",
+          "label": "Of which: other retail",
+          "values": [
+            "6,195",
+            "12,064",
+            "11,292",
+            "17,140"
+          ]
+        },
+        {
+          "row_id": "6C",
+          "row_type": "data",
+          "level": 2,
+          "parent": "6",
+          "label": "Of which: retail residential mortgages",
+          "values": [
+            "9,948",
+            "30,110",
+            "10,652",
+            "30,817"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Specialised lending",
+          "values": [
+            "68,143",
+            "92,251",
+            "68,666",
+            "92,890"
+          ]
+        },
+        {
+          "row_id": "7A",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Of which: IPRE and HVCRE",
+          "values": [
+            "64,761",
+            "87,531",
+            "65,258",
+            "88,144"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "-",
+            "-",
+            "8,686",
+            "8,686"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "189,812",
+            "294,304",
+            "227,426",
+            "332,017"
+          ]
+        }
+      ]
+    }
+  ]
+}

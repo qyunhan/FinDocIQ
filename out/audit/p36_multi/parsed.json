@@ -1,0 +1,205 @@
+{
+  "tables": [
+    {
+      "title": "Restructured impaired exposure",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.4",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "As at 31 Dec 2025"
+        },
+        {
+          "group": null,
+          "leaf": "As at 31 Dec 2024"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "507",
+            "692"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.6",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "Exposures Unsecured"
+        },
+        {
+          "group": "(b)",
+          "leaf": "Exposures Secured"
+        },
+        {
+          "group": "(c)",
+          "leaf": "Exposures secured by collateral"
+        },
+        {
+          "group": "(d)",
+          "leaf": "Exposures secured by financial guarantees"
+        },
+        {
+          "group": "(e)",
+          "leaf": "Exposures secured by credit derivatives"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Loans",
+          "values": [
+            "201,741",
+            "146,136",
+            "122,327",
+            "17,458",
+            "-"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Debt Securities",
+          "values": [
+            "107,190",
+            "1,742",
+            "77",
+            "1,642",
+            "-"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "308,931",
+            "147,878",
+            "122,404",
+            "19,100",
+            "-"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 2,
+          "parent": "3",
+          "label": "Of which: defaulted",
+          "values": [
+            "2,356",
+            "1,644",
+            "1,462",
+            "-",
+            "-"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "As at 30 June 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.6",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "Exposures Unsecured"
+        },
+        {
+          "group": "(b)",
+          "leaf": "Exposures Secured"
+        },
+        {
+          "group": "(c)",
+          "leaf": "Exposures secured by collateral"
+        },
+        {
+          "group": "(d)",
+          "leaf": "Exposures secured by financial guarantees"
+        },
+        {
+          "group": "(e)",
+          "leaf": "Exposures secured by credit derivatives"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Loans",
+          "values": [
+            "197,337",
+            "141,634",
+            "119,537",
+            "15,866",
+            "-"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Debt Securities",
+          "values": [
+            "91,250",
+            "1,725",
+            "74",
+            "1,619",
+            "-"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "288,587",
+            "143,359",
+            "119,611",
+            "17,485",
+            "-"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 2,
+          "parent": "3",
+          "label": "Of which: defaulted",
+          "values": [
+            "2,419",
+            "1,478",
+            "1,434",
+            "-",
+            "-"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "tables": [
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "13.2",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "Replacement cost"
+        },
+        {
+          "group": "(b)",
+          "leaf": "Potential future exposure"
+        },
+        {
+          "group": "(c)",
+          "leaf": "Effective EPE"
+        },
+        {
+          "group": "(d)",
+          "leaf": "α used for computing regulatory EAD"
+        },
+        {
+          "group": "(e)",
+          "leaf": "EAD (post-CRM)"
+        },
+        {
+          "group": "(f)",
+          "leaf": "RWA"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "SA-CCR (for derivatives)",
+          "values": [
+            "3,722",
+            "7,674",
+            "",
+            "1.4",
+            "15,955",
+            "6,300"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CCR internal models method (for derivatives and SFTs)",
+          "values": [
+            "",
+            "",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "FC(SA) (for SFTs)",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "FC(CA) (for SFTs)",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "1,800",
+            "527"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "VaR for SFTs",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "6,827"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "As at 30 June 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "13.2",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "Replacement cost"
+        },
+        {
+          "group": "(b)",
+          "leaf": "Potential future exposure"
+        },
+        {
+          "group": "(c)",
+          "leaf": "Effective EPE"
+        },
+        {
+          "group": "(d)",
+          "leaf": "α used for computing regulatory EAD"
+        },
+        {
+          "group": "(e)",
+          "leaf": "EAD (post-CRM)"
+        },
+        {
+          "group": "(f)",
+          "leaf": "RWA"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "SA-CCR (for derivatives)",
+          "values": [
+            "4,103",
+            "6,743",
+            "",
+            "1.4",
+            "15,184",
+            "5,821"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CCR internal models method (for derivatives and SFTs)",
+          "values": [
+            "",
+            "",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "FC(SA) (for SFTs)",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "FC(CA) (for SFTs)",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "1,170",
+            "246"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "VaR for SFTs",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "6,067"
+          ]
+        }
+      ]
+    }
+  ]
+}

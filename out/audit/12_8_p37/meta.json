@@ -1,0 +1,20 @@
+{
+  "unit_id": "12_8_p37",
+  "pages": [
+    37
+  ],
+  "type": "single",
+  "image_used": false,
+  "usage": {
+    "ts": "2026-05-28T18:42:18",
+    "script": "extract_to_excel",
+    "label": "12_8_p37",
+    "model": "gemini-3.5-flash",
+    "image_used": false,
+    "prompt_tokens": 1958,
+    "output_tokens": 3582,
+    "thinking_tokens": 0,
+    "total_tokens": 5540,
+    "est_cost_usd": 0.03518
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "tables": [
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "11.4",
+      "columns": [
+        {
+          "group": "( a )",
+          "leaf": "Equity"
+        },
+        {
+          "group": "( b )",
+          "leaf": "Interest rates"
+        },
+        {
+          "group": "( c )",
+          "leaf": "FX"
+        },
+        {
+          "group": "( d )",
+          "leaf": "Credit"
+        },
+        {
+          "group": "( e )",
+          "leaf": "Commodities"
+        },
+        {
+          "group": "( f )",
+          "leaf": "Total"
+        },
+        {
+          "group": "( g )",
+          "leaf": "of which: in the trading book"
+        },
+        {
+          "group": "( h )",
+          "leaf": "of which: in the banking book"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Closeout uncertainty",
+          "values": [
+            "#",
+            "13",
+            "11",
+            "7",
+            "1",
+            "31",
+            "20",
+            "11"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "of which: Mid-market value",
+          "values": [
+            "#",
+            "13",
+            "11",
+            "#",
+            "1",
+            "24",
+            "16",
+            "8"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "of which: Closeout cost",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "3",
+            "-",
+            "3",
+            "#",
+            "3"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "of which: Concentration",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "4",
+            "-",
+            "4",
+            "4",
+            "-"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Early termination",
+          "values": [
+            "-",
+            "2",
+            "-",
+            "#",
+            "-",
+            "2",
+            "2",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Model risk",
+          "values": [
+            "1",
+            "7",
+            "1",
+            "-",
+            "#",
+            "8",
+            "8",
+            "-"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Operational risk",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Investing and funding costs",
+          "values": [
+            "8",
+            "-",
+            "-",
+            "-",
+            "2",
+            "10",
+            "10",
+            "-"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Unearned credit spreads",
+          "values": [
+            "-",
+            "#",
+            "#",
+            "-",
+            "3",
+            "4",
+            "4",
+            "-"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Future administrative costs",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total Adjustments",
+          "values": [
+            "8",
+            "22",
+            "11",
+            "7",
+            "6",
+            "55",
+            "44",
+            "11"
+          ]
+        }
+      ]
+    }
+  ]
+}

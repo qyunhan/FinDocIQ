@@ -1,0 +1,142 @@
+{
+  "tables": [
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "11.2",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Total"
+        },
+        {
+          "group": "Items subject to:",
+          "leaf": "Credit risk requirements"
+        },
+        {
+          "group": "Items subject to:",
+          "leaf": "Securitisation framework"
+        },
+        {
+          "group": "Items subject to:",
+          "leaf": "CCR requirements"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Asset carrying amount under regulatory scope of consolidation (as per Table 11-7)10",
+          "values": [
+            "565,814",
+            "529,004",
+            "3,892",
+            "20,034"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Liabilities carrying amount under regulatory scope of consolidation (as per Table 11-7)10",
+          "values": [
+            "30,600",
+            "-",
+            "-",
+            "23,044"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Total net amount under regulatory scope of consolidation",
+          "values": [
+            "535,214",
+            "529,004",
+            "3,892",
+            "(3,010)"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Off-balance sheet amount",
+          "values": [
+            "267,019",
+            "58,541",
+            "40",
+            "136"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Differences in derivatives and securities financing transactions",
+          "values": [
+            "",
+            "-",
+            "-",
+            "56,659"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Differences due to consideration of provisions",
+          "values": [
+            "",
+            "4,636",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Differences due to other differences",
+          "values": [
+            "",
+            "(6,288)",
+            "-",
+            "(413)"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Exposures amounts considered for regulatory purposes",
+          "values": [
+            "643,197",
+            "585,893",
+            "3,932",
+            "53,372"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "10 The total column excludes amounts subject to deduction from capital or not subject to regulatory capital requirements.",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

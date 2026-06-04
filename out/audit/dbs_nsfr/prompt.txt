@@ -1,0 +1,152 @@
+You are given a PDF excerpt of physical pages 84, 85, 86, 87 — the '' subsection of a bank's regulatory disclosure. These pages may contain ONE OR MORE data tables. Extract EVERY distinct data table across ALL of these pages — do NOT stop early and do NOT omit any table on the LAST page. A single large table often CONTINUES across a page break (the same columns resume on the next page without repeating the header): combine those rows into ONE table and set continued_from_previous=true on the continuation. But genuinely different tables (different titles or different column structures) must be SEPARATE entries. IMPORTANT: each distinct table will be written to its OWN Excel tab. Return every table as a SEPARATE entry in the output list — never merge two distinct tables into one, even if they appear on the same page.
+
+Return the table(s) EXACTLY as printed. For the/each table, return:
+- title: the printed table title, verbatim (include the reporting date if shown).
+- label_header: the header of the row-label column (e.g. "Metric", "ASF Item"); "" if none is printed.
+- continued_from_previous: true ONLY if this table is the continuation of a table from the PREVIOUS
+    page (its data rows carry on under the same columns and the column header is NOT repeated at the top
+    of this page); otherwise false.
+- columns: the DATA / period column headers, left to right. EXCLUDE the row-label column and the
+    printed row-number column.
+    COLUMN COUNT IS CRITICAL: count only the LEAF-LEVEL columns (the bottom header row). A group
+    label that spans multiple sub-columns (e.g. "Unweighted value by residual maturity" spanning
+    4 sub-columns) is NOT a separate column — it is a group header. Only the sub-columns beneath
+    it count. The total number of GColumn entries MUST equal the number of distinct leaf-level
+    column headers, which equals the number of data cells in a fully-populated row.
+    If a header has two levels (a group label spanning several sub-columns, e.g. "31 Dec 2025"
+    over "UNWEIGHTED"/"WEIGHTED"), set both "group" (the spanning label) and "leaf" (the
+    sub-column header) for each sub-column. Never emit the group label as its own GColumn entry.
+    SCOPE LABELS ARE NOT COLUMNS: Some tables print a scope/currency label such as
+    "Group - ALL Currency (S$m)" or "SGD Equivalent (S$'000)" above or beside the column headers.
+    This is a table-level annotation, NOT a data column. Do NOT include it in `columns`. It may
+    be captured in `label_header` if it labels the row-label column, or ignored if it is purely
+    a scope annotation. The test: does every data row have a numeric value under this header?
+    If rows with no data (section headers, totals) have nothing there, it is not a data column.
+- rows: EVERY row, top to bottom, each with:
+    * row_id   — the printed line number, EXACTLY as shown ("1", "4a", "14a").
+                 Use null for rows with no printed number: section headers, sub-headers, footnotes, titles.
+    * row_type — one of:
+                 "section_header" = a category title with no values (often shaded);
+                 "data"           = a normal line item;
+                 "total"          = a total / grand total / subtotal (e.g. "Total RWA", "TOTAL CASH OUTFLOWS");
+                 "sub_header"     = a bold divider with no values;
+                 "note"           = a footnote or disclaimer line.
+    * level    — 0 = section header OR grand total;
+                 1 = primary line item;
+                 2 = sub-item: a row that is indented, starts with "of which", or is a named breakdown of
+                     the row above it (e.g. "Stable deposits"/"Less stable deposits" under retail deposits,
+                     "General"/"Specific", "Common Equity Tier 1"/"Tier 1", "Basic"/"Diluted");
+                 3 = sub-sub-item (rare).
+    * parent   — null for level-0 and level-1 rows. For a level-2 (or deeper) row, the row_id of the nearest
+                 row one level above it. If that parent row has no printed number, give it a synthetic id
+                 ("h1","h2",...) and use the SAME id in both rows so the link is unambiguous.
+    * label    — the row label text, VERBATIM, including footnote markers. Do not re-indent or trim.
+    * values   — the cell values left to right, exactly one entry per column in `columns`.
+                 A header / sub_header / note row with no data uses an empty list [].
+
+CATEGORY / PORTFOLIO LABELS — NEVER DROP THEM (critical):
+- EVERY category / portfolio / asset-class block MUST have its label captured as a row with
+  row_type="section_header" (level 0). There must be one such label row for every block of data.
+- These labels are OFTEN printed on the SAME line as the column headers, e.g. a line reading
+  "Corporate IPRE   CRM   PD   No. of obligors   LGD   Maturity   RWA density". In that case the LEADING
+  words ("Corporate IPRE") are the CATEGORY LABEL, NOT column names: emit them as a section_header row and
+  use ONLY the metric words that follow as `columns`.
+- This is MANDATORY even when the category is the FIRST block at the top of a (continuation) page. Such
+  labels include e.g. "Sovereign", "Bank", "Corporate", "Corporate SL", "Corporate IPRE",
+  "Corporate Small Business". If you output a block of PD-range / data rows, it MUST be preceded by its
+  category label row. NEVER fold a category label into a column name, and NEVER omit it.
+
+VALUE FIDELITY (transcribe — do NOT reformat; typing is done downstream in code):
+- Copy each value EXACTLY as printed, INCLUDING thousands separators and signs: "62,195", "(1,505)", "17.0%".
+- Keep a dash cell as "-". Keep "NM", "n.m.", ">100", "unchanged" exactly as written.
+- If a single number is split by a stray render space ("2 64,680"), join it ("264,680").
+- Never invent, merge, split, reorder, or omit any row, column, or value.
+- Titles and labels verbatim. Do not translate, summarise, or normalise wording.
+
+COLUMN ALIGNMENT — MERGED CELLS (critical):
+- Each entry in `values` is a GCell with three fields: `value`, `span` (int, default 1), `merge_type`.
+- INVARIANT: sum(cell.span for cell in values) MUST equal len(columns) for every non-empty row.
+- Normal cell:       {"value": "54,485", "span": 1, "merge_type": "none"}
+- Blank/shaded cell: {"value": "",       "span": 1, "merge_type": "none"}
+
+MERGED CELLS WITH VALUES — do NOT drop them or emit empty values (critical):
+  Never emit values=[] for a data row that has visible numbers — even if some cells are merged.
+  If a value visually sits across multiple columns (no vertical border between them):
+    - Emit ONE GCell with span=N (N = number of columns it covers), anchored at leftmost column
+    - Do NOT emit empty GCells for the covered columns
+    - Set merge_type="aggregate" (value not broken down by column) or "repeat" (same value per column)
+  Example — 5-column table, value spanning cols 2-4:
+    [{"value":"1,000","span":1,"merge_type":"none"},
+     {"value":"2,500","span":3,"merge_type":"aggregate"},
+     {"value":"300",  "span":1,"merge_type":"none"}]
+  This gives sum(spans) = 1+3+1 = 5 = ncols ✓
+
+HOW TO COUNT SPAN FROM THE IMAGE (critical):
+  A merged cell's value is printed at the VISUAL CENTRE of the entire merged region —
+  NOT at the leftmost column. For an odd-span merge (span=3,5,...) the value sits exactly
+  above the middle column. For an even-span merge (span=2,4,...) the value sits between
+  two columns. In both cases you MUST scan both left AND right from the value.
+
+  The ONLY reliable signal is vertical borders combined with cell contents:
+  - Scan LEFT from the value: keep extending while the cell to the left is BLANK (no value,
+    no dash). Stop when you hit a border AND the cell beyond it has a value OR a dash.
+  - Scan RIGHT from the value: same rule — keep extending while the cell to the right is
+    BLANK (no value, no dash). Stop when you hit a border AND the cell beyond it has a value
+    OR a dash, OR you reach the end of the row.
+  - Count all columns from left stop to right stop → that is the span.
+
+  KEY INSIGHT — blank ≠ separate cell:
+  A cell that is visually EMPTY with NO printed dash is part of the merged region if there
+  is no hard vertical border separating it from a cell that has a value. Do NOT treat it as
+  a standalone empty cell. Absorb it into the span.
+
+  STEP-BY-STEP for every merged value:
+  1. Find the column where the value is printed.
+  2. Scan LEFT: does the adjacent cell contain a value or dash? If NO (blank) → extend span
+     leftward. Repeat until you find a value/dash or the row label column.
+  3. Scan RIGHT: does the adjacent cell contain a value or dash? If NO (blank) → extend span
+     rightward. Repeat until you find a value/dash or the end of the row.
+  4. Span = total columns covered (left extension + value column + right extension).
+
+  EXAMPLE — value centred over col3 of 5, cols 2 and 4 are blank (no dash):
+  WRONG: [col1:A, col2:''{span=1}, col3:B{span=1}, col4:''{span=1}, col5:C]  ← treats blanks as real cells
+  WRONG: [col1:A, col2:''{span=1}, col3-4:B{span=2}, col5:C]                ← missed left blank
+  RIGHT: [col1:A, col2-4:B{span=3}, col5:C]   sum=1+3+1=5=ncols ✓
+
+  The blanks on BOTH sides of B are absorbed because neither contains a dash or a border.
+
+BLANK vs DASH — critical distinction:
+  "-" (dash) = the bank explicitly recorded nil/zero for that specific column. Real standalone
+               cell with hard borders on both sides. Always emit {"value":"-","span":1,"merge_type":"none"}.
+  ""  (blank, no dash) = no printed content. Check: is there a hard vertical border on BOTH
+      sides? If the adjacent cell (left or right) has a value/dash with a hard border → real
+      empty cell, emit {"value":"","span":1,"merge_type":"none"}.
+      If the adjacent cell is ALSO blank or contains the merged value → part of the merge,
+      absorb into span. Never emit a blank GCell for a column that is inside a merged region.
+
+MERGED BLANK CELLS:
+  If a merged region has no value (greyed out, shaded, or empty):
+    {"value": "", "span": N, "merge_type": "blank"}
+
+merge_type values:
+    "none"      — span=1 always
+    "aggregate" — value covers N columns, not attributable to any single column
+    "repeat"    — same value independently applies to each covered column
+    "blank"     — merged empty/shaded region
+
+SPAN IS DETERMINED BY VERTICAL BORDERS ONLY — not by content, not by column groups:
+  The ONLY signal for whether two adjacent cells are merged is whether there is a vertical
+  border line between them in the PDF.
+  - NO vertical border between col N and col N+1 → they are merged, one GCell covers both
+  - Hard vertical border between col N and col N+1 → they are separate cells, even if both blank
+
+  This means:
+  - A blank cell with hard borders on BOTH sides is a real standalone empty cell → span=1, value=""
+  - A blank cell with NO border on one side is part of the adjacent merge → absorb into span
+  - A total row where every column has its own hard border → every cell is span=1, even if blank
+
+  Before emitting any GCell, ask: "Is there a drawn vertical line between this cell and its
+  neighbour?" If YES on both sides → span=1. If NO on one side → merge with neighbour.
+
+- Do NOT fill values left-to-right when a row is sparse. Missing vertical borders = merged cell.
+- Do NOT emit values=[] for any row that has visible numbers in the PDF.

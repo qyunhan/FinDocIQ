@@ -1,0 +1,306 @@
+{
+  "tables": [
+    {
+      "title": "Changes in EVE and NII under standardised interest rate shock scenarios19",
+      "label_header": "Period",
+      "continued_from_previous": false,
+      "section_id": "17.2",
+      "columns": [
+        {
+          "group": "ΔEVE",
+          "leaf": "As at 31 Dec 2025"
+        },
+        {
+          "group": "ΔEVE",
+          "leaf": "As at 31 Dec 2024"
+        },
+        {
+          "group": "ΔNII",
+          "leaf": "As at 31 Dec 2025"
+        },
+        {
+          "group": "ΔNII",
+          "leaf": "As at 31 Dec 2024"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Parallel up",
+          "values": [
+            "630",
+            "274",
+            "(923)",
+            "(817)"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Parallel down",
+          "values": [
+            "(1,557)",
+            "(764)",
+            "1,457",
+            "1,449"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Steepener",
+          "values": [
+            "1,466",
+            "925",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Flattener",
+          "values": [
+            "(1,679)",
+            "(940)",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Short rate up",
+          "values": [
+            "(875)",
+            "(560)",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Short rate down",
+          "values": [
+            "955",
+            "644",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Maximum",
+          "values": [
+            "1,466",
+            "925",
+            "1,457",
+            "1,449"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Tier 1 capital",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "sub_header",
+          "level": 1,
+          "parent": null,
+          "label": "Period",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Tier 1 capital",
+          "values": [
+            "",
+            "44,467",
+            "",
+            "43,025"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "19 Per MAS637 requirement, recalibrated rate shocks published by Basel Committee in Year 2024 have been applied in 31 December 2025 ΔEVE and ΔNII computation.",
+          "values": []
+        }
+      ]
+    },
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "18",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "Encumbered Assets20"
+        },
+        {
+          "group": "(b)",
+          "leaf": "Unencumbered Assets"
+        },
+        {
+          "group": "(c)",
+          "leaf": "Total"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Debt Securities",
+          "values": [
+            "11,650",
+            "102,885",
+            "114,535"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Loans and Advances",
+          "values": [
+            "18,749",
+            "329,128",
+            "347,877"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other Assets",
+          "values": [
+            "86",
+            "109,563",
+            "109,649"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total Assets",
+          "values": [
+            "30,485",
+            "541,576",
+            "572,061"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "As at 30 June 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "18",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "Encumbered Assets20"
+        },
+        {
+          "group": "(b)",
+          "leaf": "Unencumbered Assets"
+        },
+        {
+          "group": "(c)",
+          "leaf": "Total"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Debt Securities",
+          "values": [
+            "7,707",
+            "90,772",
+            "98,479"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Loans and Advances",
+          "values": [
+            "12,983",
+            "325,988",
+            "338,971"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other Assets",
+          "values": [
+            "77",
+            "100,311",
+            "100,388"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total Assets",
+          "values": [
+            "20,767",
+            "517,071",
+            "537,838"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "20 Assets that are restricted or prevented from liquidating, selling, transferring or assigning due to legal, regulatory, contractual or other limitations.",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

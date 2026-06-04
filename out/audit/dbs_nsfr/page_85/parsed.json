@@ -1,0 +1,466 @@
+{
+  "tables": [
+    {
+      "title": "Unweighted value by residual maturity",
+      "label_header": "",
+      "continued_from_previous": false,
+      "section_id": "1.1",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "No maturity (1)"
+        },
+        {
+          "group": "6 months to",
+          "leaf": "< 6 months"
+        },
+        {
+          "group": "6 months to",
+          "leaf": "< 1 yr"
+        },
+        {
+          "group": null,
+          "leaf": "\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\text A to B: "
+        },
+        {
+          "group": "31 Dec 2025",
+          "leaf": "No maturity (1)"
+        },
+        {
+          "group": "31 Dec 2025",
+          "leaf": "< 6 months"
+        },
+        {
+          "group": "31 Dec 2025",
+          "leaf": "6 months to < 1 yr"
+        },
+        {
+          "group": "31 Dec 2025",
+          "leaf": "≥ 1yr"
+        },
+        {
+          "group": null,
+          "leaf": "WEIGHTED VALUE"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "23",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "With a risk weight of less than or equal to 35% under MAS Notice 637's standardised approach to credit risk",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "3,054",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "1,788",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "71,261",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "53,843",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "24",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Securities that are not in default and do not qualify as HQLA, including exchange-traded equities",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "9,561",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "5,998",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "52,066",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "52,036",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "25",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Assets with matching interdependent liabilities",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "2,129",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "26",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other assets:",
+          "values": [
+            {
+              "value": "19,949",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "41,268",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "35,983",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "27",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "Physical trade commodities, including gold",
+          "values": [
+            {
+              "value": "233",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "198",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "28",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "Assets posted as initial margin for derivative contracts and contributions to default funds of CCPs",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "4,001",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "3,401",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "29",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "NSFR derivative assets",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "11,165",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "8,022",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "30",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "NSFR derivative liabilities before deduction of variation margin posted",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "12,834",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "641",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "31",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "All other assets not included in the above categories",
+          "values": [
+            {
+              "value": "19,716",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "9,262",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "4,006",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "23,721",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "32",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Off-balance sheet items",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "498,410",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "4,290",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "33",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total RSF",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "444,658",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "34",
+          "row_type": "data",
+          "level": 0,
+          "parent": null,
+          "label": "Net Stable Funding Ratio (%)",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "117",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "(1) Items to be reported in the 'no maturity' time bucket do not have a stated maturity. These may include, but are not limited to, items such as capital with perpetual maturity, non-maturity deposits, short positions, open maturity positions, non-HQLA equities, and physical traded commodities.",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

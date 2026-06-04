@@ -1,0 +1,16 @@
+Examine this table image and identify every merged cell — in headers AND in every data row.
+
+A merged cell is a value (including an empty cell) that sits across two or more columns with no vertical border line between them. Look at every row: header rows, data rows, total rows, sub-header rows.
+
+Steps:
+1. Count the leaf-level data columns (ignore the row-label column on the left).
+2. For each row (top to bottom), check whether any cell spans multiple columns by looking for absent vertical dividers.
+3. Include header rows, section header rows, and data rows. Do not skip data rows.
+
+For each row that has at least one merge, return:
+- row_id: the printed row number on the left (null if none)
+- label: first few words of the row label
+- merges: list of {start_col: 0-based column index of leftmost merged column, span: how many columns it covers}
+
+Rows where every cell has span=1 (all vertical borders present) should be omitted.
+Return as JSON: {"ncols": <number of leaf columns>, "rows": [...]}

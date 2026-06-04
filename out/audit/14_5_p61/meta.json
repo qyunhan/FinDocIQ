@@ -1,0 +1,20 @@
+{
+  "unit_id": "14_5_p61",
+  "pages": [
+    61
+  ],
+  "type": "single",
+  "image_used": false,
+  "usage": {
+    "ts": "2026-05-28T18:48:19",
+    "script": "extract_to_excel",
+    "label": "14_5_p61",
+    "model": "gemini-3.5-flash",
+    "image_used": false,
+    "prompt_tokens": 1967,
+    "output_tokens": 4724,
+    "thinking_tokens": 0,
+    "total_tokens": 6691,
+    "est_cost_usd": 0.04547
+  }
+}

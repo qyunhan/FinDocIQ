@@ -1,0 +1,186 @@
+Now extract the full table using the merge map identified in the previous step.
+
+Merge map from structure analysis:
+```json
+{
+  "ncols": 5,
+  "rows": [
+    {
+      "row_id": null,
+      "label": "Unweighted value by residual maturity",
+      "merges": [
+        {
+          "start_col": 1,
+          "span": 4,
+          "value": "Unweighted value by residual maturity"
+        }
+      ]
+    },
+    {
+      "row_id": null,
+      "label": "6 months to",
+      "merges": [
+        {
+          "start_col": 2,
+          "span": 2,
+          "value": "6 months to <1 yr"
+        }
+      ]
+    },
+    {
+      "row_id": 11,
+      "label": "Other liabilities:",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 2,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 12,
+      "label": "NSFR derivative liabilities",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 3,
+          "value": ""
+        },
+        {
+          "start_col": 4,
+          "span": 1,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 14,
+      "label": "Total ASF",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 15,
+      "label": "Total NSFR HQLA",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 16,
+      "label": "Deposits held at other financial institutions for operational purposes",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 5,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 27,
+      "label": "Physical trade commodities, including gold",
+      "merges": [
+        {
+          "start_col": 1,
+          "span": 3,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 28,
+      "label": "Assets posted as initial margin for derivative contracts and contributions to default funds of CCPs",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 29,
+      "label": "NSFR derivative assets",
+      "merges": [
+        {
+          "start_col": 1,
+          "span": 3,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 30,
+      "label": "NSFR derivative liabilities before deduction of variation margin posted",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 32,
+      "label": "Off-balance sheet items",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 33,
+      "label": "Total RSF",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 34,
+      "label": "NSFR (%)",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    }
+  ]
+}
+```
+
+Using this merge map, transcribe every table in this image into a JSON structure exactly as printed.
+Each row must include row_id (printed number or null), row_type (data/total/section_header/sub_header/note),
+level (0=header or grand total, 1=primary, 2=sub-item, 3=sub-sub-item), parent (row_id of nearest row
+one level above; null for level 0 and 1), label (verbatim), and values.
+
+For columns: count only leaf-level headers. Group headers spanning sub-columns are NOT separate columns.
+Scope/currency labels (e.g. "Group - ALL Currency") are NOT columns.
+
+For values: use the merge map above to set span correctly.
+- Normal cell: plain string e.g. "54,485"
+- Merged cell with value: {"value":"X","span":N,"merge_type":"aggregate"}
+- Merged empty region: {"value":"","span":N,"merge_type":"blank"}
+- Sum of all spans in a row MUST equal total number of leaf columns.
+
+Copy every value exactly as printed. Never invent, reorder, or omit any row, column, or value.
+Every section/category label must appear as a section_header row.

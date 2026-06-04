@@ -1,0 +1,20 @@
+{
+  "unit_id": "4_p7",
+  "pages": [
+    7
+  ],
+  "type": "single",
+  "image_used": false,
+  "usage": {
+    "ts": "2026-05-28T11:47:48",
+    "script": "extract_to_excel",
+    "label": "4_p7",
+    "model": "gemini-3.5-flash",
+    "image_used": false,
+    "prompt_tokens": 1756,
+    "output_tokens": 3137,
+    "thinking_tokens": 0,
+    "total_tokens": 4893,
+    "est_cost_usd": 0.03087
+  }
+}

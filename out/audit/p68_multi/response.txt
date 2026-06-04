@@ -1,0 +1,55 @@
+{
+  "tables": [
+    {
+      "title": "19.2 The Reduced BA-CVA",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "19.2",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "Components"
+        },
+        {
+          "group": "(b)",
+          "leaf": "CVA risk capital requirement under BA-CVA"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Aggregation of systematic components of CVA risk",
+          "values": [
+            "981",
+            ""
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Aggregation of idiosyncratic components of CVA risk",
+          "values": [
+            "101",
+            ""
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "",
+            "324"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,582 @@
+{
+  "tables": [
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "Asset classes and others",
+      "continued_from_previous": false,
+      "section_id": "12.8",
+      "columns": [
+        {
+          "group": "Exposures before CCF and CRM",
+          "leaf": "On-balance sheet amount $m"
+        },
+        {
+          "group": "Exposures before CCF and CRM",
+          "leaf": "Off-balance sheet amount $m"
+        },
+        {
+          "group": "Exposures post-CCF and post-CRM",
+          "leaf": "On-balance sheet amount $m"
+        },
+        {
+          "group": "Exposures post-CCF and post-CRM",
+          "leaf": "Off-balance sheet amount $m"
+        },
+        {
+          "group": "RWA and RWA density",
+          "leaf": "RWA $m"
+        },
+        {
+          "group": "RWA and RWA density",
+          "leaf": "RWA density %"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cash items",
+          "values": [
+            "7,375",
+            "-",
+            "7,375",
+            "-",
+            "5",
+            "0"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Central government and central bank",
+          "values": [
+            "3,679",
+            "70",
+            "3,679",
+            "7",
+            "101",
+            "3"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "PSE",
+          "values": [
+            "8,913",
+            "1,422",
+            "9,863",
+            "518",
+            "1,192",
+            "11"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "MDB",
+          "values": [
+            "785",
+            "1",
+            "895",
+            "#",
+            "29",
+            "3"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Bank",
+          "values": [
+            "360",
+            "79",
+            "370",
+            "7",
+            "260",
+            "69"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Covered bond",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Corporate",
+          "values": [
+            "11,601",
+            "11,233",
+            "9,042",
+            "1,937",
+            "10,574",
+            "96"
+          ]
+        },
+        {
+          "row_id": "7A",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Of which: General",
+          "values": [
+            "11,130",
+            "10,242",
+            "8,752",
+            "1,922",
+            "10,299",
+            "96"
+          ]
+        },
+        {
+          "row_id": "7B",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Of which: Corporate SME",
+          "values": [
+            "451",
+            "991",
+            "273",
+            "15",
+            "258",
+            "90"
+          ]
+        },
+        {
+          "row_id": "7C",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Of which: SL",
+          "values": [
+            "20",
+            "-",
+            "17",
+            "-",
+            "17",
+            "100"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity and subordinated debt",
+          "values": [
+            "2,080",
+            "131",
+            "2,080",
+            "131",
+            "3,744",
+            "169"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Regulatory retail",
+          "values": [
+            "6,595",
+            "13,329",
+            "6,146",
+            "1,284",
+            "5,478",
+            "74"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other retail",
+          "values": [
+            "4,617",
+            "2,001",
+            "2,366",
+            "114",
+            "3,375",
+            "136"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Real estate",
+          "values": [
+            "5,727",
+            "1,578",
+            "5,658",
+            "214",
+            "3,899",
+            "66"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other exposures",
+          "values": [
+            "9,221",
+            "521",
+            "9,221",
+            "521",
+            "11,333",
+            "116"
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Defaulted exposures",
+          "values": [
+            "244",
+            "6",
+            "243",
+            "1",
+            "276",
+            "113"
+          ]
+        },
+        {
+          "row_id": "14",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "61,197",
+            "30,371",
+            "56,938",
+            "4,734",
+            "40,266",
+            "65"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "As at 30 June 2025",
+      "label_header": "Asset classes and others",
+      "continued_from_previous": false,
+      "section_id": "12.8",
+      "columns": [
+        {
+          "group": "Exposures before CCF and CRM",
+          "leaf": "On-balance sheet amount $m"
+        },
+        {
+          "group": "Exposures before CCF and CRM",
+          "leaf": "Off-balance sheet amount $m"
+        },
+        {
+          "group": "Exposures post-CCF and post-CRM",
+          "leaf": "On-balance sheet amount $m"
+        },
+        {
+          "group": "Exposures post-CCF and post-CRM",
+          "leaf": "Off-balance sheet amount $m"
+        },
+        {
+          "group": "RWA and RWA density",
+          "leaf": "RWA $m"
+        },
+        {
+          "group": "RWA and RWA density",
+          "leaf": "RWA density %"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cash items",
+          "values": [
+            "3,292",
+            "-",
+            "3,292",
+            "-",
+            "5",
+            "0"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Central government and central bank",
+          "values": [
+            "3,534",
+            "460",
+            "3,534",
+            "149",
+            "793",
+            "22"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "PSE",
+          "values": [
+            "7,718",
+            "1,195",
+            "8,822",
+            "469",
+            "948",
+            "10"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "MDB",
+          "values": [
+            "622",
+            "30",
+            "728",
+            "6",
+            "31",
+            "4"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Bank",
+          "values": [
+            "547",
+            "178",
+            "555",
+            "11",
+            "510",
+            "90"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Covered bond",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Corporate",
+          "values": [
+            "10,841",
+            "10,578",
+            "8,627",
+            "1,737",
+            "9,610",
+            "93"
+          ]
+        },
+        {
+          "row_id": "7A",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Of which: General",
+          "values": [
+            "10,459",
+            "9,512",
+            "8,395",
+            "1,717",
+            "9,393",
+            "93"
+          ]
+        },
+        {
+          "row_id": "7B",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Of which: Corporate SME",
+          "values": [
+            "361",
+            "1,066",
+            "213",
+            "20",
+            "198",
+            "85"
+          ]
+        },
+        {
+          "row_id": "7C",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Of which: SL",
+          "values": [
+            "21",
+            "-",
+            "19",
+            "-",
+            "19",
+            "100"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity and subordinated debt",
+          "values": [
+            "1,930",
+            "183",
+            "1,930",
+            "183",
+            "3,581",
+            "169"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Regulatory retail",
+          "values": [
+            "6,875",
+            "13,687",
+            "6,431",
+            "1,327",
+            "5,865",
+            "76"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other retail",
+          "values": [
+            "4,575",
+            "1,946",
+            "2,404",
+            "122",
+            "3,416",
+            "135"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Real estate",
+          "values": [
+            "5,808",
+            "262",
+            "5,774",
+            "104",
+            "3,905",
+            "66"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other exposures",
+          "values": [
+            "8,471",
+            "461",
+            "8,471",
+            "461",
+            "10,420",
+            "117"
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Defaulted exposures",
+          "values": [
+            "557",
+            "198",
+            "556",
+            "78",
+            "667",
+            "105"
+          ]
+        },
+        {
+          "row_id": "14",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "54,770",
+            "29,178",
+            "51,124",
+            "4,647",
+            "39,751",
+            "71"
+          ]
+        }
+      ]
+    }
+  ]
+}

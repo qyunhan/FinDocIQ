@@ -1,0 +1,12 @@
+{
+  "ts": "2026-06-02T18:44:51",
+  "script": "extract_to_excel",
+  "label": "dbs_nsfr_p87",
+  "model": "gemini-3.5-flash",
+  "image_used": false,
+  "prompt_tokens": 844,
+  "output_tokens": 16704,
+  "thinking_tokens": 0,
+  "total_tokens": 17548,
+  "est_cost_usd": 0.1516
+}

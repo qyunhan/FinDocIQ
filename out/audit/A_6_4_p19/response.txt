@@ -1,0 +1,494 @@
+{
+  "tables": [
+    {
+      "title": "Prudent Valuation Adjustments 31 Dec 25",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "a",
+          "leaf": "Equity"
+        },
+        {
+          "group": "b",
+          "leaf": "Interest rates"
+        },
+        {
+          "group": "c",
+          "leaf": "FX"
+        },
+        {
+          "group": "d",
+          "leaf": "Credit"
+        },
+        {
+          "group": "e",
+          "leaf": "Commodities"
+        },
+        {
+          "group": "f",
+          "leaf": "Total"
+        },
+        {
+          "group": "g",
+          "leaf": "of which in the trading book"
+        },
+        {
+          "group": "h",
+          "leaf": "of which in the banking book"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "r1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Closeout uncertainty",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "4",
+            "-",
+            "4",
+            "1",
+            "3"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 2,
+          "parent": "r1",
+          "label": "of which: midmarket value",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 2,
+          "parent": "r1",
+          "label": "of which: closeout cost",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 2,
+          "parent": "r1",
+          "label": "of which: concentration",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "4",
+            "-",
+            "4",
+            "1",
+            "3"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Early termination",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Model risk",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Operational risk",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Investing and funding costs",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Unearned credit spreads",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Future administrative costs",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total adjustment",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "4",
+            "-",
+            "4",
+            "1",
+            "3"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Prudent Valuation Adjustments 31 Dec 24",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "a",
+          "leaf": "Equity"
+        },
+        {
+          "group": "b",
+          "leaf": "Interest rates"
+        },
+        {
+          "group": "c",
+          "leaf": "FX"
+        },
+        {
+          "group": "d",
+          "leaf": "Credit"
+        },
+        {
+          "group": "e",
+          "leaf": "Commodities"
+        },
+        {
+          "group": "f",
+          "leaf": "Total"
+        },
+        {
+          "group": "g",
+          "leaf": "of which in the trading book"
+        },
+        {
+          "group": "h",
+          "leaf": "of which in the banking book"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "r2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Closeout uncertainty",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "5",
+            "-",
+            "5",
+            "1",
+            "4"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 2,
+          "parent": "r2",
+          "label": "of which: midmarket value",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 2,
+          "parent": "r2",
+          "label": "of which: closeout cost",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 2,
+          "parent": "r2",
+          "label": "of which: concentration",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "5",
+            "-",
+            "5",
+            "1",
+            "4"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Early termination",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Model risk",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Operational risk",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Investing and funding costs",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Unearned credit spreads",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Future administrative costs",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total adjustment",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "5",
+            "-",
+            "5",
+            "1",
+            "4"
+          ]
+        }
+      ]
+    }
+  ]
+}

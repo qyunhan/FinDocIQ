@@ -1,0 +1,22 @@
+{
+  "unit_id": "dbs_nsfr",
+  "pages": [
+    84,
+    85,
+    86,
+    87
+  ],
+  "model": "gemini-2.5-flash",
+  "usage": {
+    "ts": "2026-06-02T17:47:00",
+    "script": "extract_to_excel",
+    "label": "dbs_nsfr",
+    "model": "gemini-3.5-flash",
+    "image_used": false,
+    "prompt_tokens": 4075,
+    "output_tokens": 18092,
+    "thinking_tokens": 0,
+    "total_tokens": 22167,
+    "est_cost_usd": 0.16894
+  }
+}

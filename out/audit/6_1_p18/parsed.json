@@ -1,0 +1,146 @@
+{
+  "tables": [
+    {
+      "title": "Reconciliation of Balance Sheet Assets to Exposure Measure6",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "6.1",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "31 Dec 2025"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total consolidated assets as per published financial statements",
+          "values": [
+            "572,061"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Adjustment for investments in entities that are consolidated for accounting purposes but are outside the regulatory scope of consolidation",
+          "values": [
+            "(583)"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Adjustment for securitised exposures that meet the operational requirements for the recognition of risk transference",
+          "values": [
+            "-"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Adjustment for fiduciary assets recognised on the balance sheet in accordance with the Accounting Standards but excluded from the calculation of the exposure measure",
+          "values": [
+            "-"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Adjustments for regular-way purchases and sales of financial assets subject to trade date accounting",
+          "values": [
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Adjustments for eligible cash pooling arrangements",
+          "values": [
+            "-"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Adjustment for derivative transactions",
+          "values": [
+            "21,105"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Adjustment for SFTs",
+          "values": [
+            "485"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Adjustment for off-balance sheet items",
+          "values": [
+            "73,729"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Adjustments for prudent valuation adjustments and specific and general allowances which have reduced Tier 1 Capital",
+          "values": [
+            "-"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other adjustments",
+          "values": [
+            "(6,136)"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Exposure measure",
+          "values": [
+            "660,661"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "6 Computed using quarter-end balances",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

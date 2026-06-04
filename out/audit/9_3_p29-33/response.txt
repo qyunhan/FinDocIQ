@@ -1,0 +1,1453 @@
+{
+  "tables": [
+    {
+      "title": "Gross Loans to Customers\nAnalysed by Geography",
+      "label_header": "Analysed by Geography",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "S$ million"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "S$ million"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Singapore",
+          "values": [
+            "149,086",
+            "133,609"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Malaysia",
+          "values": [
+            "28,174",
+            "25,636"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Indonesia",
+          "values": [
+            "17,748",
+            "19,389"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Greater China",
+          "values": [
+            "70,949",
+            "74,495"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other Asia Pacific",
+          "values": [
+            "24,755",
+            "23,761"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Rest of the World",
+          "values": [
+            "50,408",
+            "42,276"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "341,120",
+            "319,166"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "Distribution by geography is determined based on where the credit risk resides.",
+          "values": []
+        }
+      ]
+    },
+    {
+      "title": "Gross Loans to Customers\nAnalysed by Industry",
+      "label_header": "Analysed by Industry",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "S$ million"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "S$ million"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Agriculture, mining and quarrying",
+          "values": [
+            "6,402",
+            "7,523"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Manufacturing",
+          "values": [
+            "18,241",
+            "15,033"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Building and construction",
+          "values": [
+            "95,289",
+            "93,924"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Housing",
+          "values": [
+            "72,591",
+            "68,358"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "General commerce",
+          "values": [
+            "34,504",
+            "31,053"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Transport, storage and communication",
+          "values": [
+            "23,589",
+            "21,327"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Financial institutions, investment and holding companies",
+          "values": [
+            "28,671",
+            "27,601"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Professionals and individuals",
+          "values": [
+            "36,834",
+            "32,679"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "24,999",
+            "21,668"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "341,120",
+            "319,166"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Gross Placements with and Loans to Banks\nAnalysed by Geography",
+      "label_header": "Analysed by Geography",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "S$ million"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "S$ million"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Singapore",
+          "values": [
+            "1,005",
+            "733"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Malaysia",
+          "values": [
+            "4,306",
+            "6,592"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Indonesia",
+          "values": [
+            "1,345",
+            "1,287"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Greater China",
+          "values": [
+            "6,983",
+            "16,335"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other Asia Pacific",
+          "values": [
+            "8,704",
+            "3,718"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Rest of the World",
+          "values": [
+            "14,163",
+            "12,431"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Balances with banks",
+          "values": [
+            "36,506",
+            "41,096"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Bank balances of life insurance fund",
+          "values": [
+            "1,441",
+            "1,314"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "37,947",
+            "42,410"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "Distribution by geography is determined based on where the credit risk resides.",
+          "values": []
+        }
+      ]
+    },
+    {
+      "title": "Government Treasury Bills and Securities\nAnalysed by Geography",
+      "label_header": "Analysed by Geography",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "S$ million"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "S$ million"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Singapore",
+          "values": [
+            "21,506",
+            "14,316"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Malaysia",
+          "values": [
+            "5,831",
+            "5,434"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Indonesia",
+          "values": [
+            "8,330",
+            "7,604"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Greater China",
+          "values": [
+            "3,085",
+            "3,535"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other Asia Pacific",
+          "values": [
+            "10,667",
+            "5,179"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Rest of the World",
+          "values": [
+            "16,985",
+            "8,617"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "66,404",
+            "44,685"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "Distribution by geography is determined based on where the credit risk resides.",
+          "values": []
+        }
+      ]
+    },
+    {
+      "title": "Gross Debt Securities\nAnalysed by Geography",
+      "label_header": "Analysed by Geography",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "S$ million"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "S$ million"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Singapore",
+          "values": [
+            "4,983",
+            "3,839"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Malaysia",
+          "values": [
+            "4,935",
+            "2,535"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Indonesia",
+          "values": [
+            "2,074",
+            "1,448"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Greater China",
+          "values": [
+            "9,218",
+            "11,692"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other Asia Pacific",
+          "values": [
+            "11,930",
+            "10,444"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Rest of the World",
+          "values": [
+            "8,684",
+            "6,168"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "41,824",
+            "36,126"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "Distribution by geography is determined based on where the credit risk resides.",
+          "values": []
+        }
+      ]
+    },
+    {
+      "title": "Gross Debt Securities\nAnalysed by Industry",
+      "label_header": "Analysed by Industry",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "S$ million"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "S$ million"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Agriculture, mining and quarrying",
+          "values": [
+            "635",
+            "533"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Manufacturing",
+          "values": [
+            "1,498",
+            "1,778"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Building and construction",
+          "values": [
+            "3,890",
+            "3,268"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "General commerce",
+          "values": [
+            "567",
+            "601"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Transport, storage and communication",
+          "values": [
+            "2,112",
+            "1,783"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Financial institutions, investment and holding companies",
+          "values": [
+            "28,662",
+            "24,735"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "4,460",
+            "3,428"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "41,824",
+            "36,126"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Residual Contractual Maturity of On-Balance Sheet Assets\n31 Dec 2025",
+      "label_header": "S$ million",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Within 1 week"
+        },
+        {
+          "group": null,
+          "leaf": "1 week to 1 month"
+        },
+        {
+          "group": null,
+          "leaf": "1 to 3 months"
+        },
+        {
+          "group": null,
+          "leaf": "3 to 12 months"
+        },
+        {
+          "group": null,
+          "leaf": "1 to 3 years"
+        },
+        {
+          "group": null,
+          "leaf": "Over 3 years"
+        },
+        {
+          "group": null,
+          "leaf": "Total"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Net loans to customers",
+          "values": [
+            "22,193",
+            "40,393",
+            "23,223",
+            "44,471",
+            "65,640",
+            "140,772",
+            "336,692"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Net placements with and loans to banks",
+          "values": [
+            "6,378",
+            "3,119",
+            "9,211",
+            "14,721",
+            "2,407",
+            "665",
+            "36,501"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Government treasury bills and securities",
+          "values": [
+            "1,953",
+            "2,358",
+            "6,539",
+            "17,044",
+            "20,040",
+            "18,470",
+            "66,404"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Debt securities",
+          "values": [
+            "140",
+            "923",
+            "2,970",
+            "9,736",
+            "16,213",
+            "11,837",
+            "41,819"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Residual Contractual Maturity of On-Balance Sheet Assets\n31 Dec 2024",
+      "label_header": "S$ million",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Within 1 week"
+        },
+        {
+          "group": null,
+          "leaf": "1 week to 1 month"
+        },
+        {
+          "group": null,
+          "leaf": "1 to 3 months"
+        },
+        {
+          "group": null,
+          "leaf": "3 to 12 months"
+        },
+        {
+          "group": null,
+          "leaf": "1 to 3 years"
+        },
+        {
+          "group": null,
+          "leaf": "Over 3 years"
+        },
+        {
+          "group": null,
+          "leaf": "Total"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Net loans to customers",
+          "values": [
+            "25,253",
+            "30,928",
+            "22,132",
+            "35,682",
+            "63,598",
+            "137,503",
+            "315,096"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Net placements with and loans to banks",
+          "values": [
+            "8,062",
+            "4,218",
+            "8,821",
+            "17,299",
+            "2,253",
+            "440",
+            "41,093"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Government treasury bills and securities",
+          "values": [
+            "676",
+            "2,772",
+            "3,758",
+            "12,019",
+            "11,506",
+            "13,954",
+            "44,685"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Debt securities",
+          "values": [
+            "74",
+            "649",
+            "1,987",
+            "3,614",
+            "19,441",
+            "10,361",
+            "36,126"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Credit Commitments\nAnalysed by Geography",
+      "label_header": "Analysed by Geography",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "S$ million"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "S$ million"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Singapore",
+          "values": [
+            "145,403",
+            "140,850"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Malaysia",
+          "values": [
+            "12,587",
+            "10,954"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Indonesia",
+          "values": [
+            "6,861",
+            "6,814"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Greater China",
+          "values": [
+            "24,921",
+            "22,056"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other Asia Pacific",
+          "values": [
+            "4,953",
+            "3,790"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Rest of the World",
+          "values": [
+            "13,345",
+            "11,978"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "208,070",
+            "196,442"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "Distribution by geography is determined based on where the transactions are recorded.",
+          "values": []
+        }
+      ]
+    },
+    {
+      "title": "Credit Commitments\nAnalysed by Industry",
+      "label_header": "Analysed by Industry",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "S$ million"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "S$ million"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Agriculture, mining and quarrying",
+          "values": [
+            "1,777",
+            "1,444"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Manufacturing",
+          "values": [
+            "12,706",
+            "13,548"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Building and construction",
+          "values": [
+            "19,689",
+            "19,669"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "General commerce",
+          "values": [
+            "32,872",
+            "31,486"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Transport, storage and communication",
+          "values": [
+            "8,492",
+            "6,764"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Financial institutions, investment and holding companies",
+          "values": [
+            "62,275",
+            "58,722"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Professionals and individuals",
+          "values": [
+            "59,694",
+            "56,990"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "10,565",
+            "7,819"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "208,070",
+            "196,442"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Credit Commitments\nAnalysed by Residual Maturity",
+      "label_header": "Analysed by Residual Maturity",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "S$ million"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "S$ million"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Undrawn credit facilities:",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Term to maturity of one year or less",
+          "values": [
+            "166,164",
+            "159,074"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Term to maturity of more than one year",
+          "values": [
+            "41,906",
+            "37,368"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "208,070",
+            "196,442"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Contingent Liabilities\nAnalysed by Geography",
+      "label_header": "Analysed by Geography",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "S$ million"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "S$ million"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Singapore",
+          "values": [
+            "11,571",
+            "12,408"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Malaysia",
+          "values": [
+            "1,549",
+            "1,292"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Indonesia",
+          "values": [
+            "1,107",
+            "1,116"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Greater China",
+          "values": [
+            "3,329",
+            "2,659"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other Asia Pacific",
+          "values": [
+            "389",
+            "243"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Rest of the World",
+          "values": [
+            "1,414",
+            "1,078"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "19,359",
+            "18,796"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "Distribution by geography is determined based on where the transactions are recorded.",
+          "values": []
+        }
+      ]
+    },
+    {
+      "title": "Contingent Liabilities\nAnalysed by Industry",
+      "label_header": "Analysed by Industry",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "S$ million"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "S$ million"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Agriculture, mining and quarrying",
+          "values": [
+            "57",
+            "83"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Manufacturing",
+          "values": [
+            "2,965",
+            "2,372"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Building and construction",
+          "values": [
+            "2,350",
+            "2,108"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "General commerce",
+          "values": [
+            "8,395",
+            "9,872"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Transport, storage and communication",
+          "values": [
+            "696",
+            "576"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Financial institutions, investment and holding companies",
+          "values": [
+            "3,704",
+            "2,356"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Professionals and individuals",
+          "values": [
+            "201",
+            "252"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "991",
+            "1,177"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "19,359",
+            "18,796"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Contingent Liabilities\nAnalysed by Residual Maturity",
+      "label_header": "Analysed by Residual Maturity",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "S$ million"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "S$ million"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Guarantees and standby letters of credit:",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Term to maturity of one year or less",
+          "values": [
+            "7,438",
+            "7,194"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Term to maturity of more than one year",
+          "values": [
+            "4,905",
+            "4,370"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Subtotal (Guarantees and standby letters of credit)",
+          "values": [
+            "12,343",
+            "11,564"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Acceptances and endorsements",
+          "values": [
+            "1,030",
+            "764"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Documentary credits and other short term trade-related transactions",
+          "values": [
+            "5,986",
+            "6,468"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "19,359",
+            "18,796"
+          ]
+        }
+      ]
+    }
+  ]
+}

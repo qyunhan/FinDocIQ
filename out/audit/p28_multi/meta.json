@@ -1,0 +1,20 @@
+{
+  "unit_id": "p28_multi",
+  "pages": [
+    28
+  ],
+  "type": "multiple",
+  "image_used": false,
+  "usage": {
+    "ts": "2026-05-28T18:40:46",
+    "script": "extract_to_excel",
+    "label": "p28_multi",
+    "model": "gemini-3.5-flash",
+    "image_used": false,
+    "prompt_tokens": 2023,
+    "output_tokens": 2047,
+    "thinking_tokens": 0,
+    "total_tokens": 4070,
+    "est_cost_usd": 0.02146
+  }
+}

@@ -1,0 +1,282 @@
+```json
+{
+  "ncols": 5,
+  "rows": [
+    {
+      "row_id": null,
+      "label": "Unweighted value by residual maturity",
+      "merges": [
+        {
+          "start_col": 1,
+          "span": 4,
+          "value": "Unweighted value by residual maturity"
+        }
+      ]
+    },
+    {
+      "row_id": null,
+      "label": "6 months to",
+      "merges": [
+        {
+          "start_col": 2,
+          "span": 2,
+          "value": "6 months to"
+        }
+      ]
+    },
+    {
+      "row_id": 1,
+      "label": "Capital:",
+      "merges": [
+        {
+          "start_col": 1,
+          "span": 3,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 2,
+      "label": "Regulatory capital",
+      "merges": [
+        {
+          "start_col": 1,
+          "span": 3,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 3,
+      "label": "Other capital instruments",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 5,
+      "label": "Stable deposits",
+      "merges": [
+        {
+          "start_col": 3,
+          "span": 2,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 7,
+      "label": "Wholesale funding:",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 1,
+          "value": "90,211"
+        }
+      ]
+    },
+    {
+      "row_id": 8,
+      "label": "Operational deposits",
+      "merges": [
+        {
+          "start_col": 2,
+          "span": 2,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 10,
+      "label": "Liabilities with matching interdependent assets",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 11,
+      "label": "Other liabilities:",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 2,
+          "value": "7,711"
+        }
+      ]
+    },
+    {
+      "row_id": 12,
+      "label": "NSFR derivative liabilities",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 3,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 13,
+      "label": "All other liabilities and equity not included in the above",
+      "merges": [
+        {
+          "start_col": 2,
+          "span": 2,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 14,
+      "label": "Total ASF",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 15,
+      "label": "Total NSFR HQLA",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 16,
+      "label": "Deposits held at other financial institutions for operational",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 18,
+      "label": "Performing loans to financial institutions secured by",
+      "merges": [
+        {
+          "start_col": 3,
+          "span": 2,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 25,
+      "label": "Assets with matching interdependent liabilities",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 26,
+      "label": "Other assets:",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 3,
+          "value": "20,867"
+        }
+      ]
+    },
+    {
+      "row_id": 27,
+      "label": "Physical trade commodities, including gold",
+      "merges": [
+        {
+          "start_col": 1,
+          "span": 3,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 28,
+      "label": "Assets posted as initial margin for derivative contracts",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 3,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 29,
+      "label": "NSFR derivative assets",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 3,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 30,
+      "label": "NSFR derivative liabilities before deduction of variation",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 3,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 32,
+      "label": "Off-balance sheet items",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 33,
+      "label": "Total RSF",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 34,
+      "label": "NSFR (%)",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    }
+  ]
+}
+```

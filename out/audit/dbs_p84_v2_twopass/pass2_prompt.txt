@@ -1,0 +1,183 @@
+Now extract the full table using the merge map identified in the previous step.
+
+Merge map from structure analysis:
+```json
+{
+  "ncols": 5,
+  "rows": [
+    {
+      "row_id": null,
+      "label": "Unweighted value by residual maturity",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        }
+      ]
+    },
+    {
+      "row_id": null,
+      "label": "No",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 1
+        },
+        {
+          "start_col": 1,
+          "span": 3
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": null,
+      "label": "maturity",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 1
+        },
+        {
+          "start_col": 1,
+          "span": 1
+        },
+        {
+          "start_col": 2,
+          "span": 1
+        },
+        {
+          "start_col": 3,
+          "span": 1
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 1,
+      "label": "Capital:",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 2,
+      "label": "Regulatory capital",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 3,
+      "label": "Other capital instruments",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 10,
+      "label": "Liabilities with matching interdependent",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 1
+        },
+        {
+          "start_col": 1,
+          "span": 3
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 14,
+      "label": "Total ASF",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 15,
+      "label": "Total NSFR high-quality liquid assets",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 16,
+      "label": "Deposits held at other financial institutions",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    }
+  ]
+}
+```
+
+Using this merge map, transcribe every table in this image into a JSON structure exactly as printed.
+Each row must include row_id (printed number or null), row_type (data/total/section_header/sub_header/note),
+level (0=header or grand total, 1=primary, 2=sub-item, 3=sub-sub-item), parent (row_id of nearest row
+one level above; null for level 0 and 1), label (verbatim), and values.
+
+For columns: count only leaf-level headers. Group headers spanning sub-columns are NOT separate columns.
+Scope/currency labels (e.g. "Group - ALL Currency") are NOT columns.
+
+For values: use the merge map above to set span correctly.
+- Normal cell: plain string e.g. "54,485"
+- Merged cell with value: {"value":"X","span":N,"merge_type":"aggregate"}
+- Merged empty region: {"value":"","span":N,"merge_type":"blank"}
+- Sum of all spans in a row MUST equal total number of leaf columns.
+
+Copy every value exactly as printed. Never invent, reorder, or omit any row, column, or value.
+Every section/category label must appear as a section_header row.

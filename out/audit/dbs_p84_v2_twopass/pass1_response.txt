@@ -1,0 +1,163 @@
+```json
+{
+  "ncols": 5,
+  "rows": [
+    {
+      "row_id": null,
+      "label": "Unweighted value by residual maturity",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        }
+      ]
+    },
+    {
+      "row_id": null,
+      "label": "No",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 1
+        },
+        {
+          "start_col": 1,
+          "span": 3
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": null,
+      "label": "maturity",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 1
+        },
+        {
+          "start_col": 1,
+          "span": 1
+        },
+        {
+          "start_col": 2,
+          "span": 1
+        },
+        {
+          "start_col": 3,
+          "span": 1
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 1,
+      "label": "Capital:",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 2,
+      "label": "Regulatory capital",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 3,
+      "label": "Other capital instruments",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 10,
+      "label": "Liabilities with matching interdependent",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 1
+        },
+        {
+          "start_col": 1,
+          "span": 3
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 14,
+      "label": "Total ASF",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 15,
+      "label": "Total NSFR high-quality liquid assets",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    },
+    {
+      "row_id": 16,
+      "label": "Deposits held at other financial institutions",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4
+        },
+        {
+          "start_col": 4,
+          "span": 1
+        }
+      ]
+    }
+  ]
+}
+```

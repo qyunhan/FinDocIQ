@@ -1,0 +1,12 @@
+{
+  "ts": "2026-06-03T10:42:21",
+  "script": "extract_to_excel",
+  "label": "dbs_p84_newprompt_p84",
+  "model": "gemini-3.5-flash",
+  "image_used": false,
+  "prompt_tokens": 582,
+  "output_tokens": 5451,
+  "thinking_tokens": 0,
+  "total_tokens": 6033,
+  "est_cost_usd": 0.04993
+}

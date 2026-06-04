@@ -1,0 +1,204 @@
+{
+  "tables": [
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "13.6",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "Protection bought"
+        },
+        {
+          "group": "(b)",
+          "leaf": "Protection sold"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Notionals",
+          "values": []
+        },
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Single-name credit default swaps",
+          "values": [
+            "77",
+            "64"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Index credit default swaps",
+          "values": [
+            "13",
+            ""
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total return swaps",
+          "values": [
+            "1,885",
+            ""
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total notionals",
+          "values": [
+            "1,975",
+            "64"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Fair values",
+          "values": []
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Positive fair value (asset)",
+          "values": [
+            "126",
+            "0"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Negative fair value (liability)",
+          "values": [
+            "17",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "title": "As at 30 June 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "13.6",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "Protection bought"
+        },
+        {
+          "group": "(b)",
+          "leaf": "Protection sold"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Notionals",
+          "values": []
+        },
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Single-name credit default swaps",
+          "values": [
+            "84",
+            "65"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Index credit default swaps",
+          "values": [
+            "13",
+            ""
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total return swaps",
+          "values": [
+            "1,656",
+            ""
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total notionals",
+          "values": [
+            "1,753",
+            "65"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Fair values",
+          "values": []
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Positive fair value (asset)",
+          "values": [
+            "3",
+            "1"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Negative fair value (liability)",
+          "values": [
+            "45",
+            ""
+          ]
+        }
+      ]
+    }
+  ]
+}

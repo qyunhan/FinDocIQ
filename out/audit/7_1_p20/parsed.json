@@ -1,0 +1,199 @@
+{
+  "tables": [
+    {
+      "title": "Countercyclical Capital Buffer as at 31 December 2025",
+      "label_header": "Geographical breakdown",
+      "continued_from_previous": false,
+      "section_id": "7.1",
+      "columns": [
+        {
+          "group": "(a)",
+          "leaf": "Country-specific countercyclical buffer requirement"
+        },
+        {
+          "group": "(b)",
+          "leaf": "RWA for private sector credit exposures used in the computation of the countercyclical buffer"
+        },
+        {
+          "group": "(c)",
+          "leaf": "Bank-specific countercyclical buffer requirement"
+        },
+        {
+          "group": "(d)",
+          "leaf": "Countercyclical buffer amount"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Australia",
+          "values": [
+            "1.00%",
+            "8,705",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Belgium",
+          "values": [
+            "1.00%",
+            "7",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "France",
+          "values": [
+            "1.00%",
+            "79",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Germany",
+          "values": [
+            "0.75%",
+            "214",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Hong Kong",
+          "values": [
+            "0.50%",
+            "15,186",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "South Korea",
+          "values": [
+            "1.00%",
+            "2,390",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Spain",
+          "values": [
+            "0.50%",
+            "329",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Luxembourg",
+          "values": [
+            "0.50%",
+            "227",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Netherlands",
+          "values": [
+            "2.00%",
+            "115",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Sweden",
+          "values": [
+            "2.00%",
+            "#",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "United Kingdom",
+          "values": [
+            "2.00%",
+            "7,326",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sum",
+          "values": [
+            "",
+            "34,579",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "",
+            "213,503",
+            "0.2%",
+            "441"
+          ]
+        }
+      ]
+    }
+  ]
+}

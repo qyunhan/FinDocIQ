@@ -1,0 +1,302 @@
+Now extract the full table using the merge map identified in the previous step.
+
+Merge map from structure analysis:
+```json
+{
+  "ncols": 5,
+  "rows": [
+    {
+      "row_id": null,
+      "label": "Unweighted value by residual maturity",
+      "merges": [
+        {
+          "start_col": 1,
+          "span": 4,
+          "value": "Unweighted value by residual maturity"
+        }
+      ]
+    },
+    {
+      "row_id": null,
+      "label": "6 months to",
+      "merges": [
+        {
+          "start_col": 2,
+          "span": 2,
+          "value": "6 months to"
+        }
+      ]
+    },
+    {
+      "row_id": 1,
+      "label": "Capital:",
+      "merges": [
+        {
+          "start_col": 1,
+          "span": 3,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 2,
+      "label": "Regulatory capital",
+      "merges": [
+        {
+          "start_col": 1,
+          "span": 3,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 3,
+      "label": "Other capital instruments",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 5,
+      "label": "Stable deposits",
+      "merges": [
+        {
+          "start_col": 3,
+          "span": 2,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 7,
+      "label": "Wholesale funding:",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 1,
+          "value": "90,211"
+        }
+      ]
+    },
+    {
+      "row_id": 8,
+      "label": "Operational deposits",
+      "merges": [
+        {
+          "start_col": 2,
+          "span": 2,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 10,
+      "label": "Liabilities with matching interdependent assets",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 11,
+      "label": "Other liabilities:",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 2,
+          "value": "7,711"
+        }
+      ]
+    },
+    {
+      "row_id": 12,
+      "label": "NSFR derivative liabilities",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 3,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 13,
+      "label": "All other liabilities and equity not included in the above",
+      "merges": [
+        {
+          "start_col": 2,
+          "span": 2,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 14,
+      "label": "Total ASF",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 15,
+      "label": "Total NSFR HQLA",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 16,
+      "label": "Deposits held at other financial institutions for operational",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 18,
+      "label": "Performing loans to financial institutions secured by",
+      "merges": [
+        {
+          "start_col": 3,
+          "span": 2,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 25,
+      "label": "Assets with matching interdependent liabilities",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "row_id": 26,
+      "label": "Other assets:",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 3,
+          "value": "20,867"
+        }
+      ]
+    },
+    {
+      "row_id": 27,
+      "label": "Physical trade commodities, including gold",
+      "merges": [
+        {
+          "start_col": 1,
+          "span": 3,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 28,
+      "label": "Assets posted as initial margin for derivative contracts",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 3,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 29,
+      "label": "NSFR derivative assets",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 3,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 30,
+      "label": "NSFR derivative liabilities before deduction of variation",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 3,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 32,
+      "label": "Off-balance sheet items",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 33,
+      "label": "Total RSF",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "row_id": 34,
+      "label": "NSFR (%)",
+      "merges": [
+        {
+          "start_col": 0,
+          "span": 4,
+          "value": ""
+        }
+      ]
+    }
+  ]
+}
+```
+
+Using this merge map, transcribe every table in this image into a JSON structure exactly as printed.
+Each row must include row_id (printed number or null), row_type (data/total/section_header/sub_header/note),
+level (0=header or grand total, 1=primary, 2=sub-item, 3=sub-sub-item), parent (row_id of nearest row
+one level above; null for level 0 and 1), label (verbatim), and values.
+
+For columns: count only leaf-level headers. Group headers spanning sub-columns are NOT separate columns.
+Scope/currency labels (e.g. "Group - ALL Currency") are NOT columns.
+
+For values: use the merge map above to set span correctly.
+- Normal cell: plain string e.g. "54,485"
+- Merged cell with value: {"value":"X","span":N,"merge_type":"aggregate"}
+- Merged empty region: {"value":"","span":N,"merge_type":"blank"}
+- Sum of all spans in a row MUST equal total number of leaf columns.
+
+Copy every value exactly as printed. Never invent, reorder, or omit any row, column, or value.
+Every section/category label must appear as a section_header row.

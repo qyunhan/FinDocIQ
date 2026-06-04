@@ -1,0 +1,432 @@
+{
+  "tables": [
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "Regulatory categories",
+      "continued_from_previous": false,
+      "section_id": "",
+      "columns": [
+        {
+          "group": "SL Other than HVCRE",
+          "leaf": "Remaining maturity"
+        },
+        {
+          "group": "SL Other than HVCRE",
+          "leaf": "On-balance sheet amount"
+        },
+        {
+          "group": "SL Other than HVCRE",
+          "leaf": "Off-balance sheet amount"
+        },
+        {
+          "group": "SL Other than HVCRE",
+          "leaf": "Risk weight"
+        },
+        {
+          "group": "Exposure amount",
+          "leaf": "PF"
+        },
+        {
+          "group": "Exposure amount",
+          "leaf": "OF"
+        },
+        {
+          "group": "Exposure amount",
+          "leaf": "CF"
+        },
+        {
+          "group": "Exposure amount",
+          "leaf": "IPRE"
+        },
+        {
+          "group": "Exposure amount",
+          "leaf": "Total"
+        },
+        {
+          "group": null,
+          "leaf": "RWA"
+        },
+        {
+          "group": null,
+          "leaf": "Expected Losses"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Strong",
+          "values": [
+            "Less than 2.5 years",
+            "1,162",
+            "11,033",
+            "50%",
+            "906",
+            "-",
+            "436",
+            "162",
+            "1,504",
+            "752",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Strong",
+          "values": [
+            "Equal to or more than 2.5 years",
+            "2,150",
+            "914",
+            "70%",
+            "2,328",
+            "-",
+            "50",
+            "137",
+            "2,515",
+            "1,761",
+            "10"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Good",
+          "values": [
+            "Less than 2.5 years",
+            "662",
+            "927",
+            "70%",
+            "69",
+            "-",
+            "4",
+            "736",
+            "809",
+            "566",
+            "3"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Good",
+          "values": [
+            "Equal to or more than 2.5 years",
+            "1,301",
+            "417",
+            "90%",
+            "1,050",
+            "-",
+            "-",
+            "356",
+            "1,406",
+            "1,265",
+            "11"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Satisfactory",
+          "values": [
+            "",
+            "320",
+            "78",
+            "115%",
+            "44",
+            "-",
+            "-",
+            "293",
+            "337",
+            "387",
+            "9"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Weak",
+          "values": [
+            "",
+            "29",
+            "1",
+            "250%",
+            "-",
+            "-",
+            "-",
+            "29",
+            "29",
+            "71",
+            "2"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Default",
+          "values": [
+            "",
+            "48",
+            "2",
+            "-",
+            "-",
+            "-",
+            "-",
+            "48",
+            "48",
+            "-",
+            "24"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "",
+            "5,672",
+            "13,372",
+            "",
+            "4,397",
+            "-",
+            "490",
+            "1,761",
+            "6,648",
+            "4,802",
+            "60"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "As at 30 June 2025",
+      "label_header": "Regulatory categories",
+      "continued_from_previous": false,
+      "section_id": "",
+      "columns": [
+        {
+          "group": "SL Other than HVCRE",
+          "leaf": "Remaining maturity"
+        },
+        {
+          "group": "SL Other than HVCRE",
+          "leaf": "On-balance sheet amount"
+        },
+        {
+          "group": "SL Other than HVCRE",
+          "leaf": "Off-balance sheet amount"
+        },
+        {
+          "group": "SL Other than HVCRE",
+          "leaf": "Risk weight"
+        },
+        {
+          "group": "Exposure amount",
+          "leaf": "PF"
+        },
+        {
+          "group": "Exposure amount",
+          "leaf": "OF"
+        },
+        {
+          "group": "Exposure amount",
+          "leaf": "CF"
+        },
+        {
+          "group": "Exposure amount",
+          "leaf": "IPRE"
+        },
+        {
+          "group": "Exposure amount",
+          "leaf": "Total"
+        },
+        {
+          "group": null,
+          "leaf": "RWA"
+        },
+        {
+          "group": null,
+          "leaf": "Expected Losses"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Strong",
+          "values": [
+            "Less than 2.5 years",
+            "944",
+            "11,256",
+            "50%",
+            "778",
+            "-",
+            "479",
+            "114",
+            "1,371",
+            "685",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Strong",
+          "values": [
+            "Equal to or more than 2.5 years",
+            "2,143",
+            "598",
+            "70%",
+            "2,205",
+            "-",
+            "52",
+            "123",
+            "2,380",
+            "1,667",
+            "10"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Good",
+          "values": [
+            "Less than 2.5 years",
+            "460",
+            "1036",
+            "70%",
+            "123",
+            "-",
+            "11",
+            "487",
+            "621",
+            "435",
+            "2"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Good",
+          "values": [
+            "Equal to or more than 2.5 years",
+            "1,379",
+            "399",
+            "90%",
+            "873",
+            "-",
+            "-",
+            "637",
+            "1,510",
+            "1,359",
+            "12"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Satisfactory",
+          "values": [
+            "",
+            "354",
+            "107",
+            "115%",
+            "55",
+            "-",
+            "-",
+            "321",
+            "376",
+            "432",
+            "11"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Weak",
+          "values": [
+            "",
+            "41",
+            "1",
+            "250%",
+            "-",
+            "-",
+            "-",
+            "41",
+            "41",
+            "103",
+            "3"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Default",
+          "values": [
+            "",
+            "47",
+            "2",
+            "-",
+            "-",
+            "-",
+            "-",
+            "47",
+            "47",
+            "-",
+            "23"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "",
+            "5,368",
+            "13,399",
+            "",
+            "4,034",
+            "-",
+            "542",
+            "1,770",
+            "6,346",
+            "4,681",
+            "61"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "tables": [
+    {
+      "title": "6.2 Main Sources of Differences between Regulatory Exposure Amounts and Carrying Amounts in Financial Statements\n31 Dec 25",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Total"
+        },
+        {
+          "group": "Items subject to -",
+          "leaf": "Credit risk requirements"
+        },
+        {
+          "group": "Items subject to -",
+          "leaf": "CCR requirements"
+        },
+        {
+          "group": "Items subject to -",
+          "leaf": "Securitisation framework"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "a",
+          "row_type": "sub_header",
+          "level": 0,
+          "parent": null,
+          "label": "a",
+          "values": []
+        },
+        {
+          "row_id": "b",
+          "row_type": "sub_header",
+          "level": 0,
+          "parent": null,
+          "label": "b",
+          "values": []
+        },
+        {
+          "row_id": "c",
+          "row_type": "sub_header",
+          "level": 0,
+          "parent": null,
+          "label": "c",
+          "values": []
+        },
+        {
+          "row_id": "d",
+          "row_type": "sub_header",
+          "level": 0,
+          "parent": null,
+          "label": "d",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Assets carrying amount under regulatory scope of consolidation",
+          "values": [
+            "889,869",
+            "715,098",
+            "97,443",
+            "5,586"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Liabilities carrying amount under regulatory scope of consolidation",
+          "values": [
+            "101,918",
+            "-",
+            "70,686",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Total net amount under regulatory scope of consolidation",
+          "values": [
+            "787,951",
+            "715,098",
+            "26,757",
+            "5,586"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Off-balance sheet amounts",
+          "values": [
+            "498,015",
+            "115,757",
+            "-",
+            "600"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Differences due to netting and potential future exposures for derivatives",
+          "values": [
+            "-",
+            "-",
+            "48,656",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Differences due to allowances(1)",
+          "values": [
+            "-",
+            "5,708",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other differences",
+          "values": [
+            "-",
+            "5,790",
+            "(10,149)",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Exposure amounts considered for regulatory purposes",
+          "values": [
+            "913,803",
+            "842,353",
+            "65,264",
+            "6,186"
+          ]
+        }
+      ]
+    }
+  ]
+}

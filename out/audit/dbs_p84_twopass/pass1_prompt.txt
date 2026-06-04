@@ -1,0 +1,9 @@
+Look only at the table structure in this image. Do not extract values yet.
+
+For each row that contains a merged cell (a value that spans multiple columns with no vertical border between them), return:
+- row_id: the printed row number (null if none)
+- label: first few words of the row label
+- merges: list of {start_col: 0-based index of leftmost column in merge, span: number of columns covered}
+
+Return ONLY rows that have at least one merge. Rows with all span=1 cells should be omitted.
+Return as JSON: {"rows": [...]}

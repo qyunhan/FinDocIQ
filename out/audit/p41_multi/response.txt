@@ -1,0 +1,248 @@
+{
+  "tables": [
+    {
+      "title": "12.9 SA(CR) - EXPOSURES BY ASSET CLASSES AND RISK WEIGHTS (cont'd)",
+      "label_header": "",
+      "continued_from_previous": true,
+      "section_id": "12.9",
+      "columns": [
+        {"group": null, "leaf": "0%"},
+        {"group": null, "leaf": "20%"},
+        {"group": null, "leaf": "25%"},
+        {"group": null, "leaf": "30%"},
+        {"group": null, "leaf": "35%"},
+        {"group": null, "leaf": "40%"},
+        {"group": null, "leaf": "45%"},
+        {"group": null, "leaf": "50%"},
+        {"group": null, "leaf": "60%"},
+        {"group": null, "leaf": "65%"},
+        {"group": null, "leaf": "70%"},
+        {"group": null, "leaf": "75%"},
+        {"group": null, "leaf": "85%"},
+        {"group": null, "leaf": "90%"},
+        {"group": null, "leaf": "100%"},
+        {"group": null, "leaf": "105%"},
+        {"group": null, "leaf": "110%"},
+        {"group": null, "leaf": "150%"},
+        {"group": null, "leaf": "Other"},
+        {"group": null, "leaf": "Total credit exposure amount (post-CCF and post-CRM)"}
+      ],
+      "rows": [
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Real estate",
+          "values": ["", "764", "410", "648", "2", "117", "55", "58", "179", "", "103", "703", "1,177", "1", "", "46", "#", "37", "1,578", "5,878"]
+        },
+        {
+          "row_id": "11A",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "Of which: ADC",
+          "values": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
+        },
+        {
+          "row_id": "11B",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "Of which: Regulatory real estate",
+          "values": ["", "764", "410", "648", "2", "117", "55", "58", "179", "", "103", "252", "#", "1", "", "46", "#", "", "62", "2,697"]
+        },
+        {
+          "row_id": "11C",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "Of which: RRE",
+          "values": ["", "764", "410", "648", "2", "117", "55", "58", "19", "", "99", "39", "", "", "", "46", "", "", "60", "2,317"]
+        },
+        {
+          "row_id": "11D",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "Of which: CRE",
+          "values": ["", "", "", "", "", "", "", "", "160", "", "4", "213", "#", "1", "", "", "#", "", "2", "380"]
+        },
+        {
+          "row_id": "11E",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "Of which: Other real estate",
+          "values": ["", "", "", "", "", "", "", "", "", "", "", "451", "1,177", "", "", "", "", "37", "1,516", "3,181"]
+        }
+      ]
+    },
+    {
+      "title": "12.9 SA(CR) - EXPOSURES BY ASSET CLASSES AND RISK WEIGHTS (cont'd) - Defaulted exposures",
+      "label_header": "",
+      "continued_from_previous": true,
+      "section_id": "12.9",
+      "columns": [
+        {"group": null, "leaf": "50%"},
+        {"group": null, "leaf": "100%"},
+        {"group": null, "leaf": "150%"},
+        {"group": null, "leaf": "Other"},
+        {"group": null, "leaf": "Total credit exposure amount (post-CCF and post-CRM)"}
+      ],
+      "rows": [
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Defaulted exposures",
+          "values": ["", "567", "67", "", "634"]
+        }
+      ]
+    },
+    {
+      "title": "12.9 SA(CR) - EXPOSURES BY ASSET CLASSES AND RISK WEIGHTS (cont'd) - Other exposures",
+      "label_header": "",
+      "continued_from_previous": true,
+      "section_id": "12.9",
+      "columns": [
+        {"group": null, "leaf": "0%"},
+        {"group": null, "leaf": "20%"},
+        {"group": null, "leaf": "100%"},
+        {"group": null, "leaf": "250%"},
+        {"group": null, "leaf": "1250%"},
+        {"group": null, "leaf": "Other"},
+        {"group": null, "leaf": "Total credit exposure amount (post-CCF and post-CRM)"}
+      ],
+      "rows": [
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other exposures",
+          "values": ["", "", "7,940", "992", "", "", "8,932"]
+        }
+      ]
+    },
+    {
+      "title": "Exposure amounts and CCFs applied to off-balance sheet exposures, categorised based on risk bucket of converted exposures",
+      "label_header": "Risk weight",
+      "continued_from_previous": false,
+      "section_id": "12.9",
+      "columns": [
+        {"group": "(a)", "leaf": "On-balance sheet exposure"},
+        {"group": "(b)", "leaf": "Off-balance sheet exposure (pre-CCF)"},
+        {"group": "(c)", "leaf": "Weighted average CCF*"},
+        {"group": "(d)", "leaf": "Exposure (post-CCF and post-CRM)"}
+      ],
+      "rows": [
+        {
+          "row_id": "14A",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Less than 40%",
+          "values": ["16,098", "819", "32%", "17,649"]
+        },
+        {
+          "row_id": "14B",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "40-70%",
+          "values": ["2,324", "3,868", "16%", "2,872"]
+        },
+        {
+          "row_id": "14C",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "75%",
+          "values": ["7,087", "10,457", "10%", "7,955"]
+        },
+        {
+          "row_id": "14D",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "80-85%",
+          "values": ["1,515", "1,141", "6%", "1,410"]
+        },
+        {
+          "row_id": "14E",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "90-100%",
+          "values": ["20,010", "11,286", "22%", "19,990"]
+        },
+        {
+          "row_id": "14F",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "105-130%",
+          "values": ["845", "318", "11%", "565"]
+        },
+        {
+          "row_id": "14G",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "150%",
+          "values": ["3,969", "1,106", "13%", "2,225"]
+        },
+        {
+          "row_id": "14H",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "250%",
+          "values": ["992", "–", "–", "992"]
+        },
+        {
+          "row_id": "14I",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "400%",
+          "values": ["–", "–", "–", "–"]
+        },
+        {
+          "row_id": "14J",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "1250%",
+          "values": ["–", "–", "–", "–"]
+        },
+        {
+          "row_id": "14K",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other",
+          "values": ["1,930", "183", "100%", "2,113"]
+        },
+        {
+          "row_id": "14L",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total exposures",
+          "values": ["54,770", "29,178", "17%", "55,771"]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "* Weighting is based on off-balance sheet exposure (pre-CCF).",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

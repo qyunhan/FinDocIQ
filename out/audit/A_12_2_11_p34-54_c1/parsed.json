@@ -1,0 +1,489 @@
+{
+  "tables": [
+    {
+      "title": "12.2.1 Credit Quality of Assets (31 Dec 2025)",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "Gross carrying amount of",
+          "leaf": "Defaulted exposures"
+        },
+        {
+          "group": "Gross carrying amount of",
+          "leaf": "Non-defaulted exposures"
+        },
+        {
+          "group": null,
+          "leaf": "Allowances and impairments"
+        },
+        {
+          "group": "of which: allowances for standardised approach exposures",
+          "leaf": "of which: specific allowances"
+        },
+        {
+          "group": "of which: allowances for standardised approach exposures",
+          "leaf": "of which: general allowances"
+        },
+        {
+          "group": null,
+          "leaf": "of which: allowances for IRBA exposures"
+        },
+        {
+          "group": null,
+          "leaf": "Net values (a+b-c)"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Loans(1)",
+          "values": [
+            "4,688",
+            "543,879",
+            "5,985",
+            "331",
+            "535",
+            "5,119",
+            "542,582"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Debt Securities",
+          "values": [
+            "10",
+            "166,973",
+            "54",
+            "-",
+            "1",
+            "53",
+            "166,929"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Off-balance sheet exposures",
+          "values": [
+            "145",
+            "123,304",
+            "242",
+            "5",
+            "23",
+            "214",
+            "123,207"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "4,843",
+            "834,156",
+            "6,281",
+            "336",
+            "559",
+            "5,386",
+            "832,718"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "12.2.1 Credit Quality of Assets (30 Jun 2025)",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "Gross carrying amount of",
+          "leaf": "Defaulted exposures"
+        },
+        {
+          "group": "Gross carrying amount of",
+          "leaf": "Non-defaulted exposures"
+        },
+        {
+          "group": null,
+          "leaf": "Allowances and impairments"
+        },
+        {
+          "group": "of which: allowances for standardised approach exposures",
+          "leaf": "of which: specific allowances"
+        },
+        {
+          "group": "of which: allowances for standardised approach exposures",
+          "leaf": "of which: general allowances"
+        },
+        {
+          "group": null,
+          "leaf": "of which: allowances for IRBA exposures"
+        },
+        {
+          "group": null,
+          "leaf": "Net values (a+b-c)"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Loans(1)",
+          "values": [
+            "4,517",
+            "525,205",
+            "6,140",
+            "323",
+            "675",
+            "5,143",
+            "523,582"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Debt Securities",
+          "values": [
+            "20",
+            "137,755",
+            "68",
+            "-",
+            "1",
+            "67",
+            "137,707"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Off-balance sheet exposures",
+          "values": [
+            "149",
+            "118,402",
+            "233",
+            "5",
+            "26",
+            "201",
+            "118,318"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "4,686",
+            "781,362",
+            "6,441",
+            "328",
+            "702",
+            "5,411",
+            "779,607"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "12.2.2 Changes in Stock of Defaulted Loans(1) and Debt Securities (31 Dec 2025)",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": null,
+          "leaf": "a"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Defaulted loans and debt securities at end of the previous semi-annual reporting period",
+          "values": [
+            "4,537"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Loans and debt securities that have defaulted since the previous semi-annual reporting period",
+          "values": [
+            "1,193"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Returned to non-defaulted status",
+          "values": [
+            "(4)"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Amounts written off",
+          "values": [
+            "(550)"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other changes",
+          "values": [
+            "(478)"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Defaulted loans and debt securities at end of the semi-annual reporting period",
+          "values": [
+            "4,698"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Breakdown by geographical areas",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "Total"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "Total"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Singapore",
+          "values": [
+            "349,173",
+            "313,693"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Hong Kong",
+          "values": [
+            "86,791",
+            "91,894"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Rest of Greater China",
+          "values": [
+            "86,550",
+            "86,400"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "South and Southeast Asia",
+          "values": [
+            "64,086",
+            "64,705"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Rest of the world",
+          "values": [
+            "252,399",
+            "226,538"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "838,999",
+            "783,230"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Breakdown by industry",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "31 Dec 2025",
+          "leaf": "Total"
+        },
+        {
+          "group": "31 Dec 2024",
+          "leaf": "Total"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Manufacturing",
+          "values": [
+            "75,041",
+            "69,957"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Building and construction",
+          "values": [
+            "137,277",
+            "136,690"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Housing loans",
+          "values": [
+            "93,015",
+            "92,444"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "General commerce",
+          "values": [
+            "67,011",
+            "65,608"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Transportation, storage and communications",
+          "values": [
+            "50,272",
+            "49,322"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Financial institutions, investment and holding companies",
+          "values": [
+            "156,792",
+            "158,336"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Government",
+          "values": [
+            "95,895",
+            "72,086"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Professional and private individuals(excluding housing loans)",
+          "values": [
+            "44,606",
+            "41,761"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Others",
+          "values": [
+            "119,090",
+            "97,026"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "838,999",
+            "783,230"
+          ]
+        }
+      ]
+    }
+  ]
+}

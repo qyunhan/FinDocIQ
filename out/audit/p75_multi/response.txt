@@ -1,0 +1,314 @@
+{
+  "tables": [
+    {
+      "title": "23 Abbreviations",
+      "label_header": "Abbreviation",
+      "continued_from_previous": false,
+      "section_id": "23",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Meaning"
+        },
+        {
+          "group": null,
+          "leaf": "Abbreviation"
+        },
+        {
+          "group": null,
+          "leaf": "Meaning"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "A",
+          "values": [
+            "",
+            "CVA",
+            "Credit Valuation Adjustment"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "A-IRBA",
+          "values": [
+            "Advanced Internal Ratings-Based Approach",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "",
+          "values": [
+            "",
+            "D",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "ALCO",
+          "values": [
+            "Asset and Liability Committee",
+            "D-SIB",
+            "Domestic Systemically Important Bank"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "",
+          "values": [
+            "",
+            "E",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "AMA",
+          "values": [
+            "Advanced Measurement Approach",
+            "EAD",
+            "Exposure at Default"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "AT1",
+          "values": [
+            "Additional Tier 1",
+            "EL",
+            "Expected Loss"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "ASF",
+          "values": [
+            "Available Stable Funding",
+            "EPE",
+            "Expected Positive Exposure"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "B",
+          "values": [
+            "",
+            "EQ",
+            "Equity Exposures"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "BIA",
+          "values": [
+            "Basic Indicator Approach",
+            "ES",
+            "Expected Shortfall"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "BA-CVA",
+          "values": [
+            "Basic Approach for Credit Valuation Adjustment",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "C",
+          "values": [
+            "",
+            "F",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CAR",
+          "values": [
+            "Capital Adequacy Ratio",
+            "FC(SA)",
+            "Financial Collateral Simple Approach"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CCF",
+          "values": [
+            "Credit Conversion Factor",
+            "FC(CA)",
+            "Financial Collateral Comprehensive Approach"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CCP",
+          "values": [
+            "Central Counterparty",
+            "F-IRBA",
+            "Foundation Internal Ratings-Based Approach"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CCR",
+          "values": [
+            "Counterparty Credit Risk",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "",
+          "values": [
+            "",
+            "G",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CCyB",
+          "values": [
+            "Countercyclical Capital Buffer",
+            "G-SIB",
+            "Global Systemically Important Bank"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CET1",
+          "values": [
+            "Common Equity Tier 1",
+            "GRC",
+            "Governance, Risk and Compliance System"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "",
+          "values": [
+            "",
+            "H",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CF",
+          "values": [
+            "Commodities Finance",
+            "HVCRE",
+            "High-Volatility Commercial Real Estate"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CR",
+          "values": [
+            "Credit Risk",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CRE",
+          "values": [
+            "Commercial Real Estate",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CRM",
+          "values": [
+            "Credit Risk Mitigation",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  ]
+}

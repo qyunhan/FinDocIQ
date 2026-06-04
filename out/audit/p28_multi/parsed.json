@@ -1,0 +1,282 @@
+{
+  "tables": [
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": true,
+      "section_id": "12.2",
+      "columns": [
+        {
+          "group": "Gross carrying amount of",
+          "leaf": "Defaulted exposures"
+        },
+        {
+          "group": "Gross carrying amount of",
+          "leaf": "Non-defaulted exposures"
+        },
+        {
+          "group": null,
+          "leaf": "Allowances and impairments"
+        },
+        {
+          "group": "of which: allowances for standardised approach exposures",
+          "leaf": "of which: specific allowances"
+        },
+        {
+          "group": "of which: allowances for standardised approach exposures",
+          "leaf": "of which: general allowances"
+        },
+        {
+          "group": null,
+          "leaf": "of which: allowances for IRBA exposures"
+        },
+        {
+          "group": null,
+          "leaf": "Net values (a+b-c)"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Loans",
+          "values": [
+            "5,379",
+            "346,800",
+            "4,302",
+            "179",
+            "378",
+            "3,745",
+            "347,877"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Debt securities",
+          "values": [
+            "-",
+            "109,086",
+            "154",
+            "-",
+            "87",
+            "67",
+            "108,932"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Off-balance sheet exposures",
+          "values": [
+            "36",
+            "103,485",
+            "375",
+            "-",
+            "53",
+            "322",
+            "103,146"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "5,415",
+            "559,371",
+            "4,831",
+            "179",
+            "518",
+            "4,134",
+            "559,955"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "As at 30 June 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.2",
+      "columns": [
+        {
+          "group": "Gross carrying amount of",
+          "leaf": "Defaulted exposures"
+        },
+        {
+          "group": "Gross carrying amount of",
+          "leaf": "Non-defaulted exposures"
+        },
+        {
+          "group": null,
+          "leaf": "Allowances and impairments"
+        },
+        {
+          "group": "of which: allowances for standardised approach exposures",
+          "leaf": "of which: specific allowances"
+        },
+        {
+          "group": "of which: allowances for standardised approach exposures",
+          "leaf": "of which: general allowances"
+        },
+        {
+          "group": null,
+          "leaf": "of which: allowances for IRBA exposures"
+        },
+        {
+          "group": null,
+          "leaf": "Net values (a+b-c)"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Loans",
+          "values": [
+            "5,341",
+            "337,559",
+            "3,929",
+            "196",
+            "325",
+            "3,408",
+            "338,971"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Debt securities",
+          "values": [
+            "-",
+            "93,064",
+            "89",
+            "-",
+            "55",
+            "34",
+            "92,975"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Off-balance sheet exposures",
+          "values": [
+            "22",
+            "93,899",
+            "317",
+            "-",
+            "50",
+            "267",
+            "93,604"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "5,363",
+            "524,522",
+            "4,335",
+            "196",
+            "430",
+            "3,709",
+            "525,550"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "12.3",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "(a)"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Defaulted loans and debt securities at end of the previous semi-annual reporting period",
+          "values": [
+            "5,341"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Loans and debt securities that have defaulted since the previous semi-annual reporting period",
+          "values": [
+            "1,828"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Returned to non-defaulted status",
+          "values": [
+            "(259)"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Amounts written-off",
+          "values": [
+            "(982)"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other changes",
+          "values": [
+            "(549)"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Defaulted loans and debt securities at end of the semi-annual reporting period (1+2+3+4+/-5)",
+          "values": [
+            "5,379"
+          ]
+        }
+      ]
+    }
+  ]
+}

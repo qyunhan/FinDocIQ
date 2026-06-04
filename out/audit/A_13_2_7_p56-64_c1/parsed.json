@@ -1,0 +1,1387 @@
+{
+  "tables": [
+    {
+      "title": "13.2.1 Analysis of CCR Exposure by Approach 31 Dec 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "a",
+          "leaf": "Replacement cost"
+        },
+        {
+          "group": "b",
+          "leaf": "Potential future exposure"
+        },
+        {
+          "group": "c",
+          "leaf": "Effective EPE"
+        },
+        {
+          "group": "d",
+          "leaf": "α used for computing regulatory EAD"
+        },
+        {
+          "group": "e",
+          "leaf": "EAD (post-CRM)"
+        },
+        {
+          "group": "f",
+          "leaf": "RWA"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "SA-CCR (for derivatives)",
+          "values": [
+            "6,890",
+            "16,366",
+            "",
+            "1.4",
+            "32,557",
+            "9,203"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CCR internal models method (for derivatives and SFTs)",
+          "values": [
+            "",
+            "",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "FC(SA) (for SFTs)",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "FC(CA) (for SFTs)",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "13,373",
+            "4,427"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "VaR for SFTs",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "13,630"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "13.2.1 Analysis of CCR Exposure by Approach 30 Jun 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "a",
+          "leaf": "Replacement cost"
+        },
+        {
+          "group": "b",
+          "leaf": "Potential future exposure"
+        },
+        {
+          "group": "c",
+          "leaf": "Effective EPE"
+        },
+        {
+          "group": "d",
+          "leaf": "α used for computing regulatory EAD"
+        },
+        {
+          "group": "e",
+          "leaf": "EAD (post-CRM)"
+        },
+        {
+          "group": "f",
+          "leaf": "RWA"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "SA-CCR (for derivatives)",
+          "values": [
+            "8,278",
+            "16,655",
+            "",
+            "1.4",
+            "34,906",
+            "10,454"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CCR internal models method (for derivatives and SFTs)",
+          "values": [
+            "",
+            "",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "FC(SA) (for SFTs)",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "FC(CA) (for SFTs)",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "13,678",
+            "3,997"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "VaR for SFTs",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "14,451"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "13.2.2 Credit Derivative Exposures 31 Dec 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "a",
+          "leaf": "Protection bought"
+        },
+        {
+          "group": "b",
+          "leaf": "Protection sold"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Notionals",
+          "values": []
+        },
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Single-name credit default swaps",
+          "values": [
+            "2,687",
+            "2,643"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Index credit default swaps",
+          "values": [
+            "5,925",
+            "5,760"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total return swaps",
+          "values": [
+            "17,896",
+            "230"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Credit options",
+          "values": [
+            "456",
+            "792"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other credit derivatives",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total notionals",
+          "values": [
+            "26,964",
+            "9,425"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Fair values",
+          "values": []
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Positive fair value (asset)",
+          "values": [
+            "221",
+            "202"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Negative fair value (liability)",
+          "values": [
+            "300",
+            "21"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "13.2.2 Credit Derivative Exposures 30 Jun 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "a",
+          "leaf": "Protection bought"
+        },
+        {
+          "group": "b",
+          "leaf": "Protection sold"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Notionals",
+          "values": []
+        },
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Single-name credit default swaps",
+          "values": [
+            "2,572",
+            "2,610"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Index credit default swaps",
+          "values": [
+            "5,242",
+            "5,197"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total return swaps",
+          "values": [
+            "18,484",
+            "-"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Credit options",
+          "values": [
+            "167",
+            "524"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other credit derivatives",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total notionals",
+          "values": [
+            "26,465",
+            "8,331"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Fair values",
+          "values": []
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Positive fair value (asset)",
+          "values": [
+            "91",
+            "195"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Negative fair value (liability)",
+          "values": [
+            "396",
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "13.2.3 Standardised Approach – CCR Exposures by Portfolio and Risk Weights 31 Dec 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "Risk Weight",
+          "leaf": "0%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "10%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "20%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "50%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "75%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "100%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "150%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "Others"
+        },
+        {
+          "group": null,
+          "leaf": "Total Credit Exposure"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Asset Classes",
+          "values": []
+        },
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Central government and central bank",
+          "values": [
+            "315",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "315"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "PSE",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "MDB",
+          "values": [
+            "2,354",
+            "-",
+            "220",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "2,574"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Bank",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Covered Bond",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Corporate",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "550",
+            "-",
+            "1",
+            "551"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity and subordinated debt",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Regulatory retail",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other retail",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "6",
+            "418",
+            "-",
+            "424"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Real estate",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other exposures",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "2,669",
+            "-",
+            "220",
+            "-",
+            "-",
+            "556",
+            "418",
+            "3",
+            "3,866"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "13.2.3 Standardised Approach – CCR Exposures by Portfolio and Risk Weights 30 Jun 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "Risk Weight",
+          "leaf": "0%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "10%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "20%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "50%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "75%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "100%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "150%"
+        },
+        {
+          "group": "Risk Weight",
+          "leaf": "Others"
+        },
+        {
+          "group": null,
+          "leaf": "Total Credit Exposure"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Asset Classes",
+          "values": []
+        },
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Central government and central bank",
+          "values": [
+            "211",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "211"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "PSE",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "MDB",
+          "values": [
+            "2,702",
+            "-",
+            "201",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "2,903"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Bank",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "15",
+            "1",
+            "16"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Covered Bond",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Corporate",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "743",
+            "-",
+            "2",
+            "745"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity and subordinated debt",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Regulatory retail",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other retail",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "9",
+            "561",
+            "-",
+            "570"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Real estate",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other exposures",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "2,913",
+            "-",
+            "201",
+            "-",
+            "-",
+            "752",
+            "576",
+            "3",
+            "4,445"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "13.2.4.1 Advanced IRBA 31 Dec 2025",
+      "label_header": "PD Range (%)",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "a",
+          "leaf": "EAD post CRM ($m)"
+        },
+        {
+          "group": "b",
+          "leaf": "Average PD (%)"
+        },
+        {
+          "group": "c",
+          "leaf": "Number of obligors"
+        },
+        {
+          "group": "d",
+          "leaf": "Average LGD (%)"
+        },
+        {
+          "group": "e",
+          "leaf": "Average maturity (years)"
+        },
+        {
+          "group": "f",
+          "leaf": "RWA ($m)"
+        },
+        {
+          "group": "g",
+          "leaf": "RWA density(1) (%)"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Other retail exposures",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to <0.15",
+          "values": [
+            "2,621",
+            "0.11",
+            "1,933",
+            "100",
+            "",
+            "687",
+            "26"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "95",
+            "0.32",
+            "24",
+            "100",
+            "",
+            "52",
+            "55"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "378",
+            "0.70",
+            "938",
+            "100",
+            "",
+            "325",
+            "86"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to <2.50",
+          "values": [
+            "18",
+            "1.52",
+            "4",
+            "100",
+            "",
+            "22",
+            "119"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to <10.00",
+          "values": [
+            "11",
+            "3.30",
+            "2",
+            "100",
+            "",
+            "16",
+            "141"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "12",
+            "33.91",
+            "6",
+            "100",
+            "",
+            "32",
+            "262"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)(2)",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "3,135",
+            "0.34",
+            "2,907",
+            "100",
+            "",
+            "1,134",
+            "36"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "General Corporate",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.00 to <0.15",
+          "values": [
+            "99",
+            "0.10",
+            "208",
+            "100",
+            "1",
+            "41",
+            "41"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.15 to <0.25",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.25 to <0.50",
+          "values": [
+            "5",
+            "0.32",
+            "8",
+            "100",
+            "#",
+            "3",
+            "74"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.50 to <0.75",
+          "values": [
+            "71",
+            "0.70",
+            "101",
+            "100",
+            "1",
+            "91",
+            "129"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "0.75 to <2.50",
+          "values": [
+            "9",
+            "1.52",
+            "11",
+            "100",
+            "2",
+            "19",
+            "221"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "2.50 to <10.00",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "10.00 to <100.00",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "100.00 (Default)(2)",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Sub-total",
+          "values": [
+            "184",
+            "0.41",
+            "328",
+            "100",
+            "1",
+            "154",
+            "84"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total (all portfolios)",
+          "values": [
+            "3,319",
+            "0.34",
+            "3,235",
+            "100",
+            "",
+            "1,288",
+            "39"
+          ]
+        }
+      ]
+    }
+  ]
+}

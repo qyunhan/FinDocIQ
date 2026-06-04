@@ -1,0 +1,24 @@
+{
+  "unit_id": "9_3_p29-33",
+  "pages": [
+    29,
+    30,
+    31,
+    32,
+    33
+  ],
+  "type": "spanning",
+  "image_used": true,
+  "usage": {
+    "ts": "2026-05-28T11:48:48",
+    "script": "extract_to_excel",
+    "label": "9_3_p29-33",
+    "model": "gemini-3.5-flash",
+    "image_used": true,
+    "prompt_tokens": 9388,
+    "output_tokens": 10478,
+    "thinking_tokens": 0,
+    "total_tokens": 19866,
+    "est_cost_usd": 0.10838
+  }
+}

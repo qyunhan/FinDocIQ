@@ -1,0 +1,230 @@
+{
+  "tables": [
+    {
+      "title": "Table 2 - Capital Components as at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": true,
+      "section_id": "5.1",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Amount"
+        },
+        {
+          "group": null,
+          "leaf": "Reference in Table 1"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "64",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Reporting Bank-specific buffer requirement",
+          "values": [
+            "9.2%",
+            ""
+          ]
+        },
+        {
+          "row_id": "65",
+          "row_type": "data",
+          "level": 2,
+          "parent": "64",
+          "label": "of which: capital conservation buffer requirement",
+          "values": [
+            "2.5%",
+            ""
+          ]
+        },
+        {
+          "row_id": "66",
+          "row_type": "data",
+          "level": 2,
+          "parent": "64",
+          "label": "of which: bank-specific countercyclical buffer requirement",
+          "values": [
+            "0.2%",
+            ""
+          ]
+        },
+        {
+          "row_id": "67",
+          "row_type": "data",
+          "level": 2,
+          "parent": "64",
+          "label": "of which: G-SIB and/or D-SIB buffer requirement (if applicable)",
+          "values": [
+            "-",
+            ""
+          ]
+        },
+        {
+          "row_id": "68",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Common Equity Tier 1 available after meeting the Reporting Bank's minimum capital requirements",
+          "values": [
+            "7.7%",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "National minima",
+          "values": []
+        },
+        {
+          "row_id": "69",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Minimum CET1 CAR",
+          "values": [
+            "6.5%",
+            ""
+          ]
+        },
+        {
+          "row_id": "70",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Minimum Tier 1 CAR",
+          "values": [
+            "8.0%",
+            ""
+          ]
+        },
+        {
+          "row_id": "71",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Minimum Total CAR",
+          "values": [
+            "10.0%",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Amounts below the thresholds for deduction (before risk weighting)",
+          "values": []
+        },
+        {
+          "row_id": "72",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Investments in ordinary shares, AT1 capital, Tier 2 capital and other TLAC liabilities of unconsolidated financial institutions in which the bank does not hold a major stake",
+          "values": [
+            "1,454",
+            ""
+          ]
+        },
+        {
+          "row_id": "73",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Investments in ordinary shares of unconsolidated financial institutions in which the Reporting Bank holds a major stake approved under Section 32 of the Banking Act (including insurance subsidiaries)",
+          "values": [
+            "1,061",
+            ""
+          ]
+        },
+        {
+          "row_id": "74",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Mortgage servicing rights (net of associated deferred tax liability)",
+          "values": [
+            "-",
+            ""
+          ]
+        },
+        {
+          "row_id": "75",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Deferred tax assets arising from temporary differences (net of associated deferred tax liability)",
+          "values": [
+            "-",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Applicable caps on the inclusion of provisions in Tier 2",
+          "values": []
+        },
+        {
+          "row_id": "76",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Provisions eligible for inclusion in Tier 2 capital in respect of exposures subject to standardised approach (prior to application of cap)",
+          "values": [
+            "683",
+            ""
+          ]
+        },
+        {
+          "row_id": "77",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cap on inclusion of provisions in Tier 2 capital under standardised approach",
+          "values": [
+            "524",
+            "row 49"
+          ]
+        },
+        {
+          "row_id": "78",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Provisions eligible for inclusion in Tier 2 capital in respect of exposures subject to internal ratings-based approach (prior to application of cap)",
+          "values": [
+            "763",
+            "row 49"
+          ]
+        },
+        {
+          "row_id": "79",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cap for inclusion of provisions in Tier 2 capital under internal ratings-based approach",
+          "values": [
+            "1,175",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "* These elements are subject to a more conservative definition relative to those set out under the Basel III capital standards.",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+KNOWN MERGED DATA CELLS (detected from PDF text positions — treat as ground truth):
+In the values array, set span>1 for these rows only. All other rows have span=1.
+  - Row '11 Other liabilities:': value='13,739' spans 3 columns starting at col 1 (0-based data column)
+  - Row '12 NSFR derivative liabilities': value='3,144' spans 3 columns starting at col 1 (0-based data column)

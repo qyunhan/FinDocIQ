@@ -1,0 +1,798 @@
+{
+  "tables": [
+    {
+      "title": "NSFR Disclosure Template (continued)",
+      "label_header": "ASF Item",
+      "continued_from_previous": false,
+      "section_id": "1.1",
+      "columns": [
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "No maturity (1)"
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "< 6 months"
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "6 months to < 1 yr"
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\text A.S. B.S. (Table 30 Sep 2025) The table shows the NSFR Disclosure Template (continued) for DBS Group Holdings Ltd and its subsidiaries as of 30 September 2025. The table provides information on the unweighted value by residual maturity and the weighted value for various items. The unweighted value is broken down into "
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "ASF Item",
+          "row_type": "sub_header",
+          "level": 0,
+          "parent": null,
+          "label": "ASF Item",
+          "values": []
+        },
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Capital:",
+          "values": [
+            {
+              "value": "71,051",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "71,051",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Regulatory capital",
+          "values": [
+            {
+              "value": "70,922",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "70,922",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other capital instruments",
+          "values": [
+            {
+              "value": "129",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "129",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Retail deposits and deposits from small business customers:",
+          "values": [
+            {
+              "value": "208,494",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "122,220",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "2,477",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "195",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "304,827",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 2,
+          "parent": "4",
+          "label": "Stable deposits",
+          "values": [
+            {
+              "value": "85,295",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "9,752",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "167",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "10",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "90,463",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 2,
+          "parent": "4",
+          "label": "Less stable deposits",
+          "values": [
+            {
+              "value": "123,199",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "112,468",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "2,310",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "185",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "214,364",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Wholesale funding:",
+          "values": [
+            {
+              "value": "120,522",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "253,023",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "16,469",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "31,774",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "130,495",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Operational deposits",
+          "values": [
+            {
+              "value": "40,500",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "20,250",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Other wholesale funding",
+          "values": [
+            {
+              "value": "80,022",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "253,023",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "16,469",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "31,774",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "110,245",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Liabilities with matching interdependent assets",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "1,857",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            }
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other liabilities:",
+          "values": [
+            {
+              "value": "17,798",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "13,773",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "1,410",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "NSFR derivative liabilities",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "3,501",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            }
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "All other liabilities and equity not included in the above categories",
+          "values": [
+            {
+              "value": "17,798",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "10,272",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "1,410",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "14",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total ASF",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "507,783",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "RSF Item",
+          "row_type": "sub_header",
+          "level": 0,
+          "parent": null,
+          "label": "RSF Item",
+          "values": []
+        },
+        {
+          "row_id": "15",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total NSFR high-quality liquid assets (HQLA)",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "19,888",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "16",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Deposits held at other financial institutions for operational purposes",
+          "values": [
+            {
+              "value": "872",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "436",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "17",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Performing loans and securities:",
+          "values": [
+            {
+              "value": "20,065",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "259,922",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "48,194",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "331,587",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "380,876",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "18",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing loans to financial institutions secured by Level 1 HQLA",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "29,592",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "1,923",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "1,336",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "5,257",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "19",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing loans to financial institutions secured by non-Level 1 HQLA and unsecured performing loans to financial institutions",
+          "values": [
+            {
+              "value": "12,025",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "29,143",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "10,899",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "34,684",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "46,309",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "20",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing loans to non-financial corporate clients, loans to retail and small business customers, and loans to sovereigns, central banks and PSEs, of which:",
+          "values": [
+            {
+              "value": "8,040",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "187,193",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "26,425",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "159,738",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "212,136",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "21",
+          "row_type": "data",
+          "level": 3,
+          "parent": "20",
+          "label": "With a risk weight of less than or equal to 35% under MAS Notice 637's standardised approach to credit risk",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "95,286",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "2,774",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "4,272",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "44,862",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        },
+        {
+          "row_id": "22",
+          "row_type": "data",
+          "level": 3,
+          "parent": "20",
+          "label": "Performing residential mortgages, of which:",
+          "values": [
+            {
+              "value": "",
+              "span": 1,
+              "merge_type": "blank"
+            },
+            {
+              "value": "4,967",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "2,141",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "82,920",
+              "span": 1,
+              "merge_type": "none"
+            },
+            {
+              "value": "64,285",
+              "span": 1,
+              "merge_type": "none"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

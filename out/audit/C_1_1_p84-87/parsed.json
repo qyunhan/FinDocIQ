@@ -1,0 +1,1046 @@
+{
+  "tables": [
+    {
+      "title": "1.1 NSFR Disclosure Template 31 Dec 2025",
+      "label_header": "ASF Item",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "No maturity (1)"
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "< 6 months"
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "6 months to < 1 yr"
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "≥ 1yr"
+        },
+        {
+          "group": null,
+          "leaf": "WEIGHTED VALUE"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Capital:",
+          "values": [
+            "70,928",
+            "-",
+            "-",
+            "-",
+            "70,928"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "Regulatory capital",
+          "values": [
+            "70,928",
+            "-",
+            "-",
+            "-",
+            "70,928"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "Other capital instruments",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Retail deposits and deposits from small business customers:",
+          "values": [
+            "216,272",
+            "121,583",
+            "3,118",
+            "199",
+            "311,925"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 2,
+          "parent": "4",
+          "label": "Stable deposits",
+          "values": [
+            "87,893",
+            "8,944",
+            "170",
+            "10",
+            "92,166"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 2,
+          "parent": "4",
+          "label": "Less stable deposits",
+          "values": [
+            "128,379",
+            "112,639",
+            "2,948",
+            "189",
+            "219,759"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Wholesale funding:",
+          "values": [
+            "127,073",
+            "252,101",
+            "18,850",
+            "29,541",
+            "134,921"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Operational deposits",
+          "values": [
+            "42,023",
+            "-",
+            "-",
+            "-",
+            "21,012"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Other wholesale funding",
+          "values": [
+            "85,050",
+            "252,101",
+            "18,850",
+            "29,541",
+            "113,909"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Liabilities with matching interdependent assets",
+          "values": [
+            "-",
+            "2,129",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other liabilities:",
+          "values": [
+            "18,032",
+            "",
+            "13,739",
+            "",
+            "1,444"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "NSFR derivative liabilities",
+          "values": [
+            "",
+            "",
+            "3,144",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "All other liabilities and equity not included in the above categories",
+          "values": [
+            "18,032",
+            "10,595",
+            "-",
+            "-",
+            "1,444"
+          ]
+        },
+        {
+          "row_id": "14",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total ASF",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "519,218"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "RSF Item",
+          "values": []
+        },
+        {
+          "row_id": "15",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total NSFR high-quality liquid assets (HQLA)",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "19,880"
+          ]
+        },
+        {
+          "row_id": "16",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Deposits held at other financial institutions for operational purposes",
+          "values": [
+            "520",
+            "-",
+            "-",
+            "-",
+            "260"
+          ]
+        },
+        {
+          "row_id": "17",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Performing loans and securities:",
+          "values": [
+            "14,186",
+            "274,396",
+            "48,609",
+            "333,308",
+            "384,245"
+          ]
+        },
+        {
+          "row_id": "18",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing loans to financial institutions secured by Level 1 HQLA",
+          "values": [
+            "-",
+            "33,357",
+            "916",
+            "1,356",
+            "5,149"
+          ]
+        },
+        {
+          "row_id": "19",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing loans to financial institutions secured by non-Level 1 HQLA and unsecured performing loans to financial institutions",
+          "values": [
+            "10,605",
+            "35,527",
+            "11,003",
+            "36,621",
+            "49,045"
+          ]
+        },
+        {
+          "row_id": "20",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing loans to non-financial corporate clients, loans to retail and small business customers, and loans to sovereigns, central banks and PSEs, of which:",
+          "values": [
+            "3,581",
+            "191,325",
+            "28,528",
+            "160,352",
+            "213,687"
+          ]
+        },
+        {
+          "row_id": "21",
+          "row_type": "data",
+          "level": 3,
+          "parent": "20",
+          "label": "With a risk weight of less than or equal to 35% under MAS Notice 637’s standardised approach to credit risk",
+          "values": [
+            "-",
+            "97,166",
+            "1,339",
+            "4,749",
+            "43,890"
+          ]
+        },
+        {
+          "row_id": "22",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing residential mortgages, of which:",
+          "values": [
+            "-",
+            "4,626",
+            "2,164",
+            "82,913",
+            "64,328"
+          ]
+        },
+        {
+          "row_id": "23",
+          "row_type": "data",
+          "level": 3,
+          "parent": "22",
+          "label": "With a risk weight of less than or equal to 35% under MAS Notice 637’s standardised approach to credit risk",
+          "values": [
+            "-",
+            "3,054",
+            "1,788",
+            "71,261",
+            "53,843"
+          ]
+        },
+        {
+          "row_id": "24",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Securities that are not in default and do not qualify as HQLA, including exchange-traded equities",
+          "values": [
+            "-",
+            "9,561",
+            "5,998",
+            "52,066",
+            "52,036"
+          ]
+        },
+        {
+          "row_id": "25",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Assets with matching interdependent liabilities",
+          "values": [
+            "-",
+            "2,129",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "26",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other assets:",
+          "values": [
+            "19,949",
+            "",
+            "41,268",
+            "",
+            "35,983"
+          ]
+        },
+        {
+          "row_id": "27",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "Physical trade commodities, including gold",
+          "values": [
+            "233",
+            "-",
+            "-",
+            "-",
+            "198"
+          ]
+        },
+        {
+          "row_id": "28",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "Assets posted as initial margin for derivative contracts and contributions to default funds of CCPs",
+          "values": [
+            "-",
+            "",
+            "4,001",
+            "",
+            "3,401"
+          ]
+        },
+        {
+          "row_id": "29",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "NSFR derivative assets",
+          "values": [
+            "-",
+            "",
+            "11,165",
+            "",
+            "8,022"
+          ]
+        },
+        {
+          "row_id": "30",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "NSFR derivative liabilities before deduction of variation margin posted",
+          "values": [
+            "-",
+            "",
+            "12,834",
+            "",
+            "641"
+          ]
+        },
+        {
+          "row_id": "31",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "All other assets not included in the above categories",
+          "values": [
+            "19,716",
+            "9,262",
+            "-",
+            "4,006",
+            "23,721"
+          ]
+        },
+        {
+          "row_id": "32",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Off-balance sheet items",
+          "values": [
+            "-",
+            "",
+            "498,410",
+            "",
+            "4,290"
+          ]
+        },
+        {
+          "row_id": "33",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total RSF",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "444,658"
+          ]
+        },
+        {
+          "row_id": "34",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Net Stable Funding Ratio (%)",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "117"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "(1) Items to be reported in the ‘no maturity’ time bucket do not have a stated maturity. These may include, but are not limited to, items such as capital with perpetual maturity, non-maturity deposits, short positions, open maturity positions, non-HQLA equities, and physical traded commodities.",
+          "values": []
+        }
+      ]
+    },
+    {
+      "title": "1.1 NSFR Disclosure Template (continued) 30 Sep 2025",
+      "label_header": "ASF Item",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "No maturity (1)"
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "< 6 months"
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "6 months to < 1 yr"
+        },
+        {
+          "group": "Unweighted value by residual maturity",
+          "leaf": "≥ 1yr"
+        },
+        {
+          "group": null,
+          "leaf": "WEIGHTED VALUE"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Capital:",
+          "values": [
+            "71,051",
+            "-",
+            "-",
+            "-",
+            "71,051"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "Regulatory capital",
+          "values": [
+            "70,922",
+            "-",
+            "-",
+            "-",
+            "70,922"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "Other capital instruments",
+          "values": [
+            "129",
+            "-",
+            "-",
+            "-",
+            "129"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Retail deposits and deposits from small business customers:",
+          "values": [
+            "208,494",
+            "122,220",
+            "2,477",
+            "195",
+            "304,827"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 2,
+          "parent": "4",
+          "label": "Stable deposits",
+          "values": [
+            "85,295",
+            "9,752",
+            "167",
+            "10",
+            "90,463"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 2,
+          "parent": "4",
+          "label": "Less stable deposits",
+          "values": [
+            "123,199",
+            "112,468",
+            "2,310",
+            "185",
+            "214,364"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Wholesale funding:",
+          "values": [
+            "120,522",
+            "253,023",
+            "16,469",
+            "31,774",
+            "130,495"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Operational deposits",
+          "values": [
+            "40,500",
+            "-",
+            "-",
+            "-",
+            "20,250"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 2,
+          "parent": "7",
+          "label": "Other wholesale funding",
+          "values": [
+            "80,022",
+            "253,023",
+            "16,469",
+            "31,774",
+            "110,245"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Liabilities with matching interdependent assets",
+          "values": [
+            "-",
+            "1,857",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other liabilities:",
+          "values": [
+            "17,798",
+            "",
+            "13,773",
+            "",
+            "1,410"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "NSFR derivative liabilities",
+          "values": [
+            "",
+            "",
+            "3,501",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 2,
+          "parent": "11",
+          "label": "All other liabilities and equity not included in the above categories",
+          "values": [
+            "17,798",
+            "10,272",
+            "-",
+            "-",
+            "1,410"
+          ]
+        },
+        {
+          "row_id": "14",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total ASF",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "507,783"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "RSF Item",
+          "values": []
+        },
+        {
+          "row_id": "15",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Total NSFR high-quality liquid assets (HQLA)",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "19,888"
+          ]
+        },
+        {
+          "row_id": "16",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Deposits held at other financial institutions for operational purposes",
+          "values": [
+            "872",
+            "-",
+            "-",
+            "-",
+            "436"
+          ]
+        },
+        {
+          "row_id": "17",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Performing loans and securities:",
+          "values": [
+            "20,065",
+            "259,922",
+            "48,194",
+            "331,587",
+            "380,876"
+          ]
+        },
+        {
+          "row_id": "18",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing loans to financial institutions secured by Level 1 HQLA",
+          "values": [
+            "-",
+            "29,592",
+            "1,923",
+            "1,336",
+            "5,257"
+          ]
+        },
+        {
+          "row_id": "19",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing loans to financial institutions secured by non-Level 1 HQLA and unsecured performing loans to financial institutions",
+          "values": [
+            "12,025",
+            "29,143",
+            "10,899",
+            "34,684",
+            "46,309"
+          ]
+        },
+        {
+          "row_id": "20",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing loans to non-financial corporate clients, loans to retail and small business customers, and loans to sovereigns, central banks and PSEs, of which:",
+          "values": [
+            "8,040",
+            "187,193",
+            "26,425",
+            "159,738",
+            "212,136"
+          ]
+        },
+        {
+          "row_id": "21",
+          "row_type": "data",
+          "level": 3,
+          "parent": "20",
+          "label": "With a risk weight of less than or equal to 35% under MAS Notice 637’s standardised approach to credit risk",
+          "values": [
+            "-",
+            "95,286",
+            "2,774",
+            "4,272",
+            "44,862"
+          ]
+        },
+        {
+          "row_id": "22",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Performing residential mortgages, of which:",
+          "values": [
+            "-",
+            "4,967",
+            "2,141",
+            "82,920",
+            "64,285"
+          ]
+        },
+        {
+          "row_id": "23",
+          "row_type": "data",
+          "level": 3,
+          "parent": "22",
+          "label": "With a risk weight of less than or equal to 35% under MAS Notice 637’s standardised approach to credit risk",
+          "values": [
+            "-",
+            "3,616",
+            "1,995",
+            "74,303",
+            "56,550"
+          ]
+        },
+        {
+          "row_id": "24",
+          "row_type": "data",
+          "level": 2,
+          "parent": "17",
+          "label": "Securities that are not in default and do not qualify as HQLA, including exchange-traded equities",
+          "values": [
+            "-",
+            "9,027",
+            "6,806",
+            "52,909",
+            "52,889"
+          ]
+        },
+        {
+          "row_id": "25",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Assets with matching interdependent liabilities",
+          "values": [
+            "-",
+            "1,857",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "26",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other assets:",
+          "values": [
+            "23,075",
+            "",
+            "41,568",
+            "",
+            "39,020"
+          ]
+        },
+        {
+          "row_id": "27",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "Physical trade commodities, including gold",
+          "values": [
+            "154",
+            "-",
+            "-",
+            "-",
+            "131"
+          ]
+        },
+        {
+          "row_id": "28",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "Assets posted as initial margin for derivative contracts and contributions to default funds of CCPs",
+          "values": [
+            "-",
+            "",
+            "4,462",
+            "",
+            "3,793"
+          ]
+        },
+        {
+          "row_id": "29",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "NSFR derivative assets",
+          "values": [
+            "-",
+            "",
+            "10,618",
+            "",
+            "7,117"
+          ]
+        },
+        {
+          "row_id": "30",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "NSFR derivative liabilities before deduction of variation margin posted",
+          "values": [
+            "-",
+            "",
+            "12,750",
+            "",
+            "638"
+          ]
+        },
+        {
+          "row_id": "31",
+          "row_type": "data",
+          "level": 2,
+          "parent": "26",
+          "label": "All other assets not included in the above categories",
+          "values": [
+            "22,921",
+            "9,318",
+            "-",
+            "4,420",
+            "27,341"
+          ]
+        },
+        {
+          "row_id": "32",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Off-balance sheet items",
+          "values": [
+            "-",
+            "",
+            "498,902",
+            "",
+            "4,295"
+          ]
+        },
+        {
+          "row_id": "33",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total RSF",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "444,515"
+          ]
+        },
+        {
+          "row_id": "34",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Net Stable Funding Ratio (%)",
+          "values": [
+            "",
+            "",
+            "",
+            "",
+            "114"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "(1) Items to be reported in the ‘no maturity’ time bucket do not have a stated maturity. These may include, but are not limited to, items such as capital with perpetual maturity, non-maturity deposits, short positions, open maturity positions, non-HQLA equities, and physical traded commodities.",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

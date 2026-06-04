@@ -1,0 +1,342 @@
+{
+  "tables": [
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "13.5",
+      "columns": [
+        {
+          "group": "Collateral used in derivative transactions",
+          "leaf": "(a) Adjusted fair value of collateral received Segregated"
+        },
+        {
+          "group": "Collateral used in derivative transactions",
+          "leaf": "(b) Adjusted fair value of collateral received Unsegregated"
+        },
+        {
+          "group": "Collateral used in derivative transactions",
+          "leaf": "(c) Adjusted fair value of posted collateral Segregated"
+        },
+        {
+          "group": "Collateral used in derivative transactions",
+          "leaf": "(d) Adjusted fair value of posted collateral Unsegregated"
+        },
+        {
+          "group": "Collateral used in SFTs",
+          "leaf": "(e) Adjusted fair value of collateral received"
+        },
+        {
+          "group": "Collateral used in SFTs",
+          "leaf": "(f) Adjusted fair value of posted collateral"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cash domestic currencies",
+          "values": [
+            "-",
+            "4",
+            "-",
+            "263",
+            "192",
+            "651"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cash other currencies",
+          "values": [
+            "-",
+            "900",
+            "-",
+            "3,026",
+            "11,455",
+            "8,611"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Domestic sovereign debt",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "893",
+            "601",
+            "1,415"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other sovereign debt",
+          "values": [
+            "-",
+            "437",
+            "-",
+            "1,482",
+            "3,073",
+            "4,081"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Government agency debt",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "17",
+            "2,303"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Corporate bonds",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "5,559",
+            "4,148"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity securities",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other collateral",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "531",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "-",
+            "1,341",
+            "-",
+            "5,663",
+            "21,429",
+            "21,209"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "As at 30 June 2025",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "section_id": "13.5",
+      "columns": [
+        {
+          "group": "Collateral used in derivative transactions",
+          "leaf": "(a) Adjusted fair value of collateral received Segregated"
+        },
+        {
+          "group": "Collateral used in derivative transactions",
+          "leaf": "(b) Adjusted fair value of collateral received Unsegregated"
+        },
+        {
+          "group": "Collateral used in derivative transactions",
+          "leaf": "(c) Adjusted fair value of posted collateral Segregated"
+        },
+        {
+          "group": "Collateral used in derivative transactions",
+          "leaf": "(d) Adjusted fair value of posted collateral Unsegregated"
+        },
+        {
+          "group": "Collateral used in SFTs",
+          "leaf": "(e) Adjusted fair value of collateral received"
+        },
+        {
+          "group": "Collateral used in SFTs",
+          "leaf": "(f) Adjusted fair value of posted collateral"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cash domestic currencies",
+          "values": [
+            "-",
+            "3",
+            "-",
+            "430",
+            "182",
+            "294"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cash other currencies",
+          "values": [
+            "-",
+            "915",
+            "-",
+            "2,655",
+            "8,153",
+            "7,488"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Domestic sovereign debt",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "939",
+            "241",
+            "1,414"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other sovereign debt",
+          "values": [
+            "-",
+            "77",
+            "-",
+            "1,214",
+            "3,937",
+            "1,815"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Government agency debt",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "4",
+            "1,458"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Corporate bonds",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "3,501",
+            "3,347"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity securities",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other collateral",
+          "values": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "246",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "-",
+            "995",
+            "-",
+            "5,238",
+            "16,264",
+            "15,815"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,323 @@
+{
+  "tables": [
+    {
+      "title": "Differences between Accounting and Regulatory Scopes of Consolidation and Mapping of Financial Statement Categories with Regulatory Risk Categories 31 Dec 25",
+      "label_header": "$m",
+      "continued_from_previous": false,
+      "columns": [
+        {
+          "group": "Carrying amounts of items -",
+          "leaf": "Carrying amounts as reported in balance sheet of published financial statements\na"
+        },
+        {
+          "group": "Carrying amounts of items -",
+          "leaf": "Subject to credit risk requirements\nb"
+        },
+        {
+          "group": "Carrying amounts of items -",
+          "leaf": "Subject to CCR requirements\nc"
+        },
+        {
+          "group": "Carrying amounts of items -",
+          "leaf": "Subject to securitisation framework\nd"
+        },
+        {
+          "group": "Carrying amounts of items -",
+          "leaf": "Subject to market risk requirements\ne"
+        },
+        {
+          "group": "Carrying amounts of items -",
+          "leaf": "Not subject to capital requirements or subject to deduction from regulatory capital\nf"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Assets",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cash and balances with central banks",
+          "values": [
+            "55,844",
+            "52,921",
+            "2,923",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Government securities & treasury bills",
+          "values": [
+            "107,361",
+            "88,312",
+            "-",
+            "-",
+            "19,049",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Due from banks",
+          "values": [
+            "93,881",
+            "27,494",
+            "61,976",
+            "-",
+            "48,879",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Derivatives",
+          "values": [
+            "23,621",
+            "-",
+            "23,094",
+            "-",
+            "23,047",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Bank & corporate securities",
+          "values": [
+            "128,380",
+            "79,749",
+            "-",
+            "5,572",
+            "43,352",
+            "1"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Loans & advances to customers",
+          "values": [
+            "445,011",
+            "439,453",
+            "5,544",
+            "14",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other assets",
+          "values": [
+            "30,100",
+            "20,193",
+            "3,906",
+            "-",
+            "4,697",
+            "1,304"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Associates and joint ventures",
+          "values": [
+            "3,490",
+            "3,490",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Properties and other fixed assets",
+          "values": [
+            "3,486",
+            "3,486",
+            "-",
+            "-",
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Goodwill & intangibles",
+          "values": [
+            "6,314",
+            "-",
+            "-",
+            "-",
+            "-",
+            "6,314"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total assets",
+          "values": [
+            "897,488",
+            "715,098",
+            "97,443",
+            "5,586",
+            "139,024",
+            "7,619"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Liabilities",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Due to banks",
+          "values": [
+            "79,295",
+            "-",
+            "47,679",
+            "-",
+            "43,918",
+            "31,616"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Deposits and balances from customers",
+          "values": [
+            "610,023",
+            "-",
+            "32",
+            "-",
+            "592",
+            "609,399"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Derivatives",
+          "values": [
+            "23,197",
+            "-",
+            "22,975",
+            "-",
+            "23,188",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other liabilities",
+          "values": [
+            "36,506",
+            "-",
+            "-",
+            "-",
+            "4,956",
+            "31,550"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other debt securities",
+          "values": [
+            "78,275",
+            "-",
+            "-",
+            "-",
+            "25,462",
+            "52,813"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Subordinated term debts",
+          "values": [
+            "1,276",
+            "-",
+            "-",
+            "-",
+            "-",
+            "1,276"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total liabilities",
+          "values": [
+            "828,572",
+            "-",
+            "70,686",
+            "-",
+            "98,116",
+            "726,654"
+          ]
+        }
+      ]
+    }
+  ]
+}

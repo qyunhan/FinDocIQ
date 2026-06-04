@@ -1,0 +1,218 @@
+{
+  "tables": [
+    {
+      "title": "G-SIB Indicators of UOB Group as at 31 December 2025 7",
+      "label_header": "Category",
+      "continued_from_previous": false,
+      "section_id": "",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "Indicators used for assessing G-SIBs"
+        },
+        {
+          "group": null,
+          "leaf": "$m"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Cross-jurisdictional activity",
+          "values": []
+        },
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cross-jurisdictional claims",
+          "values": [
+            "320,417"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Cross-jurisdictional liabilities",
+          "values": [
+            "129,660"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Size / Total exposures as defined for use in the Basel III leverage ratio 8",
+          "values": [
+            "667,387"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Interconnectedness",
+          "values": []
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Intra-financial system assets",
+          "values": [
+            "113,282"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Intra-financial system liabilities",
+          "values": [
+            "101,825"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Securities outstanding",
+          "values": [
+            "117,268"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Substitutability/ financial institution infrastructure",
+          "values": []
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Assets under custody",
+          "values": [
+            "49,546"
+          ]
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Payments activity",
+          "values": [
+            "6,820,943"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Underwritten transactions in debt and equity markets",
+          "values": [
+            "14,609"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Trading Volume - fixed income",
+          "values": [
+            "275,350"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Trading Volume - equities and other securities",
+          "values": [
+            "35,199"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Complexity",
+          "values": []
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Notional amount of over-the-counter derivatives",
+          "values": [
+            "1,315,065"
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Level 3 assets",
+          "values": [
+            "3,417"
+          ]
+        },
+        {
+          "row_id": "14",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Trading and available-for-sale securities",
+          "values": [
+            "22,012"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "Notes:",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "label": "7 Previous disclosures are available at UOB website: www.UOBgroup.com/investor-relations/financial/index.html.",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "label": "8 Total exposures differ from the total exposures disclosed under Leverage Ratio as the computation required by the BCBS for purpose of the G-SIB assessment exercise excludes regulatory adjustments but include exposures of insurance subsidiaries.",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

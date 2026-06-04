@@ -1,0 +1,427 @@
+{
+  "tables": [
+    {
+      "title": "6.2 Leverage Ratio Common Disclosure Template\nExposure Measure Components6\n$m",
+      "label_header": "",
+      "continued_from_previous": false,
+      "section_id": "6.2",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "31 Dec 2025"
+        },
+        {
+          "group": null,
+          "leaf": "30 Sep 2025"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Exposure measures of on-balance sheet items",
+          "values": []
+        },
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "On-balance sheet items (excluding derivative transactions and SFTs, but including on-balance sheet collateral for derivative transactions or SFTs)",
+          "values": [
+            "551,498",
+            "536,851"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Gross-up for derivatives collateral provided where deducted from balance sheet assets in accordance with the Accounting Standards",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Deductions of receivable assets for cash variation margin provided in derivatives transactions",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Adjustment for collateral received under securities financing transactions that are recognised as assets",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Specific and general allowances associated with on-balance sheet exposures that are deducted from Tier 1 Capital",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Asset amounts deducted in determining Tier 1 capital",
+          "values": [
+            "(6,136)",
+            "(6,460)"
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total exposure measures of on-balance sheet items (excluding derivative transactions and SFTs)",
+          "values": [
+            "545,362",
+            "530,391"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Derivative exposure measures",
+          "values": []
+        },
+        {
+          "row_id": "8",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Replacement cost associated with all derivative transactions (net of the eligible cash portion of variation margins and net of bilateral netting)",
+          "values": [
+            "9,814",
+            "10,522"
+          ]
+        },
+        {
+          "row_id": "9",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Potential future exposure associated with all derivative transactions",
+          "values": [
+            "22,065",
+            "22,493"
+          ]
+        },
+        {
+          "row_id": "10",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "CCP leg of trade exposures excluded",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "11",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Adjusted effective notional amount of written credit derivatives",
+          "values": [
+            "64",
+            "66"
+          ]
+        },
+        {
+          "row_id": "12",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Further adjustments in effective notional amounts and deductions from potential future exposures of written credit derivatives",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "13",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total derivative exposure measures",
+          "values": [
+            "31,943",
+            "33,081"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "SFT exposure measures",
+          "values": []
+        },
+        {
+          "row_id": "14",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Gross SFT assets (with no recognition of accounting netting), after adjusting for sales accounting",
+          "values": [
+            "9,142",
+            "7,538"
+          ]
+        },
+        {
+          "row_id": "15",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Eligible netting of cash payables and cash receivables",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "16",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "SFT counterparty exposures",
+          "values": [
+            "485",
+            "437"
+          ]
+        },
+        {
+          "row_id": "17",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "SFT exposure measures where a Reporting Bank acts as an agent in the SFTs",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "18",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total SFT exposure measures",
+          "values": [
+            "9,627",
+            "7,975"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Exposure measures of off-balance sheet items",
+          "values": []
+        },
+        {
+          "row_id": "19",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Off-balance sheet items at notional amount",
+          "values": [
+            "286,160",
+            "284,997"
+          ]
+        },
+        {
+          "row_id": "20",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Adjustments for calculation of exposure measures of off-balance sheet items",
+          "values": [
+            "(212,431)",
+            "(208,396)"
+          ]
+        },
+        {
+          "row_id": "21",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Specific and general allowances associated with off-balance sheet exposures deducted in determining Tier 1 Capital",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": "22",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total exposure measures of off-balance sheet items",
+          "values": [
+            "73,729",
+            "76,601"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Capital and Total exposures",
+          "values": []
+        },
+        {
+          "row_id": "23",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Tier 1 capital",
+          "values": [
+            "44,467",
+            "42,604"
+          ]
+        },
+        {
+          "row_id": "24",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total exposures",
+          "values": [
+            "660,661",
+            "648,048"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Leverage ratio",
+          "values": []
+        },
+        {
+          "row_id": "25",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Leverage ratio",
+          "values": [
+            "6.7%",
+            "6.6%"
+          ]
+        },
+        {
+          "row_id": "26",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "National minimum leverage ratio requirement",
+          "values": [
+            "3.0%",
+            "3.0%"
+          ]
+        },
+        {
+          "row_id": "27",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Applicable leverage buffers",
+          "values": [
+            "-",
+            "-"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "Disclosures of mean values",
+          "values": []
+        },
+        {
+          "row_id": "28",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Mean value of gross SFT assets, after adjustment for sale accounting transactions and netted of amounts of associated cash payables and cash receivables",
+          "values": [
+            "9,070",
+            "8,289"
+          ]
+        },
+        {
+          "row_id": "29",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Quarter-end value of gross SFT assets, after adjustment for sale accounting transactions and netted of amounts of associated cash payables and cash receivables",
+          "values": [
+            "9,142",
+            "7,538"
+          ]
+        },
+        {
+          "row_id": "30",
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total exposures incorporating values from row 28",
+          "values": [
+            "660,589",
+            "648,799"
+          ]
+        },
+        {
+          "row_id": "31",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Leverage ratio incorporating values from row 28",
+          "values": [
+            "6.7%",
+            "6.6%"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "note",
+          "level": 0,
+          "parent": null,
+          "label": "6 Computed using quarter-end balances",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

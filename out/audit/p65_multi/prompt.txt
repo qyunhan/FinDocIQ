@@ -1,0 +1,63 @@
+You are given a SINGLE PDF page (physical page 65) from a bank's regulatory disclosure. This page contains tables belonging to MULTIPLE subsections. Read the page TOP-TO-BOTTOM. Each time you encounter a section heading, all following tables belong to THAT section — until the next section heading appears. The sections on this page are (in order): 16.3 "Business Indicator and Subcomponents"; 16.4 "Minimum Required Operational Risk Capital". For each table, set `section_id` to the section NUMBER it belongs to (e.g. '12.2'). Set each table's `title` to its printed heading VERBATIM. Do not merge tables that belong to different subsections. IMPORTANT: each distinct table will be written to its OWN Excel tab. Return every table as a SEPARATE entry in the output list — never merge two distinct tables into one, even if they appear on the same page.
+
+Return the table(s) EXACTLY as printed. For the/each table, return:
+- title: the printed table title, verbatim (include the reporting date if shown).
+- label_header: the header of the row-label column (e.g. "Metric", "ASF Item"); "" if none is printed.
+- continued_from_previous: true ONLY if this table is the continuation of a table from the PREVIOUS
+    page (its data rows carry on under the same columns and the column header is NOT repeated at the top
+    of this page); otherwise false.
+- columns: the DATA / period column headers, left to right. EXCLUDE the row-label column and the
+    printed row-number column. If a header has two levels (a group label spanning several sub-columns,
+    e.g. "31 Dec 2025" over "UNWEIGHTED"/"WEIGHTED"), set both "group" and "leaf"; otherwise set
+    group=null and put the header text in "leaf".
+- rows: EVERY row, top to bottom, each with:
+    * row_id   — the printed line number, EXACTLY as shown ("1", "4a", "14a").
+                 Use null for rows with no printed number: section headers, sub-headers, footnotes, titles.
+    * row_type — one of:
+                 "section_header" = a category title with no values (often shaded);
+                 "data"           = a normal line item;
+                 "total"          = a total / grand total / subtotal (e.g. "Total RWA", "TOTAL CASH OUTFLOWS");
+                 "sub_header"     = a bold divider with no values;
+                 "note"           = a footnote or disclaimer line.
+    * level    — 0 = section header OR grand total;
+                 1 = primary line item;
+                 2 = sub-item: a row that is indented, starts with "of which", or is a named breakdown of
+                     the row above it (e.g. "Stable deposits"/"Less stable deposits" under retail deposits,
+                     "General"/"Specific", "Common Equity Tier 1"/"Tier 1", "Basic"/"Diluted");
+                 3 = sub-sub-item (rare).
+    * parent   — null for level-0 and level-1 rows. For a level-2 (or deeper) row, the row_id of the nearest
+                 row one level above it. If that parent row has no printed number, give it a synthetic id
+                 ("h1","h2",...) and use the SAME id in both rows so the link is unambiguous.
+    * label    — the row label text, VERBATIM, including footnote markers. Do not re-indent or trim.
+    * values   — the cell values left to right, exactly one entry per column in `columns`.
+                 A header / sub_header / note row with no data uses an empty list [].
+
+CATEGORY / PORTFOLIO LABELS — NEVER DROP THEM (critical):
+- EVERY category / portfolio / asset-class block MUST have its label captured as a row with
+  row_type="section_header" (level 0). There must be one such label row for every block of data.
+- These labels are OFTEN printed on the SAME line as the column headers, e.g. a line reading
+  "Corporate IPRE   CRM   PD   No. of obligors   LGD   Maturity   RWA density". In that case the LEADING
+  words ("Corporate IPRE") are the CATEGORY LABEL, NOT column names: emit them as a section_header row and
+  use ONLY the metric words that follow as `columns`.
+- This is MANDATORY even when the category is the FIRST block at the top of a (continuation) page. Such
+  labels include e.g. "Sovereign", "Bank", "Corporate", "Corporate SL", "Corporate IPRE",
+  "Corporate Small Business". If you output a block of PD-range / data rows, it MUST be preceded by its
+  category label row. NEVER fold a category label into a column name, and NEVER omit it.
+
+VALUE FIDELITY (transcribe — do NOT reformat; typing is done downstream in code):
+- Copy each value EXACTLY as printed, INCLUDING thousands separators and signs: "62,195", "(1,505)", "17.0%".
+- Keep a dash cell as "-". Keep "NM", "n.m.", ">100", "unchanged" exactly as written.
+- If a single number is split by a stray render space ("2 64,680"), join it ("264,680").
+- Never invent, merge, split, reorder, or omit any row, column, or value.
+- Titles and labels verbatim. Do not translate, summarise, or normalise wording.
+
+COLUMN ALIGNMENT — MERGED CELLS (critical):
+- `values` must always have EXACTLY one entry per column, in column order. Never omit or shift.
+- Blank or shaded cells are straightforward — emit "" for each.
+- The hard case is a MERGED CELL: look at the IMAGE for missing vertical border lines. If a
+  value has no vertical borders separating it from the adjacent column(s) — i.e. the cell
+  boundary is absent and the value sits in an undivided span — that is a merged cell.
+  Place the value in the column whose header it falls under by horizontal centre, and emit ""
+  for every other column in the merged span.
+- Do NOT fill values left-to-right when a row is sparse. The absence of a vertical border is
+  the definitive signal that a value is merged, not simply left-aligned in the first column.

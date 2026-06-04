@@ -1,0 +1,528 @@
+{
+  "tables": [
+    {
+      "title": "As at 31 December 2025",
+      "label_header": "Asset classes",
+      "continued_from_previous": false,
+      "section_id": "13.3",
+      "columns": [
+        {
+          "group": "Risk weight",
+          "leaf": "0%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "10%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "20%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "50%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "75%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "100%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "150%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "Others"
+        },
+        {
+          "group": null,
+          "leaf": "Total Credit Exposure"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Central government and central bank",
+          "values": [
+            "7",
+            "–",
+            "–",
+            "30",
+            "–",
+            "–",
+            "–",
+            "–",
+            "37"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "PSE",
+          "values": [
+            "75",
+            "–",
+            "5",
+            "103",
+            "–",
+            "–",
+            "–",
+            "–",
+            "183"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "MDB",
+          "values": [
+            "185",
+            "–",
+            "2",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "187"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Bank",
+          "values": [
+            "–",
+            "–",
+            "18",
+            "124",
+            "2",
+            "–",
+            "#",
+            "53",
+            "197"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Covered Bond",
+          "values": [
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Corporate",
+          "values": [
+            "–",
+            "–",
+            "2",
+            "–",
+            "10",
+            "674",
+            "#",
+            "5",
+            "691"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity and subordinated debt",
+          "values": [
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Regulatory retail",
+          "values": [
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other retail",
+          "values": [
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "#",
+            "13",
+            "–",
+            "13"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Real estate",
+          "values": [
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other exposures",
+          "values": [
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "267",
+            "–",
+            "27",
+            "257",
+            "12",
+            "674",
+            "13",
+            "58",
+            "1,308"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "As at 30 June 2025",
+      "label_header": "Asset classes",
+      "continued_from_previous": false,
+      "section_id": "13.3",
+      "columns": [
+        {
+          "group": "Risk weight",
+          "leaf": "0%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "10%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "20%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "50%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "75%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "100%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "150%"
+        },
+        {
+          "group": "Risk weight",
+          "leaf": "Others"
+        },
+        {
+          "group": null,
+          "leaf": "Total Credit Exposure"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Central government and central bank",
+          "values": [
+            "9",
+            "–",
+            "–",
+            "21",
+            "–",
+            "3",
+            "–",
+            "–",
+            "33"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "PSE",
+          "values": [
+            "75",
+            "–",
+            "9",
+            "250",
+            "–",
+            "–",
+            "–",
+            "–",
+            "334"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "MDB",
+          "values": [
+            "209",
+            "–",
+            "3",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "212"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Bank",
+          "values": [
+            "–",
+            "–",
+            "22",
+            "139",
+            "1",
+            "–",
+            "1",
+            "45",
+            "208"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Covered Bond",
+          "values": [
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Corporate",
+          "values": [
+            "–",
+            "–",
+            "2",
+            "–",
+            "18",
+            "698",
+            "#",
+            "5",
+            "723"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Equity and subordinated debt",
+          "values": [
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Regulatory retail",
+          "values": [
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other retail",
+          "values": [
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "#",
+            "23",
+            "–",
+            "23"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Real estate",
+          "values": [
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Other exposures",
+          "values": [
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–",
+            "–"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "total",
+          "level": 0,
+          "parent": null,
+          "label": "Total",
+          "values": [
+            "293",
+            "–",
+            "36",
+            "410",
+            "19",
+            "701",
+            "24",
+            "50",
+            "1,533"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "tables": [
+    {
+      "title": "16.3 Business Indicator and Subcomponents",
+      "label_header": "",
+      "continued_from_previous": false,
+      "section_id": "16.3",
+      "columns": [
+        {
+          "group": "2025",
+          "leaf": "(a)"
+        },
+        {
+          "group": "2024",
+          "leaf": "(b)"
+        },
+        {
+          "group": "2023",
+          "leaf": "(c)"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "section_header",
+          "level": 0,
+          "parent": null,
+          "label": "BI and its subcomponents",
+          "values": []
+        },
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Interest, lease and dividend component",
+          "values": [
+            "9,662",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": "1a",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "Interest and lease income",
+          "values": [
+            "20,668",
+            "23,337",
+            "22,401"
+          ]
+        },
+        {
+          "row_id": "1b",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "Interest and lease expense",
+          "values": [
+            "11,446",
+            "13,722",
+            "12,708"
+          ]
+        },
+        {
+          "row_id": "1c",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "Interest earning assets",
+          "values": [
+            "519,785",
+            "490,438",
+            "482,211"
+          ]
+        },
+        {
+          "row_id": "1d",
+          "row_type": "data",
+          "level": 2,
+          "parent": "1",
+          "label": "Dividend income",
+          "values": [
+            "148",
+            "172",
+            "137"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Services component",
+          "values": [
+            "3,764",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": "2a",
+          "row_type": "data",
+          "level": 2,
+          "parent": "2",
+          "label": "Fee and commission income",
+          "values": [
+            "3,472",
+            "3,841",
+            "3,548"
+          ]
+        },
+        {
+          "row_id": "2b",
+          "row_type": "data",
+          "level": 2,
+          "parent": "2",
+          "label": "Fee and commission expense",
+          "values": [
+            "903",
+            "761",
+            "607"
+          ]
+        },
+        {
+          "row_id": "2c",
+          "row_type": "data",
+          "level": 2,
+          "parent": "2",
+          "label": "Other operating income",
+          "values": [
+            "251",
+            "63",
+            "117"
+          ]
+        },
+        {
+          "row_id": "2d",
+          "row_type": "data",
+          "level": 2,
+          "parent": "2",
+          "label": "Other operating expense",
+          "values": [
+            "16",
+            "19",
+            "29"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Financial component",
+          "values": [
+            "1,710",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": "3a",
+          "row_type": "data",
+          "level": 2,
+          "parent": "3",
+          "label": "Net P&L on the trading book",
+          "values": [
+            "1,146",
+            "1,812",
+            "1,602"
+          ]
+        },
+        {
+          "row_id": "3b",
+          "row_type": "data",
+          "level": 2,
+          "parent": "3",
+          "label": "Net P&L on the banking book",
+          "values": [
+            "348",
+            "132",
+            "90"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "BI",
+          "values": [
+            "15,137",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": "5",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Business indicator component (BIC)",
+          "values": [
+            "2,226",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "sub_header",
+          "level": 0,
+          "parent": null,
+          "label": "Disclosure on the BI:",
+          "values": []
+        },
+        {
+          "row_id": "6",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "BI gross of excluded divested businesses pursuant to paragraph 9.1.7(a)",
+          "values": [
+            "15,137",
+            "",
+            ""
+          ]
+        },
+        {
+          "row_id": "7",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Reduction in BI due to excluded divested businesses pursuant to paragraph 9.1.7(a)",
+          "values": [
+            "0",
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "title": "16.4 Minimum Required Operational Risk Capital\nAs at 31 December 2025",
+      "label_header": "",
+      "continued_from_previous": false,
+      "section_id": "16.4",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "(a)"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": "1",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Business indicator component (BIC)",
+          "values": [
+            "2,226"
+          ]
+        },
+        {
+          "row_id": "2",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Internal loss multiplier (ILM)",
+          "values": [
+            "0.6"
+          ]
+        },
+        {
+          "row_id": "3",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Minimum required operational risk capital (K_ORC)",
+          "values": [
+            "1,309"
+          ]
+        },
+        {
+          "row_id": "4",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "label": "Operational RWA",
+          "values": [
+            "16,364"
+          ]
+        }
+      ]
+    }
+  ]
+}

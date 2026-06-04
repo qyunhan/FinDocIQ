@@ -1,0 +1,23 @@
+{
+  "unit_id": "5_1_p8-11",
+  "pages": [
+    8,
+    9,
+    10,
+    11
+  ],
+  "type": "spanning",
+  "image_used": false,
+  "usage": {
+    "ts": "2026-05-28T18:37:16",
+    "script": "extract_to_excel",
+    "label": "5_1_p8-11",
+    "model": "gemini-3.5-flash",
+    "image_used": false,
+    "prompt_tokens": 3581,
+    "output_tokens": 10205,
+    "thinking_tokens": 0,
+    "total_tokens": 13786,
+    "est_cost_usd": 0.09722
+  }
+}

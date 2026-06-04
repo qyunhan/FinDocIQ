@@ -1,0 +1,16 @@
+Analyse this table image and identify every merged cell region. Do not extract values yet.
+
+Step 1 — Count leaf columns: Count only the smallest individual column headers at the bottom level of the header row. Ignore group headers that span sub-columns. Ignore the row-label column on the left. Record this as ncols.
+
+Step 2 — Apply the Vertical Border Rule: Two adjacent columns are merged in a row if and only if there is no visible vertical line separating them in that row. Scan every row top to bottom — headers, data rows, total rows. For each row, trace where vertical dividers exist. A missing divider = a merge.
+
+Step 3 — Apply Mathematical Validation: For any data row where a single value appears centered across a region spanning multiple columns, check whether that value equals the sum of the corresponding column values in nearby rows. If the math confirms it is a summary across those columns, that is a merged aggregate cell.
+
+Step 4 — Identify shaded/blank merged regions: If a region across multiple columns is shaded or blank AND has no internal vertical dividers, it is a merged blank cell (merge_type "blank").
+
+For each row that has at least one merge, return:
+- row_id: the printed number on the left (null if none)
+- label: first few words of the row label
+- merges: list of {"start_col": 0-based index of first merged column, "span": number of columns covered, "value": the value inside if any or "" if blank}
+
+Return ONLY rows with at least one merge. Return as JSON: {"ncols": N, "rows": [...]}

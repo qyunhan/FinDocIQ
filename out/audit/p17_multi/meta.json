@@ -1,0 +1,20 @@
+{
+  "unit_id": "p17_multi",
+  "pages": [
+    17
+  ],
+  "type": "multiple",
+  "image_used": false,
+  "usage": {
+    "ts": "2026-05-28T15:32:48",
+    "script": "extract_to_excel",
+    "label": "p17_multi",
+    "model": "gemini-3.5-flash",
+    "image_used": false,
+    "prompt_tokens": 1785,
+    "output_tokens": 1172,
+    "thinking_tokens": 0,
+    "total_tokens": 2957,
+    "est_cost_usd": 0.01323
+  }
+}

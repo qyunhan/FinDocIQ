@@ -1,0 +1,22 @@
+{
+  "unit_id": "13_4_p54-56",
+  "pages": [
+    54,
+    55,
+    56
+  ],
+  "type": "spanning",
+  "image_used": false,
+  "usage": {
+    "ts": "2026-05-28T18:47:20",
+    "script": "extract_to_excel",
+    "label": "13_4_p54-56",
+    "model": "gemini-3.5-flash",
+    "image_used": false,
+    "prompt_tokens": 3050,
+    "output_tokens": 11995,
+    "thinking_tokens": 0,
+    "total_tokens": 15045,
+    "est_cost_usd": 0.11253
+  }
+}
