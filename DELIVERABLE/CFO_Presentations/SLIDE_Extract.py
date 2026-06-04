@@ -1001,15 +1001,19 @@ def _render_waterfall(ws, pts: list[DataPoint], cursor: int, brand: str,
         lbl.alignment = Alignment(horizontal="left", vertical="center")
         _style_row(lbl, p.row_type, p.level)
 
-        # Value — use sign field to determine colour when present
+        # Value — apply sign to magnitude so cell shows +34 / -258
         val = coerce(p.value)
-        vc  = ws.cell(cursor, 2, val)
-        if isinstance(val, (int, float)):
-            vc.number_format = NUM_FMT
+        if is_bridge and isinstance(val, (int, float)) and p.sign:
+            # Make value signed: sign='-' means negative regardless of stored sign
+            signed_val = abs(val) if p.sign == "+" else -abs(val)
+        else:
+            signed_val = val
+        vc  = ws.cell(cursor, 2, signed_val)
+        if isinstance(signed_val, (int, float)):
+            vc.number_format = '+#,##0;-#,##0;"-"'  # always show sign
             vc.alignment = Alignment(horizontal="right")
             if is_bridge:
-                # sign field takes priority over numeric sign of value
-                sign_pos = (p.sign == "+" if p.sign else val >= 0)
+                sign_pos = (p.sign == "+" if p.sign else signed_val >= 0)
                 vc.font = Font(color=("00B050" if sign_pos else "C00000"), size=10)
             else:
                 _style_row(vc, p.row_type, p.level, is_value=True)
@@ -1041,10 +1045,11 @@ def _render_waterfall(ws, pts: list[DataPoint], cursor: int, brand: str,
         closing = ends[0].value_num or 0
         # Apply sign field when present; fall back to numeric sign of value_num
         def _signed(p) -> float:
-            mag = abs(p.value_num or 0)
+            raw = coerce(p.value)
+            mag = abs(raw) if isinstance(raw, (int, float)) else 0
             if p.sign == "+": return mag
             if p.sign == "-": return -mag
-            return p.value_num or 0  # no sign field — use as-is
+            return raw if isinstance(raw, (int, float)) else 0
         total = sum(_signed(p) for p in bridges)
         delta   = abs(opening + total - closing)
         ok      = delta <= 5
