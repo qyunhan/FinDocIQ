@@ -1,0 +1,16 @@
+Transcribe the attached table image into JSON. Return: {"tables": [<one object per table>]}.
+
+Each table object must have:
+- title: printed table title verbatim
+- label_header: header of the row-label column; "" if none
+- columns: array of leaf-level column headers only — each as {"group": <group header or null>, "leaf": <column header>}. Exclude the row-label column. Exclude group headers that span sub-columns from the count.
+- rows: every row top-to-bottom, each with row_id (printed number or null), row_type (data/total/section_header/sub_header/note), level (0=header or grand total, 1=primary, 2=sub-item), parent (null for level 0-1), label (verbatim), values
+
+VALUES — keep output compact:
+- Normal cell (span=1): plain string e.g. "54,485" or "-" or ""
+- Merged cell (span>1): {"value": "X", "span": N, "merge_type": "aggregate"}
+- Empty merged region (span>1): {"value": "", "span": N, "merge_type": "blank"}
+- NEVER use objects for span=1 cells — plain strings only.
+- sum of all spans in a row MUST equal number of columns.
+
+Merged cell rule: a value is merged if it sits across multiple column slots with no vertical divider between them. Copy all values exactly as printed including commas, signs, and dashes.

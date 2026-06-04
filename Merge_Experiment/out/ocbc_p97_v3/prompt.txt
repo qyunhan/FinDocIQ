@@ -1,0 +1,7 @@
+Transcribe the attached table into a JSON structure exactly as printed. Each row must include row_id (the printed number), row_type (data, total, or section_header), level (0 for headers, 1+ for items), parent (the ID of the row above it), label (verbatim text), and values. For columns, count only the bottom-most "leaf" headers; do not count group headers that span multiple columns as separate entries. Maintain absolute value fidelity: keep all commas, signs, and dashes exactly as shown.
+
+The critical rule for data alignment is the Vertical Border Rule: two columns are merged if and only if there is no vertical line between them. If a value is centered across multiple columns without dividers, it is a merged cell. In your JSON, represent a normal cell as a simple string (e.g., "54,485"). Represent a merged cell as an object: {"value": "X", "span": N, "merge_type": "aggregate"}. The sum of all spans in a row must exactly equal the total number of leaf columns.
+
+Never omit section headers or category labels, even if they are shaded or appear on the same line as headers. If a cell is blocked out (greyed) but lacks a vertical divider to the next column, treat it as part of a merged region. Ensure every row with data has a populated values list that aligns perfectly with the column count, using {"value": "", "span": N, "merge_type": "blank"} for empty merged areas.
+
+OUTPUT SIZE RULE: Use plain strings for ALL span=1 cells. Only use objects for span>1 cells. Never wrap a normal cell in {"value":...} — that doubles output size unnecessarily.

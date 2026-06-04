@@ -1,0 +1,21 @@
+# PDFs — source documents, never commit
+*.pdf
+
+# Outputs
+DELIVERABLE/outputs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.env
+
+# Google Cloud SDK — too large
+google-cloud-sdk/
+
+# Excel lock files
+~$*.xlsx
+
+# macOS
+.DS_Store
