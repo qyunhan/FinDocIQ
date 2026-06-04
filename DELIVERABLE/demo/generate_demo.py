@@ -18,7 +18,7 @@ MDS_DIR     = DELIVERABLE.parent / "MDs"
 OUTPUTS_DIR  = DELIVERABLE / "outputs" / "CFO_Presentation"
 AUDIT_DIR    = OUTPUTS_DIR / "audit"
 P3_DIR       = DELIVERABLE / "outputs" / "pillar3"
-CONTRACTS_F  = DELIVERABLE / "slides" / "chart_contracts.json"
+CONTRACTS_F  = DELIVERABLE / "CFO_Presentations" / "chart_contracts.json"
 
 # ---------------------------------------------------------------------------
 # HELPERS
