@@ -367,17 +367,15 @@ row_type:
   note         → footnotes, disclaimers
   data         → everything else
 
-Waterfall charts — follow these steps IN ORDER, do not skip:
-  Step 1: Find the colour legend box on the slide. Write it out:
-          e.g. "Legend: green=positive, salmon/red=negative"
-  Step 2: List every bridge bar with its EXACT fill colour as you see it:
-          e.g. "GP bar: green fill → sign=+"
-               "SP bar: red/salmon fill → sign=-"
-  Step 3: Assign sign from colour match ONLY. Never from financial context.
-          GP releasing provisions = green bar = sign="+" even though it reduces a charge.
-          Expenses increasing = red bar = sign="-" even though it's a cost.
-  Step 4: value = magnitude printed on bar, verbatim positive number.
-  Step 5: Verify start + sum(signed deltas) = end. Write as self_check.
+Waterfall charts — follow these steps IN ORDER before writing any data_points:
+  Step 1: Find the colour legend on the slide. State it explicitly in self_check:
+          e.g. "Legend: green=positive, red=negative"
+  Step 2: For each bridge bar, state its fill colour as you see it visually.
+          e.g. "NII: salmon fill. Fee income: green fill. GP: green fill."
+  Step 3: Assign sign ONLY from the colour you stated in Step 2 — never from
+          what the label means financially. Same label, different colour = different sign.
+  Step 4: value = magnitude as printed on the bar, verbatim positive number.
+  Step 5: Verify start + sum(signed deltas) = end. Append check to self_check.
 
 Stacked bars with overlay line:
   Bar segments → data_points with period = x-axis label.
