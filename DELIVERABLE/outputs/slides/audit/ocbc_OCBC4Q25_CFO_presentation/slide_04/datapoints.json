@@ -1,0 +1,482 @@
+[
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Net Interest Income",
+    "period": "4Q25",
+    "value": "2,296",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 0,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "-6%",
+        "yoy_pct_label": "YoY",
+        "qoq_pct": "+3%",
+        "qoq_pct_label": "QoQ"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Net Interest Income",
+    "period": "FY25",
+    "value": "9,150",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 1,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "-6%",
+        "yoy_pct_label": "YoY"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Non-Interest Income",
+    "period": "4Q25",
+    "value": "1,320",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 2,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "+37%",
+        "yoy_pct_label": "YoY",
+        "qoq_pct": "-16%",
+        "qoq_pct_label": "QoQ"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Non-Interest Income",
+    "period": "FY25",
+    "value": "5,464",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 3,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "+16%",
+        "yoy_pct_label": "YoY"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Total Income",
+    "period": "4Q25",
+    "value": "3,616",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "total",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 4,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "+6%",
+        "yoy_pct_label": "YoY",
+        "qoq_pct": "-5%",
+        "qoq_pct_label": "QoQ"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Total Income",
+    "period": "FY25",
+    "value": "14,614",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "total",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 5,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "+1%",
+        "yoy_pct_label": "YoY"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Operating Expenses",
+    "period": "4Q25",
+    "value": "1,559",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 6,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "-",
+        "yoy_pct_label": "YoY",
+        "qoq_pct": "+3%",
+        "qoq_pct_label": "QoQ"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Operating Expenses",
+    "period": "FY25",
+    "value": "5,882",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 7,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "+2%",
+        "yoy_pct_label": "YoY"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Operating Profit",
+    "period": "4Q25",
+    "value": "2,057",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "total",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 8,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "+11%",
+        "yoy_pct_label": "YoY",
+        "qoq_pct": "-10%",
+        "qoq_pct_label": "QoQ"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Operating Profit",
+    "period": "FY25",
+    "value": "8,732",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "total",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 9,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "-",
+        "yoy_pct_label": "YoY"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Allowances",
+    "period": "4Q25",
+    "value": "200",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 10,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "-4%",
+        "yoy_pct_label": "YoY",
+        "qoq_pct": "+44%",
+        "qoq_pct_label": "QoQ"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Allowances",
+    "period": "FY25",
+    "value": "665",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "data",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 11,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "-4%",
+        "yoy_pct_label": "YoY"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "table",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Profit before tax",
+    "period": "4Q25",
+    "value": "2,113",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "total",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 12,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "+12%",
+        "yoy_pct_label": "YoY",
+        "qoq_pct": "-12%",
+        "qoq_pct_label": "QoQ"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Profit before tax",
+    "period": "FY25",
+    "value": "9,123",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "total",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 13,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "+2%",
+        "yoy_pct_label": "YoY"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Net Profit",
+    "period": "4Q25",
+    "value": "1,745",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "total",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 14,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "+3%",
+        "yoy_pct_label": "YoY",
+        "qoq_pct": "-12%",
+        "qoq_pct_label": "QoQ"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  },
+  {
+    "slide": 4,
+    "element_idx": 0,
+    "element_type": "text_table",
+    "element_title": "Group Performance",
+    "series": "Net Profit",
+    "period": "FY25",
+    "value": "7,422",
+    "value_num": null,
+    "unit": "S$m",
+    "row_type": "total",
+    "level": 1,
+    "parent": null,
+    "group": null,
+    "sign": null,
+    "order": 15,
+    "extra_fields": {
+      "extra_fields": {
+        "yoy_pct": "-2%",
+        "yoy_pct_label": "YoY"
+      },
+      "extra_fields_label": "Extra Fields"
+    },
+    "source": "unverified",
+    "bank": "OCBC",
+    "doc_title": "OCBC4Q25_CFO_presentation",
+    "doc_date": "25 February 2026",
+    "slide_title": "Group Performance"
+  }
+]

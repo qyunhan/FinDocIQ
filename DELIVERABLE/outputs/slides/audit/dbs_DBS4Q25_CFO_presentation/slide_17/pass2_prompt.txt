@@ -1,0 +1,264 @@
+Transcribe the Step 4 pre-mapping below into structured JSON.
+Do NOT re-interpret. Do NOT look at any image. Copy values exactly as written in Step 4.
+
+<slide_description>
+The image contains a single table.
+
+═══════════════════════════════════════════════════
+STEP 1 — INVENTORY
+═══════════════════════════════════════════════════
+
+- **5,056**: NPAs at start of period, FY24
+- **5,036**: NPAs at start of period, FY25
+- **5,036**: NPAs at start of period, 1Q25
+- **4,861**: NPAs at start of period, 2Q25
+- **4,686**: NPAs at start of period, 3Q25
+- **4,627**: NPAs at start of period, 4Q25
+- **(210)**: IBG and others, FY24
+- **(79)**: IBG and others, FY25
+- **(146)**: IBG and others, 1Q25
+- **(97)**: IBG and others, 2Q25
+- **(84)**: IBG and others, 3Q25
+- **248**: IBG and others, 4Q25
+- **903**: New NPAs, FY24
+- **1,034**: New NPAs, FY25
+- **159**: New NPAs, 1Q25
+- **244**: New NPAs, 2Q25
+- **113**: New NPAs, 3Q25
+- **751**: New NPAs, 4Q25
+- **(808)**: Upgrades, settlements and recoveries, FY24
+- **(637)**: Upgrades, settlements and recoveries, FY25
+- **(236)**: Upgrades, settlements and recoveries, 1Q25
+- **(213)**: Upgrades, settlements and recoveries, 2Q25
+- **(141)**: Upgrades, settlements and recoveries, 3Q25
+- **(280)**: Upgrades, settlements and recoveries, 4Q25
+- **(305)**: Write-offs, FY24
+- **(476)**: Write-offs, FY25
+- **(69)**: Write-offs, 1Q25
+- **(128)**: Write-offs, 2Q25
+- **(56)**: Write-offs, 3Q25
+- **(223)**: Write-offs, 4Q25
+- **126**: CBG / WM, FY24
+- **48**: CBG / WM, FY25
+- **19**: CBG / WM, 1Q25
+- **18**: CBG / WM, 2Q25
+- **8**: CBG / WM, 3Q25
+- **3**: CBG / WM, 4Q25
+- **64**: Translation, FY24
+- **(162)**: Translation, FY25
+- **(48)**: Translation, 1Q25
+- **(96)**: Translation, 2Q25
+- **17**: Translation, 3Q25
+- **(35)**: Translation, 4Q25
+- **5,036**: NPAs at end of period, FY24
+- **4,843**: NPAs at end of period, FY25
+- **4,861**: NPAs at end of period, 1Q25
+- **4,686**: NPAs at end of period, 2Q25
+- **4,627**: NPAs at end of period, 3Q25
+- **4,843**: NPAs at end of period, 4Q25
+- **1.1**: NPL ratio (%), FY24
+- **1.0**: NPL ratio (%), FY25
+- **1.1**: NPL ratio (%), 1Q25
+- **1.0**: NPL ratio (%), 2Q25
+- **1.0**: NPL ratio (%), 3Q25
+- **1.0**: NPL ratio (%), 4Q25
+
+═══════════════════════════════════════════════════
+STEP 2 — STRUCTURE
+═══════════════════════════════════════════════════
+
+1. TITLE: NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure
+2. COLUMN HEADERS: (S$m), FY24, FY25, 1Q25, 2Q25, 3Q25, 4Q25
+3. ROW COUNT: 13
+4. VISUAL CONVENTIONS on this specific slide:
+    bold rows          → totals or subtotals? Yes, "NPAs at start of period" and "NPAs at end of period" are bold.
+    indented rows      → sub-items of a parent row? Yes, "New NPAs", "Upgrades, settlements and recoveries", "Write-offs" are sub-items of "IBG and others".
+    shaded/grey cells  → not applicable (blank, not zero)? Yes, the FY25 column is shaded.
+    parentheses        → negative values? Yes, e.g., (210) for IBG and others.
+    dash cells         → zero or negligible? No dash cells.
+    any footnotes that change interpretation of specific rows/cells? No footnotes.
+
+═══════════════════════════════════════════════════
+STEP 3 — VERIFY
+═══════════════════════════════════════════════════
+
+This is an NPA movement table. The check is: NPAs at start of period + IBG and others + CBG / WM + Translation = NPAs at end of period.
+Note: IBG and others is a net figure, which is the sum of New NPAs, Upgrades, settlements and recoveries, and Write-offs.
+
+**FY24:**
+IBG and others sub-total check: 903 + (-808) + (-305) = -210 ✓
+NPA roll-forward: 5,056 + (-210) + 126 + 64 = 5,036 ✓
+
+**FY25:**
+IBG and others sub-total check: 1,034 + (-637) + (-476) = -79 ✓
+NPA roll-forward: 5,036 + (-79) + 48 + (-162) = 4,843 ✓
+
+**1Q25:**
+IBG and others sub-total check: 159 + (-236) + (-69) = -146 ✓
+NPA roll-forward: 5,036 + (-146) + 19 + (-48) = 4,861 ✓
+
+**2Q25:**
+IBG and others sub-total check: 244 + (-213) + (-128) = -97 ✓
+NPA roll-forward: 4,861 + (-97) + 18 + (-96) = 4,686 ✓
+
+**3Q25:**
+IBG and others sub-total check: 113 + (-141) + (-56) = -84 ✓
+NPA roll-forward: 4,686 + (-84) + 8 + 17 = 4,627 ✓
+
+**4Q25:**
+IBG and others sub-total check: 751 + (-280) + (-223) = 248 ✓
+NPA roll-forward: 4,627 + 248 + 3 + (-35) = 4,843 ✓
+
+All checks balance.
+
+═══════════════════════════════════════════════════
+STEP 4 — PRE-MAP TO SCHEMA FIELDS
+═══════════════════════════════════════════════════
+
+ELEMENT 0 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPAs at start of period" period="FY24" value="5,056" row_type="opening" level=1
+ELEMENT 1 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPAs at start of period" period="FY25" value="5,036" row_type="opening" level=1
+ELEMENT 2 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPAs at start of period" period="1Q25" value="5,036" row_type="opening" level=1
+ELEMENT 3 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPAs at start of period" period="2Q25" value="4,861" row_type="opening" level=1
+ELEMENT 4 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPAs at start of period" period="3Q25" value="4,686" row_type="opening" level=1
+ELEMENT 5 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPAs at start of period" period="4Q25" value="4,627" row_type="opening" level=1
+ELEMENT 6 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="IBG and others" period="FY24" value="(210)" row_type="subtotal" level=1
+ELEMENT 7 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="IBG and others" period="FY25" value="(79)" row_type="subtotal" level=1
+ELEMENT 8 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="IBG and others" period="1Q25" value="(146)" row_type="subtotal" level=1
+ELEMENT 9 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="IBG and others" period="2Q25" value="(97)" row_type="subtotal" level=1
+ELEMENT 10 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="IBG and others" period="3Q25" value="(84)" row_type="subtotal" level=1
+ELEMENT 11 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="IBG and others" period="4Q25" value="248" row_type="subtotal" level=1
+ELEMENT 12 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="New NPAs" period="FY24" value="903" row_type="inflow" level=2 parent="IBG and others"
+ELEMENT 13 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="New NPAs" period="FY25" value="1,034" row_type="inflow" level=2 parent="IBG and others"
+ELEMENT 14 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="New NPAs" period="1Q25" value="159" row_type="inflow" level=2 parent="IBG and others"
+ELEMENT 15 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="New NPAs" period="2Q25" value="244" row_type="inflow" level=2 parent="IBG and others"
+ELEMENT 16 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="New NPAs" period="3Q25" value="113" row_type="inflow" level=2 parent="IBG and others"
+ELEMENT 17 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="New NPAs" period="4Q25" value="751" row_type="inflow" level=2 parent="IBG and others"
+ELEMENT 18 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Upgrades, settlements and recoveries" period="FY24" value="(808)" row_type="outflow" level=2 parent="IBG and others"
+ELEMENT 19 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Upgrades, settlements and recoveries" period="FY25" value="(637)" row_type="outflow" level=2 parent="IBG and others"
+ELEMENT 20 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Upgrades, settlements and recoveries" period="1Q25" value="(236)" row_type="outflow" level=2 parent="IBG and others"
+ELEMENT 21 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Upgrades, settlements and recoveries" period="2Q25" value="(213)" row_type="outflow" level=2 parent="IBG and others"
+ELEMENT 22 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Upgrades, settlements and recoveries" period="3Q25" value="(141)" row_type="outflow" level=2 parent="IBG and others"
+ELEMENT 23 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Upgrades, settlements and recoveries" period="4Q25" value="(280)" row_type="outflow" level=2 parent="IBG and others"
+ELEMENT 24 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Write-offs" period="FY24" value="(305)" row_type="outflow" level=2 parent="IBG and others"
+ELEMENT 25 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Write-offs" period="FY25" value="(476)" row_type="outflow" level=2 parent="IBG and others"
+ELEMENT 26 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Write-offs" period="1Q25" value="(69)" row_type="outflow" level=2 parent="IBG and others"
+ELEMENT 27 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Write-offs" period="2Q25" value="(128)" row_type="outflow" level=2 parent="IBG and others"
+ELEMENT 28 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Write-offs" period="3Q25" value="(56)" row_type="outflow" level=2 parent="IBG and others"
+ELEMENT 29 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Write-offs" period="4Q25" value="(223)" row_type="outflow" level=2 parent="IBG and others"
+ELEMENT 30 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="CBG / WM" period="FY24" value="126" row_type="inflow" level=1
+ELEMENT 31 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="CBG / WM" period="FY25" value="48" row_type="inflow" level=1
+ELEMENT 32 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="CBG / WM" period="1Q25" value="19" row_type="inflow" level=1
+ELEMENT 33 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="CBG / WM" period="2Q25" value="18" row_type="inflow" level=1
+ELEMENT 34 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="CBG / WM" period="3Q25" value="8" row_type="inflow" level=1
+ELEMENT 35 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="CBG / WM" period="4Q25" value="3" row_type="inflow" level=1
+ELEMENT 36 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Translation" period="FY24" value="64" row_type="data" level=1
+ELEMENT 37 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Translation" period="FY25" value="(162)" row_type="data" level=1
+ELEMENT 38 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Translation" period="1Q25" value="(48)" row_type="data" level=1
+ELEMENT 39 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Translation" period="2Q25" value="(96)" row_type="data" level=1
+ELEMENT 40 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Translation" period="3Q25" value="17" row_type="data" level=1
+ELEMENT 41 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="Translation" period="4Q25" value="(35)" row_type="data" level=1
+ELEMENT 42 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPAs at end of period" period="FY24" value="5,036" row_type="closing" level=1
+ELEMENT 43 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPAs at end of period" period="FY25" value="4,843" row_type="closing" level=1
+ELEMENT 44 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPAs at end of period" period="1Q25" value="4,861" row_type="closing" level=1
+ELEMENT 45 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPAs at end of period" period="2Q25" value="4,686" row_type="closing" level=1
+ELEMENT 46 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPAs at end of period" period="3Q25" value="4,627" row_type="closing" level=1
+ELEMENT 47 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPAs at end of period" period="4Q25" value="4,843" row_type="closing" level=1
+ELEMENT 48 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPL ratio (%)" period="FY24" value="1.1" row_type="ratio" level=1
+ELEMENT 49 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPL ratio (%)" period="FY25" value="1.0" row_type="ratio" level=1
+ELEMENT 50 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPL ratio (%)" period="1Q25" value="1.1" row_type="ratio" level=1
+ELEMENT 51 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPL ratio (%)" period="2Q25" value="1.0" row_type="ratio" level=1
+ELEMENT 52 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPL ratio (%)" period="3Q25" value="1.0" row_type="ratio" level=1
+ELEMENT 53 | text_table | "NPL ratio stable at 1.0% notwithstanding prudent downgrade of a previously watchlisted real estate exposure"
+series="NPL ratio (%)" period="4Q25" value="1.0" row_type="ratio" level=1
+</slide_description>
+
+OUTPUT FORMAT:
+{
+  "slide_title": "main heading from the slide description — not 'Slide N'",
+  "elements": [
+    {
+      "element_idx": 0,
+      "element_type": "text_table",
+      "element_title": "...",
+      "source": "table",
+      "units": "...",
+      "self_check": "arithmetic check from Step 3 if present, else null",
+      "data_points": [
+        {
+          "series": "...",
+          "period": "...",
+          "value": "...",
+          "row_type": "...",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    }
+  ]
+}
+
+RULES:
+- One data_point per line in Step 4. Transcribe field values exactly.
+- order: sequential integer per element, 0-based, following Step 4 line order.
+- source: "table" for text_table and npa_movement_table.
+- self_check: copy the arithmetic check string from Step 3, else null.
+- Extra key=value pairs from Step 4 go into extra_fields dict.
+  Always add a matching _label key: yoy_pct="-3%" → yoy_pct_label="YoY %"
+
+Return ONLY the JSON object, no markdown fences.

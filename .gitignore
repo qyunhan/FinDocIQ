@@ -1,8 +1,13 @@
 # PDFs — source documents, never commit
 *.pdf
 
-# Outputs
-DELIVERABLE/outputs/
+# Outputs — Excel and large binaries excluded, audit trail tracked
+DELIVERABLE/outputs/*.xlsx
+DELIVERABLE/outputs/pillar3/
+DELIVERABLE/outputs/slides/*.xlsx
+DELIVERABLE/outputs/slides/*.json
+# Slide PNGs are large — exclude to keep repo size manageable
+DELIVERABLE/outputs/slides/audit/**/*.png
 
 # Python
 __pycache__/

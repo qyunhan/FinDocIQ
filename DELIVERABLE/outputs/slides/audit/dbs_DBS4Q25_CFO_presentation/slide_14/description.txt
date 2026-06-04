@@ -1,0 +1,97 @@
+═══════════════════════════════════════════════════
+STEP 1 — INVENTORY
+═══════════════════════════════════════════════════
+
+8,906 (Total income, FY25)
+9,159 (Total income, FY24)
+(3) (Total income, YoY %)
+3,414 (Loans, FY25)
+3,384 (Loans, FY24)
+1 (Loans, YoY %)
+630 (Trade, FY25)
+638 (Trade, FY24)
+(1) (Trade, YoY %)
+3,672 (Cash / SFS, FY25)
+4,077 (Cash / SFS, FY24)
+(10) (Cash / SFS, YoY %)
+1,191 (Treasury and investment banking, FY25)
+1,060 (Treasury and investment banking, FY24)
+12 (Treasury and investment banking, YoY %)
+2,948 (Expenses, FY25)
+2,820 (Expenses, FY24)
+5 (Expenses, YoY %)
+5,958 (Profit before allowances, FY25)
+6,339 (Profit before allowances, FY24)
+(6) (Profit before allowances, YoY %)
+347 (Assets (S$b), FY25)
+337 (Assets (S$b), FY24)
+6 (Assets (S$b), YoY %)
+216 (GTS deposits (S$b), FY25)
+192 (GTS deposits (S$b), FY24)
+12 (GTS deposits (S$b), YoY %)
+
+═══════════════════════════════════════════════════
+STEP 2 — STRUCTURE
+═══════════════════════════════════════════════════
+
+For each table:
+  1. TITLE: (S$m)
+  2. COLUMN HEADERS: FY25, FY24, YoY %
+  3. ROW COUNT: 11
+  4. VISUAL CONVENTIONS on this specific slide:
+       bold rows          → totals or subtotals? Yes, "Total income", "Expenses", "Profit before allowances", "Assets (S$b)", "GTS deposits (S$b)"
+       indented rows      → sub-items of a parent row? Yes, "Loans", "Trade", "Cash / SFS", "Treasury and investment banking" are sub-items of "Total income".
+       shaded/grey cells  → not applicable (blank, not zero)? No shaded cells.
+       parentheses        → negative values? Yes, e.g., "(3)" for YoY %.
+       dash cells         → zero or negligible? No dash cells.
+       any footnotes that change interpretation of specific rows/cells? No footnotes for the table.
+
+═══════════════════════════════════════════════════
+STEP 3 — VERIFY
+═══════════════════════════════════════════════════
+
+Total income (FY25): 3,414 (Loans) + 630 (Trade) + 3,672 (Cash / SFS) + 1,191 (Treasury and investment banking) = 8,907. Printed: 8,906. Discrepancy of 1.
+Total income (FY24): 3,384 (Loans) + 638 (Trade) + 4,077 (Cash / SFS) + 1,060 (Treasury and investment banking) = 9,159. Printed: 9,159. ✓
+Profit before allowances (FY25): 8,906 (Total income) - 2,948 (Expenses) = 5,958. Printed: 5,958. ✓
+Profit before allowances (FY24): 9,159 (Total income) - 2,820 (Expenses) = 6,339. Printed: 6,339. ✓
+
+═══════════════════════════════════════════════════
+STEP 4 — PRE-MAP TO SCHEMA FIELDS
+═══════════════════════════════════════════════════
+
+ELEMENT 1 | text_table | "(S$m)"
+series="Total income" period="FY25" value="8,906" row_type="total" level=0 yoy_pct="(3)" yoy_pct_label="YoY %"
+ELEMENT 2 | text_table | "(S$m)"
+series="Total income" period="FY24" value="9,159" row_type="total" level=0 yoy_pct="(3)" yoy_pct_label="YoY %"
+ELEMENT 3 | text_table | "(S$m)"
+series="Loans" period="FY25" value="3,414" row_type="sub" level=1 parent="Total income" yoy_pct="1" yoy_pct_label="YoY %"
+ELEMENT 4 | text_table | "(S$m)"
+series="Loans" period="FY24" value="3,384" row_type="sub" level=1 parent="Total income" yoy_pct="1" yoy_pct_label="YoY %"
+ELEMENT 5 | text_table | "(S$m)"
+series="Trade" period="FY25" value="630" row_type="sub" level=1 parent="Total income" yoy_pct="(1)" yoy_pct_label="YoY %"
+ELEMENT 6 | text_table | "(S$m)"
+series="Trade" period="FY24" value="638" row_type="sub" level=1 parent="Total income" yoy_pct="(1)" yoy_pct_label="YoY %"
+ELEMENT 7 | text_table | "(S$m)"
+series="Cash / SFS" period="FY25" value="3,672" row_type="sub" level=1 parent="Total income" yoy_pct="(10)" yoy_pct_label="YoY %"
+ELEMENT 8 | text_table | "(S$m)"
+series="Cash / SFS" period="FY24" value="4,077" row_type="sub" level=1 parent="Total income" yoy_pct="(10)" yoy_pct_label="YoY %"
+ELEMENT 9 | text_table | "(S$m)"
+series="Treasury and investment banking" period="FY25" value="1,191" row_type="sub" level=1 parent="Total income" yoy_pct="12" yoy_pct_label="YoY %"
+ELEMENT 10 | text_table | "(S$m)"
+series="Treasury and investment banking" period="FY24" value="1,060" row_type="sub" level=1 parent="Total income" yoy_pct="12" yoy_pct_label="YoY %"
+ELEMENT 11 | text_table | "(S$m)"
+series="Expenses" period="FY25" value="2,948" row_type="total" level=0 yoy_pct="5" yoy_pct_label="YoY %"
+ELEMENT 12 | text_table | "(S$m)"
+series="Expenses" period="FY24" value="2,820" row_type="total" level=0 yoy_pct="5" yoy_pct_label="YoY %"
+ELEMENT 13 | text_table | "(S$m)"
+series="Profit before allowances" period="FY25" value="5,958" row_type="total" level=0 yoy_pct="(6)" yoy_pct_label="YoY %"
+ELEMENT 14 | text_table | "(S$m)"
+series="Profit before allowances" period="FY24" value="6,339" row_type="total" level=0 yoy_pct="(6)" yoy_pct_label="YoY %"
+ELEMENT 15 | text_table | "(S$b)"
+series="Assets (S$b)" period="FY25" value="347" row_type="total" level=0 yoy_pct="6" yoy_pct_label="YoY %"
+ELEMENT 16 | text_table | "(S$b)"
+series="Assets (S$b)" period="FY24" value="337" row_type="total" level=0 yoy_pct="6" yoy_pct_label="YoY %"
+ELEMENT 17 | text_table | "(S$b)"
+series="GTS deposits (S$b)" period="FY25" value="216" row_type="total" level=0 yoy_pct="12" yoy_pct_label="YoY %"
+ELEMENT 18 | text_table | "(S$b)"
+series="GTS deposits (S$b)" period="FY24" value="192" row_type="total" level=0 yoy_pct="12" yoy_pct_label="YoY %"

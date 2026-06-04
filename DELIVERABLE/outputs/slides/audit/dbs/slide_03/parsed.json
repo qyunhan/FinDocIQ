@@ -1,0 +1,286 @@
+{
+  "slide_title": "FY total income and pre-tax profit reach new highs",
+  "tables": [
+    {
+      "title": "(S$m)",
+      "label_header": "",
+      "source_type": "table",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "FY25"
+        },
+        {
+          "group": null,
+          "leaf": "YoY %"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Commercial book",
+          "values": [
+            "21,526",
+            "1"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Markets trading",
+          "values": [
+            "1,374",
+            "49"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 0,
+          "parent": null,
+          "label": "Total income",
+          "values": [
+            "22,900",
+            "3"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "of which: Net interest income",
+          "values": [
+            "14,500",
+            "1"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Expenses",
+          "values": [
+            "9,249",
+            "4"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 0,
+          "parent": null,
+          "label": "Profit before allowances",
+          "values": [
+            "13,651",
+            "2"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Allowances",
+          "values": [
+            "791",
+            "27"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 0,
+          "parent": null,
+          "label": "Profit before tax",
+          "values": [
+            "13,099",
+            "1"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 0,
+          "parent": null,
+          "label": "Net profit",
+          "values": [
+            "11,033",
+            "(3)"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Impact on earnings:",
+      "label_header": "",
+      "source_type": "chart",
+      "columns": [
+        {
+          "group": null,
+          "leaf": "FY24 Net profit"
+        },
+        {
+          "group": null,
+          "leaf": "Net interest income"
+        },
+        {
+          "group": null,
+          "leaf": "Fee income"
+        },
+        {
+          "group": null,
+          "leaf": "Treasury customer sales & other income"
+        },
+        {
+          "group": null,
+          "leaf": "Markets trading income"
+        },
+        {
+          "group": null,
+          "leaf": "Expenses"
+        },
+        {
+          "group": null,
+          "leaf": "GP"
+        },
+        {
+          "group": null,
+          "leaf": "SP"
+        },
+        {
+          "group": null,
+          "leaf": "Tax and others"
+        },
+        {
+          "group": null,
+          "leaf": "FY25 Net profit"
+        }
+      ],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 0,
+          "parent": null,
+          "label": "11,408",
+          "values": [
+            "11,408",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "11,033"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "One-time items",
+          "values": [
+            "(119)",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "(100)"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 0,
+          "parent": null,
+          "label": "11,289",
+          "values": [
+            "11,289",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "10,933"
+          ]
+        },
+        {
+          "row_id": null,
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "label": "Change",
+          "values": [
+            "",
+            "-549",
+            "+730",
+            "-30",
+            "+452",
+            "-354",
+            "+126",
+            "-295",
+            "-455",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "title": "",
+      "label_header": "",
+      "source_type": "table",
+      "columns": [],
+      "rows": [
+        {
+          "row_id": null,
+          "row_type": "commentary",
+          "level": 0,
+          "parent": null,
+          "label": "Record group net interest income as deposit growth and hedging offset rates impact",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "commentary",
+          "level": 0,
+          "parent": null,
+          "label": "Record fees and treasury customer sales led by wealth management",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "commentary",
+          "level": 0,
+          "parent": null,
+          "label": "Markets trading income rises 49% to highest since 2021",
+          "values": []
+        },
+        {
+          "row_id": null,
+          "row_type": "commentary",
+          "level": 0,
+          "parent": null,
+          "label": "Cost-income ratio unchanged at 40%",
+          "values": []
+        }
+      ]
+    }
+  ]
+}

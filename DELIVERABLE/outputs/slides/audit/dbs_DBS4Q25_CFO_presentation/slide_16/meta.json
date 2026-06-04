@@ -1,0 +1,17 @@
+{
+  "slide": 16,
+  "cost_usd": 0.004582,
+  "n_points": 17,
+  "validation_errors": [],
+  "self_checks": [
+    "[Constant-FX change YoY%] 1597+14+162-40-7+86-230+27=1609"
+  ],
+  "usages": [
+    {
+      "pass": "1s",
+      "prompt_tokens": 0,
+      "output_tokens": 1833,
+      "est_cost_usd": 0.004582
+    }
+  ]
+}

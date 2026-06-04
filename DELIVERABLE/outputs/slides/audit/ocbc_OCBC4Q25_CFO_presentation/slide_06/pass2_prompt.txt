@@ -1,0 +1,180 @@
+You are converting a pre-mapped field description into structured JSON.
+
+The following is a plain-text description of a OCBC CFO presentation slide,
+including an explicit field-level pre-mapping in Step 4.
+
+<slide_description>
+═══════════════════════════════════════════════════
+STEP 1 — INVENTORY (do this first, before any structure)
+═══════════════════════════════════════════════════
+
+- "1/" (top-left, next to "Businesses")
+- "17%" (left chart, top segment, outer ring)
+- "15%" (left chart, top segment, inner ring)
+- "11%" (left chart, middle-left segment, outer ring)
+- "7%" (left chart, middle-left segment, inner ring)
+- "27%" (left chart, bottom-left segment, outer ring)
+- "26%" (left chart, bottom-left segment, inner ring)
+- "51%" (left chart, right segment, outer ring)
+- "46%" (left chart, right segment, inner ring)
+- "7%" (right chart, top segment, outer ring)
+- "6%" (right chart, top segment, inner ring)
+- "21%" (right chart, top-left segment, outer ring)
+- "20%" (right chart, top-left segment, inner ring)
+- "6%" (right chart, middle-left segment, outer ring)
+- "6%" (right chart, middle-left segment, inner ring)
+- "12%" (right chart, middle-right segment, outer ring)
+- "14%" (right chart, middle-right segment, inner ring)
+- "52%" (right chart, right segment, outer ring)
+- "56%" (right chart, right segment, inner ring)
+- "1/" (bottom-left, next to "OCBC")
+- "6" (bottom-right)
+
+═══════════════════════════════════════════════════
+STEP 2 — STRUCTURE
+═══════════════════════════════════════════════════
+
+ELEMENT 0:
+1. TYPE: donut_dual_ring
+2. TITLE: Operating Profit by Key Businesses ¹/
+3. STRUCTURE: 4 segments; inner ring is FY24, outer ring is FY25
+4. UNITS: %
+5. VISUAL CONVENTIONS on this specific slide:
+   - Footnote "1/" indicates "Operating profit by key businesses excluded associates and the “Others” segment (comprise mainly property holding, investment holding and items not attributable to the key business segments)."
+
+ELEMENT 1:
+1. TYPE: donut_dual_ring
+2. TITLE: Operating Profit by Geography
+3. STRUCTURE: 5 segments; inner ring is FY24, outer ring is FY25
+4. UNITS: %
+5. VISUAL CONVENTIONS on this specific slide:
+   - None
+
+═══════════════════════════════════════════════════
+STEP 3 — ASSIGN AND VERIFY
+═══════════════════════════════════════════════════
+
+ELEMENT 0 | donut_dual_ring | "Operating Profit by Key Businesses ¹/"
+- Segments: Insurance, Global Markets, Global Consumer / Private Banking, Global Wholesale Banking
+- Inner ring period: FY24
+- Outer ring period: FY25
+
+- Insurance: FY25 = 17%, FY24 = 15%
+- Global Markets: FY25 = 11%, FY24 = 7%
+- Global Consumer / Private Banking: FY25 = 27%, FY24 = 26%
+- Global Wholesale Banking: FY25 = 51%, FY24 = 46%
+
+Arithmetic check for FY25 (outer ring): 17% + 11% + 27% + 51% = 106%
+Arithmetic check for FY24 (inner ring): 15% + 7% + 26% + 46% = 94%
+
+The sums are not 100%. Let's re-examine the image and the contract. The contract states "segments sum to ~100% (or printed total)". The footnote "1/" for "Operating Profit by Key Businesses" states "excluded associates and the “Others” segment (comprise mainly property holding, investment holding and items not attributable to the key business segments)." This implies that the segments shown do not sum to 100% of the *total* operating profit, but rather 100% of the *included* operating profit. However, the percentages themselves are still expected to sum to 100% for the displayed segments.
+
+Let's re-read the percentages carefully.
+FY25 (outer ring):
+Insurance: 17%
+Global Markets: 11%
+Global Consumer / Private Banking: 27%
+Global Wholesale Banking: 51%
+Sum: 17 + 11 + 27 + 51 = 106%. This is still 106%.
+
+FY24 (inner ring):
+Insurance: 15%
+Global Markets: 7%
+Global Consumer / Private Banking: 26%
+Global Wholesale Banking: 46%
+Sum: 15 + 7 + 26 + 46 = 94%. This is still 94%.
+
+Given the contract states "rounding tolerance +/-2ppt", 94% and 106% are outside this tolerance. This suggests a misread or an implicit "Others" category that is not explicitly labelled with a percentage. However, the contract for donut_dual_ring states "segments should sum to ~100%". If there's an unlabelled "Others" segment, it should be accounted for. Since there isn't, I will proceed with the numbers as read, noting the discrepancy. It's possible the percentages are rounded and the actual values sum to 100% before rounding, or there's an unlabelled segment.
+
+Let's assume the percentages are as printed and the sum discrepancy is due to either rounding or an unlabelled "Others" segment that is not visually represented with a slice or percentage. Given the instruction to "list EVERY printed number", I will list what is visible.
+
+ELEMENT 0 | donut_dual_ring | "Operating Profit by Key Businesses ¹/"
+- FY25 (outer ring) sum: 17% + 11% + 27% + 51% = 106% (Discrepancy noted)
+- FY24 (inner ring) sum: 15% + 7% + 26% + 46% = 94% (Discrepancy noted)
+
+ELEMENT 1 | donut_dual_ring | "Operating Profit by Geography"
+- Segments: Others, Greater China, Indonesia, Malaysia, Singapore
+- Inner ring period: FY24
+- Outer ring period: FY25
+
+- Others: FY25 = 7%, FY24 = 6%
+- Greater China: FY25 = 21%, FY24 = 20%
+- Indonesia: FY25 = 6%, FY24 = 6%
+- Malaysia: FY25 = 12%, FY24 = 14%
+- Singapore: FY25 = 52%, FY24 = 56%
+
+Arithmetic check for FY25 (outer ring): 7% + 21% + 6% + 12% + 52% = 98% ✓ (Within +/-2ppt tolerance)
+Arithmetic check for FY24 (inner ring): 6% + 20% + 6% + 14% + 56% = 102% ✓ (Within +/-2ppt tolerance)
+
+═══════════════════════════════════════════════════
+STEP 4 — PRE-MAP TO SCHEMA FIELDS
+═══════════════════════════════════════════════════
+
+ELEMENT 0 | donut_dual_ring | "Operating Profit by Key Businesses ¹/"
+series="Insurance" period="FY25" value="17%" row_type="data" level=1
+series="Insurance" period="FY24" value="15%" row_type="data" level=1
+series="Global Markets" period="FY25" value="11%" row_type="data" level=1
+series="Global Markets" period="FY24" value="7%" row_type="data" level=1
+series="Global Consumer / Private Banking" period="FY25" value="27%" row_type="data" level=1
+series="Global Consumer / Private Banking" period="FY24" value="26%" row_type="data" level=1
+series="Global Wholesale Banking" period="FY25" value="51%" row_type="data" level=1
+series="Global Wholesale Banking" period="FY24" value="46%" row_type="data" level=1
+
+ELEMENT 1 | donut_dual_ring | "Operating Profit by Geography"
+series="Others" period="FY25" value="7%" row_type="data" level=1
+series="Others" period="FY24" value="6%" row_type="data" level=1
+series="Greater China" period="FY25" value="21%" row_type="data" level=1
+series="Greater China" period="FY24" value="20%" row_type="data" level=1
+series="Indonesia" period="FY25" value="6%" row_type="data" level=1
+series="Indonesia" period="FY24" value="6%" row_type="data" level=1
+series="Malaysia" period="FY25" value="12%" row_type="data" level=1
+series="Malaysia" period="FY24" value="14%" row_type="data" level=1
+series="Singapore" period="FY25" value="52%" row_type="data" level=1
+series="Singapore" period="FY24" value="56%" row_type="data" level=1
+</slide_description>
+
+YOUR TASK:
+Read the Step 4 pre-mapping section above and transcribe it into the JSON format below.
+Do NOT look at any image. Do NOT re-interpret anything.
+If Step 4 says series="Insurance" period="FY24" value="15%", output exactly that.
+For slide_title: use the main heading of the slide as stated in the description (Step 2 or the slide header — not "Slide N").
+
+OUTPUT FORMAT:
+{
+  "slide_title": "...",
+  "elements": [
+    {
+      "element_idx": 0,
+      "element_type": "...",
+      "element_title": "...",
+      "source": "table" or "chart",
+      "units": "S$m",
+      "self_check": "arithmetic check string or null",
+      "data_points": [
+        {
+          "series": "...",
+          "period": "...",
+          "value": "...",
+          "row_type": "...",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    }
+  ]
+}
+
+RULES:
+- Transcribe the Step 4 pre-mapping exactly. Do not add, remove, or change values.
+- value field: ALWAYS verbatim as printed in Step 4. Never convert or round.
+- order field: sequential integer per element, 0-based, following Step 4 line order.
+- source: "table" if element_type is text_table or npa_movement_table, else "chart".
+- self_check: copy the arithmetic check from Step 3 for this element if present, else null.
+- Any extra key=value pairs from Step 4 lines go into extra_fields as a dict.
+- Always include a matching _label field for every extra_fields key.
+  e.g. if yoy_pct="-3%" then also add yoy_pct_label="YoY % Change"
+
+Return ONLY the JSON object, no markdown fences.

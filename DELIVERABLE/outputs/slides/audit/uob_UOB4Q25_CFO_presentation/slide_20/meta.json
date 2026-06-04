@@ -1,0 +1,15 @@
+{
+  "slide": 20,
+  "cost_usd": 0.00589,
+  "n_points": 25,
+  "validation_errors": [],
+  "self_checks": [],
+  "usages": [
+    {
+      "pass": "1s",
+      "prompt_tokens": 0,
+      "output_tokens": 2356,
+      "est_cost_usd": 0.00589
+    }
+  ]
+}
