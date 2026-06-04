@@ -1039,7 +1039,13 @@ def _render_waterfall(ws, pts: list[DataPoint], cursor: int, brand: str,
     if starts and ends and bridges:
         opening = starts[0].value_num or 0
         closing = ends[0].value_num or 0
-        total   = sum(p.value_num or 0 for p in bridges)
+        # Apply sign field when present; fall back to numeric sign of value_num
+        def _signed(p) -> float:
+            mag = abs(p.value_num or 0)
+            if p.sign == "+": return mag
+            if p.sign == "-": return -mag
+            return p.value_num or 0  # no sign field — use as-is
+        total = sum(_signed(p) for p in bridges)
         delta   = abs(opening + total - closing)
         ok      = delta <= 5
         msg = (f"✓ Balances: {opening:,.0f} + {total:+,.0f} = {closing:,.0f}"
