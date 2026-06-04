@@ -1,9 +1,10 @@
 """
 SLIDE_Extract.py — CFO presentation slide deck → Excel workbook.
-Four-pass architecture per PIPELINE_SPEC.md:
+Hybrid routing architecture:
   Pass 0: classify_slide  → element_types.json (cheap micro-call)
-  Pass 1: describe_slide  → description.txt  (plain text, contracts injected)
-  Pass 2: extract_slide   → datapoints.json  (flexible DataPoint JSON)
+  Route:
+    Visual slides (any chart type) → single-pass: image + JSON schema in one call
+    Text slides (text_table/npa)   → multi-pass: Pass 1 describe → Pass 2 transcribe
   Validate + correct once if waterfall/label errors found
   Pass 3: render_to_excel → one worksheet per slide
 
@@ -79,6 +80,12 @@ ROW_TYPE_ALIASES: dict[str, str] = {
 _run_usage: dict = {"calls": 0, "prompt": 0, "output": 0, "cost": 0.0}
 
 CONTRACTS_PATH = Path(__file__).with_name("chart_contracts.json")
+
+# Chart types that benefit from single-pass (image stays present during schema fill)
+VISUAL_TYPES = {
+    "waterfall", "stacked_bar", "stacked_bar_with_overlay",
+    "trend_line", "kpi_grid", "pie", "donut_dual_ring",
+}
 
 # ===========================================================================
 # PASS 0 — CLASSIFY
@@ -313,7 +320,52 @@ class DataPoint(BaseModel):
 
 
 # ===========================================================================
-# PASS 1 PROMPT
+# SINGLE-PASS PROMPT (visual slides — image present throughout)
+# ===========================================================================
+SINGLE_PASS_PROMPT = """Extract ALL financial data from this bank CFO presentation slide.
+
+Return a JSON object:
+{
+  "slide_title": "...",
+  "elements": [
+    {
+      "element_idx": 0,
+      "element_type": "text_table|waterfall|stacked_bar|stacked_bar_with_overlay|trend_line|kpi_grid|pie|donut_dual_ring|other",
+      "element_title": "...",
+      "source": "table or chart",
+      "units": "S$m or % or other",
+      "self_check": "arithmetic check string or null",
+      "data_points": [
+        {
+          "series": "row/bar/segment label verbatim",
+          "period": "time period or null",
+          "value": "verbatim as printed",
+          "row_type": "data|total|sub|start|end|bridge|note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0
+        }
+      ]
+    }
+  ]
+}
+
+Rules:
+- slide_title: the main heading printed at the top of the slide, verbatim.
+- value: ALWAYS verbatim as printed. Never convert. "5,948" not 5948.
+- Waterfall: sign="+" or "-" on every bridge component. Verify start+sum=end.
+- Bold rows: row_type="total". Indented rows: level=2.
+- Donut dual ring: read the label printed at the centre of each ring to identify
+  which period it represents BEFORE assigning values. Do NOT assume inner=earlier.
+- Add extra key/value pairs freely for any additional columns on the slide.
+- Return ONLY the JSON object, no markdown.
+"""
+
+
+# ===========================================================================
+# PASS 1 PROMPT (text slides — multi-pass path)
 # ===========================================================================
 PASS1_PROMPT = """Examine this bank CFO presentation slide carefully.
 
@@ -1121,6 +1173,24 @@ def build_contents(wb, index: list[dict], bank: str, doc_title: str,
 
 
 # ===========================================================================
+# SINGLE-PASS EXTRACTOR (visual slides)
+# ===========================================================================
+def extract_single_pass(client, img_bytes: bytes, bank: str,
+                        doc_title: str, doc_date: str,
+                        slide_num: int) -> tuple[list[DataPoint], float]:
+    """One call: image + JSON schema prompt. No intermediate description."""
+    raw, usage = call_gemini(client, [img_part(img_bytes), SINGLE_PASS_PROMPT])
+    try:
+        points, _, self_checks = parse_pass2(
+            raw, bank, doc_title, doc_date, slide_num
+        )
+    except Exception as e:
+        print(f"  slide {slide_num:02d}  ❌ single-pass parse error: {e}")
+        return [], usage["est_cost_usd"]
+    return points, usage["est_cost_usd"]
+
+
+# ===========================================================================
 # SLIDE PROCESSOR
 # ===========================================================================
 def process_slide(client, pdf_path: str, page_num: int,
@@ -1168,46 +1238,68 @@ def process_slide(client, pdf_path: str, page_num: int,
         print(f"  slide {page_num:02d}  — no data elements, skipping")
         return [], 0.0
 
-    # ── Pass 1: Describe with targeted contracts ──
-    contracts      = load_contracts()
-    known_block    = build_contracts_block(known_types, contracts)
-    unknown_block  = build_unknown_contracts_block(unknown_types)
-    pass1_prompt   = PASS1_PROMPT + known_block + unknown_block
+    # ── Route by element type ──────────────────────────────────────────────
+    has_visual = any(t in VISUAL_TYPES for t in known_types)
 
-    with open(p1_path, "w") as f:
-        f.write(pass1_prompt)
+    if has_visual:
+        print(f"  slide {page_num:02d}  → single-pass (visual: {known_types})")
+        raw1, u1 = call_gemini(client, [img_part(img_bytes), SINGLE_PASS_PROMPT])
+        total_cost += u1["est_cost_usd"]
+        usages.append({"pass": "1s", **u1})
+        desc_text = "single-pass — no Pass 1 description"
+        with open(p1_path, "w") as f:
+            f.write(SINGLE_PASS_PROMPT)
+        with open(desc_path, "w") as f:
+            f.write(desc_text)
+        try:
+            points, parsed_title, self_checks = parse_pass2(
+                raw1, bank, doc_title, doc_date, page_num
+            )
+        except Exception as e:
+            print(f"  slide {page_num:02d}  ❌ single-pass parse error: {e}")
+            return [], total_cost
 
-    desc_text, u1 = call_gemini(
-        client,
-        [img_part(img_bytes), pass1_prompt],
-        text_only=True,
-    )
-    total_cost += u1["est_cost_usd"]
-    usages.append({"pass": 1, **u1})
+    else:
+        print(f"  slide {page_num:02d}  → multi-pass (text only: {known_types})")
+        # ── Pass 1: Describe with text-table contracts ──
+        contracts     = load_contracts()
+        known_block   = build_contracts_block(known_types, contracts)
+        unknown_block = build_unknown_contracts_block(unknown_types)
+        pass1_prompt  = PASS1_PROMPT + known_block + unknown_block
 
-    with open(desc_path, "w") as f:
-        f.write(desc_text)
+        with open(p1_path, "w") as f:
+            f.write(pass1_prompt)
 
-    if not desc_text.strip():
-        print(f"  slide {page_num:02d}  — nothing described, skipped")
-        return [], total_cost
+        desc_text, u1 = call_gemini(
+            client, [img_part(img_bytes), pass1_prompt], text_only=True,
+        )
+        total_cost += u1["est_cost_usd"]
+        usages.append({"pass": 1, **u1})
 
-    # Save any derived contracts from unknown types
-    save_derived_contract(desc_text, unknown_types)
+        with open(desc_path, "w") as f:
+            f.write(desc_text)
 
-    # ── Pass 2: Extract ──
-    p2_prompt = build_pass2_prompt(desc_text, bank)
-    with open(p2_path, "w") as f:
-        f.write(p2_prompt)
-    raw2, u2 = call_gemini(client, [p2_prompt], text_only=False)
-    total_cost += u2["est_cost_usd"]
-    usages.append({"pass": 2, **u2})
+        if not desc_text.strip():
+            print(f"  slide {page_num:02d}  — nothing described, skipped")
+            return [], total_cost
 
-    try:
-        points, parsed_title, self_checks = parse_pass2(raw2, bank, doc_title, doc_date, page_num)
-    except Exception as e:
-        print(f"  slide {page_num:02d}  ❌ parse error: {e}")
-        return [], total_cost
+        save_derived_contract(desc_text, unknown_types)
+
+        # ── Pass 2: Text-only transcription ──
+        p2_prompt = build_pass2_prompt(desc_text, bank)
+        with open(p2_path, "w") as f:
+            f.write(p2_prompt)
+        raw2, u2 = call_gemini(client, [p2_prompt], text_only=False)
+        total_cost += u2["est_cost_usd"]
+        usages.append({"pass": 2, **u2})
+
+        try:
+            points, parsed_title, self_checks = parse_pass2(
+                raw2, bank, doc_title, doc_date, page_num
+            )
+        except Exception as e:
+            print(f"  slide {page_num:02d}  ❌ parse error: {e}")
+            return [], total_cost
 
     # slide_title: prefer Pass 2 output, fall back to first TITLE: line in description
     if not parsed_title:
@@ -1226,8 +1318,10 @@ def process_slide(client, pdf_path: str, page_num: int,
     if errors:
         print(f"  slide {page_num:02d}  ⚠ validation: {errors}")
         corr_prompt = build_correction_prompt(errors, desc_text)
+        # Single-pass: re-attach image since there is no text description to reason from
+        corr_parts: list = [corr_prompt] if not has_visual else [img_part(img_bytes), corr_prompt]
         try:
-            raw3, u3 = call_gemini(client, [corr_prompt], text_only=False)
+            raw3, u3 = call_gemini(client, corr_parts, text_only=False)
             total_cost += u3["est_cost_usd"]
             usages.append({"pass": "2c", **u3})
             corrected, _, self_checks_c = parse_pass2(raw3, bank, doc_title, doc_date, page_num)
@@ -1304,7 +1398,7 @@ def main():
     else:
         pages = list(range(1, n_pages + 1))
 
-    print(f"🎞  {args.pdf}  ({n_pages} slides)  bank={bank}  model={MODEL}  [4-pass]")
+    print(f"🎞  {args.pdf}  ({n_pages} slides)  bank={bank}  model={MODEL}  [hybrid: single-pass visual / multi-pass text]")
     print(f"    Output → {out_path}  |  slides: {len(pages)}")
 
     if args.dry_run:
