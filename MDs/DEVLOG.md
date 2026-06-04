@@ -391,6 +391,23 @@ into production pipeline.
 
 ---
 
+### E-11 — Two-Pass Visual Read + Chart Contracts ● IMPLEMENTED / 2026-06-04
+
+| | |
+|---|---|
+| **Hypothesis** | Separating perceptual work (number inventory) from structural assignment (which number belongs where) in Pass 1 reduces sign errors on waterfalls and misread values in dense charts. Injecting chart-type-specific reading contracts before description commits Gemini to the correct data model before extraction begins. |
+| **Background** | Failure analysis on DBS CFO deck waterfalls showed Gemini getting sign errors on bridge bars when doing visual reading and schema filling simultaneously. Pass 1 description was underspecified — Gemini would describe structure without explicitly enumerating all visible numbers, then Pass 2 would extract from incomplete context. |
+| **Method** | Three additions: (1) `chart_contracts.json` — living registry of 9 approved chart-reading contracts (waterfall, stacked_bar, stacked_bar_with_overlay, trend_line, pie, donut_dual_ring, kpi_grid, text_table, npa_movement_table). (2) Pass 0 (`classify_slide`) — cheap micro-call (~150 tokens) returning a JSON list of element types on the slide; used to select which contracts to inject. (3) Pass 1 prompt rewritten as explicit three-step process: Step 1 = inventory every visible number with location; Step 2 = describe structure; Step 3 = assign inventory to structure and verify arithmetic before proceeding. Arithmetic check in Pass 1 means sign errors are caught during description, not after extraction. |
+| **New types in KNOWN_TYPES** | Added `stacked_bar_with_overlay`, `donut_dual_ring`, `npa_movement_table` — all present in real bank CFO decks but previously unclassified, causing them to fall through to Pass 1 with no contract. |
+| **Contract design** | Each contract specifies DATA MODEL, HOW TO READ, ARITHMETIC CONSTRAINT, and EXTRACT AS. Waterfall contract explicitly handles the floating-bar geometry and unit ambiguity (S$m vs ppt). `stacked_bar_with_overlay` is separated from `stacked_bar` because the overlay line has no summation relationship to bars and often uses a different axis scale — without explicit rules Gemini conflates them. `donut_dual_ring` is separated from `pie` because concentric rings encode different periods spatially and Gemini conflates FY24/FY25 segments without explicit inner/outer rules. |
+| **Unknown type handling** | If Pass 0 returns an invented type (e.g. `bullet_bridge`), Pass 1 is prompted to derive its own contract and write it under `DERIVED CONTRACT: {type}`. `save_derived_contract()` parses this from description.txt and appends it to `chart_contracts.json` as `status=pending_review` for human review. |
+| **Resume behaviour** | Pass 0 output is cached to `element_types.json` in the slide audit folder. Re-runs with `--force` re-run Pass 0; otherwise it resumes from cache, consistent with existing audit resume pattern. |
+| **Cost impact** | Pass 0: ~$0.0001/slide. Pass 1 grows by ~200–400 tokens from contract injection. Both well under $0.01/slide target. Main benefit is accuracy, not cost. |
+| **Decision** | Implemented directly into `DELIVERABLE/SLIDE_Extract.py`. No separate passes/ module created — the guide's modular structure (passes/pass0_classify.py etc.) was absorbed into the single-file architecture. Rationale: the codebase is a single-file pipeline; splitting into modules adds import complexity with no benefit at this scale. |
+| **Learning** | (1) Arithmetic verification in Pass 1 (description phase) is more effective than relying solely on the correction pass — it catches the root cause (wrong sign interpretation) rather than just the symptom (self_check failure). (2) Chart type granularity matters: `stacked_bar_with_overlay` and `donut_dual_ring` cannot share contracts with their simpler variants without causing misextraction. (3) The three-step inventory pattern (list all numbers → assign structure → verify arithmetic) mirrors good manual extraction practice and is transferable to other visual document types. |
+
+---
+
 ### E-07 — GCell Schema for Span/Merge Encoding ● FAILED / 2026-06-03
 
 | | |

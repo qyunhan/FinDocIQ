@@ -1,0 +1,46 @@
+{
+  "waterfall": {
+    "status": "approved",
+    "contract": "DATA MODEL: start_value + sum(signed_deltas) = end_value\nHOW TO READ:\n  - Each bar represents one delta in the running total\n  - Bar goes UP from running total -> positive delta\n  - Bar goes DOWN from running total -> negative delta\n  - If legend present: use it to confirm sign interpretation\n  - If no legend: bar direction relative to running total IS the sign\n  - Start and end bars are full-height solid bars anchored at zero\n  - Delta bars float above or hang below the running total line\n  - Unit may be currency (e.g. S$m) OR percentage points (ppt) — infer from axis label\n    e.g. NIM bridge: 1.82 + (-0.15) + 0.19 + (-0.02) = 1.84 ppt\n    e.g. NII bridge: 9755 + 658 - 1236 - 27 = 9150 S$m\nCONSTRAINT: sum all deltas, verify start + sum = end\n  If arithmetic fails, your signs are wrong — flip bars until it balances\nEXTRACT AS: one DataPoint per bar\n  label = bar label (e.g. 'Volume', 'Rate', 'Funding cost')\n  value = signed delta\n  extra_fields: { 'bar_type': 'start' | 'delta' | 'end', 'unit': inferred from slide }"
+  },
+
+  "stacked_bar": {
+    "status": "approved",
+    "contract": "DATA MODEL: for each period, components stack bottom-to-top summing to total\nHOW TO READ:\n  - Read each segment value from its printed label\n  - Bottom segment = first component in legend, top = last\n  - Total = sum of all segments for that period (usually printed above bar)\n  - Period axis = x-axis labels (quarters, fiscal years, dates)\n  - Negative segments: if a segment visually extends below zero baseline, its value is negative\n  - Single-component bars (no stacking): treat identically — one DataPoint per period, same rules\n  - Supplementary metric rows printed below the bars (e.g. Average IEA, LDR): extract as\n    separate series with the same period labels\nCONSTRAINT: sum of components per period = printed total above bar\n  Rounding tolerance: accept +/-1 unit discrepancy\nEXTRACT AS: one DataPoint per (component, period)\n  label = component name (from legend)\n  value = segment value as printed\n  extra_fields: { 'period': x-axis label, 'bar_total': printed total }"
+  },
+
+  "stacked_bar_with_overlay": {
+    "status": "approved",
+    "contract": "DATA MODEL: stacked bars (same summation model as stacked_bar) PLUS one or more trend lines on the same or secondary axis\nWHY DISTINCT: the overlay line has NO summation relationship to the bars and often uses a different scale — it must be extracted as a separate series, not as a bar component\nHOW TO READ:\n  - Extract all stacked bar segments exactly per the stacked_bar contract\n  - Then extract each overlay line as a SEPARATE series\n  - Overlay lines are typically ratios or rates: %, bps, ppt\n  - Each overlay point has a printed value — read it directly, do not interpolate\n  - Common overlay types in bank decks: CIR (%), NIM (%), CASA ratio (%), NPA coverage (%),\n    dividend payout ratio (%), credit cost (bps)\n  - The overlay series and bar series share the same x-axis periods\nCONSTRAINT:\n  - Bars: sum of components = bar total (per stacked_bar rules)\n  - Overlay lines: no summation constraint\nEXTRACT AS:\n  - All stacked bar DataPoints (as per stacked_bar)\n  - One DataPoint per (overlay_series_name, period)\n    extra_fields: { 'series_type': 'overlay_line', 'unit': '%' | 'bps' | 'ppt' }\nSAMPLE (OCBC OpEx): bars for Staff/PPE/Others per quarter,\n  PLUS overlay 'Cost-to-income ratio (%)': 45.7, 38.7, 39.1, 40.0, 43.1"
+  },
+
+  "trend_line": {
+    "status": "approved",
+    "contract": "DATA MODEL: for each series, one value per time period\nHOW TO READ:\n  - Each line = one series, identified by label at line end or in legend\n  - Each point value is printed above or below the point\n  - X-axis = periods, Y-axis = values\n  - Multiple lines = multiple series, extract all\n  - Use this contract when trend lines appear WITHOUT accompanying bar charts\n  - When a trend line overlays bars, use stacked_bar_with_overlay instead\nCONSTRAINT: none\nEXTRACT AS: one DataPoint per (series, period)"
+  },
+
+  "pie": {
+    "status": "approved",
+    "contract": "DATA MODEL: segments summing to total (100% or absolute)\nHOW TO READ:\n  - Each segment has label and value\n  - If % shown: should sum to ~100%\n  - If absolute: should sum to printed total\n  - Centre label if present = grand total\nCONSTRAINT: sum of segments ≈ 100% or centre total\nEXTRACT AS: one DataPoint per segment"
+  },
+
+  "donut_dual_ring": {
+    "status": "approved",
+    "contract": "DATA MODEL: two concentric donut rings representing the same composition breakdown for two different time periods\nWHY DISTINCT: inner and outer rings encode different periods spatially — without explicit rules Gemini will conflate FY24 and FY25 segments\nHOW TO READ:\n  - INNER ring = earlier period (e.g. FY24), OUTER ring = later period (e.g. FY25)\n  - Centre label or legend identifies which period is inner vs outer\n  - Segment labels float outside the outer ring — match each label to its ring by spatial proximity and the period annotation\n  - Each ring's segments should sum to ~100%\n  - If two separate donut charts appear side by side (not concentric), treat each as an independent pie\nCONSTRAINT: each ring sums to ~100%; rounding tolerance +/-2ppt\nEXTRACT AS: one DataPoint per (segment_label, ring_period)\n  label = segment name (e.g. 'Global Wholesale Banking')\n  value = percentage as printed\n  extra_fields: { 'period': 'FY24' | 'FY25', 'ring': 'inner' | 'outer' }\nSAMPLE (OCBC earnings diversification):\n  Inner FY24: GWB 46%, Consumer/PB 27%, Markets 11%, Insurance 15%\n  Outer FY25: GWB 51%, Consumer/PB 26%, Markets 7%, Insurance 17%"
+  },
+
+  "kpi_grid": {
+    "status": "approved",
+    "contract": "DATA MODEL: individual metrics, no summation relationship\nHOW TO READ:\n  - Each KPI has label, current value, and often change vs prior period\n  - Change may be absolute, ppt, %, or bps — extract all that are printed\n  - Change direction (+/-) is critical — preserve sign\n  - Period labels (FY25, 4Q25) identify which column the KPI belongs to\n  - If KPIs are grouped into labelled panels (e.g. 'Greater China', 'United States'),\n    the panel header is the segment — include it in the label or extra_fields\nCONSTRAINT: none\nEXTRACT AS: one DataPoint per KPI per period\n  extra_fields: { 'change_value': ..., 'change_type': 'YoY' | 'QoQ', 'change_unit': '%' | 'ppt' | 'bps', 'segment': panel header if applicable }"
+  },
+
+  "text_table": {
+    "status": "approved",
+    "contract": "DATA MODEL: rows and columns, bold rows = totals, indented = sub-items\nHOW TO READ:\n  - Column headers define the value dimensions\n  - Bold label = total or subtotal row\n  - Indented label = sub-item of the bold row above it\n  - Grey/shaded cell = not applicable, value = empty string\n  - Parentheses = negative value, keep verbatim\n  - Dash or em-dash in a cell = zero change or flat; preserve as string\n  - 'nm' = not meaningful, 'na' = not applicable — preserve as strings\n  - YoY/QoQ columns contain % changes — preserve sign and % symbol\nCONSTRAINT: sub-items should sum to their parent total\nEXTRACT AS: one DataPoint per (row, column)\n  extra_fields: { 'row_type': 'total' | 'subtotal' | 'line_item', 'indent_level': 0 | 1 | 2 }"
+  },
+
+  "npa_movement_table": {
+    "status": "approved",
+    "contract": "DATA MODEL: NPA roll-forward — opening balance + signed inflows/outflows = closing balance, across multiple period columns\nWHY DISTINCT FROM text_table: has a mandatory arithmetic constraint (roll-forward must balance) and a specific sign convention for outflows that looks like positive numbers unless you know the model\nHOW TO READ:\n  - 'At start of period' bold row = opening NPA balance for each period column\n  - Flow items within each section:\n      New NPAs = positive (increases NPA stock)\n      Net recoveries/upgrades = negative (shown in parentheses)\n      Write-offs = negative (shown in parentheses)\n  - Section subtotal = net movement for that section\n  - 'Foreign currency translation' = FX adjustment, can be positive or negative\n  - 'At end of period' bold row = closing NPA balance\n  - NPL Ratio row = closing NPA / total loans (%); not part of the roll-forward arithmetic\nCONSTRAINT: At start + sum(all signed flow items) = At end\n  Verify for EVERY period column\n  If parentheses values are present they are negative — failure to flip signs breaks the check\nEXTRACT AS: one DataPoint per (row_label, period_column)\n  extra_fields: { 'row_type': 'opening' | 'inflow' | 'outflow' | 'subtotal' | 'closing' | 'ratio', 'section': section header }\nSAMPLE (OCBC 4Q25): start=2989, Corp new NPAs+399, recoveries-114, write-offs-26 => Corp net+259,\n  Consumer-12, FX+7, end=3243. Check: 2989+259-12+7=3243 ✓"
+  }
+}
