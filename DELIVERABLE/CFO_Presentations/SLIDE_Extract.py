@@ -1001,14 +1001,16 @@ def _render_waterfall(ws, pts: list[DataPoint], cursor: int, brand: str,
         lbl.alignment = Alignment(horizontal="left", vertical="center")
         _style_row(lbl, p.row_type, p.level)
 
-        # Value
+        # Value — use sign field to determine colour when present
         val = coerce(p.value)
         vc  = ws.cell(cursor, 2, val)
         if isinstance(val, (int, float)):
             vc.number_format = NUM_FMT
             vc.alignment = Alignment(horizontal="right")
             if is_bridge:
-                vc.font = Font(color=("00B050" if val >= 0 else "C00000"), size=10)
+                # sign field takes priority over numeric sign of value
+                sign_pos = (p.sign == "+" if p.sign else val >= 0)
+                vc.font = Font(color=("00B050" if sign_pos else "C00000"), size=10)
             else:
                 _style_row(vc, p.row_type, p.level, is_value=True)
         else:
@@ -1090,10 +1092,30 @@ def _render_kpi(ws, pts: list[DataPoint], cursor: int, brand: str) -> int:
 
 # ── Wide pivot renderer (tables, stacked bars, donuts, trends) ────────────────
 
+_PERIOD_RE = re.compile(
+    r'^\s*('
+    r'\d{4}'                          # year: 2024, 2025
+    r'|[1-4]Q\d{2}'                   # quarter: 1Q25, 4Q24
+    r'|FY\d{2,4}'                     # fiscal year: FY25, FY2025
+    r'|H[12]\s*\d{2,4}'               # half: H1 25
+    r'|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s*[-\s]\s*\d{2,4}'  # month
+    r')\s*$', re.IGNORECASE)
+
+
+def _is_period_key(k: str) -> bool:
+    """Return True if an extra_field key looks like a time period label."""
+    return bool(_PERIOD_RE.match(k))
+
+
 def _render_pivot(ws, pts: list[DataPoint], cursor: int, unit: str) -> int:
     periods     = _ordered_periods(pts)
     series_list = _ordered_series(pts)
-    extra_keys  = _extra_keys_global(pts)
+
+    # Detect period-like extra field keys (e.g. Gemini put '2024' in extra_fields
+    # instead of emitting a separate datapoint with period='2024')
+    raw_extra   = _extra_keys_global(pts)
+    promo_keys  = [k for k in raw_extra if _is_period_key(k)]   # promote to period cols
+    extra_keys  = [k for k in raw_extra if not _is_period_key(k)]  # real extras
 
     # cells lookup
     cells: dict[tuple, DataPoint] = {}
@@ -1105,19 +1127,19 @@ def _render_pivot(ws, pts: list[DataPoint], cursor: int, unit: str) -> int:
         if p.series not in meta:
             meta[p.series] = p
 
-    # Build column list: label | period... | extra...
-    # Period columns use the actual period string; never "Value"
+    # Build column list: label | period... | promoted_period... | extra...
     period_cols = [str(p) for p in periods if p is not None]
-    if not period_cols and periods == [None]:
-        # All period=None but not a waterfall — use unit as column header
+    if not period_cols and periods == [None] and not promo_keys:
         period_cols = [unit or "Value"]
         periods = [None]
 
-    n_data_cols = len(period_cols)
+    # Promoted extra period keys appended after real periods
+    all_period_cols = period_cols + promo_keys
+    n_data_cols = len(all_period_cols)
 
     # Header row
     _hdr(ws.cell(cursor, 1, f"({unit})" if unit else ""), dark=True)
-    for i, ph in enumerate(period_cols, 2):
+    for i, ph in enumerate(all_period_cols, 2):
         _hdr(ws.cell(cursor, i, ph))
     for i, k in enumerate(extra_keys, 2 + n_data_cols):
         _hdr(ws.cell(cursor, i, _extra_col_header(k, pts)))
@@ -1132,12 +1154,23 @@ def _render_pivot(ws, pts: list[DataPoint], cursor: int, unit: str) -> int:
         lbl.alignment = Alignment(horizontal="left", vertical="center")
         _style_row(lbl, dp_meta.row_type, dp_meta.level)
 
+        # Real period columns
         for i, period in enumerate(periods, 2):
             dp = cells.get((series, period))
             _write_value_cell(ws, cursor, i, dp, dp_meta.row_type, dp_meta.level)
 
+        # Promoted period columns (from extra_fields)
+        for i, k in enumerate(promo_keys, 2 + len(period_cols)):
+            dp = cells.get((series, periods[0] if periods else None))
+            raw = (dp.extra_fields or {}).get(k, "") if dp else ""
+            vc  = ws.cell(cursor, i, coerce(raw) if raw else "")
+            if isinstance(coerce(raw), (int, float)):
+                vc.number_format = NUM_FMT
+                vc.alignment = Alignment(horizontal="right")
+            _style_row(vc, dp_meta.row_type, dp_meta.level, is_value=True)
+
+        # True extra columns (YoY%, QoQ%, etc.)
         for i, k in enumerate(extra_keys, 2 + n_data_cols):
-            # Use value from first period that has this key
             raw = ""
             for period in periods:
                 dp = cells.get((series, period))
@@ -1487,7 +1520,7 @@ def main():
     brand     = BANKS[bank]["brand"]
 
     _base     = Path(__file__).parent.parent / "outputs" / "CFO_Presentation"
-    out_path  = args.out or str(_base / f"{bank_slug}_slides.xlsx")
+    out_path  = args.out or str(_base / f"{bank_slug}_CFOpresentations.xlsx")
     audit_dir = str(_base / "audit" / f"{bank_slug}_{doc_title}")
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
 

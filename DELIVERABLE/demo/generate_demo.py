@@ -89,7 +89,7 @@ def load_run_summaries() -> list[dict]:
         s = jload(f)
         if s: out.append(s)
     # also check for xlsx without summary
-    for xl in OUTPUTS_DIR.glob("*_slides.xlsx"):
+    for xl in OUTPUTS_DIR.glob("*.xlsx"):
         bank = xl.stem.split("_")[0].upper()
         if not any(s.get("bank","").upper()==bank for s in out):
             out.append({"bank": bank, "document": xl.name,
@@ -441,7 +441,7 @@ Map every cell:
           <div class="fn-step">Pass 3 — Render to Excel</div>
           <div class="fn-title">Wide-format pivot workbook</div>
           <div class="fn-desc">Periods become columns, series become rows. Bold totals, indented sub-items, yellow cells for chart-sourced values (verify against source). One tab per slide, one workbook per bank.</div>
-          <div class="fn-output">Output: ocbc_slides.xlsx · dbs_slides.xlsx · uob_slides.xlsx</div>
+          <div class="fn-output">Output: ocbc_CFOpresentations.xlsx · dbs_CFOpresentations.xlsx · uob_CFOpresentations.xlsx</div>
         </div>
 
       </div>"""
@@ -495,7 +495,7 @@ def build_results(slides, summaries):
 
     dl_btns = ""
     for bank in sorted(bank_stats):
-        xl_path = OUTPUTS_DIR / f"{bank.lower()}_slides.xlsx"
+        xl_path = OUTPUTS_DIR / f"{bank.lower()}_CFOpresentations.xlsx"
         xl_b64  = b64_xlsx(xl_path)
         st      = bank_stats[bank]
         elapsed = elapsed_map.get(bank, "—")
@@ -504,7 +504,7 @@ def build_results(slides, summaries):
             <div class="dl-card">
               <div class="dl-bank">{bank_dot(bank)}</div>
               <div class="dl-meta">{st['n']} slides · {st['pts']:,} data points · ${st['cost']:.4f} · {elapsed}</div>
-              <a class="dl-btn" download="{bank.lower()}_slides.xlsx"
+              <a class="dl-btn" download="{bank.lower()}_CFOpresentations.xlsx"
                  href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{xl_b64}">
                 ↓ Download Excel
               </a>
