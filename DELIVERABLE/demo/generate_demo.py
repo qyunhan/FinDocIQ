@@ -235,34 +235,35 @@ def build_how_it_works():
         <div class="flow-node decision-node">
           <div class="fn-decision-icon">◆</div>
           <div class="fn-title">How many sections share this page?</div>
+          <div class="fn-sub-dec">No API — decided by Python reading the TOC page ranges</div>
         </div>
 
         <div class="flow-branches">
           <div class="flow-branch">
             <div class="branch-label" style="background:#dbeafe;color:#1e40af">1 section, 1 page</div>
             <div class="flow-node step-node" style="border-color:#2980b9">
-              <div class="fn-badge" style="background:#2980b9">Gemini 2.5 Pro · PDF + prompt</div>
+              <div class="fn-badge" style="background:#2980b9">Gemini 2.5 Pro · PDF slice</div>
               <div class="fn-step">Mode: Single</div>
               <div class="fn-title">"Extract every table on this page"</div>
-              <div class="fn-desc">Sends the PDF slice (not an image) to Gemini with a structured schema. One call, one page.</div>
+              <div class="fn-desc">Sends the native PDF bytes (not a screenshot) to Gemini. Gemini reads its own text and layout — more accurate than image for dense printed tables.</div>
             </div>
           </div>
           <div class="flow-branch">
-            <div class="branch-label" style="background:#fef9c3;color:#854d0e">Multiple sections, same page</div>
+            <div class="branch-label" style="background:#fef9c3;color:#854d0e">Multiple sections on same page</div>
             <div class="flow-node step-node" style="border-color:#d97706">
-              <div class="fn-badge" style="background:#d97706">Gemini 2.5 Pro · PDF + prompt</div>
+              <div class="fn-badge" style="background:#d97706">Gemini 2.5 Pro · PDF slice</div>
               <div class="fn-step">Mode: Multiple</div>
-              <div class="fn-title">"Read top-to-bottom, assign each table to its section"</div>
-              <div class="fn-desc">Prompt tells Gemini to treat each section heading as a routing boundary. Tables are tagged by section ID.</div>
+              <div class="fn-title">"Read top-to-bottom, tag each table by its section heading"</div>
+              <div class="fn-desc">Gemini is told exactly which section headings appear on this page and in what order. Each table it finds gets tagged with the right section ID.</div>
             </div>
           </div>
           <div class="flow-branch">
-            <div class="branch-label" style="background:#fce7f3;color:#9d174d">1 section spans many pages</div>
+            <div class="branch-label" style="background:#fce7f3;color:#9d174d">1 section spans multiple pages</div>
             <div class="flow-node step-node" style="border-color:#db2777">
               <div class="fn-badge" style="background:#db2777">Gemini 2.5 Pro · PDF chunks</div>
               <div class="fn-step">Mode: Spanning</div>
-              <div class="fn-title">Split into ≤2-page chunks with context carry-over</div>
-              <div class="fn-desc">Each chunk gets a continuation prompt with column headers from the previous chunk so Gemini can stitch rows across page breaks without losing structure.</div>
+              <div class="fn-title">Split into ≤2-page chunks, carry column headers forward</div>
+              <div class="fn-desc">Each chunk after the first receives the column headers from the previous chunk so Gemini knows how to stitch rows across page breaks without duplicating headers.</div>
             </div>
           </div>
         </div>
@@ -271,7 +272,7 @@ def build_how_it_works():
         <div class="flow-node decision-node">
           <div class="fn-decision-icon">◆</div>
           <div class="fn-title">Did Gemini return useful tables?</div>
-          <div class="fn-sub-dec">Checks: are there tables? Do they have columns and rows? Any non-empty values?</div>
+          <div class="fn-sub-dec">No API — Python checks: any tables? columns? non-empty values?</div>
         </div>
         <div class="flow-branches flow-branches-2">
           <div class="flow-branch">
@@ -279,12 +280,17 @@ def build_how_it_works():
             <div class="flow-node mini-node">Proceed to render</div>
           </div>
           <div class="flow-branch">
-            <div class="branch-label warn-label">✗ Empty or thin response</div>
+            <div class="branch-label warn-label">✗ Empty or missing values</div>
             <div class="flow-node step-node" style="border-color:#e67e22">
-              <div class="fn-badge" style="background:#e67e22">Retry · PDF + PNG image</div>
-              <div class="fn-step">Image fallback</div>
-              <div class="fn-title">Re-send with a rendered screenshot attached</div>
-              <div class="fn-desc">PNG rendered at 2× scale alongside the original PDF. Fires once. If still thin, the result is used as-is and flagged in the audit log.</div>
+              <div class="fn-badge" style="background:#e67e22">Retry · same PDF + PNG screenshot</div>
+              <div class="fn-step">Image fallback (rare)</div>
+              <div class="fn-title">Re-send with a rendered screenshot attached alongside the PDF</div>
+              <div class="fn-desc">
+                PNG rendered at 2× scale is added to the same call — the PDF stays.
+                Only fires when the page actually has table structure (confirmed by pdfplumber).
+                Narrative pages returning 0 tables are correct and don't trigger this.
+                Fires at most once per unit. If still empty, result is used as-is and flagged.
+              </div>
             </div>
           </div>
         </div>
@@ -295,7 +301,7 @@ def build_how_it_works():
           <div class="fn-step">Step 3 — Render to Excel</div>
           <div class="fn-title">Write structured workbook</div>
           <div class="fn-desc">One tab per section. Hierarchy preserved (bold totals, indented sub-items). Brand colours applied. Every cell value is verbatim from the PDF — no rounding.</div>
-          <div class="fn-output">Output: ocbc.xlsx / dbs.xlsx / uob.xlsx</div>
+          <div class="fn-output">Output: ocbc_pillar3.xlsx · dbs_pillar3.xlsx · uob_pillar3.xlsx</div>
         </div>
 
       </div>"""

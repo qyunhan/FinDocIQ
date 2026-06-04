@@ -1241,7 +1241,7 @@ def main():
         TOC_PATH = str(_p3_out / f"{bank_slug}_toc.json")
     # else keep default out/step1_toc.json
 
-    out_path = args.out or str(_p3_out / f"{bank_slug}.xlsx")
+    out_path = args.out or str(_p3_out / f"{bank_slug}_pillar3.xlsx")
 
     # one Contents index per output workbook (so different banks don't mix)
     global INDEX_PATH, USAGE_LOG_PATH, COST_LOG_PATH, AUDIT_DIR
