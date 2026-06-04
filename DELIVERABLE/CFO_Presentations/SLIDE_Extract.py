@@ -368,8 +368,15 @@ row_type:
   data         → everything else
 
 Waterfall charts:
-  Every bridge bar needs sign="+" or "-". Read the colour legend on the slide.
-  Verify: start_value + sum(signed_deltas) = end_value. Write this as self_check.
+  The colour of each bar shows its direction of impact — positive or negative.
+  Step 1: Find the colour legend on the slide (usually top-right corner).
+          It will say something like "■ positive  ■ negative" with two colours.
+  Step 2: For EVERY bridge bar, look at its fill colour and match it to the legend.
+          sign="+" if the bar colour matches the positive legend colour.
+          sign="-" if the bar colour matches the negative legend colour.
+          Do NOT infer sign from the bar label or financial context — only from colour.
+  Step 3: value = the number printed on the bar, verbatim, always positive magnitude.
+  Step 4: Verify: start + sum(signed deltas) = end. Write as self_check.
 
 Stacked bars with overlay line:
   Bar segments → data_points with period = x-axis label.
