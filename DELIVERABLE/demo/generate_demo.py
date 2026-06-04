@@ -208,44 +208,262 @@ def build_hero(slides, summaries):
     </section>"""
 
 def build_how_it_works():
-    steps = [
-        ("01", "Classify", "Pass 0 — micro-call (~150 tokens) identifies every chart type on the slide. Routes the slide to the right extraction branch.", "#8e44ad"),
-        ("02", "Single-Pass\n(Visual)", "Charts, donuts, waterfalls → one Gemini call with the image present throughout. No intermediate text. No schema pressure during visual reading.", "#e67e22"),
-        ("02", "Multi-Pass\n(Text Tables)", "P&L tables → Pass 1 describes structure and pre-maps every cell to schema fields. Pass 2 transcribes text-only — no re-reading the image.", "#2980b9"),
-        ("03", "Validate", "Arithmetic self-checks run on every element. Waterfall bridges must balance. Blank labels are flagged. One correction pass fires if errors are found.", "#27ae60"),
-        ("04", "Render", "Wide-format Excel pivot — periods become columns, series become rows. Brand colours, bold totals, yellow chart-sourced cells. One tab per slide.", "#d68910"),
-    ]
-    cards = ""
-    for num, name, desc, colour in steps:
-        cards += f"""
-        <div class="how-card">
-          <div class="how-num" style="color:{colour}">{num}</div>
-          <div class="how-name">{name.replace(chr(10),"<br>")}</div>
-          <div class="how-desc">{desc}</div>
-        </div>"""
+    # ── Pillar 3 pipeline nodes ──────────────────────────────────────────────
+    p3_nodes = """
+      <div class="flow">
 
-    principles = [
-        ("No schema pressure during vision", "Visual slides send the image through the entire call. Gemini reads and structures simultaneously — the way it works naturally."),
-        ("Contracts teach method, not values", "Each chart type has a reading contract: how to identify periods, what arithmetic must balance, what the colour legend means. No hardcoded expected values."),
-        ("Audit trail per slide", "Every slide saves its PNG, the prompt, the raw API response, and parsed datapoints. Resume is free — re-runs skip cached slides."),
-        ("Cost stays low", "Pass 0 is ~$0.0001/slide. A full 22-slide deck costs ~$0.18. The entire DBS + OCBC + UOB run across 73 slides costs under $0.50."),
-    ]
-    pcards = ""
-    for title, desc in principles:
-        pcards += f"""
-        <div class="principle-card">
-          <div class="principle-title">{title}</div>
-          <div class="principle-desc">{desc}</div>
-        </div>"""
+        <div class="flow-node input-node">
+          <div class="fn-icon">📄</div>
+          <div class="fn-title">Pillar 3 PDF</div>
+          <div class="fn-sub">DBS · OCBC · UOB<br>~100 pages</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-node step-node" style="border-color:#8e44ad">
+          <div class="fn-badge" style="background:#8e44ad">No API · Free</div>
+          <div class="fn-step">Step 1 — Read Table of Contents</div>
+          <div class="fn-title">pdfplumber extracts the TOC</div>
+          <div class="fn-desc">
+            Pure Python — no AI involved. Reads section titles, page numbers, and footnotes
+            directly from the PDF text layer. Handles DBS Part A/B/C numbering, OCBC title overflow,
+            and UOB multi-table subsections automatically.
+          </div>
+          <div class="fn-output">Output: section tree with start/end page for every table</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-node decision-node">
+          <div class="fn-decision-icon">◆</div>
+          <div class="fn-title">How many sections share this page?</div>
+        </div>
+
+        <div class="flow-branches">
+          <div class="flow-branch">
+            <div class="branch-label" style="background:#dbeafe;color:#1e40af">1 section, 1 page</div>
+            <div class="flow-node step-node" style="border-color:#2980b9">
+              <div class="fn-badge" style="background:#2980b9">Gemini 2.5 Pro · PDF + prompt</div>
+              <div class="fn-step">Mode: Single</div>
+              <div class="fn-title">"Extract every table on this page"</div>
+              <div class="fn-desc">Sends the PDF slice (not an image) to Gemini with a structured schema. One call, one page.</div>
+            </div>
+          </div>
+          <div class="flow-branch">
+            <div class="branch-label" style="background:#fef9c3;color:#854d0e">Multiple sections, same page</div>
+            <div class="flow-node step-node" style="border-color:#d97706">
+              <div class="fn-badge" style="background:#d97706">Gemini 2.5 Pro · PDF + prompt</div>
+              <div class="fn-step">Mode: Multiple</div>
+              <div class="fn-title">"Read top-to-bottom, assign each table to its section"</div>
+              <div class="fn-desc">Prompt tells Gemini to treat each section heading as a routing boundary. Tables are tagged by section ID.</div>
+            </div>
+          </div>
+          <div class="flow-branch">
+            <div class="branch-label" style="background:#fce7f3;color:#9d174d">1 section spans many pages</div>
+            <div class="flow-node step-node" style="border-color:#db2777">
+              <div class="fn-badge" style="background:#db2777">Gemini 2.5 Pro · PDF chunks</div>
+              <div class="fn-step">Mode: Spanning</div>
+              <div class="fn-title">Split into ≤2-page chunks with context carry-over</div>
+              <div class="fn-desc">Each chunk gets a continuation prompt with column headers from the previous chunk so Gemini can stitch rows across page breaks without losing structure.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+        <div class="flow-node decision-node">
+          <div class="fn-decision-icon">◆</div>
+          <div class="fn-title">Did Gemini return useful tables?</div>
+          <div class="fn-sub-dec">Checks: are there tables? Do they have columns and rows? Any non-empty values?</div>
+        </div>
+        <div class="flow-branches flow-branches-2">
+          <div class="flow-branch">
+            <div class="branch-label ok-label">✓ Yes — looks good</div>
+            <div class="flow-node mini-node">Proceed to render</div>
+          </div>
+          <div class="flow-branch">
+            <div class="branch-label warn-label">✗ Empty or thin response</div>
+            <div class="flow-node step-node" style="border-color:#e67e22">
+              <div class="fn-badge" style="background:#e67e22">Retry · PDF + PNG image</div>
+              <div class="fn-step">Image fallback</div>
+              <div class="fn-title">Re-send with a rendered screenshot attached</div>
+              <div class="fn-desc">PNG rendered at 2× scale alongside the original PDF. Fires once. If still thin, the result is used as-is and flagged in the audit log.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+        <div class="flow-node step-node" style="border-color:#16a085">
+          <div class="fn-badge" style="background:#16a085">No API · Free</div>
+          <div class="fn-step">Step 3 — Render to Excel</div>
+          <div class="fn-title">Write structured workbook</div>
+          <div class="fn-desc">One tab per section. Hierarchy preserved (bold totals, indented sub-items). Brand colours applied. Every cell value is verbatim from the PDF — no rounding.</div>
+          <div class="fn-output">Output: ocbc.xlsx / dbs.xlsx / uob.xlsx</div>
+        </div>
+
+      </div>"""
+
+    # ── Slides pipeline nodes ────────────────────────────────────────────────
+    slides_nodes = """
+      <div class="flow">
+
+        <div class="flow-node input-node">
+          <div class="fn-icon">📊</div>
+          <div class="fn-title">CFO Presentation PDF</div>
+          <div class="fn-sub">DBS · OCBC · UOB<br>20–30 slides, charts + tables</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-node step-node" style="border-color:#8e44ad">
+          <div class="fn-badge" style="background:#8e44ad">Gemini 2.5 Flash · image</div>
+          <div class="fn-step">Pass 0 — Classify</div>
+          <div class="fn-title">What's on this slide?</div>
+          <div class="fn-desc">
+            Sends the slide as a PNG image. Gemini returns a list of chart types:
+            waterfall, stacked bar, donut ring, text table, KPI grid, etc.
+            Costs ~$0.0001 per slide. Result is cached — free on re-runs.
+          </div>
+          <div class="fn-output">Output: ["donut_dual_ring", "text_table"]</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-node decision-node">
+          <div class="fn-decision-icon">◆</div>
+          <div class="fn-title">Does the slide contain any visual chart?</div>
+          <div class="fn-sub-dec">waterfall · stacked bar · donut ring · trend line · KPI · pie</div>
+        </div>
+
+        <div class="flow-branches flow-branches-2">
+          <div class="flow-branch">
+            <div class="branch-label" style="background:#fff7ed;color:#c2410c">Yes — has charts</div>
+            <div class="flow-node step-node" style="border-color:#e67e22">
+              <div class="fn-badge" style="background:#e67e22">Gemini 2.5 Flash · image + schema</div>
+              <div class="fn-step">Single-Pass extraction</div>
+              <div class="fn-title">Image stays present throughout the whole call</div>
+              <div class="fn-desc">
+                Gemini reads the visual and fills the JSON schema in one step.
+                No intermediate text description — so there's no risk of a
+                correct reading being lost in transcription.
+                Chart contracts (per type) guide how to read ring labels,
+                bar colours, and waterfall signs.
+              </div>
+              <div class="fn-prompt-link" onclick="togglePrompt('sp-prompt')">
+                View single-pass prompt ▾
+              </div>
+              <div class="fn-prompt-box" id="sp-prompt" style="display:none">
+Extract ALL financial data from this bank CFO presentation slide.
+
+Donut dual ring: trace each period label's callout line to identify
+which ring it points to. Assign period from what you read on the slide.
+Do NOT assume inner=earlier or outer=later.
+
+Waterfall: every bridge bar needs sign="+" or "-". Read the colour
+legend. Verify: start + sum(signed deltas) = end_value.
+
+value field: ALWAYS verbatim as printed. "5,948" not 5948.
+Return ONLY the JSON object. No markdown.</div>
+            </div>
+          </div>
+          <div class="flow-branch">
+            <div class="branch-label" style="background:#eff6ff;color:#1e40af">No — text table only</div>
+            <div class="flow-node step-node" style="border-color:#2980b9">
+              <div class="fn-badge" style="background:#2980b9">Gemini 2.5 Flash · image → text</div>
+              <div class="fn-step">Multi-Pass extraction</div>
+              <div class="fn-title">Describe first, then parse — separately</div>
+              <div class="fn-desc">
+                <strong>Pass 1</strong> — image sent. Gemini describes the table structure
+                in plain English: column headers, row hierarchy (bold = total,
+                indented = sub-item), and pre-maps every cell to schema fields.<br><br>
+                <strong>Pass 2</strong> — no image. Pure text-to-JSON transcription
+                of Pass 1's pre-mapping. Separating visual reading from schema
+                filling improves hierarchy accuracy on dense P&amp;L tables.
+              </div>
+              <div class="fn-prompt-link" onclick="togglePrompt('mp-prompt')">
+                View Pass 1 prompt ▾
+              </div>
+              <div class="fn-prompt-box" id="mp-prompt" style="display:none">
+Examine this bank CFO presentation slide. It contains text tables.
+
+STEP 1 — INVENTORY
+List every printed number with its row label and column header.
+
+STEP 2 — STRUCTURE
+Column headers, row count, visual conventions:
+  bold rows = totals?   indented = sub-items?
+  parentheses = negative?   dash = zero?
+
+STEP 3 — VERIFY
+Do sub-items sum to their parent total? Write the check explicitly.
+
+STEP 4 — PRE-MAP
+Map every cell:
+  series="Net Interest Income" period="FY25" value="5,948"
+  row_type="data" level=1</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+        <div class="flow-node decision-node">
+          <div class="fn-decision-icon">◆</div>
+          <div class="fn-title">Validation — does the arithmetic check out?</div>
+          <div class="fn-sub-dec">Waterfall balance · blank labels · illegible values</div>
+        </div>
+        <div class="flow-branches flow-branches-2">
+          <div class="flow-branch">
+            <div class="branch-label ok-label">✓ Passes</div>
+            <div class="flow-node mini-node">Save to audit and proceed</div>
+          </div>
+          <div class="flow-branch">
+            <div class="branch-label warn-label">✗ Errors found</div>
+            <div class="flow-node step-node" style="border-color:#e67e22">
+              <div class="fn-badge" style="background:#e67e22">1× correction call</div>
+              <div class="fn-step">Correction pass</div>
+              <div class="fn-title">Re-extract only the broken elements</div>
+              <div class="fn-desc">Sends the specific validation errors back to Gemini with the original context. Only fires once. If it doesn't improve, original output is kept and errors are flagged.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+        <div class="flow-node step-node" style="border-color:#16a085">
+          <div class="fn-badge" style="background:#16a085">No API · Free</div>
+          <div class="fn-step">Pass 3 — Render to Excel</div>
+          <div class="fn-title">Wide-format pivot workbook</div>
+          <div class="fn-desc">Periods become columns, series become rows. Bold totals, indented sub-items, yellow cells for chart-sourced values (verify against source). One tab per slide, one workbook per bank.</div>
+          <div class="fn-output">Output: ocbc_slides.xlsx · dbs_slides.xlsx · uob_slides.xlsx</div>
+        </div>
+
+      </div>"""
 
     return f"""
     <section class="section" id="how">
       <div class="section-inner">
         <div class="section-eyebrow">Architecture</div>
         <h2 class="section-title">How it works</h2>
-        <p class="section-sub">Four passes, one image per slide, under $0.01 per slide.</p>
-        <div class="how-grid">{cards}</div>
-        <div class="principles-grid">{pcards}</div>
+        <p class="section-sub">Two pipelines — one for regulatory disclosures, one for CFO slide decks. Toggle between them.</p>
+
+        <div class="arch-toggle">
+          <button class="arch-btn active" onclick="showArch('slides', this)">📊 CFO Slides</button>
+          <button class="arch-btn" onclick="showArch('p3', this)">📁 Pillar 3 Disclosures</button>
+        </div>
+
+        <div id="arch-slides" class="arch-pane">
+          <div class="arch-context">
+            <strong>Input:</strong> CFO presentation PDFs (20–30 slides). Mix of charts, waterfall bridges, donut rings, and P&amp;L tables.
+            Model used: <span class="model-tag">Gemini 2.5 Flash</span>
+            Input format: <span class="model-tag">PNG image per slide</span>
+          </div>
+          {slides_nodes}
+        </div>
+
+        <div id="arch-p3" class="arch-pane" style="display:none">
+          <div class="arch-context">
+            <strong>Input:</strong> Regulatory PDF disclosures (~100 pages). Dense financial tables with row hierarchies, merged cells, and bank-specific layouts.
+            Model used: <span class="model-tag">Gemini 2.5 Pro</span>
+            Input format: <span class="model-tag">Native PDF slice (not image)</span>
+            TOC step: <span class="model-tag">No API — pure Python</span>
+          </div>
+          {p3_nodes}
+        </div>
+
       </div>
     </section>"""
 
@@ -517,18 +735,118 @@ body { font-family: var(--sans); background: var(--bg); color: var(--dark); font
   line-height: 1.65; margin-bottom: 56px;
 }
 
-/* ── How it works ── */
-.how-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px; margin-bottom: 56px;
+/* ── Architecture toggle ── */
+.arch-toggle {
+  display: flex; gap: 8px; margin-bottom: 32px;
 }
-.how-card {
-  background: var(--bg); border: 1px solid var(--border);
-  border-radius: var(--r); padding: 28px 24px;
+.arch-btn {
+  padding: 10px 24px; border-radius: 8px;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  border: 2px solid var(--border); background: var(--bg3); color: var(--mid);
+  transition: all .15s;
 }
-.how-num  { font-family: var(--mono); font-size: 13px; font-weight: 600; margin-bottom: 10px; }
-.how-name { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 10px; line-height: 1.3; }
-.how-desc { font-size: 14px; color: var(--mid); line-height: 1.65; }
+.arch-btn:hover { border-color: var(--red); color: var(--red); }
+.arch-btn.active { background: var(--red); color: #fff; border-color: var(--red); }
+.arch-context {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 14px 20px;
+  font-size: 13px; color: var(--mid); margin-bottom: 32px;
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+}
+.model-tag {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 4px; padding: 2px 8px;
+  font-family: var(--mono); font-size: 12px; color: var(--dark); font-weight: 500;
+}
+
+/* ── Flow diagram ── */
+.flow {
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+  max-width: 860px; margin: 0 auto;
+}
+.flow-arrow {
+  font-size: 22px; color: var(--light); line-height: 1; padding: 6px 0;
+}
+.flow-node {
+  width: 100%; border-radius: 10px; padding: 20px 24px;
+  border: 2px solid var(--border); background: var(--bg);
+}
+.input-node {
+  text-align: center; background: var(--bg3); max-width: 320px;
+  padding: 24px;
+}
+.input-node .fn-icon { font-size: 28px; margin-bottom: 8px; }
+.input-node .fn-title { font-size: 16px; font-weight: 700; color: var(--dark); }
+.input-node .fn-sub   { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.step-node  { background: var(--bg); }
+.mini-node  {
+  max-width: 200px; text-align: center;
+  background: #f0fdf4; border: 1.5px solid #86efac;
+  border-radius: 8px; padding: 10px 16px;
+  font-size: 13px; font-weight: 500; color: #166534;
+}
+.decision-node {
+  text-align: center; background: #fefce8;
+  border: 2px dashed #fbbf24; max-width: 480px;
+  padding: 16px 24px;
+}
+.fn-decision-icon { font-size: 18px; margin-bottom: 6px; }
+.fn-sub-dec { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.fn-badge {
+  display: inline-block; padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-family: var(--mono); color: #fff; font-weight: 600;
+  margin-bottom: 8px;
+}
+.fn-step  { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 4px; }
+.fn-title { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 8px; line-height: 1.3; }
+.fn-desc  { font-size: 14px; color: var(--mid); line-height: 1.7; }
+.fn-output {
+  margin-top: 10px; font-size: 12px; font-family: var(--mono);
+  color: var(--red); background: var(--bg3);
+  border-radius: 4px; padding: 4px 10px; display: inline-block;
+}
+
+/* ── Prompt reveal ── */
+.fn-prompt-link {
+  margin-top: 12px; font-size: 12px; color: var(--red);
+  cursor: pointer; font-weight: 600; display: inline-block;
+}
+.fn-prompt-link:hover { text-decoration: underline; }
+.fn-prompt-box {
+  margin-top: 8px; background: #0f172a; color: #e2e8f0;
+  border-radius: 6px; padding: 14px 16px;
+  font-family: var(--mono); font-size: 12px; line-height: 1.7;
+  white-space: pre-wrap; word-break: break-word;
+}
+
+/* ── Branch layout ── */
+.flow-branches {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px; width: 100%;
+}
+.flow-branches-2 {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; width: 100%;
+}
+.flow-branch { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.branch-label {
+  font-size: 12px; font-weight: 600; padding: 4px 14px;
+  border-radius: 20px; text-align: center;
+}
+.ok-label   { background: #f0fdf4; color: #166534; }
+.warn-label { background: #fff7ed; color: #c2410c; }
+
+/* ── Principles (kept for fallback) ── */
+.principles-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+.principle-card {
+  background: #eff6ff; border: 1px solid #bfdbfe;
+  border-radius: var(--r); padding: 24px;
+}
+.principle-title { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+.principle-desc  { font-size: 14px; color: var(--mid); line-height: 1.65; }
 
 .principles-grid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -688,6 +1006,27 @@ body { font-family: var(--sans); background: var(--bg); color: var(--dark); font
 # ---------------------------------------------------------------------------
 
 JS = """
+// ── Architecture toggle ──
+function showArch(which, btn) {
+  document.querySelectorAll('.arch-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.arch-pane').forEach(p => p.style.display = 'none');
+  btn.classList.add('active');
+  document.getElementById('arch-' + which).style.display = 'block';
+}
+
+// ── Prompt reveal ──
+function togglePrompt(id) {
+  const el = document.getElementById(id);
+  const link = el.previousElementSibling;
+  if (el.style.display === 'none') {
+    el.style.display = 'block';
+    link.textContent = link.textContent.replace('▾','▴');
+  } else {
+    el.style.display = 'none';
+    link.textContent = link.textContent.replace('▴','▾');
+  }
+}
+
 let activeBank = 'all';
 let activeType = null;
 
