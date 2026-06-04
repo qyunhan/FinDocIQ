@@ -81,7 +81,7 @@ _run_usage: dict = {"calls": 0, "prompt": 0, "output": 0, "cost": 0.0}
 
 CONTRACTS_PATH = Path(__file__).with_name("chart_contracts.json")
 
-# Chart types that benefit from single-pass (image stays present during schema fill)
+# Chart types that use single-pass (image present throughout)
 VISUAL_TYPES = {
     "waterfall", "stacked_bar", "stacked_bar_with_overlay",
     "trend_line", "kpi_grid", "pie", "donut_dual_ring",
@@ -367,16 +367,17 @@ row_type:
   note         → footnotes, disclaimers
   data         → everything else
 
-Waterfall charts:
-  The colour of each bar shows its direction of impact — positive or negative.
-  Step 1: Find the colour legend on the slide (usually top-right corner).
-          It will say something like "■ positive  ■ negative" with two colours.
-  Step 2: For EVERY bridge bar, look at its fill colour and match it to the legend.
-          sign="+" if the bar colour matches the positive legend colour.
-          sign="-" if the bar colour matches the negative legend colour.
-          Do NOT infer sign from the bar label or financial context — only from colour.
-  Step 3: value = the number printed on the bar, verbatim, always positive magnitude.
-  Step 4: Verify: start + sum(signed deltas) = end. Write as self_check.
+Waterfall charts — follow these steps IN ORDER, do not skip:
+  Step 1: Find the colour legend box on the slide. Write it out:
+          e.g. "Legend: green=positive, salmon/red=negative"
+  Step 2: List every bridge bar with its EXACT fill colour as you see it:
+          e.g. "GP bar: green fill → sign=+"
+               "SP bar: red/salmon fill → sign=-"
+  Step 3: Assign sign from colour match ONLY. Never from financial context.
+          GP releasing provisions = green bar = sign="+" even though it reduces a charge.
+          Expenses increasing = red bar = sign="-" even though it's a cost.
+  Step 4: value = magnitude printed on bar, verbatim positive number.
+  Step 5: Verify start + sum(signed deltas) = end. Write as self_check.
 
 Stacked bars with overlay line:
   Bar segments → data_points with period = x-axis label.
@@ -402,7 +403,7 @@ Return ONLY the JSON object. No markdown fences. No explanation.
 
 
 # ===========================================================================
-# PASS 1 PROMPT (text slides only — multi-pass path)
+# PASS 1 PROMPT (text tables only — multi-pass path)
 # ===========================================================================
 PASS1_PROMPT = """Examine this bank CFO presentation slide. It contains text tables.
 
