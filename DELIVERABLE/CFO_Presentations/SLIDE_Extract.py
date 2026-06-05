@@ -296,6 +296,19 @@ class DataPoint(BaseModel):
     # Dynamic extra columns (qoq_pct, yoy_pct, etc.)
     extra_fields: dict[str, Any] = {}
 
+    @field_validator("extra_fields", mode="before")
+    @classmethod
+    def flatten_extra(cls, v):
+        if not isinstance(v, dict):
+            return {}
+        # Gemini sometimes nests: extra_fields: {yoy_pct: ...} inside extra_fields
+        if "extra_fields" in v and isinstance(v["extra_fields"], dict):
+            nested = v.pop("extra_fields")
+            v.pop("extra_fields_label", None)
+            v.update(nested)
+        # Drop any remaining dict values (malformed nesting)
+        return {k: val for k, val in v.items() if not isinstance(val, dict)}
+
     # Provenance
     source:     str   # "table" | "chart"
     bank:       str
@@ -669,6 +682,16 @@ def parse_pass2(raw: str, bank: str, doc_title: str, doc_date: str,
             rt = ROW_TYPE_ALIASES.get(rt, rt)
 
             extra = {k: v for k, v in dp.items() if k not in known}
+
+            # Flatten nested extra_fields — Gemini sometimes writes
+            # extra_fields: {yoy_pct: ..., qoq_pct: ...} as a nested dict
+            if "extra_fields" in extra and isinstance(extra["extra_fields"], dict):
+                nested = extra.pop("extra_fields")
+                extra.pop("extra_fields_label", None)
+                extra.update(nested)
+
+            # Drop any remaining values that are dicts (malformed nesting)
+            extra = {k: v for k, v in extra.items() if not isinstance(v, dict)}
 
             # Auto-generate _label for any extra key missing one
             for k in list(extra):
