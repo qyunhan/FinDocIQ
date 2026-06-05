@@ -435,6 +435,33 @@ into production pipeline.
 
 ---
 
+### E-14 — Waterfall Sign Extraction: Financial Context Override ● INSIGHT / 2026-06-05
+
+| | |
+|---|---|
+| **Problem** | DBS slide 3 waterfall — GP (General Provisions) bar is green (positive earnings impact from provision release), but Gemini consistently assigned `sign="-"`. Persisted across 3 re-runs even after adding explicit legend-reading instructions. |
+| **Root cause** | With `response_mime_type="application/json"` and `thinking_budget=0`, Gemini is forced to output JSON directly with no intermediate reasoning visible or internal. It pattern-matches from training data: "GP = provision charge = negative" — overriding what it actually sees on the slide. The instruction "assign sign from colour only" is in the prompt but never executed as a step because the JSON constraint forces immediate output. |
+| **Fix 1 — text_only=True** | Changed single-pass call to `text_only=True`, removing the JSON mime-type constraint. Gemini can now write colour observations before the JSON block: "GP bar: green fill → sign=+". Once it commits the colour in writing, it cannot assign a contradicting sign without self-contradiction. `strip_fences()` updated to find first `{` in free-form response. |
+| **Fix 2 — thinking_budget** | Added per-call thinking budgets: single-pass visual = 1024 tokens (silent deliberation on ambiguous colours/ring labels), Pass 1 describe = 512 tokens, Pass 2 transcribe = 0 (pure text copy). `call_gemini()` accepts explicit `thinking_budget` parameter. |
+| **Result** | GP correctly assigned `sign="+"` on next run. |
+| **Learning** | (1) `response_mime_type="application/json"` with `thinking_budget=0` prevents Gemini from executing intermediate reasoning steps — it jumps straight to pattern-matched output. For visual tasks requiring deliberate observation, at least one of these must be relaxed. (2) Forcing visible intermediate steps (write colour before sign) is more reliable than trusting invisible thinking tokens alone — the model can contradict silent thoughts but cannot contradict what it has already written. (3) "Never infer from financial context" prompt rules are insufficient when JSON-forcing prevents execution of those rules. |
+
+---
+
+### E-15 — DataPoint Schema Redesign: period = column header ● DESIGN / 2026-06-05
+
+| | |
+|---|---|
+| **Problem** | Tables with multiple column types (e.g. `4Q25 value | YoY% | FY25 value | YoY%`) produced broken Excel output. Gemini stored extra columns (YoY%, QoQ%) in `extra_fields` as a nested dict, which the renderer couldn't handle. Even after flattening, the global deduplication of extra keys merged the two `YoY%` columns into one, losing the per-period association. |
+| **Root cause — schema** | The `period` field was narrowly defined as "time period" and extra columns were pushed into `extra_fields`. This created a two-tier data model (core value + extras) that required special-case rendering logic and broke when the same extra key appeared for multiple periods. |
+| **Root cause — renderer** | `_extra_keys_global()` collected all extra keys across all periods into a deduplicated list, then appended them as trailing columns. It had no concept of "which period does this extra belong to?" Per-period extras were lost. |
+| **Fix — schema redesign** | `period` now means "which column does this value belong to" — not just time periods. Every column header on the slide, whatever it is (YoY%, QoQ%, Rating, Currency), becomes a separate `period` value. One `DataPoint` per `(series, column)` cell. `extra_fields` must always be empty. Duplicate column headers are disambiguated by prefixing with adjacent context: `"4Q25 YoY%"`, `"FY25 YoY%"`. |
+| **Fix — renderer** | `_render_pivot()` redesigned around a `col_spec` list that pairs each period with its own trailing extra columns immediately after it. `_extra_keys_for_period()` returns keys for a specific period only. |
+| **Effect on existing data** | Cached `datapoints.json` files still have the old `extra_fields` structure. The `DataPoint` Pydantic validator flattens nested `extra_fields` at load time. The per-period renderer handles the old structure correctly for re-renders without re-extraction. New extractions will use the cleaner schema. |
+| **Learning** | (1) Schema fields named after domain concepts ("period" = time) create friction when the underlying data is more general ("period" = column). Name fields after their structural role, not domain semantics. (2) Any renderer that requires special-case handling for a field is a sign the schema is mismodelling the data. When the renderer got complex, it was the schema that needed fixing. (3) One DataPoint per cell is the simplest invariant — it makes the pivot renderer trivially correct with no special cases. |
+
+---
+
 ### E-11 — Two-Pass Visual Read + Chart Contracts ● IMPLEMENTED / 2026-06-04
 
 | | |
