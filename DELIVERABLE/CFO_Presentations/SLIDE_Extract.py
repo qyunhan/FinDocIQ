@@ -401,11 +401,14 @@ Donut dual ring:
 
 KPI grid:
   One data_point per KPI box. period=null if no time axis.
-  Extra fields for change values: e.g. yoy_change="-2%", yoy_change_label="YoY".
 
-Extra fields:
-  Add freely for any additional data columns on the slide.
-  Always pair with a _label field: e.g. yoy_pct="-3%", yoy_pct_label="YoY %".
+Columns — the period field means "which column does this value belong to":
+  Use the column header exactly as printed — time periods, YoY%, QoQ%, ratings,
+  currencies, or anything else the slide uses as a column.
+  One data_point per (row, column) cell. Do NOT use extra_fields.
+  If two columns share the same header, prefix with the nearest distinguishing
+  context to make it unique: e.g. "4Q25 YoY%", "FY25 YoY%".
+  extra_fields must always be empty: {}
 
 order: sequential integer, 0-based, top-to-bottom / left-to-right reading order.
 
@@ -481,9 +484,11 @@ value rules:
   Shaded cell with no value → value=""
   Printed dash → value="-"
 
-For any extra columns (YoY%, QoQ%, Change):
-  add as key=value pairs on the same line with a matching _label key
-  e.g. yoy_pct="-5%" yoy_pct_label="YoY %"
+The period field means "which column does this value belong to" — use the column
+header exactly as printed. One data_point per (row, column) cell.
+Do NOT use extra_fields — extra_fields must always be empty: {}
+If two columns share the same header, prefix with adjacent context to disambiguate:
+  e.g. period="4Q25 YoY%", period="FY25 YoY%"
 
 Complete this for EVERY table on the slide before finishing.
 This pre-mapping is what Pass 2 will use — accuracy here is critical."""
