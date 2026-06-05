@@ -574,16 +574,14 @@ def detect_bank(pdf_path: str) -> tuple[str | None, str | None]:
     return key, (m.group(1) if m else None)
 
 
-def call_gemini(client, prompt_parts: list, *, text_only: bool = False) -> tuple[str, dict]:
+def call_gemini(client, prompt_parts: list, *, text_only: bool = False,
+                thinking_budget: int = 0) -> tuple[str, dict]:
     """Single Gemini call with retry. Returns (text, usage_rec)."""
     config_kwargs: dict = {"temperature": 0.0}
     if not text_only:
         config_kwargs["response_mime_type"] = "application/json"
     try:
-        # text_only=True means visual extraction — give it thinking budget
-        # text_only=False means JSON transcription — no thinking needed
-        budget = 1024 if text_only else 0
-        config_kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=budget)
+        config_kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=thinking_budget)
     except Exception:
         pass
     config = types.GenerateContentConfig(**config_kwargs)
@@ -1398,10 +1396,12 @@ def process_slide(client, pdf_path: str, page_num: int,
 
     if has_visual:
         print(f"  slide {page_num:02d}  → single-pass (visual: {known_types})")
-        # text_only=True lets Gemini write intermediate reasoning before the JSON
-        # (colour observations, legend identification) — critical for waterfall accuracy
+        # Single-pass visual: thinking_budget=1024 for silent deliberation on
+        # ambiguous visuals (colours, ring labels). text_only=True so Gemini
+        # can write its colour observations before the JSON — prevents
+        # financial-context override on waterfall signs.
         raw1, u1 = call_gemini(client, [img_part(img_bytes), SINGLE_PASS_PROMPT],
-                               text_only=True)
+                               text_only=True, thinking_budget=1024)
         total_cost += u1["est_cost_usd"]
         usages.append({"pass": "1s", **u1})
         desc_text = "single-pass — no Pass 1 description"
@@ -1432,8 +1432,10 @@ def process_slide(client, pdf_path: str, page_num: int,
         with open(p1_path, "w") as f:
             f.write(pass1_prompt)
 
+        # Pass 1 describe: small thinking budget for structural understanding
         desc_text, u1 = call_gemini(
-            client, [img_part(img_bytes), pass1_prompt], text_only=True,
+            client, [img_part(img_bytes), pass1_prompt],
+            text_only=True, thinking_budget=512,
         )
         total_cost += u1["est_cost_usd"]
         usages.append({"pass": 1, **u1})
