@@ -634,6 +634,11 @@ def strip_fences(raw: str) -> str:
     if s.startswith("```"):
         s = s.split("```", 1)[1].lstrip("json").strip()
         s = s.rsplit("```", 1)[0].strip()
+    # Handle free-form reasoning before JSON — find first { or [
+    if not s.startswith(("{", "[")):
+        idx = s.find("{")
+        if idx != -1:
+            s = s[idx:]
     return s
 
 
@@ -1390,7 +1395,10 @@ def process_slide(client, pdf_path: str, page_num: int,
 
     if has_visual:
         print(f"  slide {page_num:02d}  → single-pass (visual: {known_types})")
-        raw1, u1 = call_gemini(client, [img_part(img_bytes), SINGLE_PASS_PROMPT])
+        # text_only=True lets Gemini write intermediate reasoning before the JSON
+        # (colour observations, legend identification) — critical for waterfall accuracy
+        raw1, u1 = call_gemini(client, [img_part(img_bytes), SINGLE_PASS_PROMPT],
+                               text_only=True)
         total_cost += u1["est_cost_usd"]
         usages.append({"pass": "1s", **u1})
         desc_text = "single-pass — no Pass 1 description"
@@ -1398,6 +1406,10 @@ def process_slide(client, pdf_path: str, page_num: int,
             f.write(SINGLE_PASS_PROMPT)
         with open(desc_path, "w") as f:
             f.write(desc_text)
+        # Save raw response so we can inspect Gemini's reasoning
+        raw_path = os.path.join(audit_path, "response.json")
+        with open(raw_path, "w") as f:
+            f.write(raw1)
         try:
             points, parsed_title, self_checks = parse_pass2(
                 raw1, bank, doc_title, doc_date, page_num
