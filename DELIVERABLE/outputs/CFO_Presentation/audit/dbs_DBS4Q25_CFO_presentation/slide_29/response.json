@@ -1,0 +1,412 @@
+```json
+{
+  "slide_title": "FY GTS income down 9%",
+  "elements": [
+    {
+      "element_idx": 0,
+      "element_type": "stacked_bar",
+      "element_title": "Total income",
+      "source": "chart",
+      "units": "S$m",
+      "self_check": null,
+      "data_points": [
+        {
+          "series": "Total income",
+          "period": "FY24",
+          "value": "4,716",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0
+        },
+        {
+          "series": "Cash / SFS",
+          "period": "FY24",
+          "value": "4,216",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 1
+        },
+        {
+          "series": "Trade",
+          "period": "FY24",
+          "value": "500",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 2
+        },
+        {
+          "series": "Total income",
+          "period": "FY25",
+          "value": "4,303",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 3
+        },
+        {
+          "series": "Cash / SFS",
+          "period": "FY25",
+          "value": "3,823",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 4
+        },
+        {
+          "series": "Trade",
+          "period": "FY25",
+          "value": "480",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 5
+        },
+        {
+          "series": "Total income",
+          "period": "4Q24",
+          "value": "1,144",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 6
+        },
+        {
+          "series": "Cash / SFS",
+          "period": "4Q24",
+          "value": "1,024",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 7
+        },
+        {
+          "series": "Trade",
+          "period": "4Q24",
+          "value": "120",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 8
+        },
+        {
+          "series": "Total income",
+          "period": "1Q25",
+          "value": "1,105",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 9
+        },
+        {
+          "series": "Cash / SFS",
+          "period": "1Q25",
+          "value": "990",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 10
+        },
+        {
+          "series": "Trade",
+          "period": "1Q25",
+          "value": "115",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 11
+        },
+        {
+          "series": "Total income",
+          "period": "2Q25",
+          "value": "1,059",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 12
+        },
+        {
+          "series": "Cash / SFS",
+          "period": "2Q25",
+          "value": "949",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 13
+        },
+        {
+          "series": "Trade",
+          "period": "2Q25",
+          "value": "110",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 14
+        },
+        {
+          "series": "Total income",
+          "period": "3Q25",
+          "value": "1,069",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 15
+        },
+        {
+          "series": "Cash / SFS",
+          "period": "3Q25",
+          "value": "959",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 16
+        },
+        {
+          "series": "Trade",
+          "period": "3Q25",
+          "value": "110",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 17
+        },
+        {
+          "series": "Total income",
+          "period": "4Q25",
+          "value": "1,069",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 18
+        },
+        {
+          "series": "Cash / SFS",
+          "period": "4Q25",
+          "value": "959",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 19
+        },
+        {
+          "series": "Trade",
+          "period": "4Q25",
+          "value": "110",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 20
+        }
+      ]
+    },
+    {
+      "element_idx": 1,
+      "element_type": "text_table",
+      "element_title": null,
+      "source": "chart",
+      "units": "S$b",
+      "self_check": null,
+      "data_points": [
+        {
+          "series": "Trade assets",
+          "period": "FY24",
+          "value": "48",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0
+        },
+        {
+          "series": "Trade assets",
+          "period": "FY25",
+          "value": "54",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 1
+        },
+        {
+          "series": "Trade assets",
+          "period": "4Q24",
+          "value": "48",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 2
+        },
+        {
+          "series": "Trade assets",
+          "period": "1Q25",
+          "value": "46",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 3
+        },
+        {
+          "series": "Trade assets",
+          "period": "2Q25",
+          "value": "44",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 4
+        },
+        {
+          "series": "Trade assets",
+          "period": "3Q25",
+          "value": "47",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 5
+        },
+        {
+          "series": "Trade assets",
+          "period": "4Q25",
+          "value": "54",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 6
+        },
+        {
+          "series": "Deposits",
+          "period": "FY24",
+          "value": "192",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 7
+        },
+        {
+          "series": "Deposits",
+          "period": "FY25",
+          "value": "216",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 8
+        },
+        {
+          "series": "Deposits",
+          "period": "4Q24",
+          "value": "192",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 9
+        },
+        {
+          "series": "Deposits",
+          "period": "1Q25",
+          "value": "195",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 10
+        },
+        {
+          "series": "Deposits",
+          "period": "2Q25",
+          "value": "192",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 11
+        },
+        {
+          "series": "Deposits",
+          "period": "3Q25",
+          "value": "208",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 12
+        },
+        {
+          "series": "Deposits",
+          "period": "4Q25",
+          "value": "216",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 13
+        }
+      ]
+    }
+  ]
+}
+```

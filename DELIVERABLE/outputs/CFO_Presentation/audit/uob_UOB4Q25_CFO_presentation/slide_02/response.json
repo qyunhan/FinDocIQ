@@ -1,0 +1,467 @@
+```json
+{
+  "slide_title": "Executive Summary",
+  "elements": [
+    {
+      "element_idx": 0,
+      "element_type": "other",
+      "element_title": null,
+      "source": "text",
+      "units": null,
+      "self_check": null,
+      "data_points": [
+        {
+          "series": "FY25 net profit",
+          "period": "FY25",
+          "value": "$4.7b",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0
+        },
+        {
+          "series": "Net interest margin",
+          "period": null,
+          "value": "1.89%",
+          "row_type": "sub",
+          "level": 2,
+          "parent": "FY25 net profit",
+          "group": null,
+          "sign": null,
+          "order": 1
+        },
+        {
+          "series": "Net fee income",
+          "period": null,
+          "value": "$2.6b",
+          "row_type": "sub",
+          "level": 2,
+          "parent": "FY25 net profit",
+          "group": null,
+          "sign": null,
+          "order": 2
+        },
+        {
+          "series": "Trading and investment income",
+          "period": null,
+          "value": "$1.6b",
+          "row_type": "sub",
+          "level": 2,
+          "parent": "FY25 net profit",
+          "group": null,
+          "sign": null,
+          "order": 3
+        },
+        {
+          "series": "Total credit costs",
+          "period": null,
+          "value": "55bps",
+          "row_type": "sub",
+          "level": 2,
+          "parent": "FY25 net profit",
+          "group": null,
+          "sign": null,
+          "order": 4
+        },
+        {
+          "series": "4Q25 net profit",
+          "period": "4Q25",
+          "value": "$1.4b",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 5
+        },
+        {
+          "series": "NPL ratio",
+          "period": null,
+          "value": "1.5%",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 6
+        },
+        {
+          "series": "NPA coverage",
+          "period": null,
+          "value": "97%",
+          "row_type": "sub",
+          "level": 2,
+          "parent": "NPL ratio",
+          "group": null,
+          "sign": null,
+          "order": 7
+        },
+        {
+          "series": "NPA coverage (after collateral)",
+          "period": null,
+          "value": "254%",
+          "row_type": "sub",
+          "level": 2,
+          "parent": "NPL ratio",
+          "group": null,
+          "sign": null,
+          "order": 8
+        },
+        {
+          "series": "Proposed final dividend",
+          "period": null,
+          "value": "71 cents per share",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 9
+        },
+        {
+          "series": "Share buyback completed",
+          "period": null,
+          "value": "$650m",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 10
+        },
+        {
+          "series": "Share buyback completed (% of approved programme)",
+          "period": null,
+          "value": "32%",
+          "row_type": "sub",
+          "level": 2,
+          "parent": "Share buyback completed",
+          "group": null,
+          "sign": null,
+          "order": 11
+        }
+      ]
+    },
+    {
+      "element_idx": 1,
+      "element_type": "kpi_grid",
+      "element_title": null,
+      "source": "chart",
+      "units": null,
+      "self_check": null,
+      "data_points": [
+        {
+          "series": "Net profit after tax",
+          "period": "FY25",
+          "value": "$4.7b",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0
+        },
+        {
+          "series": "Net profit after tax",
+          "period": "FY25 YoY",
+          "value": "- 23% YoY",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "-",
+          "order": 1
+        },
+        {
+          "series": "Net profit after tax",
+          "period": "4Q25",
+          "value": "$1.4b",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 2
+        },
+        {
+          "series": "Net profit after tax",
+          "period": "4Q25 QoQ",
+          "value": "NM QoQ",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 3
+        },
+        {
+          "series": "Net Interest Margin",
+          "period": "FY25",
+          "value": "1.89%",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 4
+        },
+        {
+          "series": "Net Interest Margin",
+          "period": "FY25 YoY",
+          "value": "- 0.14%pt YoY",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "-",
+          "order": 5
+        },
+        {
+          "series": "Net Interest Margin",
+          "period": "4Q25",
+          "value": "1.84%",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 6
+        },
+        {
+          "series": "Net Interest Margin",
+          "period": "4Q25 QoQ",
+          "value": "+ 0.02%pt QoQ",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "+",
+          "order": 7
+        },
+        {
+          "series": "Net Fee Income",
+          "period": "FY25",
+          "value": "$2.6b",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 8
+        },
+        {
+          "series": "Net Fee Income",
+          "period": "FY25 YoY",
+          "value": "+ 7% YoY",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "+",
+          "order": 9
+        },
+        {
+          "series": "Net Fee Income",
+          "period": "4Q25",
+          "value": "$625m",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 10
+        },
+        {
+          "series": "Net Fee Income",
+          "period": "4Q25 QoQ",
+          "value": "+ 2% QoQ",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "+",
+          "order": 11
+        },
+        {
+          "series": "Trading & Investment Income",
+          "period": "FY25",
+          "value": "$1.6b",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 12
+        },
+        {
+          "series": "Trading & Investment Income",
+          "period": "FY25 YoY",
+          "value": "- 21% YoY",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "-",
+          "order": 13
+        },
+        {
+          "series": "Trading & Investment Income",
+          "period": "4Q25",
+          "value": "$216m",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 14
+        },
+        {
+          "series": "Trading & Investment Income",
+          "period": "4Q25 QoQ",
+          "value": "- 55% QoQ",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "-",
+          "order": 15
+        },
+        {
+          "series": "NPL ratio",
+          "period": "FY25",
+          "value": "1.5%",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 16
+        },
+        {
+          "series": "NPL ratio",
+          "period": "FY25 QoQ",
+          "value": "- 0.1%pt QoQ",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "-",
+          "order": 17
+        },
+        {
+          "series": "NPL ratio",
+          "period": "FY25 YoY",
+          "value": "unchanged YoY",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 18
+        },
+        {
+          "series": "Customer loans",
+          "period": "4Q25",
+          "value": "$352b",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 19
+        },
+        {
+          "series": "Customer loans",
+          "period": "4Q25 QoQ",
+          "value": "unchanged QoQ",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 20
+        },
+        {
+          "series": "Customer loans",
+          "period": "4Q25 YoY",
+          "value": "+4% YoY",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "+",
+          "order": 21
+        },
+        {
+          "series": "NSFR",
+          "period": "FY25",
+          "value": "116%",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 22
+        },
+        {
+          "series": "NSFR",
+          "period": "FY25 QoQ",
+          "value": "unchanged QoQ",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 23
+        },
+        {
+          "series": "NSFR",
+          "period": "FY25 YoY",
+          "value": "unchanged YoY",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 24
+        },
+        {
+          "series": "CET 1 ratio",
+          "period": "4Q25",
+          "value": "15.1%",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 25
+        },
+        {
+          "series": "CET 1 ratio",
+          "period": "4Q25 QoQ",
+          "value": "+ 0.5%pt QoQ",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "+",
+          "order": 26
+        },
+        {
+          "series": "CET 1 ratio",
+          "period": "4Q25 YoY",
+          "value": "- 0.4%pt YoY",
+          "row_type": "note",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "-",
+          "order": 27
+        }
+      ]
+    }
+  ]
+}
+```

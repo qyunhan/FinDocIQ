@@ -617,6 +617,151 @@ def build_results(slides, summaries):
       </div>
     </section>"""
 
+def render_principle_card(icon: str, title: str, body: str,
+                           colour: str = "1b4f91") -> str:
+    return f'''
+    <div class="principle-card-new" style="border-left:3px solid #{colour}">
+      <div class="pc-icon">{icon}</div>
+      <div class="pc-body">
+        <div class="pc-title-new">{title}</div>
+        <div class="pc-text-new">{body}</div>
+      </div>
+    </div>'''
+
+
+def render_evolution_arc() -> str:
+    steps = [
+        ("v1", "Multi-Pass\nEverything",
+         "Pass 1 (image→describe) → Pass 2 (image+desc→JSON)\nImage sent twice. Schema pressure on both passes.",
+         "C00000", "failed"),
+        ("v2", "Pass 2\nText Only",
+         "Removed image from Pass 2. Pass 1 pre-maps values.\nBetter — but visual reasoning still broke on donuts.",
+         "f08030", "partial"),
+        ("v3", "Hybrid\nRouting",
+         "Pass 0 classifies element types.\nVisual elements → single-pass (no schema pressure).\nText tables → multi-pass (hierarchy benefits from decomposition).",
+         "27ae60", "adopted"),
+    ]
+    arc_html = '<div class="evolution-arc">'
+    for i, (ver, title, desc, colour, status) in enumerate(steps):
+        connector = '<div class="arc-connector">→</div>' if i < len(steps) - 1 else ""
+        arc_html += f'''
+        <div class="arc-step" style="border-color:#{colour}">
+          <div class="arc-ver" style="color:#{colour}">{ver}</div>
+          <div class="arc-title-ev">{title.replace(chr(10), "<br>")}</div>
+          <div class="arc-desc-ev">{desc.replace(chr(10), "<br>")}</div>
+          <div class="arc-status arc-{status}">{status.upper()}</div>
+        </div>{connector}'''
+    arc_html += '</div>'
+    return arc_html
+
+
+def render_learning_card(category: str, icon: str,
+                          title: str, points: list,
+                          colour: str = "1b4f91") -> str:
+    rows = ""
+    for label, text in points:
+        is_positive = label.lower() in ("✓", "yes", "use when", "helps", "do")
+        is_negative = label.lower() in ("✗", "no", "avoid when", "hurts", "don't")
+        label_cls = "lc-pos" if is_positive else ("lc-neg" if is_negative else "lc-neu")
+        rows += f'''
+        <div class="lc-row">
+          <span class="lc-label {label_cls}">{label}</span>
+          <span class="lc-text">{text}</span>
+        </div>'''
+    return f'''
+    <div class="learning-card">
+      <div class="lc-header" style="border-bottom:2px solid #{colour}">
+        <span class="lc-icon">{icon}</span>
+        <div>
+          <div class="lc-category" style="color:#{colour}">{category}</div>
+          <div class="lc-title">{title}</div>
+        </div>
+      </div>
+      <div class="lc-rows">{rows}</div>
+    </div>'''
+
+
+def render_architecture_learnings() -> str:
+    cards = []
+
+    cards.append(render_learning_card(
+        category="Chain-of-Thought",
+        icon="🔗",
+        title="Explicit intermediate steps — when they help vs hurt",
+        colour="1b4f91",
+        points=[
+            ("Use when", "Task is underspecified without intermediate steps. <strong>Text table hierarchy</strong> — which row is a sub-item of which parent — is genuinely ambiguous from a flat JSON schema. Writing it out in plain English first before encoding to JSON produces correct level/parent assignment."),
+            ("Avoid when", "Model's internal representation is already strong. <strong>Visual spatial reasoning</strong> — reading donut ring assignments, waterfall bar directions, stacked bar colours — is handled correctly by Gemini in one shot. Forcing intermediate steps introduces schema pressure that overrides correct visual reasoning."),
+            ("The proof", "Donut dual-ring slide: multi-pass chain-of-thought produced wrong period assignments. Single-pass with no chain-of-thought produced correct assignments. Same model, same image, different architecture."),
+            ("Rule", "Decompose at semantic boundaries. <em>Visual vs text</em> is a real boundary. <em>Describe then extract</em> is not — it's an artificial split that degrades accuracy on visual elements."),
+        ]
+    ))
+
+    cards.append(render_learning_card(
+        category="Schema Pressure",
+        icon="⚡",
+        title="Forcing JSON schema during visual reasoning causes silent failures",
+        colour="c0392b",
+        points=[
+            ("What it is", "When a model must simultaneously read a visual element AND fill named schema fields, the schema wins over the reasoning. The model pattern-matches to satisfy the field structure rather than correctly interpreting what it sees."),
+            ("Seen as", "Wrong ring assignments on donut charts. Missing rows (only 1 of 4 segments returned). Structural metadata (label, ring) leaking into extra_fields. Series field left blank."),
+            ("Fix", "For visual elements: use a flexible JSON envelope with minimal field constraints. Let Gemini output what it sees, then parse. Don't impose a rigid Pydantic schema at the same moment as visual reading."),
+            ("For text tables", "Schema pressure is acceptable because the task is reading printed text and reformatting it — not interpreting spatial position. The schema actually helps by providing clear field targets for well-structured data."),
+        ]
+    ))
+
+    cards.append(render_learning_card(
+        category="Thinking Tokens",
+        icon="🧠",
+        title="thinking_budget=0 vs thinking_budget>0 — what actually changes",
+        colour="8e44ad",
+        points=[
+            ("thinking_budget=0", "Model generates output tokens directly. No internal reasoning chain. Cheaper. Fine for text transcription and simple extraction. <strong>Currently used everywhere in this pipeline.</strong>"),
+            ("thinking_budget>0", "Model generates hidden reasoning tokens that condition the output but aren't returned. You pay for them but don't see them. Similar effect to chain-of-thought but invisible and unauditable."),
+            ("Not the same as", "Explicit chain-of-thought (Pass 1 Steps 1-4). Thinking tokens are internal and hidden. Chain-of-thought is explicit text you can read and audit. Explicit is better for debugging; thinking tokens are better for cost-controlled reasoning improvement."),
+            ("When to try", "Complex multi-element slides where single-pass still fails after architecture is correct. Try thinking_budget=1024 on specific slides before upgrading to Pro — much cheaper jump."),
+            ("response_mime_type=JSON + thinking_budget=0", "Doubly constraining — forces output structure AND suppresses reasoning. For visual tasks, at least one constraint should be relaxed. Currently handled by the flexible JSON envelope in single-pass."),
+        ]
+    ))
+
+    cards.append(render_learning_card(
+        category="Decomposition vs One-Shot",
+        icon="🔀",
+        title="Breaking one good prompt into steps doesn't always improve accuracy",
+        colour="d68910",
+        points=[
+            ("Pillar 3 tables", "Decomposition works. TOC extraction is deterministic Python (zero API). Page grouping is deterministic Python. Gemini only handles table content — a narrow, well-defined task with a text layer to read from."),
+            ("CFO slide charts", "One-shot works better. Charts have no text layer. Visual reasoning (spatial position, colour, arc angles) requires holistic context. Decomposition fragments this context across passes."),
+            ("The cost of handoffs", "Each pass-to-pass handoff is an opportunity for context to degrade. A pre-map written in Pass 1 that says 'outer ring = FY25' gets transcribed by Pass 2 into the wrong assignment — even when the original observation was correct."),
+            ("Model size vs architecture", "Flash got the donut right after the architecture fix. Pro would not have fixed a broken pipeline. Fix architecture before upgrading model. Model quality matters at the margin on genuinely ambiguous content, not on systematic architectural failures."),
+        ]
+    ))
+
+    cards.append(render_learning_card(
+        category="Contract Registries",
+        icon="📋",
+        title="Pre-defined reading contracts — useful documentation, dangerous as constraints",
+        colour="16a085",
+        points=[
+            ("Original purpose", "Inject data model knowledge (waterfall arithmetic, donut ring assignment) into Pass 1 so Gemini doesn't have to infer it. Useful when the model's implicit knowledge is weaker than the explicit rule."),
+            ("Failure mode", "Hardcoded rules (inner ring = earlier period) override correct visual reading. Gemini traces the callout line correctly, identifies FY25 on the inner ring, then the contract overrides it to 'FY24 because inner = earlier'."),
+            ("Current state", "Contracts kept as documentation only. text_table and npa_movement_table rules embedded directly in PASS1_TEXT_PROMPT. Visual chart contracts not injected — single-pass reads freely."),
+            ("Rule", "Any contract rule that says 'X always means Y' is a liability. Contracts should teach the data model and arithmetic constraint. Period assignment and spatial reading should come from what Gemini actually sees."),
+        ]
+    ))
+
+    grid = '<div class="learnings-grid">' + "".join(cards) + '</div>'
+
+    return f'''
+    <div class="arch-learnings-section" id="learnings">
+      <div class="al-header">
+        <div class="al-title">Architecture Design Learnings</div>
+        <div class="al-sub">Cross-cutting insights from building both pipelines — applicable to any LLM document extraction system</div>
+      </div>
+      {grid}
+    </div>'''
+
+
 def build_experiments(exps):
     # Split pillar3 (E-01..E-06) vs slides (E-07+)
     p3   = [e for e in exps if int(e["id"][2:]) <= 6]
@@ -638,6 +783,53 @@ def build_experiments(exps):
           {"<div class='exp-field'><div class='exp-label'>Learning</div><div class='exp-text'>"+learn_text+"</div></div>" if e['learning'] else ""}
         </div>"""
 
+    # ── Pillar 3 principles ──────────────────────────────────────────────────
+    p3_principles = (
+        '<div class="principles-grid-new">'
+        + render_principle_card("🔒", "Deterministic code for predictable structure",
+            "TOC extraction, page grouping, prompt routing, Excel rendering — all fixed Python. "
+            "LLM is only asked for table content. Zero API calls for structural decisions.",
+            "1b4f91")
+        + render_principle_card("📄", "Native PDF over rendered images",
+            "Pillar 3 tables have a text layer. pdfplumber extracts values with perfect fidelity. "
+            "Gemini reads the native PDF part — no pixel estimation, no OCR.",
+            "27ae60")
+        + render_principle_card("🗂️", "Section as the unit of extraction",
+            "Each Gemini call receives one section's pages only. No surrounding noise. "
+            "Page-by-page breaks table boundary detection; full document wastes tokens.",
+            "8e44ad")
+        + render_principle_card("💾", "Audit everything, resume is free",
+            "Every call saves prompt, PDF slice, raw response, parsed JSON, token counts. "
+            "Partial runs resume from audit files — no re-billing for completed sections.",
+            "d68910")
+        + '</div>'
+    )
+
+    # ── Slides principles ────────────────────────────────────────────────────
+    slides_principles = (
+        '<div class="principles-grid-new">'
+        + render_principle_card("🔀", "Hybrid routing by element type",
+            "Pass 0 classifies each slide. Visual elements (charts, donuts, waterfalls) → "
+            "single-pass, one Gemini call, image only, no schema pressure. "
+            "Text tables → multi-pass, chain-of-thought for hierarchy.",
+            "1b4f91")
+        + render_principle_card("👁️", "Image sent exactly once",
+            "Visual branch: one call with image. Text branch: Pass 1 gets image, "
+            "Pass 2 gets text only. Never re-send the image under schema pressure — "
+            "that's where visual reasoning breaks.",
+            "27ae60")
+        + render_principle_card("📐", "Wide-format pivot output",
+            "Periods become columns, series become rows. Matches how the source slide "
+            "presents data. Finance-readable without further transformation.",
+            "8e44ad")
+        + render_principle_card("✓", "Arithmetic validation in-loop",
+            "Waterfall balance, self-check strings, blank labels — checked before saving. "
+            "One correction call if errors found. If correction doesn't help, "
+            "original is kept and errors flagged in meta.json.",
+            "d68910")
+        + '</div>'
+    )
+
     p3_html = "".join(exp_card(e) for e in p3)
     sl_html = "".join(exp_card(e) for e in sl)
 
@@ -645,23 +837,45 @@ def build_experiments(exps):
     <section class="section" id="devlog">
       <div class="section-inner">
         <div class="section-eyebrow">Research Log</div>
-        <h2 class="section-title">What we tried & what we learned</h2>
+        <h2 class="section-title">What we tried &amp; what we learned</h2>
         <p class="section-sub">
           Every approach — successful or not — is documented. Failed experiments are as
           important as successful ones.
         </p>
-        <div class="exp-tracks">
-          <div class="exp-track">
-            <div class="track-header">📁 Pillar 3 Pipeline</div>
-            <div class="track-desc">Regulatory PDF extraction — DBS, OCBC, UOB Pillar 3, LCR, press releases</div>
-            {p3_html or '<p class="muted-p">No entries found.</p>'}
-          </div>
-          <div class="exp-track">
-            <div class="track-header">📊 CFO Slides Pipeline</div>
-            <div class="track-desc">Slide deck extraction — charts, waterfalls, tables, donut rings</div>
-            {sl_html or '<p class="muted-p">No entries found.</p>'}
-          </div>
+
+        <!-- ── Pillar 3 ── -->
+        <div class="devlog-track-header pillar3-track-header">
+          <span>📁 Pillar 3 Pipeline</span>
+          <span class="track-count">{len(p3)} experiments</span>
         </div>
+        <div class="track-desc-new">Regulatory PDF extraction — DBS, OCBC, UOB Pillar 3, LCR, NSFR, Capital</div>
+        <div class="devlog-subsection-label-new">Core principles</div>
+        {p3_principles}
+        <div class="devlog-subsection-label-new" style="margin-top:28px">Experiment history</div>
+        <div class="exp-tracks-single">
+          {p3_html or '<p class="muted-p">No entries found.</p>'}
+        </div>
+
+        <!-- ── CFO Slides ── -->
+        <div class="devlog-track-header slides-track-header" style="margin-top:56px">
+          <span>📊 CFO Slides Pipeline</span>
+          <span class="track-count">{len(sl)} experiments</span>
+        </div>
+        <div class="track-desc-new">Chart, waterfall, donut, text table extraction from bank CFO presentations</div>
+        <div class="devlog-subsection-label-new">Core principles</div>
+        {slides_principles}
+        <div class="devlog-subsection-label-new" style="margin-top:28px">Architecture evolution</div>
+        {render_evolution_arc()}
+        <div class="devlog-subsection-label-new" style="margin-top:28px">Experiment history</div>
+        <div class="exp-tracks-single">
+          {sl_html or '<p class="muted-p">No entries found.</p>'}
+        </div>
+
+        <!-- ── Architecture Learnings ── -->
+        <div style="margin-top:64px">
+          {render_architecture_learnings()}
+        </div>
+
       </div>
     </section>"""
 
@@ -1085,6 +1299,86 @@ body { font-family: var(--sans); background: var(--bg); color: var(--dark); font
 }
 .footer-logo { font-weight: 800; color: var(--red); font-size: 15px; }
 .muted-p { font-size: 14px; color: var(--muted); font-style: italic; }
+
+/* ── New devlog sections ── */
+.devlog-track-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px; border-radius: var(--r);
+  font-size: 16px; font-weight: 700; color: var(--dark);
+  margin-bottom: 6px;
+}
+.pillar3-track-header { background: #eff6ff; border: 1px solid #bfdbfe; }
+.slides-track-header  { background: #f5f3ff; border: 1px solid #ddd6fe; }
+.track-count { font-size: 12px; font-family: var(--mono); color: var(--muted); font-weight: 400; }
+.track-desc-new { font-size: 13px; color: var(--muted); margin-bottom: 20px; padding-left: 4px; }
+.devlog-subsection-label-new {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .09em; color: var(--muted);
+  margin-bottom: 14px; padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.exp-tracks-single { display: flex; flex-direction: column; gap: 0; }
+
+/* ── Principle cards (new dark-border variant) ── */
+.principles-grid-new {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 4px;
+}
+@media(max-width:900px){ .principles-grid-new { grid-template-columns: 1fr; } }
+.principle-card-new {
+  display: flex; gap: 14px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 16px 18px; align-items: flex-start;
+}
+.pc-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.pc-title-new { font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 5px; }
+.pc-text-new  { font-size: 12px; color: var(--mid); line-height: 1.6; }
+
+/* ── Evolution arc ── */
+.evolution-arc {
+  display: flex; align-items: flex-start; gap: 0; flex-wrap: wrap; margin: 4px 0;
+}
+.arc-step {
+  flex: 1; min-width: 200px;
+  background: var(--bg); border: 1px solid;
+  border-radius: var(--r); padding: 16px 18px;
+}
+.arc-connector {
+  display: flex; align-items: center; padding: 0 12px;
+  color: var(--light); font-size: 20px; align-self: center;
+}
+.arc-ver      { font-family: var(--mono); font-size: 11px; margin-bottom: 6px; font-weight: 600; }
+.arc-title-ev { font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 8px; line-height: 1.4; }
+.arc-desc-ev  { font-size: 11px; color: var(--mid); line-height: 1.6; margin-bottom: 10px; }
+.arc-status   { display: inline-block; font-size: 10px; font-family: var(--mono); font-weight: 700; padding: 2px 8px; border-radius: 3px; }
+.arc-failed   { background: #fee2e2; color: #b91c1c; }
+.arc-partial  { background: #fff7ed; color: #c2410c; }
+.arc-adopted  { background: #f0fdf4; color: #15803d; }
+
+/* ── Architecture learnings ── */
+.arch-learnings-section { border-top: 1px solid var(--border); padding-top: 48px; }
+.al-header { margin-bottom: 28px; }
+.al-title  { font-size: 28px; font-weight: 800; color: var(--dark); margin-bottom: 6px; letter-spacing: -.02em; }
+.al-sub    { font-size: 15px; color: var(--muted); }
+.learnings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width:1000px){ .learnings-grid { grid-template-columns: 1fr; } }
+.learning-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r); overflow: hidden;
+}
+.lc-header {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 18px 20px 14px;
+}
+.lc-icon     { font-size: 22px; flex-shrink: 0; }
+.lc-category { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 3px; }
+.lc-title    { font-size: 14px; font-weight: 600; color: var(--dark); line-height: 1.4; }
+.lc-rows     { padding: 12px 20px 16px; display: flex; flex-direction: column; gap: 10px; }
+.lc-row      { display: flex; gap: 12px; align-items: flex-start; }
+.lc-label    { font-size: 10px; font-weight: 700; font-family: var(--mono); padding: 2px 8px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+.lc-pos      { background: #f0fdf4; color: #15803d; }
+.lc-neg      { background: #fee2e2; color: #b91c1c; }
+.lc-neu      { background: var(--bg3); color: var(--mid); }
+.lc-text     { font-size: 12px; color: var(--mid); line-height: 1.6; flex: 1; }
 """
 
 # ---------------------------------------------------------------------------
@@ -1272,6 +1566,7 @@ def build() -> str:
     <a href="#findings">Findings</a>
     <a href="#results">Results</a>
     <a href="#devlog">Research log</a>
+    <a href="#learnings">Architecture Learnings</a>
   </div>
   <span class="nav-badge">Internal Demo</span>
 </nav>

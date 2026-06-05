@@ -656,7 +656,7 @@ Consolidated from all experiments and iterations:
 
 ## For Claude Code
 
-The actual codebase is in `/Users/Qianyunhan/Desktop/testmay21/`. Key files:
+The actual codebase is in the FinDocIQ repo. See CLAUDE.md for current paths and folder structure. Key files:
 - `build_toc.py` — Pass 1: TOC extraction (deterministic, zero API)
 - `extract_to_excel.py` — Pass 2: Gemini extraction + Excel writer
 - `CLAUDE.md` — persistent project context and guardrails for Claude Code sessions
@@ -794,15 +794,19 @@ This is the planned fix for Bug 1 (waterfall format ambiguity) — see §7.6 bel
 
 ---
 
-### 7.6 Planned Fixes (not yet implemented)
+### 7.6 Planned Fixes — Resolution Status
 
-1. Replace abstract Pattern B with a concrete waterfall example in the prompt
-2. Add `+` sign preservation to `coerce()` for waterfall components
-3. Fix duplicate tab logic: strip all `(N)` variants before writing
-4. Investigate scale 4× vs 3× for better colour detection on small bars
-5. Consider a pre-extraction stage where Gemini first describes the slide in plain English
-   before structured extraction — gives it a "think aloud" step to correctly identify
-   chart types and colour legends before committing to column structure
+Items that were planned at the time of writing and their current state:
+
+1. **Two-stage prompt separating description from extraction** → ✅ Resolved by E-11 (Pass 1 three-step prompt) and E-13 (hybrid routing). Visual elements now use single-pass; text tables use multi-pass with Pass 1 pre-mapping. The two-pass schema pressure problem is fully resolved.
+
+2. **`+` sign preservation in `coerce()`** → ✅ Resolved. `coerce()` no longer strips leading `+` signs. Waterfall components like `+383` coerce correctly to positive integers.
+
+3. **Duplicate tab logic on re-run** → ✅ Resolved in the SLIDE_Extract.py rewrite. Before writing a slide tab, all existing tabs whose name starts with that slide number are removed first.
+
+4. **Scale 4× vs 3× for colour detection** → ⏳ Not pursued. Single-pass architecture removed the dependency on precise colour reading for sign assignment — Gemini reads the legend holistically in one shot rather than pixel-level colour matching. Not needed.
+
+5. **Pre-extraction describe stage** → ✅ Resolved by E-11/E-13. The hybrid routing architecture is the implemented version of this idea.
 
 ### 7.7 Chart Types Observed Across DBS/OCBC/UOB Decks
 

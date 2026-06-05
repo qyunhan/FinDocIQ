@@ -30,6 +30,11 @@ Return a JSON object with this exact structure:
 
 EXTRACTION RULES:
 
+DO NOT extract:
+  - Bullet point commentary sentences (text that explains or describes, with no standalone numeric value)
+  - Footnotes that are disclaimers only (no numeric value)
+  - Slide titles or section headings with no data
+
 value field — always verbatim:
   "5,948" not 5948.  "(244)" not -244.  "1.82%" not 0.0182.  "+14%" not 14.
 
@@ -41,9 +46,15 @@ row_type:
   note         → footnotes, disclaimers
   data         → everything else
 
-Waterfall charts:
-  Every bridge bar needs sign="+" or "-". Read the colour legend on the slide.
-  Verify: start_value + sum(signed_deltas) = end_value. Write this as self_check.
+Waterfall charts — follow these steps IN ORDER before writing any data_points:
+  Step 1: Find the colour legend on the slide. State it explicitly in self_check:
+          e.g. "Legend: green=positive, red=negative"
+  Step 2: For each bridge bar, state its fill colour as you see it visually.
+          e.g. "NII: salmon fill. Fee income: green fill. GP: green fill."
+  Step 3: Assign sign ONLY from the colour you stated in Step 2 — never from
+          what the label means financially. Same label, different colour = different sign.
+  Step 4: value = magnitude as printed on the bar, verbatim positive number.
+  Step 5: Verify start + sum(signed deltas) = end. Append check to self_check.
 
 Stacked bars with overlay line:
   Bar segments → data_points with period = x-axis label.
@@ -55,12 +66,17 @@ Donut dual ring:
   One data_point per (segment, period) combination.
 
 KPI grid:
-  One data_point per KPI box. period=null if no time axis.
-  Extra fields for change values: e.g. yoy_change="-2%", yoy_change_label="YoY".
+  If the grid has labelled period columns (e.g. FY25 / 4Q25): one data_point per (metric, period) — period = column header as printed.
+  If no period columns: one data_point per KPI box, period=null.
+  Ignore bullet-point commentary text — extract only the KPI boxes with printed numeric values.
 
-Extra fields:
-  Add freely for any additional data columns on the slide.
-  Always pair with a _label field: e.g. yoy_pct="-3%", yoy_pct_label="YoY %".
+Columns — the period field means "which column does this value belong to":
+  Use the column header exactly as printed — time periods, YoY%, QoQ%, ratings,
+  currencies, or anything else the slide uses as a column.
+  One data_point per (row, column) cell. Do NOT use extra_fields.
+  If two columns share the same header, prefix with the nearest distinguishing
+  context to make it unique: e.g. "4Q25 YoY%", "FY25 YoY%".
+  extra_fields must always be empty: {}
 
 order: sequential integer, 0-based, top-to-bottom / left-to-right reading order.
 

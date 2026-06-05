@@ -1,0 +1,319 @@
+```json
+{
+  "slide_title": "FY total income and pre-tax profit reach new highs",
+  "elements": [
+    {
+      "element_idx": 0,
+      "element_type": "text_table",
+      "element_title": null,
+      "source": "chart",
+      "units": "S$m",
+      "self_check": null,
+      "data_points": [
+        {
+          "series": "Commercial book",
+          "period": "FY25",
+          "value": "21,526",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0,
+          "yoy_pct": "1",
+          "yoy_pct_label": "YoY %"
+        },
+        {
+          "series": "Markets trading",
+          "period": "FY25",
+          "value": "1,374",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 1,
+          "yoy_pct": "49",
+          "yoy_pct_label": "YoY %"
+        },
+        {
+          "series": "Total income",
+          "period": "FY25",
+          "value": "22,900",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": "record",
+          "sign": null,
+          "order": 2,
+          "yoy_pct": "3",
+          "yoy_pct_label": "YoY %"
+        },
+        {
+          "series": "of which: Net interest income",
+          "period": "FY25",
+          "value": "14,500",
+          "row_type": "sub",
+          "level": 2,
+          "parent": "Total income",
+          "group": "record",
+          "sign": null,
+          "order": 3,
+          "yoy_pct": "1",
+          "yoy_pct_label": "YoY %"
+        },
+        {
+          "series": "Expenses",
+          "period": "FY25",
+          "value": "9,249",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 4,
+          "yoy_pct": "4",
+          "yoy_pct_label": "YoY %"
+        },
+        {
+          "series": "Profit before allowances",
+          "period": "FY25",
+          "value": "13,651",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": "record",
+          "sign": null,
+          "order": 5,
+          "yoy_pct": "2",
+          "yoy_pct_label": "YoY %"
+        },
+        {
+          "series": "Allowances",
+          "period": "FY25",
+          "value": "791",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 6,
+          "yoy_pct": "27",
+          "yoy_pct_label": "YoY %"
+        },
+        {
+          "series": "Profit before tax",
+          "period": "FY25",
+          "value": "13,099",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": "record",
+          "sign": null,
+          "order": 7,
+          "yoy_pct": "1",
+          "yoy_pct_label": "YoY %"
+        },
+        {
+          "series": "Net profit",
+          "period": "FY25",
+          "value": "11,033",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 8,
+          "yoy_pct": "(3)",
+          "yoy_pct_label": "YoY %"
+        }
+      ]
+    },
+    {
+      "element_idx": 1,
+      "element_type": "waterfall",
+      "element_title": "Impact on earnings:",
+      "source": "chart",
+      "units": "S$m",
+      "self_check": "Legend: green=positive, red=negative. FY24 Net profit: start bar. Net interest income: red fill. Fee income: green fill. Treasury customer sales & other income: red fill. Markets trading income: green fill. Expenses: red fill. GP: green fill. SP: red fill. Tax and others: red fill. FY25 Net profit: end bar. 11408 - 549 + 730 - 30 + 452 - 354 + 126 - 295 - 455 = 11073. The end bar value is 11033, so there is a discrepancy of 40. The one-time items are (119) for FY24 and (100) for FY25. The calculation 11289 - 549 + 730 - 30 + 452 - 354 + 126 - 295 - 455 = 10914. The end bar value is 10933, so there is a discrepancy of 19. The values on the bars are the changes, not the absolute values.",
+      "data_points": [
+        {
+          "series": "FY24 Net profit",
+          "period": null,
+          "value": "11,408",
+          "row_type": "start",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0
+        },
+        {
+          "series": "One-time items",
+          "period": null,
+          "value": "(119)",
+          "row_type": "note",
+          "level": 1,
+          "parent": "FY24 Net profit",
+          "group": null,
+          "sign": null,
+          "order": 1
+        },
+        {
+          "series": "FY24 Net profit (adjusted)",
+          "period": null,
+          "value": "11,289",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 2
+        },
+        {
+          "series": "Net interest income",
+          "period": null,
+          "value": "549",
+          "row_type": "bridge",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "-",
+          "order": 3,
+          "yoy_pct": "-4%",
+          "yoy_pct_label": null
+        },
+        {
+          "series": "Fee income",
+          "period": null,
+          "value": "730",
+          "row_type": "bridge",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "+",
+          "order": 4,
+          "yoy_pct": "+18%",
+          "yoy_pct_label": null
+        },
+        {
+          "series": "Treasury customer sales & other income",
+          "period": null,
+          "value": "30",
+          "row_type": "bridge",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "-",
+          "order": 5,
+          "yoy_pct": "-1%",
+          "yoy_pct_label": null
+        },
+        {
+          "series": "Treasury customer sales",
+          "period": null,
+          "value": "+14%",
+          "row_type": "note",
+          "level": 2,
+          "parent": "Treasury customer sales & other income",
+          "group": null,
+          "sign": null,
+          "order": 6
+        },
+        {
+          "series": "Markets trading income",
+          "period": null,
+          "value": "452",
+          "row_type": "bridge",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "+",
+          "order": 7,
+          "yoy_pct": "+49%",
+          "yoy_pct_label": null
+        },
+        {
+          "series": "Expenses",
+          "period": null,
+          "value": "354",
+          "row_type": "bridge",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "-",
+          "order": 8,
+          "yoy_pct": "+4%",
+          "yoy_pct_label": null
+        },
+        {
+          "series": "GP",
+          "period": null,
+          "value": "126",
+          "row_type": "bridge",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "+",
+          "order": 9
+        },
+        {
+          "series": "SP",
+          "period": null,
+          "value": "295",
+          "row_type": "bridge",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "-",
+          "order": 10
+        },
+        {
+          "series": "Tax and others",
+          "period": null,
+          "value": "455",
+          "row_type": "bridge",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": "-",
+          "order": 11
+        },
+        {
+          "series": "FY25 Net profit",
+          "period": null,
+          "value": "11,033",
+          "row_type": "end",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 12
+        },
+        {
+          "series": "One-time item",
+          "period": null,
+          "value": "(100)",
+          "row_type": "note",
+          "level": 1,
+          "parent": "FY25 Net profit",
+          "group": null,
+          "sign": null,
+          "order": 13
+        },
+        {
+          "series": "FY25 Net profit (adjusted)",
+          "period": null,
+          "value": "10,933",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 14
+        }
+      ]
+    }
+  ]
+}
+```

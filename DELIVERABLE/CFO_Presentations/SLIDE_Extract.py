@@ -369,6 +369,11 @@ Return a JSON object with this exact structure:
 
 EXTRACTION RULES:
 
+DO NOT extract:
+  - Bullet point commentary sentences (text that explains or describes, with no standalone numeric value)
+  - Footnotes that are disclaimers only (no numeric value)
+  - Slide titles or section headings with no data
+
 value field — always verbatim:
   "5,948" not 5948.  "(244)" not -244.  "1.82%" not 0.0182.  "+14%" not 14.
 
@@ -400,7 +405,9 @@ Donut dual ring:
   One data_point per (segment, period) combination.
 
 KPI grid:
-  One data_point per KPI box. period=null if no time axis.
+  If the grid has labelled period columns (e.g. FY25 / 4Q25): one data_point per (metric, period) — period = column header as printed.
+  If no period columns: one data_point per KPI box, period=null.
+  Ignore bullet-point commentary text — extract only the KPI boxes with printed numeric values.
 
 Columns — the period field means "which column does this value belong to":
   Use the column header exactly as printed — time periods, YoY%, QoQ%, ratings,
@@ -1263,7 +1270,16 @@ def render_element(ws, pts: list[DataPoint], cursor: int, brand: str) -> int:
     if elem_type in _WATERFALL_TYPES:
         cursor = _render_waterfall(ws, pts, cursor, brand, unit, elem_title)
     elif elem_type in _KPI_TYPES:
-        cursor = _render_kpi(ws, pts, cursor, brand)
+        # Drop period=None points whose value is already covered by a period-bearing point
+        # (these are bullet commentary fragments that duplicate the KPI grid values)
+        period_values = {p.value for p in pts if p.period}
+        pts = [p for p in pts if p.period or p.value not in period_values]
+        # Use pivot renderer when multiple periods exist, otherwise simple KPI list
+        periods = {p.period for p in pts if p.period}
+        if len(periods) > 1:
+            cursor = _render_pivot(ws, pts, cursor, unit)
+        else:
+            cursor = _render_kpi(ws, pts, cursor, brand)
     else:
         # Wide pivot: text_table, stacked_bar, trend_line, donut_dual_ring,
         # pie, stacked_bar_with_overlay, npa_movement_table, bar_chart, etc.
@@ -1435,11 +1451,14 @@ def process_slide(client, pdf_path: str, page_num: int,
 
     if has_visual:
         print(f"  slide {page_num:02d}  → single-pass (visual: {known_types})")
-        # Single-pass visual: thinking_budget=1024 for silent deliberation on
-        # ambiguous visuals (colours, ring labels). text_only=True so Gemini
-        # can write its colour observations before the JSON — prevents
-        # financial-context override on waterfall signs.
-        raw1, u1 = call_gemini(client, [img_part(img_bytes), SINGLE_PASS_PROMPT],
+        # Inject chart contracts into single-pass prompt so the model reads
+        # the correct data model before extracting (same as multi-pass path).
+        contracts     = load_contracts()
+        known_block   = build_contracts_block(known_types, contracts)
+        sp_prompt     = SINGLE_PASS_PROMPT + (f"\n\n{known_block}" if known_block else "")
+        # thinking_budget=1024 for silent deliberation on ambiguous visuals.
+        # text_only=True so Gemini can write colour observations before JSON.
+        raw1, u1 = call_gemini(client, [img_part(img_bytes), sp_prompt],
                                text_only=True, thinking_budget=1024)
         total_cost += u1["est_cost_usd"]
         usages.append({"pass": "1s", **u1})

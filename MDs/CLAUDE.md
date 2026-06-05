@@ -23,19 +23,17 @@ Both pipelines use Gemini Vision. The Pillar 3 pipeline sends native PDF bytes. 
 DELIVERABLE/
   pillar3/
     PASS1_TOC.py              ← TOC extraction — zero API, pure Python + pdfplumber
-    PASS2_Extract_to_Excel.py ← Gemini extraction → Excel (Gemini 2.5 Pro, PDF input)
+    PASS2_Extract_to_Excel.py ← Gemini extraction → Excel (Gemini 2.5 Flash, PDF input)
     compare_excel.py          ← Validate output vs baseline
 
   CFO_Presentations/
     SLIDE_Extract.py          ← Full 4-pass pipeline (classify → extract → validate → render)
     chart_contracts.json      ← Per chart-type reading contracts (approved + pending_review)
-    generate_story.py         ← Builds reports/story_report.html from audit data
     test_results/             ← E-12 single vs multi-pass test JSONs
 
   demo/
     generate_demo.py          ← Builds demo/index.html (the public-facing site)
     index.html                ← Self-contained demo site (regenerate with generate_demo.py)
-    story_report.html         ← Internal story report (regenerate with generate_story.py)
 
   outputs/
     pillar3/                  ← dbs/ocbc/uob_pillar3.xlsx, toc.json, baselines, audit/

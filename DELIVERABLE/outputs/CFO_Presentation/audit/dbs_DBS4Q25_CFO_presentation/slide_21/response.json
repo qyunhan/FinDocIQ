@@ -1,0 +1,270 @@
+```json
+{
+  "slide_title": "4Q total dividend at 81¢ per share, with ordinary dividend up 6¢ to 66¢ and Capital Return dividend at 15¢",
+  "elements": [
+    {
+      "element_idx": 0,
+      "element_type": "stacked_bar",
+      "element_title": null,
+      "source": "chart",
+      "units": "S¢",
+      "self_check": "2023: 49+44+44+38=175. 2024: 60+54+54+54=222. 2025: (66+15)+(60+15)+(60+15)+(60+15)=81+75+75+75=306.",
+      "data_points": [
+        {
+          "series": "Ordinary",
+          "period": "4Q 2023",
+          "value": "49",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 0
+        },
+        {
+          "series": "Ordinary",
+          "period": "3Q 2023",
+          "value": "44",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 1
+        },
+        {
+          "series": "Ordinary",
+          "period": "2Q 2023",
+          "value": "44",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 2
+        },
+        {
+          "series": "Ordinary",
+          "period": "1Q 2023",
+          "value": "38",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 3
+        },
+        {
+          "series": "Total",
+          "period": "2023",
+          "value": "175",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 4
+        },
+        {
+          "series": "Ordinary",
+          "period": "4Q 2024",
+          "value": "60",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 5
+        },
+        {
+          "series": "Ordinary",
+          "period": "3Q 2024",
+          "value": "54",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 6
+        },
+        {
+          "series": "Ordinary",
+          "period": "2Q 2024",
+          "value": "54",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 7
+        },
+        {
+          "series": "Ordinary",
+          "period": "1Q 2024",
+          "value": "54",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 8
+        },
+        {
+          "series": "Total",
+          "period": "2024",
+          "value": "222",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 9
+        },
+        {
+          "series": "Capital Return",
+          "period": "4Q 2025",
+          "value": "15",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 10
+        },
+        {
+          "series": "Ordinary",
+          "period": "4Q 2025",
+          "value": "66",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 11
+        },
+        {
+          "series": "Quarterly Total",
+          "period": "4Q 2025",
+          "value": "81",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 12
+        },
+        {
+          "series": "Capital Return",
+          "period": "3Q 2025",
+          "value": "15",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 13
+        },
+        {
+          "series": "Ordinary",
+          "period": "3Q 2025",
+          "value": "60",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 14
+        },
+        {
+          "series": "Quarterly Total",
+          "period": "3Q 2025",
+          "value": "75",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 15
+        },
+        {
+          "series": "Capital Return",
+          "period": "2Q 2025",
+          "value": "15",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 16
+        },
+        {
+          "series": "Ordinary",
+          "period": "2Q 2025",
+          "value": "60",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 17
+        },
+        {
+          "series": "Quarterly Total",
+          "period": "2Q 2025",
+          "value": "75",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 18
+        },
+        {
+          "series": "Capital Return",
+          "period": "1Q 2025",
+          "value": "15",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 19
+        },
+        {
+          "series": "Ordinary",
+          "period": "1Q 2025",
+          "value": "60",
+          "row_type": "data",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 20
+        },
+        {
+          "series": "Quarterly Total",
+          "period": "1Q 2025",
+          "value": "75",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 21
+        },
+        {
+          "series": "Total",
+          "period": "2025",
+          "value": "306",
+          "row_type": "total",
+          "level": 1,
+          "parent": null,
+          "group": null,
+          "sign": null,
+          "order": 22
+        }
+      ]
+    }
+  ]
+}
+```

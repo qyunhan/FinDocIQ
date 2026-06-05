@@ -50,7 +50,7 @@ from google import genai
 from google.genai import types
 
 # ---------------------------------------------------------------------------
-MODEL          = "gemini-2.5-pro"
+MODEL          = "gemini-2.5-flash"
 TOC_PATH       = "out/step1_toc.json"          # produced by build_toc.py (zero API)
 OUT_XLSX       = "out/sections.xlsx"
 AUDIT_DIR      = "out/audit"
@@ -82,9 +82,11 @@ WHITE        = "FFFFFF"
 NUM_FMT      = '#,##0;(#,##0);"-"'   # integer dollar amounts
 N_META       = 4          # unique_row_id | hierarchy_level | parent_row_id | label
 
-# Pricing (Gemini 3.5 Flash). Verify against the live price sheet.
-INPUT_PRICE_PER_M  = 1.50
-OUTPUT_PRICE_PER_M = 9.00
+# Pricing: gemini-2.5-flash. Verify against the live price sheet.
+# Input: $0.30/M, Output: $2.50/M, Thinking: $3.50/M
+INPUT_PRICE_PER_M   = 0.30
+OUTPUT_PRICE_PER_M  = 2.50
+THINK_PRICE_PER_M   = 3.50
 
 _run_usage = {"calls": 0, "prompt": 0, "output": 0, "thinking": 0, "cost": 0.0}
 _call_log: list[dict] = []   # one record per API call, written to Cost sheet + summary JSON
@@ -116,7 +118,9 @@ class Extraction(BaseModel):
     tables: list[GTable]
 
 # ===========================================================================
-# GEMINI CONFIG  (structured output, temp 0, thinking OFF by default)
+# GEMINI CONFIG  (structured output, temp 0)
+# gemini-2.5-flash: thinking_budget=0 disables thinking (cheap, sufficient for structured tables).
+# Pass --thinking to enable thinking_budget=8192 for hard sections.
 # ===========================================================================
 def build_config(with_thinking: bool) -> types.GenerateContentConfig:
     kwargs = dict(
@@ -125,15 +129,14 @@ def build_config(with_thinking: bool) -> types.GenerateContentConfig:
         temperature=0.0,
         max_output_tokens=65536,
     )
-    if not with_thinking:
-        try:
-            kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=0)
-        except Exception:
-            print("  ⚠️  ThinkingConfig not available in this SDK build — thinking left at default")
+    budget = 8192 if with_thinking else 0
+    try:
+        kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=budget)
+    except Exception:
+        print("  ⚠️  ThinkingConfig not available in this SDK build — thinking left at default")
     try:
         return types.GenerateContentConfig(**kwargs)
     except TypeError:
-        # SDK too old for thinking_config kwarg — drop it
         kwargs.pop("thinking_config", None)
         return types.GenerateContentConfig(**kwargs)
 
@@ -336,7 +339,7 @@ def log_usage(resp, label: str, image_used: bool) -> dict:
         output_t  = getattr(um, "candidates_token_count", None) or 0
         thought_t = getattr(um, "thoughts_token_count", None) or 0
         total_t   = getattr(um, "total_token_count", None) or 0
-        cost = (prompt_t / 1e6 * INPUT_PRICE_PER_M) + ((output_t + thought_t) / 1e6 * OUTPUT_PRICE_PER_M)
+        cost = (prompt_t / 1e6 * INPUT_PRICE_PER_M) + (output_t / 1e6 * OUTPUT_PRICE_PER_M) + (thought_t / 1e6 * THINK_PRICE_PER_M)
         rec = {
             "ts": datetime.datetime.now().isoformat(timespec="seconds"),
             "script": "extract_to_excel", "label": label, "model": MODEL,
@@ -810,7 +813,7 @@ def write_cost_sheet(wb, call_log: list[dict], run_usage: dict, out_path: str):
     # Note row: pricing basis
     ws.merge_cells(start_row=sr + 1, start_column=1, end_row=sr + 1, end_column=9)
     note = ws.cell(sr + 1, 1,
-        f"Pricing: ${INPUT_PRICE_PER_M}/M input, ${OUTPUT_PRICE_PER_M}/M output+thinking  "
+        f"Pricing: ${INPUT_PRICE_PER_M}/M input, ${OUTPUT_PRICE_PER_M}/M output, ${THINK_PRICE_PER_M}/M thinking  "
         f"|  Model: {MODEL}  |  Log: {os.path.basename(USAGE_LOG_PATH)}")
     note.font = Font(italic=True, color=MID_GREY, size=8)
 
