@@ -779,6 +779,40 @@ body { font-family: var(--sans); background: var(--bg); color: var(--dark); font
   line-height: 1.65; margin-bottom: 56px;
 }
 
+/* ── Findings ── */
+.findings-grid {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.finding-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 28px 32px;
+  display: flex; gap: 28px; align-items: flex-start;
+}
+.finding-num {
+  font-family: var(--mono); font-size: 28px; font-weight: 800;
+  color: var(--red); opacity: .25; line-height: 1; flex-shrink: 0;
+  min-width: 44px;
+}
+.finding-body { flex: 1; }
+.finding-claim {
+  font-size: 18px; font-weight: 700; color: var(--dark);
+  margin-bottom: 8px; line-height: 1.35;
+}
+.finding-detail {
+  font-size: 15px; color: var(--mid); line-height: 1.7;
+  margin-bottom: 14px;
+}
+.finding-evidence {
+  background: var(--bg2); border-left: 3px solid var(--red);
+  border-radius: 0 6px 6px 0; padding: 10px 16px;
+  font-size: 13px; color: var(--muted); line-height: 1.65;
+}
+.evidence-label {
+  display: inline-block; font-weight: 700; font-size: 11px;
+  text-transform: uppercase; letter-spacing: .06em;
+  color: var(--red); margin-right: 8px;
+}
+
 /* ── Architecture toggle ── */
 .arch-toggle {
   display: flex; gap: 8px; margin-bottom: 32px;
@@ -1143,6 +1177,69 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 # BUILD
 # ---------------------------------------------------------------------------
 
+def build_findings() -> str:
+    findings = [
+        {
+            "claim": "Decomposing a task doesn't always improve accuracy.",
+            "detail": "Breaking one good prompt into multiple steps introduces handoff points where context degrades. For visual elements, single-pass Gemini outperformed our carefully engineered multi-pass pipeline.",
+            "evidence": "donut_dual_ring: single-pass 4/4 correct vs multi-pass 3/4. Consumer/PB periods were swapped in multi-pass because the Step 4 pre-mapping drifted between Pass 1 and Pass 2 transcription. (E-12, E-13)",
+        },
+        {
+            "claim": "Schema pressure is the hidden cost of structured extraction.",
+            "detail": "When you force a model to fill named fields while simultaneously doing visual reasoning, the schema wins and the reasoning loses.",
+            "evidence": "Donut ring failures were schema pressure artefacts — Gemini assigned wrong element_type and wrong grouping because JSON-forcing prevented it from reasoning about ring structure first. Waterfall GP sign errors occurred because response_mime_type=json skipped the colour-reading step entirely. (E-14)",
+        },
+        {
+            "claim": "Chain-of-thought earns its place only when the task is genuinely underspecified.",
+            "detail": "Text table hierarchy (which row is a sub-item of which parent) benefits from being written out in plain English first. Visual spatial reasoning doesn't — the model already does it well internally.",
+            "evidence": "Multi-pass with explicit Step 1–4 decomposition improved P&L table hierarchy accuracy. The same approach made donut ring extraction worse by introducing a text intermediate that could drift. (E-11, E-13)",
+        },
+        {
+            "claim": "thinking_budget=0 suppresses internal reasoning tokens.",
+            "detail": "The model goes directly to output. You're not paying for hidden thinking, but you're also not getting it. For complex visual tasks this matters; for structured text transcription it doesn't.",
+            "evidence": "Setting thinking_budget=1024 on single-pass visual calls, combined with text_only=True, resolved the GP sign error that persisted across 3 re-runs with budget=0 and explicit prompt instructions. (E-14)",
+        },
+        {
+            "claim": "The bottleneck is usually pipeline architecture, not model size.",
+            "detail": "Fixing the single-pass architecture got Flash to the correct answer on slides that were failing under multi-pass. Pro wouldn't have fixed a broken pipeline.",
+            "evidence": "All three banks extracted with Gemini 2.5 Flash at ~$0.005–0.015/slide. Switching to Pro would have increased cost 10× with no accuracy gain given the architectural issues were prompt/routing problems.",
+        },
+        {
+            "claim": "The right mental model: commit to an interpretation before encoding it.",
+            "detail": "Use explicit chain-of-thought where the model needs to commit to an interpretation before encoding it (colour → sign, ring label → period). Skip it where the model's internal representation is already strong — you're just adding noise.",
+            "evidence": "Forcing Gemini to write 'GP bar: green fill' before assigning sign='+'  eliminated the financial-context override. The model couldn't contradict what it had already written. Invisible thinking tokens alone were insufficient. (E-14)",
+        },
+    ]
+
+    cards = ""
+    for i, f in enumerate(findings, 1):
+        cards += f"""
+        <div class="finding-card">
+          <div class="finding-num">{i:02d}</div>
+          <div class="finding-body">
+            <div class="finding-claim">{f['claim']}</div>
+            <div class="finding-detail">{f['detail']}</div>
+            <div class="finding-evidence">
+              <span class="evidence-label">Evidence</span>
+              {f['evidence']}
+            </div>
+          </div>
+        </div>"""
+
+    return f"""
+    <section class="section" id="findings">
+      <div class="section-inner">
+        <div class="section-eyebrow">Research Findings</div>
+        <h2 class="section-title">What we learned about LLM extraction</h2>
+        <p class="section-sub">
+          Empirical findings from building and iterating this pipeline —
+          on chain-of-thought, schema pressure, and when decomposition helps vs hurts.
+        </p>
+        <div class="findings-grid">{cards}</div>
+      </div>
+    </section>"""
+
+
 def build() -> str:
     slides    = load_all_slides()
     summaries = load_run_summaries()
@@ -1150,10 +1247,11 @@ def build() -> str:
     exps      = load_devlog_experiments()
     gen_ts    = datetime.now().strftime("%Y-%m-%d %H:%M")
 
-    hero   = build_hero(slides, summaries)
-    how    = build_how_it_works()
-    res    = build_results(slides, summaries)
-    devlog = build_experiments(exps)
+    hero     = build_hero(slides, summaries)
+    how      = build_how_it_works()
+    findings = build_findings()
+    res      = build_results(slides, summaries)
+    devlog   = build_experiments(exps)
 
     total = len(slides)
 
@@ -1171,6 +1269,7 @@ def build() -> str:
   <div class="nav-logo">FinDocIQ</div>
   <div class="nav-links">
     <a href="#how">How it works</a>
+    <a href="#findings">Findings</a>
     <a href="#results">Results</a>
     <a href="#devlog">Research log</a>
   </div>
@@ -1179,6 +1278,7 @@ def build() -> str:
 
 {hero}
 {how}
+{findings}
 {res}
 {devlog}
 
