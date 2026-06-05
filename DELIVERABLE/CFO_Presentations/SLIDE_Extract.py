@@ -580,7 +580,10 @@ def call_gemini(client, prompt_parts: list, *, text_only: bool = False) -> tuple
     if not text_only:
         config_kwargs["response_mime_type"] = "application/json"
     try:
-        config_kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=0)
+        # text_only=True means visual extraction — give it thinking budget
+        # text_only=False means JSON transcription — no thinking needed
+        budget = 1024 if text_only else 0
+        config_kwargs["thinking_config"] = types.ThinkingConfig(thinking_budget=budget)
     except Exception:
         pass
     config = types.GenerateContentConfig(**config_kwargs)
