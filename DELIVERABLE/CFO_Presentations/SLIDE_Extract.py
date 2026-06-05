@@ -1149,15 +1149,30 @@ def _is_period_key(k: str) -> bool:
     return bool(_PERIOD_RE.match(k))
 
 
+def _extra_keys_for_period(pts: list[DataPoint], period) -> list[str]:
+    """Return extra field keys present on rows for this specific period."""
+    keys: list[str] = []
+    seen: set[str] = set()
+    for p in pts:
+        if p.period != period:
+            continue
+        for k in (p.extra_fields or {}):
+            if (not k.endswith("_label")
+                    and k not in seen
+                    and k not in _META_EXTRA_KEYS
+                    and not _is_period_key(k)):
+                keys.append(k)
+                seen.add(k)
+    return keys
+
+
 def _render_pivot(ws, pts: list[DataPoint], cursor: int, unit: str) -> int:
     periods     = _ordered_periods(pts)
     series_list = _ordered_series(pts)
 
-    # Detect period-like extra field keys (e.g. Gemini put '2024' in extra_fields
-    # instead of emitting a separate datapoint with period='2024')
-    raw_extra   = _extra_keys_global(pts)
-    promo_keys  = [k for k in raw_extra if _is_period_key(k)]   # promote to period cols
-    extra_keys  = [k for k in raw_extra if not _is_period_key(k)]  # real extras
+    # Detect period-like extra field keys — promote to real period columns
+    raw_extra  = _extra_keys_global(pts)
+    promo_keys = [k for k in raw_extra if _is_period_key(k)]
 
     # cells lookup
     cells: dict[tuple, DataPoint] = {}
@@ -1169,22 +1184,27 @@ def _render_pivot(ws, pts: list[DataPoint], cursor: int, unit: str) -> int:
         if p.series not in meta:
             meta[p.series] = p
 
-    # Build column list: label | period... | promoted_period... | extra...
+    # Build column layout: label | [period | period_extras...]... | [promo_periods...]
     period_cols = [str(p) for p in periods if p is not None]
     if not period_cols and periods == [None] and not promo_keys:
         period_cols = [unit or "Value"]
         periods = [None]
 
-    # Promoted extra period keys appended after real periods
-    all_period_cols = period_cols + promo_keys
-    n_data_cols = len(all_period_cols)
+    # Per-period extra keys — each period gets its own trailing extras immediately after it
+    per_period_extras: dict = {p: _extra_keys_for_period(pts, p) for p in periods}
+
+    # Build flat column spec: list of (kind, period, key_or_none, header)
+    col_spec: list[tuple] = [("label", None, None, f"({unit})" if unit else "")]
+    for period in periods:
+        col_spec.append(("value", period, None, str(period) if period else unit or "Value"))
+        for k in per_period_extras.get(period, []):
+            col_spec.append(("extra", period, k, _extra_col_header(k, pts)))
+    for k in promo_keys:
+        col_spec.append(("promo", None, k, k))
 
     # Header row
-    _hdr(ws.cell(cursor, 1, f"({unit})" if unit else ""), dark=True)
-    for i, ph in enumerate(all_period_cols, 2):
-        _hdr(ws.cell(cursor, i, ph))
-    for i, k in enumerate(extra_keys, 2 + n_data_cols):
-        _hdr(ws.cell(cursor, i, _extra_col_header(k, pts)))
+    for i, (kind, _, _, header) in enumerate(col_spec, 1):
+        _hdr(ws.cell(cursor, i, header), dark=(i == 1))
     ws.row_dimensions[cursor].height = 20
     cursor += 1
 
@@ -1192,36 +1212,25 @@ def _render_pivot(ws, pts: list[DataPoint], cursor: int, unit: str) -> int:
         dp_meta = meta[series]
         indent  = "    " * max(0, dp_meta.level - 1)
 
-        lbl = ws.cell(cursor, 1, indent + series)
-        lbl.alignment = Alignment(horizontal="left", vertical="center")
-        _style_row(lbl, dp_meta.row_type, dp_meta.level)
-
-        # Real period columns
-        for i, period in enumerate(periods, 2):
-            dp = cells.get((series, period))
-            _write_value_cell(ws, cursor, i, dp, dp_meta.row_type, dp_meta.level)
-
-        # Promoted period columns (from extra_fields)
-        for i, k in enumerate(promo_keys, 2 + len(period_cols)):
-            dp = cells.get((series, periods[0] if periods else None))
-            raw = (dp.extra_fields or {}).get(k, "") if dp else ""
-            vc  = ws.cell(cursor, i, coerce(raw) if raw else "")
-            if isinstance(coerce(raw), (int, float)):
-                vc.number_format = NUM_FMT
-                vc.alignment = Alignment(horizontal="right")
-            _style_row(vc, dp_meta.row_type, dp_meta.level, is_value=True)
-
-        # True extra columns (YoY%, QoQ%, etc.)
-        for i, k in enumerate(extra_keys, 2 + n_data_cols):
-            raw = ""
-            for period in periods:
+        for i, (kind, period, key, _) in enumerate(col_spec, 1):
+            if kind == "label":
+                cell = ws.cell(cursor, i, indent + series)
+                cell.alignment = Alignment(horizontal="left", vertical="center")
+                _style_row(cell, dp_meta.row_type, dp_meta.level)
+            elif kind == "value":
                 dp = cells.get((series, period))
-                raw = (dp.extra_fields or {}).get(k, "") if dp else ""
-                if raw:
-                    break
-            ec = ws.cell(cursor, i, coerce(raw) if raw else "")
-            ec.font = Font(color=MID_GREY, size=9)
-            ec.alignment = Alignment(horizontal="right")
+                _write_value_cell(ws, cursor, i, dp, dp_meta.row_type, dp_meta.level)
+            elif kind == "extra":
+                dp  = cells.get((series, period))
+                raw = (dp.extra_fields or {}).get(key, "") if dp else ""
+                ec  = ws.cell(cursor, i, coerce(raw) if raw else "")
+                ec.font = Font(color=MID_GREY, size=9)
+                ec.alignment = Alignment(horizontal="right")
+            elif kind == "promo":
+                dp  = cells.get((series, periods[0] if periods else None))
+                raw = (dp.extra_fields or {}).get(key, "") if dp else ""
+                vc  = ws.cell(cursor, i, coerce(raw) if raw else "")
+                _style_row(vc, dp_meta.row_type, dp_meta.level, is_value=True)
 
         cursor += 1
 
@@ -1273,8 +1282,10 @@ def _compute_max_cols(points: list[DataPoint]) -> int:
             max_c = max(max_c, 2)
         else:
             periods = _ordered_periods(pts)
-            extra   = len(_extra_keys_global(pts))
-            max_c   = max(max_c, 1 + len(periods) + extra)
+            # Count per-period extras (each period can have different extras)
+            per_p_extra = sum(len(_extra_keys_for_period(pts, p)) for p in periods)
+            promo = len([k for k in _extra_keys_global(pts) if _is_period_key(k)])
+            max_c = max(max_c, 1 + len(periods) + per_p_extra + promo)
     return max_c
 
 
