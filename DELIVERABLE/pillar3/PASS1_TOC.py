@@ -75,23 +75,27 @@ def _looks_like_toc(txt: str) -> bool:
                 _toc_section_density(txt) >= 3)
 
 def _collect_contents_text(pdf, start_idx: int) -> str:
-    """Collect all TOC pages. Stops only when a page has NO section-number lines
-    AND more than 4 long prose lines — i.e. we've genuinely entered body text.
+    """Collect all TOC pages. Stops when a page has NO dot-leader TOC entries
+    AND either: more than 4 long prose lines, OR no dot leaders at all.
+    TOC entries are distinguished from body text by dot leaders (….…).
+    A body page that happens to start with a numbered heading is NOT a TOC page.
     Page headers/footers ('Pillar 3 Disclosure Report', 'Page 3') are ignored."""
     n = len(pdf)
     out = ""
+    _dotleader_re = re.compile(r"[.…]{4,}")  # 4+ dots/ellipses = TOC dot leader
     for ci in range(start_idx, min(start_idx + 8, n)):
         txt = _page_text(pdf, ci)
-        # strip header/footer noise before measuring prose density
         clean_lines = [l for l in txt.split("\n")
                        if l.strip() and not re.match(r"^\s*(Page\s+\d+|Pillar\s+3\b)", l, re.I)]
         clean_txt = "\n".join(clean_lines)
+        # dot-leader lines are the reliable TOC signal
+        dotleader_lines = [l for l in clean_lines if _dotleader_re.search(l)]
         # long prose lines (after removing dot leaders) signal body text
         prose_lines = [l for l in clean_lines
                        if len(re.sub(r"[.…]{2,}", "", l).strip()) > 130]
-        has_sections = _toc_section_density(clean_txt) >= 2
-        if ci > start_idx and not has_sections and len(prose_lines) > 4:
-            break   # no section entries AND long prose — we've hit body text
+        has_toc_entries = len(dotleader_lines) >= 2
+        if ci > start_idx and not has_toc_entries:
+            break   # no dot-leader TOC entries on this page — we've left the TOC
         out += "\n" + txt
     return out
 
@@ -278,12 +282,14 @@ def _footer_token(lines: list[str]) -> str:
     """
     if not lines:
         return ""
-    # OCBC: page number is the last token on the first line, after a year
-    # e.g. "Pillar 3 Disclosures December 2025 6"
-    first = lines[0]
-    m = re.search(r"\b20\d\d\s+(\d{1,4})\s*$", first)
-    if m:
-        return str(int(m.group(1)))
+    # OCBC: "Pillar 3 Disclosures December 2025 6" — year followed by page number.
+    # pypdfium2 puts this on the first line; pdfplumber puts it on the last line.
+    # Search all lines so both orderings work.
+    _year_page_re = re.compile(r"\b20\d\d\s+(\d{1,4})\s*$")
+    for l in lines:
+        m = _year_page_re.search(l)
+        if m:
+            return str(int(m.group(1)))
 
     # UOB: "Page 36" appears as the second line under a title header
     for l in lines[:3]:
@@ -506,17 +512,26 @@ def build_toc(pdf_path: str) -> dict:
     # page that is also the start_page of the next section).
     if page_lines is not None:
         num_re_cache: dict[str, re.Pattern] = {}
-        for s in leaves:
+        _cont_re = re.compile(r"\(cont(?:inued)?\.?\)", re.I)
+        for i, s in enumerate(leaves):
             num = s["number"]
             if num not in num_re_cache:
                 num_re_cache[num] = re.compile(rf"^{re.escape(num)}(?!\d)\b")
             nr = num_re_cache[num]
-            # scan from start_page up to end_page + 1 (one extra to catch cont'd on shared page)
+            next_start = leaves[i + 1]["start_page"] if i + 1 < len(leaves) else n + 1
+            # Scan up to end_page + 1 to catch (cont'd) headings on shared pages.
+            # On the shared page (next section's start_page), only extend end_page
+            # if the heading appears WITH a continuation marker — meaning the section
+            # genuinely continues there. Without a marker, the heading belongs to the
+            # next section's page and we should not claim it.
             scan_end = min(s["end_page"] + 1, n)
             last_seen = None
             for p in range(s["start_page"], scan_end + 1):
                 for ln in page_lines[p - 1]:
                     if nr.match(ln):
+                        # On a shared page, require (continued) marker to extend
+                        if p >= next_start and not _cont_re.search(ln):
+                            break
                         last_seen = p
                         break
             if last_seen is not None and last_seen != s["end_page"]:

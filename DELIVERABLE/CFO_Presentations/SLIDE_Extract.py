@@ -18,6 +18,7 @@ Usage:
 """
 from __future__ import annotations
 import os, sys, json, io, re, argparse, time, datetime
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 import pypdfium2 as pdfium
@@ -66,10 +67,12 @@ BRAND_COLOURS = {
 
 # Gemini sometimes uses synonyms; normalise before DataPoint construction.
 ROW_TYPE_ALIASES: dict[str, str] = {
-    "header":         "total",
-    "section_header": "total",
+    # NOTE: a bare header carries NO value and must NOT become a "total"
+    # (totals get summed; headers are scaffolding). Keep them distinct.
+    "header":         "section_header",
+    # "section_header" is now canonical — do not alias it away
     "sub_header":     "sub",
-    "subtotal":       "total",
+    # "subtotal" is now canonical and distinct from the grand "total"
     "opening":        "start",
     "closing":        "end",
     "component":      "bridge",
@@ -78,6 +81,10 @@ ROW_TYPE_ALIASES: dict[str, str] = {
 }
 
 _run_usage: dict = {"calls": 0, "prompt": 0, "output": 0, "cost": 0.0}
+import threading as _threading
+import random as _random
+_run_usage_lock   = _threading.Lock()
+_contracts_lock   = _threading.Lock()  # guards save_derived_contract file r/w
 
 CONTRACTS_PATH = Path(__file__).with_name("chart_contracts.json")
 
@@ -141,7 +148,7 @@ def classify_slide(client, img_bytes: bytes) -> list[str]:
             break
         except Exception as e:
             if any(c in str(e) for c in ("503", "429", "UNAVAILABLE", "RESOURCE_EXHAUSTED")):
-                wait = 15 * (2 ** attempt)
+                wait = 15 * (2 ** attempt) + _random.uniform(0, 5)
                 print(f"      ⏳ {e.__class__.__name__} — waiting {wait}s")
                 time.sleep(wait)
             else:
@@ -160,10 +167,11 @@ def classify_slide(client, img_bytes: bytes) -> list[str]:
     tot = getattr(um, "total_token_count", None) or 0
     pt  = getattr(um, "prompt_token_count", None) or max(0, tot - ot - tt)
     cost = (pt / 1e6 * INPUT_PRICE_PER_M) + (ot / 1e6 * OUTPUT_PRICE_PER_M)
-    _run_usage["calls"]  += 1
-    _run_usage["prompt"] += pt
-    _run_usage["output"] += ot
-    _run_usage["cost"]   += cost
+    with _run_usage_lock:
+        _run_usage["calls"]  += 1
+        _run_usage["prompt"] += pt
+        _run_usage["output"] += ot
+        _run_usage["cost"]   += cost
 
     try:
         types_found = json.loads(raw)
@@ -246,26 +254,27 @@ def save_derived_contract(description: str, unknown_types: list[str]) -> None:
     if not unknown_types:
         return
 
-    existing: dict = {}
-    if CONTRACTS_PATH.exists():
-        with open(CONTRACTS_PATH) as f:
-            existing = json.load(f)
+    with _contracts_lock:
+        existing: dict = {}
+        if CONTRACTS_PATH.exists():
+            with open(CONTRACTS_PATH) as f:
+                existing = json.load(f)
 
-    changed = False
-    for t in unknown_types:
-        pattern = rf"DERIVED CONTRACT:\s*{re.escape(t)}\s*\n(.*?)(?=\n---|\Z)"
-        match = re.search(pattern, description, re.DOTALL | re.IGNORECASE)
-        if match and t not in existing:
-            existing[t] = {
-                "status":   "pending_review",
-                "contract": match.group(1).strip(),
-            }
-            print(f"  📝 New contract derived for '{t}' — saved as pending_review")
-            changed = True
+        changed = False
+        for t in unknown_types:
+            pattern = rf"DERIVED CONTRACT:\s*{re.escape(t)}\s*\n(.*?)(?=\n---|\Z)"
+            match = re.search(pattern, description, re.DOTALL | re.IGNORECASE)
+            if match and t not in existing:
+                existing[t] = {
+                    "status":   "pending_review",
+                    "contract": match.group(1).strip(),
+                }
+                print(f"  📝 New contract derived for '{t}' — saved as pending_review")
+                changed = True
 
-    if changed:
-        with open(CONTRACTS_PATH, "w") as f:
-            json.dump(existing, f, indent=2)
+        if changed:
+            with open(CONTRACTS_PATH, "w") as f:
+                json.dump(existing, f, indent=2)
 
 
 # ===========================================================================
@@ -292,6 +301,13 @@ class DataPoint(BaseModel):
     group:    str | None = None
     sign:     str | None = None   # "+" or "-" for waterfall bridges
     order:    int = 0
+
+    # Canonical mapping + cell semantics (additive; filled downstream / by registry)
+    concept_id:   str | None = None   # canonical concept id; None until registry-mapped
+    status:       str = "reported"    # reported|nil|rounds_to_zero|suppressed|not_disclosed|section_header
+    source_ref:   str = ""            # audit trail back to slide/element/cell
+    extracted_by: str = ""            # gemini-vision|gemini-text|textlayer-verified|unverified
+    confidence:   float = 1.0
 
     # Dynamic extra columns (qoq_pct, yoy_pct, etc.)
     extra_fields: dict[str, Any] = {}
@@ -622,7 +638,7 @@ def call_gemini(client, prompt_parts: list, *, text_only: bool = False,
             break
         except Exception as e:
             if any(c in str(e) for c in ("503", "429", "UNAVAILABLE", "RESOURCE_EXHAUSTED")):
-                wait = 15 * (2 ** attempt)
+                wait = 15 * (2 ** attempt) + _random.uniform(0, 5)
                 print(f"      ⏳ {e.__class__.__name__} — waiting {wait}s")
                 time.sleep(wait)
             else:
@@ -641,10 +657,11 @@ def call_gemini(client, prompt_parts: list, *, text_only: bool = False,
     pt   = getattr(um, "prompt_token_count", None) or max(0, tot - ot - tt)
     cost = (pt / 1e6 * INPUT_PRICE_PER_M) + (ot / 1e6 * OUTPUT_PRICE_PER_M)
     usage = {"prompt_tokens": pt, "output_tokens": ot, "est_cost_usd": round(cost, 6)}
-    _run_usage["calls"]  += 1
-    _run_usage["prompt"] += pt
-    _run_usage["output"] += ot
-    _run_usage["cost"]   += cost
+    with _run_usage_lock:
+        _run_usage["calls"]  += 1
+        _run_usage["prompt"] += pt
+        _run_usage["output"] += ot
+        _run_usage["cost"]   += cost
     return text, usage
 
 
@@ -671,6 +688,41 @@ def strip_fences(raw: str) -> str:
 def _auto_label(key: str) -> str:
     """Generate a human-readable label from a snake_case key."""
     return key.replace("_", " ").title()
+
+
+# ---------------------------------------------------------------------------
+# Cell-meaning classification.  status answers "does this cell hold a number,
+# and if not, why" — orthogonal to row_type (the row's structural role).
+# This is what keeps a dash, a greyed cell, a true zero, and a header DISTINCT
+# instead of all collapsing to None/0 (the silent-fabrication failure mode).
+# ---------------------------------------------------------------------------
+STATUS_REPORTED       = "reported"        # a real disclosed number
+STATUS_NIL            = "nil"             # dash "-": nil / not applicable -> value 0
+STATUS_ROUNDS_TO_ZERO = "rounds_to_zero"  # "#": real amount below 0.5     -> value 0
+STATUS_SUPPRESSED     = "suppressed"      # greyed cell: deliberately blank -> value None
+STATUS_NOT_DISCLOSED  = "not_disclosed"   # blank where a value was expected-> value None
+STATUS_SECTION_HEADER = "section_header"  # scaffolding row, no value       -> value None
+
+_DASH_TOKENS  = {"-", "\u2013", "\u2014", "\u2212"}   # -, en, em, minus
+_ZERO_STATUSES = {STATUS_NIL, STATUS_ROUNDS_TO_ZERO}
+_NULL_STATUSES = {STATUS_SUPPRESSED, STATUS_NOT_DISCLOSED, STATUS_SECTION_HEADER}
+
+
+def derive_status(value_raw: Any, row_type: str, suppressed: bool = False) -> str:
+    """Classify a cell by MEANING from its raw printed token + row role.
+    `suppressed` should be set True when the model/text-layer reports a greyed cell."""
+    if row_type == STATUS_SECTION_HEADER:
+        return STATUS_SECTION_HEADER
+    if suppressed:
+        return STATUS_SUPPRESSED
+    s = str(value_raw).strip()
+    if s in _DASH_TOKENS:
+        return STATUS_NIL
+    if s == "#":
+        return STATUS_ROUNDS_TO_ZERO
+    if s == "":
+        return STATUS_NOT_DISCLOSED
+    return STATUS_REPORTED
 
 
 def parse_pass2(raw: str, bank: str, doc_title: str, doc_date: str,
@@ -722,20 +774,40 @@ def parse_pass2(raw: str, bank: str, doc_title: str, doc_date: str,
             if known_vals.get("value") is None:
                 known_vals["value"] = ""
 
-            points.append(DataPoint(
+            # --- cell meaning + provenance (additive) -----------------------
+            src        = elem.get("source") or "table"
+            status     = derive_status(known_vals["value"], rt,
+                                       suppressed=bool(dp.get("suppressed")))
+            series_s   = known_vals["series"]
+            period_s   = known_vals.get("period")
+            source_ref = (f"{doc_title}#slide{slide_num}:elem{elem['element_idx']}"
+                          f":{series_s}" + (f":{period_s}" if period_s else ""))
+            extracted_by = "gemini-vision" if src == "chart" else "gemini-text"
+
+            dp_obj = DataPoint(
                 slide=slide_num,
                 slide_title=slide_title or "",
                 element_idx=elem["element_idx"],
                 element_type=elem.get("element_type") or "other",
                 element_title=elem.get("element_title") or "",
-                source=elem.get("source") or "table",
+                source=src,
                 unit=elem.get("units") or "",
                 bank=bank,
                 doc_title=doc_title,
                 doc_date=doc_date,
                 extra_fields=extra,
+                status=status,
+                source_ref=source_ref,
+                extracted_by=extracted_by,
                 **known_vals,
-            ))
+            )
+            # value_num policy: nil/# are real zeros; suppressed/blank/header
+            # must stay None so they never enter a sum.
+            if status in _ZERO_STATUSES:
+                dp_obj.value_num = 0.0
+            elif status in _NULL_STATUSES:
+                dp_obj.value_num = None
+            points.append(dp_obj)
     return points, slide_title, self_checks
 
 
@@ -805,7 +877,13 @@ def crosscheck_with_textlayer(points: list[DataPoint],
             # Strip commas/signs from the extracted value for comparison
             core = re.sub(r'[,\+\(\)]', '', p.value).strip().lstrip("-")
             if core and core not in native_vals:
-                p = p.model_copy(update={"source": "unverified"})
+                p = p.model_copy(update={"source": "unverified",
+                                         "extracted_by": "unverified",
+                                         "confidence": 0.4})
+            elif core:
+                # corroborated by the PDF text layer — highest trust
+                p = p.model_copy(update={"extracted_by": "textlayer-verified",
+                                         "confidence": 1.0})
         updated.append(p)
     return updated
 
@@ -1594,6 +1672,8 @@ def main():
                     help="re-extract even if audit exists")
     ap.add_argument("--dry-run",     action="store_true",
                     help="list slides without calling API")
+    ap.add_argument("--workers",     type=int, default=5, metavar="N",
+                    help="max concurrent slides (default: 5)")
     args = ap.parse_args()
     doc_start_time = time.time()
 
@@ -1663,49 +1743,71 @@ def main():
     used_names: set[str] = set(wb.sheetnames)
     total_cost = 0.0
 
-    for pg in pages:
-        try:
-            points, cost = process_slide(
+    # ── Parallel extraction — API calls run concurrently, rendering is serial ──
+    # process_slide() is CPU/IO-bound via HTTP; ThreadPoolExecutor overlaps calls.
+    # openpyxl is not thread-safe so all Excel writes stay on the main thread.
+    # Force single worker only for --slide (one slide); --start-slide runs many slides
+    # and benefits from parallelism just as much as a full run.
+    n_workers = 1 if args.slide else args.workers
+    results: dict[int, tuple] = {}  # pg -> (points, cost) or Exception
+
+    print(f"    ⚡ running {len(pages)} slides with {n_workers} concurrent worker(s)")
+
+    with ThreadPoolExecutor(max_workers=n_workers) as pool:
+        futures = {
+            pool.submit(
+                process_slide,
                 client, args.pdf, pg,
                 bank, doc_title, doc_date,
                 audit_dir,
                 force=args.force,
-            )
-        except Exception as e:
-            print(f"  slide {pg:02d}  ❌ {e}")
-            continue
-
-        total_cost += cost
-
-        if not points:
-            continue
-
-        slide_title = points[0].slide_title or f"Slide {pg}"
-        sname = tab_name(used_names, pg, slide_title)
-        if sname in wb.sheetnames:
-            del wb[sname]
-        ws = wb.create_sheet(title=sname)
-
-        render_slide(ws, points, pg, slide_title,
-                     bank, doc_title, doc_date, brand)
-
-        entry = {
-            "slide_num":   pg,
-            "slide_title": slide_title,
-            "sheet":       sname,
-            "n_points":    len(points),
-            "has_chart":   any(p.source in ("chart", "unverified") for p in points),
+            ): pg
+            for pg in pages
         }
-        # Replace existing index entry for this slide if present, else append
-        existing = next((i for i, e in enumerate(index) if e["slide_num"] == pg), None)
-        if existing is not None:
-            index[existing] = entry
-        else:
-            index.append(entry)
+        for fut in as_completed(futures):
+            pg = futures[fut]
+            try:
+                results[pg] = fut.result()
+            except Exception as e:
+                print(f"  slide {pg:02d}  ❌ {e}")
+                results[pg] = ([], 0.0)
+
+    # Render in slide-number order so tabs appear in sequence.
+    # wb.save() is in a finally block so a render error doesn't discard completed slides.
+    try:
+        for pg in sorted(results):
+            points, cost = results[pg]
+            total_cost += cost
+
+            if not points:
+                continue
+
+            slide_title = points[0].slide_title or f"Slide {pg}"
+            sname = tab_name(used_names, pg, slide_title)
+            if sname in wb.sheetnames:
+                del wb[sname]
+            ws = wb.create_sheet(title=sname)
+
+            render_slide(ws, points, pg, slide_title,
+                         bank, doc_title, doc_date, brand)
+
+            entry = {
+                "slide_num":   pg,
+                "slide_title": slide_title,
+                "sheet":       sname,
+                "n_points":    len(points),
+                "has_chart":   any(p.source in ("chart", "unverified") for p in points),
+            }
+            existing = next((i for i, e in enumerate(index) if e["slide_num"] == pg), None)
+            if existing is not None:
+                index[existing] = entry
+            else:
+                index.append(entry)
 
         build_contents(wb, index, bank, doc_title, doc_date, brand)
+    finally:
         wb.save(out_path)
-        print(f"    💾 saved  |  running cost ≈ ${total_cost:.4f}")
+        print(f"    💾 saved  |  total cost ≈ ${total_cost:.4f}")
 
     doc_elapsed = time.time() - doc_start_time
     u = _run_usage

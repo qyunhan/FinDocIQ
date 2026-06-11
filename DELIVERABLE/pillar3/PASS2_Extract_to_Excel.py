@@ -36,21 +36,23 @@ Usage:
   python extract_to_excel.py DBS_4Q25_Pillar3.pdf --list          # list sections and exit
 """
 from __future__ import annotations
-import os, sys, json, io, re, argparse, datetime, time
+import os, sys, json, io, re, argparse, datetime, time, threading, random, hashlib
+from typing import Literal
 from collections import defaultdict, Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import pypdfium2 as pdfium
 import openpyxl
 from openpyxl.utils import get_column_letter
 from openpyxl.styles import Font, PatternFill, Alignment
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 import pdfplumber
 from google import genai
 from google.genai import types
 
 # ---------------------------------------------------------------------------
-MODEL          = "gemini-2.5-flash"
+MODEL          = "gemini-3.5-flash"
 TOC_PATH       = "out/step1_toc.json"          # produced by build_toc.py (zero API)
 OUT_XLSX       = "out/sections.xlsx"
 AUDIT_DIR      = "out/audit"
@@ -79,32 +81,90 @@ HEADER_FILL  = "1F3864"   # column-header navy (never the brand colour)
 DARK_GREY    = "404040"   # section_header row shading
 MID_GREY     = "595959"   # metadata-column font / source line
 WHITE        = "FFFFFF"
+LIGHT_GREY   = "D9D9D9"   # grey cell fill (cell_state="grey")
 NUM_FMT      = '#,##0;(#,##0);"-"'   # integer dollar amounts
-N_META       = 4          # unique_row_id | hierarchy_level | parent_row_id | label
+# Metadata columns written before data columns in every row.
+# N_META is derived from this list — add columns here, not by bumping N_META.
+META_HEADERS = ["unique_row_id", "hierarchy_level", "parent_row_id", "Label"]
+N_META       = len(META_HEADERS)
 
-# Pricing: gemini-2.5-flash. Verify against the live price sheet.
-# Input: $0.30/M, Output: $2.50/M, Thinking: $3.50/M
+# Pricing: gemini-2.5-flash. Last verified 2026-06-05.
+# Update when Gemini pricing changes: https://ai.google.dev/pricing
 INPUT_PRICE_PER_M   = 0.30
 OUTPUT_PRICE_PER_M  = 2.50
 THINK_PRICE_PER_M   = 3.50
 
 _run_usage = {"calls": 0, "prompt": 0, "output": 0, "thinking": 0, "cost": 0.0}
 _call_log: list[dict] = []   # one record per API call, written to Cost sheet + summary JSON
+_run_usage_lock = threading.Lock()
+_call_log_lock  = threading.Lock()
+_pdfium_lock    = threading.Lock()  # pypdfium2 is not thread-safe for concurrent opens
 
 # ===========================================================================
 # COMPACT OUTPUT SCHEMA  (the only thing Gemini returns — light, auditable)
 # ===========================================================================
 class GColumn(BaseModel):
     group: str | None = Field(default=None, description="2nd-level group header spanning sub-columns; null if single-level")
-    leaf:  str = Field(description="the column header text")
+    leaf:  str = Field(description="the column header text — a full descriptive phrase; NEVER a bare letter like '(a)' or '(b)' which are reference indices, not headers")
+
+# Cell state enum — 5 states capturing what is visually observable in the PDF.
+# reported   : a numeric or text value is printed (numbers, %, text, #, <0.5)
+# nil        : any dash variant printed ("-", "–", "—") — zero or negligible
+# empty      : cell is truly blank with no mark
+# grey       : cell is visually shaded/greyed — not applicable to this row/column
+# zero       : printed "0" — explicitly zero (distinct from nil/empty)
+CELL_STATES = {"reported", "nil", "empty", "grey", "zero"}
+
+# Migration map for old cached parsed.json files that used legacy cell_state names
+_LEGACY_CELL_STATES = {
+    "suppressed":     "grey",       # old name for grey
+    "rounds_to_zero": "reported",   # treat as reported verbatim value
+}
+
+class GCell(BaseModel):
+    value:      str  = Field(description="cell value verbatim as printed; use '-' for any dash (-, –, —); '' ONLY for cells that are truly blank with absolutely no mark; '0' for printed zero")
+    cell_state: Literal["reported", "nil", "empty", "grey", "zero"] = Field(default="reported",
+                             description="reported | nil | empty | grey | zero")
+
+    @model_validator(mode="before")
+    @classmethod
+    def _migrate_legacy(cls, obj):
+        if isinstance(obj, str):
+            return cls.from_str(obj).model_dump()
+        if isinstance(obj, dict):
+            cs = obj.get("cell_state")
+            if cs in _LEGACY_CELL_STATES:
+                obj = {**obj, "cell_state": _LEGACY_CELL_STATES[cs]}
+        return obj
+
+    @classmethod
+    def from_str(cls, v: str) -> "GCell":
+        """Upgrade a plain string (legacy parsed.json) to a GCell."""
+        s = str(v).strip()
+        if s in ("-", "–", "—"):
+            return cls(value="-", cell_state="nil")
+        if s == "0":
+            return cls(value="0", cell_state="zero")
+        if s == "":
+            return cls(value="", cell_state="empty")
+        return cls(value=s, cell_state="reported")
 
 class GRow(BaseModel):
     row_id:   str | None = Field(default=None, description="printed line number EXACTLY as shown ('1','4a','14a'); null for rows with no printed number (section headers, sub-headers, footnotes)")
-    row_type: str = Field(default="data", description="section_header | data | total | sub_header | note")
+    row_type: Literal["section_header", "data", "total", "sub_header", "note"] = Field(default="data", description="section_header | data | total | sub_header | note")
     level:    int = Field(description="0=section header or grand total; 1=primary line item; 2=sub-item (indented / 'of which' / named breakdown); 3=rare")
     parent:   str | None = Field(default=None, description="null for level-0 and level-1 rows; for level-2+ the row_id of the nearest row one level above")
     label:    str = Field(description="row label text, verbatim, including footnote markers")
-    values:   list[str] = Field(default_factory=list, description="cell values left-to-right, one string per column; '' for empty/shaded cells; [] for section_header/sub_header/note rows")
+    values:   list[GCell] = Field(default_factory=list, description="cells left-to-right, one GCell per column; [] for section_header/sub_header/note rows")
+
+    @model_validator(mode="before")
+    @classmethod
+    def _upgrade_string_values(cls, obj):
+        if isinstance(obj, dict):
+            vals = obj.get("values")
+            if vals and isinstance(vals[0], str):
+                obj = {**obj, "values": [GCell.from_str(v).model_dump() for v in vals]}
+        return obj
 
 class GTable(BaseModel):
     title:        str = Field(description="printed table title, verbatim, including the reporting date if shown")
@@ -143,115 +203,242 @@ def build_config(with_thinking: bool) -> types.GenerateContentConfig:
 # ===========================================================================
 # PROMPTS
 # ===========================================================================
-_PROMPT = """Return the table(s) EXACTLY as printed. For each table return:
-- title: the printed table title, verbatim (include the reporting date if shown).
-- label_header: the header of the row-label column (e.g. "Metric", "ASF Item"); "" if none is printed.
-- continued_from_previous: true ONLY if this table is the continuation of a table from the PREVIOUS page (its data rows carry on under the same columns and the column header is NOT repeated at the top of this page); otherwise false.
-- columns: the DATA / period column headers, left to right. EXCLUDE the row-label column and the printed row-number column. If a header has two levels (a group label spanning several sub-columns), set both "group" and "leaf"; otherwise set group=null and put the header text in "leaf". Scope/currency labels above the headers (e.g. "Group - ALL Currency") are NOT columns.
-- rows: EVERY row, top to bottom, each with:
-    * row_id   — the printed line number, EXACTLY as shown ("1", "4a", "14a"). Use null for rows with no printed number: section headers, sub-headers, footnotes, titles.
-    * row_type — one of: "section_header" = a category title with no values (often shaded); "data" = a normal line item; "total" = a total / grand total / subtotal; "sub_header" = a bold divider with no values; "note" = a footnote or disclaimer line.
-    * level    — 0 = section header OR grand total; 1 = primary line item; 2 = sub-item (indented, starts with "of which", or is a named breakdown of the row above); 3 = sub-sub-item (rare).
-    * parent   — null for level-0 and level-1 rows. For level-2+ rows, the row_id of the nearest row one level above. If that parent has no printed number, give it a synthetic id ("h1","h2",...) and use the SAME id in both rows.
-    * label    — the row label text, VERBATIM, including footnote markers. Do not re-indent or trim.
-    * values   — cell values left to right, exactly one string per column in `columns`. A section_header / sub_header / note row with no data uses an empty list [].
+_PROMPT = """
+═══════════════════════════════════════════════════
+TABLE STRUCTURE
+═══════════════════════════════════════════════════
+For each table return:
 
-CATEGORY / PORTFOLIO LABELS — NEVER DROP THEM:
-- EVERY category / portfolio / asset-class block MUST have its label captured as a row with row_type="section_header" (level 0).
-- These labels are OFTEN printed on the SAME line as the column headers. In that case the leading words are the CATEGORY LABEL, NOT column names: emit them as a section_header row.
-- NEVER fold a category label into a column name, and NEVER omit it.
+title
+  The printed table title verbatim. Include the reporting date if shown (e.g. "31 Dec 2025").
 
-VALUE FIDELITY:
-- Copy each value EXACTLY as printed, INCLUDING thousands separators and signs: "62,195", "(1,505)", "17.0%".
-- Keep a dash cell as "-". Keep "NM", "n.m.", ">100", "unchanged" exactly as written.
-- If a single number is split by a stray render space ("2 64,680"), join it ("264,680").
+label_header
+  The header of the row-label column (e.g. "$m", "ASF Item"). "" if none is printed.
+
+continued_from_previous
+  true ONLY when ALL of these hold:
+  1. The columns are identical to the previous table (same count, same leaf labels).
+  2. NO new bold heading, date-period label, or section header appears at the top of this chunk.
+  3. The first substantive row is a data or total row — NOT a section_header or sub_header.
+  If a new bold title, date header, or section_header exists before the first data row,
+  set continued_from_previous=false and give this table its own title.
+
+  DIFFERENT DATE PERIODS = DIFFERENT TABLES — always. Two blocks belong to different tables if:
+  - A date/period label appears as a header between them, OR
+  - Each block ends with a dated total row (e.g. "At 31 December 2025" then "At 31 December 2024")
+    followed by a visual break before the next block with the same structure, OR
+  - The same column structure repeats for a different reporting date.
+  Never merge two date-period blocks into one table. Hard rule, not a judgment call.
+
+columns  (left to right — DATA columns only)
+  EXCLUDE the row-label column and the row-number column.
+  Two-level headers: set group (spanning label) and leaf (sub-column label).
+  Single-level headers: group=null, put the text in leaf.
+  Scope/currency lines above headers (e.g. "Group – All Currencies") are NOT columns.
+  SUB-LABEL ROW: if a row of descriptive labels sits between the column headers and the
+  first data row, those ARE the column leaf values — NOT data rows or sub_header rows.
+  EXAMPLE: if the PDF shows:
+      Group header:  "Gross carrying amount of¹/"  spanning columns (a) and (b)
+      Letter row:    (a)          (b)          (c)      ...
+      Label row:     Defaulted    Non-defaulted Allowances ...
+      First data row: 3,229       337,891      (3,615)  ...
+  Then the correct columns are:
+      {"group": "Gross carrying amount of¹/", "leaf": "Defaulted exposures"}
+      {"group": "Gross carrying amount of¹/", "leaf": "Non-defaulted exposures"}
+      {"group": null, "leaf": "Allowances and impairments"}
+  The label row ("Defaulted exposures", "Non-defaulted exposures"...) becomes the leaf.
+  The letter row ("(a)", "(b)"...) is discarded — it is just a reference label, not a header.
+  NEVER emit the label row as sub_header or data rows.
+
+  LETTER-ROW RULE (hard): If a row of single letters or bracketed letters — "(a)", "(b)",
+  "(c)" etc. — appears anywhere in the header band, that entire row is a reference index.
+  Discard it unconditionally. The descriptive text row immediately below it provides the
+  leaf labels. This applies even when the letter row is the only row between the group
+  header and the first data row. NEVER emit "(a)", "(b)" etc. as a leaf value.
+
+rows  (EVERY row, top to bottom)
+  row_id    Printed line number exactly as shown ("1", "4a"). null for rows with no number.
+  row_type  "section_header" — category title, date/period header, shaded block header
+                               (e.g. "31 Dec 2025", "CASH OUTFLOWS", "Loans"). No values.
+            "data"           — normal line item.
+            "total"          — bold total, grand total, or subtotal.
+            "sub_header"     — bold divider introducing a sub-group, no values.
+            "note"           — footnote or disclaimer line.
+            Use "section_header" for date/period headers — NOT "sub_header".
+  level     0 = section_header or grand total
+            1 = primary line item
+            2 = sub-item (indented, "of which", named breakdown)
+            3 = sub-sub-item (rare)
+  parent    null for level 0 and 1. For level 2+: row_id of nearest ancestor one level up.
+            If that ancestor has no printed number, assign it a synthetic id ("h1","h2",…)
+            and use the SAME id in both rows.
+  label     Row label verbatim, including footnote markers. Do not re-indent or trim.
+  values    One GCell per column (see CELL STATE below).
+            section_header / sub_header / note rows use an empty list [].
+
+═══════════════════════════════════════════════════
+CATEGORY LABELS — NEVER DROP THEM
+═══════════════════════════════════════════════════
+Every category / portfolio / asset-class block MUST be captured as a row with
+row_type="section_header" (level 0). These labels often appear on the same line as the
+column headers — in that case the leading words are the CATEGORY LABEL, not column names.
+Emit them as a section_header row. NEVER fold a category label into a column name.
+
+═══════════════════════════════════════════════════
+VALUE FIDELITY
+═══════════════════════════════════════════════════
+- Copy each value EXACTLY as printed, including thousands separators and signs:
+  "62,195"  "(1,505)"  "17.0%"  "NM"  ">100"  "unchanged"
+- If a number is split by a stray render space ("2 64,680"), join it ("264,680").
 - Never invent, merge, split, reorder, or omit any row, column, or value.
 
-COLUMN ALIGNMENT:
-- `values` must always have EXACTLY one string per column. Never omit or shift.
-- Empty or shaded cells: emit "" — never skip or shift columns.
-- Do NOT fill values left-to-right when a row is sparse; emit "" for every empty column slot."""
+═══════════════════════════════════════════════════
+CELL STATE  (every GCell must carry one of these 5 states)
+═══════════════════════════════════════════════════
+  "reported" — any printed value: number, %, text, #, <0.5, NM, etc.
+  "nil"      — a dash printed: -, –, —  (zero or negligible).  value = "-"
+  "zero"     — printed "0" (explicitly zero).                  value = "0"
+  "empty"    — cell is truly blank with no visual mark.         value = ""
+  "grey"     — cell is visually shaded / greyed out.            value = ""
+
+Rules — apply in this order:
+  1. Any dash (-, –, —)        → cell_state="nil",   value="-"
+  2. Printed "0"               → cell_state="zero",  value="0"
+  3. Visually grey/shaded blank → cell_state="grey",  value=""
+  4. Truly blank, no mark      → cell_state="empty", value=""
+  5. Anything else printed     → cell_state="reported", value=verbatim
+
+CRITICAL — DASH PRESERVATION (most common error):
+  A printed dash "-" must ALWAYS be captured. NEVER replace a printed dash with "".
+  When in doubt between "empty" and "nil": if ANYTHING is visually printed in the cell
+  (even a faint or small dash), it is "nil" not "empty".
+  Use "empty" ONLY for cells with NO mark whatsoever — completely blank white space.
+  WRONG: {"value": "",  "cell_state": "empty"}   ← for a printed dash
+  RIGHT: {"value": "-", "cell_state": "nil"}     ← for a printed dash
+
+═══════════════════════════════════════════════════
+COLUMN ALIGNMENT  (critical — never shift values)
+═══════════════════════════════════════════════════
+values must contain EXACTLY one GCell per column, in left-to-right order.
+Even if a row is sparse, emit a GCell for every column slot — never skip or shift.
+
+Example — 3 columns [A, B, C], only B has a value:
+  [{"value":"","cell_state":"empty"},
+   {"value":"42","cell_state":"reported"},
+   {"value":"","cell_state":"empty"}]
+
+Trailing empty columns must still be emitted — never truncate the list early."""
+
+def _anchor(sect_num: str, sect: str) -> str:
+    """Section boundary rule injected into every prompt type."""
+    top_num = sect_num.split(".")[0]
+    return (
+        f"BOUNDARY RULE (mandatory):\n"
+        f"1. Scan top-to-bottom until you find the heading '{sect_num}' or '{sect}'.\n"
+        f"2. START extracting tables only AFTER that heading — ignore everything before it.\n"
+        f"3. STOP immediately when you see any heading for a DIFFERENT section number "
+        f"(e.g. any section that is not {sect_num}) — "
+        f"tables after that point do not belong here.\n"
+        f"4. If the heading is not found, return {{\"tables\": []}}.\n"
+        f"5. If only narrative text exists under the heading (no grid), return {{\"tables\": []}}."
+    )
+
+
+_PROMPT_HASH = hashlib.sha1(_PROMPT.encode()).hexdigest()[:8]
+
 
 def build_prompt(unit: dict) -> str:
-    """Pick the prompt by the unit's table shape, which is derived deterministically
-    from the contents-page page ranges (no classification call):
-      - single   : one subsection alone on one page  -> one table
-      - multiple : several subsections share one page -> several tables
-      - spanning : one subsection spans several pages -> one table across pages
+    """Build the extraction prompt for a unit. Unit type determines the lead context:
+      single   — one section, one page
+      spanning — one section, multiple pages (chunk 1)
+      multiple — multiple sections share one page (now unused but kept for legacy)
     """
-    pages = unit["pages"]
-    pr = ", ".join(map(str, pages))
-    sect = unit["leaves"][0]["title"] if unit.get("leaves") else ""
+    pages    = unit["pages"]
+    pr       = ", ".join(map(str, pages))
+    sect     = unit["leaves"][0]["title"]      if unit.get("leaves") else ""
+    sect_num = unit["leaves"][0]["number"]     if unit.get("leaves") else ""
 
-    sep_note = ("IMPORTANT: each distinct table will be written to its OWN Excel tab. "
-                "Return every table as a SEPARATE entry in the output list — never merge two distinct "
-                "tables into one, even if they appear on the same page.")
+    sep_note = (
+        "TABLE SPLITTING RULES:\n"
+        "- Every distinct table is a SEPARATE entry. Never merge two tables into one.\n"
+        "- A new bold heading followed by its own column headers = NEW table, "
+        "even if the column names are identical to the previous table.\n"
+        "- Different date periods = different tables. If two blocks of rows are separated "
+        "by a visual break and each ends with a dated total (e.g. 'At 31 December 2025' "
+        "then 'At 31 December 2024'), they are TWO tables. Name each table's `title` "
+        "with the date it belongs to (e.g. 'Credit Quality of Restructured Exposures — "
+        "31 December 2025' and 'Credit Quality of Restructured Exposures — 31 December 2024')."
+    )
 
     if unit["type"] == "multiple":
-        tagged = unit.get("leaves_tagged") or [{"leaf": lf, "continuing": False} for lf in unit["leaves"]]
-        continuing = [t["leaf"] for t in tagged if t["continuing"]]
+        # Multiple sections share a page — tell Gemini the section order and route by heading
         sections_desc = "; ".join(
-            f'{lf["number"]} "{lf["title"]}"{"  ← continues from previous page" if lf in continuing else ""}'
+            f'{lf["number"]} "{lf["title"]}"'
             for lf in unit["leaves"]
         )
-        lead = (f"You are given a SINGLE PDF page (physical page {pages[0]}) from a bank's regulatory "
-                f"disclosure. This page contains tables belonging to MULTIPLE subsections. "
-                f"Read the page TOP-TO-BOTTOM. Each time you encounter a section heading, all following "
-                f"tables belong to THAT section — until the next section heading appears. "
-                f"The sections on this page are (in order): {sections_desc}. "
-                f"For each table, set `section_id` to the section NUMBER it belongs to (e.g. '12.2'). "
-                f"Set each table's `title` to its printed heading VERBATIM. "
-                f"Do not merge tables that belong to different subsections. {sep_note}")
+        lead = (
+            f"You are given PDF page {pages[0]} from a bank's regulatory disclosure.\n"
+            f"This page contains tables from MULTIPLE sections (in reading order): {sections_desc}.\n\n"
+            f"Rules:\n"
+            f"- Read top-to-bottom. When you encounter a section heading, all tables that follow "
+            f"belong to THAT section — until the next section heading appears.\n"
+            f"- Do NOT extract tables that appear before the first listed section heading.\n"
+            f"- Set `section_id` on each table to the section NUMBER it belongs to.\n"
+            f"- Do NOT merge tables that belong to different sections.\n"
+            f"- {sep_note}"
+        )
+
     elif unit["type"] == "spanning":
-        lead = (f"You are given a PDF excerpt of physical pages {pr} — the '{sect}' subsection of a bank's "
-                f"regulatory disclosure. These pages may contain ONE OR MORE data tables. Extract EVERY "
-                f"distinct data table across ALL of these pages — do NOT stop early and do NOT omit any "
-                f"table on the LAST page. "
-                f"A single large table often CONTINUES across a page break (the same columns resume on the "
-                f"next page without repeating the header): combine those rows into ONE table and set "
-                f"continued_from_previous=true on the continuation. But genuinely different tables "
-                f"(different titles or different column structures) must be SEPARATE entries. {sep_note}")
-    else:  # single (one subsection owns this page, but it may hold >1 table)
-        lead = (f"You are given a SINGLE PDF page (physical page {pages[0]}) — the '{sect}' subsection of a "
-                f"bank's regulatory disclosure. It contains ONE OR MORE data tables, all belonging to this "
-                f"subsection. Extract EVERY distinct data table on the page as a SEPARATE entry, each with "
-                f"its printed heading as `title`. If the page shows two or more separate grids — e.g. they "
-                f"have different column headers, or a sub-heading / blank gap separates them — return them "
-                f"as SEPARATE tables. {sep_note}")
+        lead = (
+            f"You are given PDF pages {pr} — section {sect_num} '{sect}' "
+            f"of a bank's regulatory disclosure.\n\n"
+            f"A table that spans a page break (same columns resume, header not repeated) → "
+            f"merge into ONE table, set continued_from_previous=true on the continuation.\n"
+            f"Genuinely different tables (different title or columns) → SEPARATE entries.\n"
+            f"{sep_note}\n\n"
+            f"{_anchor(sect_num, sect)}"
+        )
+
+    else:  # single
+        lead = (
+            f"You are given PDF page {pages[0]} — section {sect_num} '{sect}' "
+            f"of a bank's regulatory disclosure.\n\n"
+            f"{sep_note}\n\n"
+            f"{_anchor(sect_num, sect)}"
+        )
+
     return lead + "\n\n" + _PROMPT
+
 
 def build_continuation_prompt(unit: dict, chunk_pages: list[int],
                                prev_tables: list) -> str:
-    """Prompt for chunk 2+ of a long spanning section.
-    Passes column headers from the previous chunk so Gemini maintains context
-    and knows exactly which table(s) it is continuing."""
-    pr = ", ".join(map(str, chunk_pages))
-    sect = unit["leaves"][0]["title"] if unit.get("leaves") else ""
+    """Prompt for chunk 2+ of a spanning section.
+    Injects column context from previous chunk so Gemini can stitch continuation rows."""
+    pr       = ", ".join(map(str, chunk_pages))
+    sect     = unit["leaves"][0]["title"]      if unit.get("leaves") else ""
+    sect_num = unit["leaves"][0]["number"]     if unit.get("leaves") else ""
 
-    sep_note = ("IMPORTANT: each distinct table will be written to its OWN Excel tab. "
-                "Return every table as a SEPARATE entry in the output list — never merge two distinct "
-                "tables into one, even if they appear on the same page.")
-
-    # Summarise the open tables from the previous chunk so Gemini can stitch rows
-    open_tables_desc = []
-    for t in prev_tables:
-        col_names = " | ".join(c.leaf for c in t.columns)
-        open_tables_desc.append(f'  - "{t.title or "(untitled)"}": columns [{col_names}]')
+    open_tables_desc = "\n".join(
+        f'  - "{t.title or "(untitled)"}": columns [{" | ".join(c.leaf for c in t.columns)}]'
+        for t in prev_tables
+    )
     context_block = (
-        "CONTEXT FROM PREVIOUS CHUNK:\n"
-        "The following table(s) were already partially extracted from earlier pages of the same section. "
-        "If this chunk continues any of them (same columns, no new heading), set "
-        "continued_from_previous=true and do NOT repeat the column headers — just emit the new rows.\n"
-        + "\n".join(open_tables_desc)
+        f"═══════════════════════════════════════════════════\n"
+        f"CONTEXT FROM PREVIOUS CHUNK\n"
+        f"═══════════════════════════════════════════════════\n"
+        f"These tables were partially extracted from earlier pages of section {sect_num}.\n"
+        f"If this chunk continues any of them (same columns, no new section heading), "
+        f"set continued_from_previous=true and emit only the new rows — do NOT repeat headers.\n"
+        f"If a genuinely new table starts (different title or columns), create a fresh entry "
+        f"with continued_from_previous=false.\n\n"
+        f"Open tables:\n{open_tables_desc}"
     )
 
-    lead = (f"You are given PDF pages {pr} — a continuation of the '{sect}' subsection. "
-            f"Extract EVERY data table on these pages. "
-            f"A table that continues from the previous chunk (same columns resume) must have "
-            f"continued_from_previous=true; a genuinely new table (different title or columns) "
-            f"must be a fresh entry with continued_from_previous=false. "
-            f"Do NOT stop early and do NOT omit any table on the LAST page. {sep_note}\n\n"
-            f"{context_block}")
+    lead = (
+        f"You are given PDF pages {pr} — continuation of section {sect_num} '{sect}'.\n\n"
+        f"{_anchor(sect_num, sect)}\n\n"
+        f"{context_block}"
+    )
     return lead + "\n\n" + _PROMPT
 
 # ===========================================================================
@@ -262,21 +449,23 @@ def parse_pages(pages_field: str) -> list[int]:
 
 def cut_pdf(pdf_path: str, pages_1based: list[int]) -> bytes:
     """Return a new PDF containing only the given (1-based) pages."""
-    src = pdfium.PdfDocument(pdf_path)
-    dest = pdfium.PdfDocument.new()
-    dest.import_pages(src, [p - 1 for p in pages_1based])
-    buf = io.BytesIO()
-    dest.save(buf)
+    with _pdfium_lock:
+        src = pdfium.PdfDocument(pdf_path)
+        dest = pdfium.PdfDocument.new()
+        dest.import_pages(src, [p - 1 for p in pages_1based])
+        buf = io.BytesIO()
+        dest.save(buf)
     return buf.getvalue()
 
 def detect_bank(pdf_path: str) -> tuple[str | None, str | None]:
     """Scan the first two pages for a bank fingerprint. Returns (key, detected_date)."""
     txt = ""
     try:
-        pdf = pdfium.PdfDocument(pdf_path)
-        txt = pdf[0].get_textpage().get_text_range()
-        if len(pdf) > 1:
-            txt += " " + pdf[1].get_textpage().get_text_range()
+        with _pdfium_lock:
+            pdf = pdfium.PdfDocument(pdf_path)
+            txt = pdf[0].get_textpage().get_text_range()
+            if len(pdf) > 1:
+                txt += " " + pdf[1].get_textpage().get_text_range()
     except Exception:
         pass
     key = None
@@ -292,8 +481,9 @@ def page_is_narrative(pdf_path: str, page_1based: int, min_numbers: int = 10) ->
     certainly narrative text (intro / scope / policy) — skip it to avoid an
     empty, billed extraction call. Conservative: only skips clearly text pages."""
     try:
-        pdf = pdfium.PdfDocument(pdf_path)
-        txt = pdf[page_1based - 1].get_textpage().get_text_range()
+        with _pdfium_lock:
+            pdf = pdfium.PdfDocument(pdf_path)
+            txt = pdf[page_1based - 1].get_textpage().get_text_range()
     except Exception:
         return False
     return len(re.findall(r"\d[\d,\.]*", txt)) < min_numbers
@@ -308,25 +498,27 @@ def page_has_table_structure(pdf_path: str, page_1based: int,
     if pdfplumber is None:
         return True   # can't tell — don't suppress the retry
     try:
-        with pdfplumber.open(pdf_path) as pdf:
-            page = pdf.pages[page_1based - 1]
-            page_w = page.width
-            real_h = [e for e in page.edges
-                      if e.get("orientation") == "h"
-                      and (e.get("x1", 0) - e.get("x0", 0)) > page_w * 0.10]
-            return len(real_h) >= min_h_edges
+        with _pdfium_lock:
+            with pdfplumber.open(pdf_path) as pdf:
+                page = pdf.pages[page_1based - 1]
+                page_w = page.width
+                real_h = [e for e in page.edges
+                          if e.get("orientation") == "h"
+                          and (e.get("x1", 0) - e.get("x0", 0)) > page_w * 0.10]
+                return len(real_h) >= min_h_edges
     except Exception:
         return True   # can't tell — don't suppress the retry
 
 def render_images(pdf_path: str, pages_1based: list[int], scale: float = IMAGE_SCALE) -> list[bytes]:
     """Render the given pages to PNG bytes (used only as a fallback)."""
-    src = pdfium.PdfDocument(pdf_path)
-    out = []
-    for p in pages_1based:
-        pil = src[p - 1].render(scale=scale).to_pil()
-        buf = io.BytesIO()
-        pil.save(buf, format="PNG")
-        out.append(buf.getvalue())
+    with _pdfium_lock:
+        src = pdfium.PdfDocument(pdf_path)
+        out = []
+        for p in pages_1based:
+            pil = src[p - 1].render(scale=scale).to_pil()
+            buf = io.BytesIO()
+            pil.save(buf, format="PNG")
+            out.append(buf.getvalue())
     return out
 
 # ===========================================================================
@@ -353,12 +545,14 @@ def log_usage(resp, label: str, image_used: bool) -> dict:
         cost = 0.0
         rec = {"ts": datetime.datetime.now().isoformat(timespec="seconds"),
                "script": "extract_to_excel", "label": label, "error": f"usage_capture_failed: {e}"}
-    _run_usage["calls"]    += 1
-    _run_usage["prompt"]   += prompt_t
-    _run_usage["output"]   += output_t
-    _run_usage["thinking"] += thought_t
-    _run_usage["cost"]     += cost
-    _call_log.append(rec)
+    with _run_usage_lock:
+        _run_usage["calls"]    += 1
+        _run_usage["prompt"]   += prompt_t
+        _run_usage["output"]   += output_t
+        _run_usage["thinking"] += thought_t
+        _run_usage["cost"]     += cost
+    with _call_log_lock:
+        _call_log.append(rec)
     try:
         os.makedirs(os.path.dirname(USAGE_LOG_PATH) or ".", exist_ok=True)
         with open(USAGE_LOG_PATH, "a") as f:
@@ -410,24 +604,154 @@ def col_boundaries_hint(pdf_path: str, pages: list[int]) -> str:
 # ===========================================================================
 # EXTRACTION
 # ===========================================================================
+_DASH_CHARS = {"-", "–", "—", "‐", "‑", "‒", "−"}
+
+def _normalise_cell_states(ext: Extraction) -> Extraction:
+    """Post-extraction normalisation: fix mis-classified cell states.
+    A printed dash must always be nil — schema pressure sometimes causes Gemini
+    to emit cell_state='empty' for dashes. Correct it here as defence in depth."""
+    for t in ext.tables:
+        for row in t.rows:
+            for cell in row.values:
+                if isinstance(cell, GCell):
+                    if cell.value.strip() in _DASH_CHARS:
+                        cell.cell_state = "nil"
+                        cell.value = "-"
+                    elif cell.value.strip() == "0" and cell.cell_state != "zero":
+                        cell.cell_state = "zero"
+    return ext
+
+_DATE_HEADER_RE = re.compile(
+    r'(?:\b\d{1,2}\s+)?(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{4}\b'
+)
+
+def split_date_blocks(t: GTable) -> list[GTable]:
+    """Split a table that has >= 2 date-period section_header rows into one
+    GTable per period.  If the condition is not met, returns [t] unchanged.
+    Pure function — does not mutate the input GTable."""
+    # Find all row indices that are date-header rows
+    date_header_indices = [
+        i for i, r in enumerate(t.rows)
+        if r.row_type == "section_header" and _DATE_HEADER_RE.search(r.label)
+    ]
+    if len(date_header_indices) < 2:
+        return [t]
+
+    # Each date-header must be followed by >= 1 row with non-empty values
+    # before the next date-header (or end of table).
+    boundaries = date_header_indices + [len(t.rows)]
+    for k, idx in enumerate(date_header_indices):
+        block_start = idx + 1
+        block_end   = boundaries[k + 1]
+        has_data = any(t.rows[j].values for j in range(block_start, block_end))
+        if not has_data:
+            return [t]
+
+    # Build one GTable per block.
+    # Rows before the first date-header go with the first block.
+    result: list[GTable] = []
+    pre_rows = list(t.rows[: date_header_indices[0]])
+
+    for k, idx in enumerate(date_header_indices):
+        header_row  = t.rows[idx]
+        block_start = idx + 1
+        block_end   = boundaries[k + 1]
+        block_rows  = pre_rows + list(t.rows[block_start:block_end])
+        pre_rows    = []   # only prepend to first block
+
+        date_text = _DATE_HEADER_RE.search(header_row.label).group(0)
+        orig_title = t.title.strip()
+        if orig_title and orig_title != date_text:
+            new_title = f"{orig_title} — {date_text}"
+        else:
+            new_title = date_text
+
+        result.append(t.model_copy(update={"title": new_title, "rows": block_rows}))
+
+    return result
+
+
+def fill_parents(t: GTable) -> GTable:
+    """Overwrite GRow.parent for every row in t using deterministic level-walk.
+
+    Rules:
+    - Level 0 and 1 rows: parent = None.
+    - Level N (N >= 2) rows: parent = row_id of the nearest preceding level N-1 row.
+    - When a level-L row is processed, clear the ancestor stack for all levels > L.
+    - Note rows are skipped (parent unchanged; they are not anchors either).
+    - If the needed ancestor row has no printed row_id, assign it a synthetic id
+      ("h1", "h2", ...) and use that as the parent.  Synthetic ids are only
+      assigned to rows that are actually referenced as parents, not to every
+      unnumbered row.
+
+    Pure function — returns a new GTable with updated rows; does not mutate input."""
+    rows        = [r.model_copy() for r in t.rows]
+    # ancestor_stack[level] = (row_index, row_id_or_None)
+    ancestor_stack: dict[int, tuple[int, str | None]] = {}
+    synthetic_counter = 0
+
+    for i, row in enumerate(rows):
+        if row.row_type == "note":
+            continue
+
+        level = row.level
+
+        # Clear deeper ancestors — a shallower row invalidates them
+        for lvl in list(ancestor_stack.keys()):
+            if lvl > level:
+                del ancestor_stack[lvl]
+
+        if level <= 1:
+            row.parent = None
+        else:
+            parent_level = level - 1
+            if parent_level in ancestor_stack:
+                parent_idx, parent_row_id = ancestor_stack[parent_level]
+                if parent_row_id is None:
+                    # Assign synthetic id to the ancestor row now that it's needed
+                    synthetic_counter += 1
+                    parent_row_id = f"h{synthetic_counter}"
+                    rows[parent_idx] = rows[parent_idx].model_copy(update={"row_id": parent_row_id})
+                    ancestor_stack[parent_level] = (parent_idx, parent_row_id)
+                row.parent = parent_row_id
+            else:
+                row.parent = None  # no ancestor at the required level
+
+        # Register this row as the current anchor for its level
+        ancestor_stack[level] = (i, row.row_id)
+
+    return t.model_copy(update={"rows": rows})
+
+
+def _apply_transforms(tables: list[GTable]) -> list[GTable]:
+    """Apply split_date_blocks then fill_parents to every table."""
+    result: list[GTable] = []
+    for t in tables:
+        for s in split_date_blocks(t):
+            result.append(fill_parents(s))
+    return result
+
+
 def _to_extraction(resp) -> Extraction:
     """Prefer the SDK's parsed pydantic object; fall back to parsing text."""
     parsed = getattr(resp, "parsed", None)
     if isinstance(parsed, Extraction):
-        return parsed
+        return _normalise_cell_states(parsed)
     raw = (resp.text or "").strip()
     if raw.startswith("```"):
         raw = raw.split("```")[1]
         if raw.lstrip().startswith("json"):
             raw = raw.lstrip()[4:]
     data = json.loads(raw)
-    return Extraction(**data)
+    return _normalise_cell_states(Extraction(**data))
 
 def _reasonable(ext: Extraction) -> bool:
-    """Cheap sanity check: did we get at least one table with columns, rows, and
-    some actual values? If not, it's worth retrying with an image."""
+    """Sanity check on returned tables. Returns False only when tables were returned
+    but are structurally malformed (missing columns, rows, or values). Returns True
+    for both well-formed tables AND empty results (0 tables = narrative section,
+    which is correct and should NOT trigger an image retry)."""
     if not ext.tables:
-        return False
+        return True   # 0 tables is a valid answer for narrative sections
     for t in ext.tables:
         if not t.columns or not t.rows:
             return False
@@ -455,47 +779,140 @@ def validate_spans(ext: Extraction) -> list[str]:
                 )
     return issues
 
+def validate_labels(ext: Extraction) -> list[str]:
+    """Detect row-shift corruption: duplicate stripped labels among data/total rows.
+    Returns list of issue strings; empty list = all good."""
+    issues = []
+    for t in ext.tables:
+        counts: dict[str, int] = {}
+        for row in t.rows:
+            if row.row_type not in ("data", "total"):
+                continue
+            lbl = row.label.strip()
+            if lbl:
+                counts[lbl] = counts.get(lbl, 0) + 1
+        for lbl, n in counts.items():
+            if n > 1:
+                issues.append(
+                    f"  duplicate row label x{n}: '{lbl[:40]}' [{t.title[:30]}]"
+                )
+    return issues
+
+def _page_raw_text(pdf_path: str, pages: list[int]) -> str:
+    """Return concatenated raw text from the given pages via pypdfium2."""
+    with _pdfium_lock:
+        pdf = pdfium.PdfDocument(pdf_path)
+        parts = []
+        for pg in pages:
+            parts.append(pdf[pg - 1].get_textpage().get_text_range())
+    return "\n".join(parts)
+
 def _page_numbers(pdf_path: str, pages: list[int]) -> Counter:
-    """Extract numeric tokens from the PDF text layer for the given pages.
-    Uses pypdfium2 — zero API cost. Returns a Counter of canonical numeric strings."""
+    """Extract numeric tokens from the PDF text layer. Returns Counter of canonical strings."""
     counts: Counter = Counter()
-    pdf = pdfium.PdfDocument(pdf_path)
-    for pg in pages:
-        page = pdf[pg - 1]
-        textpage = page.get_textpage()
-        text = textpage.get_text_range()
-        for tok in re.findall(r'\(?\d[\d,]*(?:\.\d+)?\)?%?', text):
-            cleaned = tok.strip("()% \n")
-            cleaned = cleaned.replace(",", "")
-            if cleaned and any(c.isdigit() for c in cleaned):
-                counts[cleaned] += 1
+    raw = _page_raw_text(pdf_path, pages)
+    for tok in re.findall(r'\(?\d[\d,]*(?:\.\d+)?\)?%?', raw):
+        cleaned = tok.strip("()% \n").replace(",", "")
+        if cleaned and any(c.isdigit() for c in cleaned):
+            counts[cleaned] += 1
     return counts
 
-def validate_numbers(ext: Extraction, pdf_path: str, pages: list[int]) -> list[str]:
-    """Compare the multiset of numeric values in the JSON against the PDF text layer.
-    Flags values present in JSON but absent/undercounted in the PDF (transcription errors
-    or phantom duplicates), and values in the PDF missing from the JSON (dropped values).
-    Returns list of issue strings; empty list = all good."""
-    pdf_counts = _page_numbers(pdf_path, pages)
+# Year pattern — suppress year tokens as known noise in deficit checks
+_YEAR_RE = re.compile(r'^(19|20)\d{2}$')
 
+def validate_numbers(ext: Extraction, pdf_path: str, pages: list[int],
+                     section_ids: tuple = ()) -> list[str]:
+    """Calibrated number-recall validator (v2).
+
+    Class A fix — JSON-side: only count pure numeric tokens from GCell values.
+      Strips concatenated text (ISINCode:..., Page57to58...) that pdfplumber
+      never sees, eliminating phantom issues from text table columns.
+
+    Class B fix — phantom check: before flagging a JSON value as phantom,
+      check if it appears anywhere in the page text without spaces/commas.
+      Catches kerning-split numbers (4909 → PDF has '4 909') and similar.
+
+    Noise suppression in deficit check:
+      - Tokens ≤ 2 chars (row ids, short ints)
+      - 4-digit years (appear in headers/footers, not in tables)
+      - Section id tokens (e.g. '9.4', '15.1') — correctly not extracted
+
+    Issues sorted by severity: longer numbers and bigger gaps first.
+    """
+    raw_text     = _page_raw_text(pdf_path, pages)
+    text_nospace = re.sub(r'[\s,]', '', raw_text)   # for Class B phantom check
+    pdf_counts   = _page_numbers(pdf_path, pages)
+
+    # Class A: only count pure numeric tokens from JSON (no concatenated strings)
     json_counts: Counter = Counter()
     for t in ext.tables:
         for row in t.rows:
-            for v in row.values:
-                cleaned = re.sub(r'[,()\s%]', '', str(v))
-                if cleaned and any(c.isdigit() for c in cleaned):
+            for gcell in row.values:
+                raw = gcell.value if isinstance(gcell, GCell) else str(gcell)
+                cleaned = re.sub(r'[,()\s%]', '', raw)
+                if re.fullmatch(r'\d+(?:\.\d+)?', cleaned):
                     json_counts[cleaned] += 1
 
+    # Known noise: section id tokens passed in by caller.
+    # Also add bare numeric suffix of each id (e.g. 'A.5.3' → '5.3', 'A.12.1' → '12.1')
+    # so section-number tokens that appear as cell values are suppressed on the deficit side.
+    noise = set(section_ids)
+    for sid in section_ids:
+        # strip leading letter prefix: 'A.14.2.3' → '14.2.3'
+        m = re.match(r'^[A-Za-z]\.(.+)$', sid)
+        numeric_suffix = m.group(1) if m else sid
+        # add all dot-prefixes of the numeric suffix:
+        # '14.2.3' → '14.2.3', '14.2', '14'
+        parts = numeric_suffix.split('.')
+        for i in range(len(parts), 0, -1):
+            noise.add('.'.join(parts[:i]))
+
+    # Suppress deficits where json is empty (text table) and token is very long (≥7 digits):
+    # these come from currency amounts / ISINs in running text that pdfplumber tokenizes
+    # as bare integers but the JSON stored as formatted strings (e.g. 'US$30,000,000,000').
+    json_is_empty = not json_counts
+
+    # Build a set of tokens that appear ONLY embedded in larger alphanumeric words in raw_text
+    # (never standalone). These are running-text fragments, not table values.
+    # A token is "text-only" if every occurrence in raw_text is adjacent to a letter/digit.
+    def _is_text_only(token: str) -> bool:
+        escaped = re.escape(token)
+        standalone = re.search(r'(?<![A-Za-z0-9])' + escaped + r'(?![A-Za-z0-9])', raw_text)
+        return standalone is None and token in text_nospace
+
     issues = []
+    # Phantom: in JSON more than in PDF
     for num, cnt in json_counts.items():
-        if pdf_counts[num] < cnt:
-            issues.append(f"  value '{num}' appears {cnt}x in JSON but only {pdf_counts[num]}x in PDF")
+        if pdf_counts[num] >= cnt:
+            continue
+        # Class B: present somewhere in raw text without spaces → kerning/format artefact
+        if num in text_nospace:
+            continue
+        issues.append(("phantom", num, cnt, pdf_counts[num]))
+
+    # Deficit: in PDF more than in JSON
     for num, cnt in pdf_counts.items():
         if len(num) <= 2:
-            continue  # skip page numbers, row ids, short ints
+            continue
+        if _YEAR_RE.match(num):
+            continue
+        if num in noise:
+            continue
+        # Text-table guard: if the unit produced no numeric JSON tokens at all,
+        # long integers (≥7 digits) are currency/ISIN fragments from running text.
+        if json_is_empty and len(num) >= 7:
+            continue
         if json_counts[num] < cnt:
-            issues.append(f"  value '{num}' appears {cnt}x in PDF but only {json_counts[num]}x in JSON")
-    return issues
+            issues.append(("deficit", num, cnt, json_counts[num]))
+
+    # Sort: longer numbers and bigger gaps first (higher severity)
+    issues.sort(key=lambda x: (len(x[1]), abs(x[2] - x[3])), reverse=True)
+
+    return [
+        f"  phantom: '{n}' json={j}x pdf={p}x"  if kind == "phantom"
+        else f"  deficit: '{n}' pdf={p}x json={j}x"
+        for kind, n, j, p in issues
+    ]
 
 def extract_unit(client, pdf_path: str, unit: dict, force_image: bool, with_thinking: bool,
                  save_audit: bool = True):
@@ -532,7 +949,7 @@ def extract_unit(client, pdf_path: str, unit: dict, force_image: bool, with_thin
                 last_err = e
                 msg = str(e)
                 if any(code in msg for code in ("503", "429", "UNAVAILABLE", "RESOURCE_EXHAUSTED")):
-                    wait = 15 * (2 ** attempt)
+                    wait = 15 * (2 ** attempt) + random.uniform(0, 5)
                     print(f"      ⏳ {e.__class__.__name__} — waiting {wait}s before retry {attempt+1}/3")
                     time.sleep(wait)
                 else:
@@ -569,15 +986,51 @@ def extract_unit(client, pdf_path: str, unit: dict, force_image: bool, with_thin
         image_used = True
 
     # --- validators (zero API cost) ---
-    span_issues = validate_spans(ext)
+    sids = tuple(lf["section_id"] for lf in unit.get("leaves", []))
+    span_issues   = validate_spans(ext)
+    number_issues = validate_numbers(ext, pdf_path, pages, section_ids=sids)
+    label_issues  = validate_labels(ext)
+
     if span_issues:
-        print(f"  ⚠  span invariant violations in {unit['unit_id']}:")
+        print(f"  ⚠  span violations in {unit['unit_id']}:")
         for s in span_issues:
             print(s)
+    if number_issues:
+        print(f"  ⚠  number recall issues in {unit['unit_id']} "
+              f"({len(number_issues)} discrepancies):")
+        for s in number_issues[:5]:   # cap at 5 lines to avoid log spam
+            print(s)
+        if len(number_issues) > 5:
+            print(f"     … and {len(number_issues)-5} more (see meta.json)")
+    if label_issues:
+        print(f"  ⚠  row-shift / duplicate labels in {unit['unit_id']}:")
+        for s in label_issues:
+            print(s)
 
-    meta = {"unit_id": unit["unit_id"], "pages": pages, "type": unit.get("type", "single"),
-            "image_used": image_used, "usage": usage,
-            "validation": {"span_issues": span_issues}}
+    meta = {
+        # Document provenance — used to invalidate stale cache from a different document
+        "document":    os.path.basename(pdf_path),
+        "bank":        INSTITUTION,
+        "doc_date":    DOC_DATE,
+        "model":       MODEL,
+        "prompt_hash": _PROMPT_HASH,
+        # Unit identity
+        "unit_id":     unit["unit_id"],
+        "section_ids": [lf["section_id"] for lf in unit.get("leaves", [])],
+        "section_titles": [lf.get("title", "") for lf in unit.get("leaves", [])],
+        "pages":       pages,
+        "type":        unit.get("type", "single"),
+        # Extraction quality
+        "image_used":  image_used,
+        "n_tables":    len(ext.tables),
+        "n_rows":      sum(len(t.rows) for t in ext.tables),
+        "usage":       usage,
+        "validation":  {
+            "span_issues":   span_issues,
+            "number_issues": number_issues,
+            "label_issues":  label_issues,
+        },
+    }
     if save_audit:
         with open(os.path.join(udir, "parsed.json"), "w") as f:
             f.write(ext.model_dump_json(indent=2))
@@ -592,11 +1045,17 @@ def extract_unit_chunked(client, pdf_path: str, unit: dict, force_image: bool,
     pass column context forward so Gemini never loses track of open tables.
     For everything else (or spanning <= chunk_size), falls through to extract_unit."""
     pages = unit["pages"]
-    if unit["type"] != "spanning" or len(pages) <= chunk_size:
+    if unit["type"] != "spanning":
+        return extract_unit(client, pdf_path, unit, force_image, with_thinking, save_audit)
+    # For sections ≥ 5 pages, chunking hurts: each page is typically a fresh
+    # sub-table with no cross-page continuity. Send as one call so Gemini sees
+    # the full section context and splits tables correctly.
+    effective_chunk = chunk_size if len(pages) < 5 else len(pages)
+    if len(pages) <= effective_chunk:
         return extract_unit(client, pdf_path, unit, force_image, with_thinking, save_audit)
 
     # Split pages into chunks
-    chunks = [pages[i:i + chunk_size] for i in range(0, len(pages), chunk_size)]
+    chunks = [pages[i:i + effective_chunk] for i in range(0, len(pages), effective_chunk)]
     print(f"     ↷ chunking {len(pages)} pages into {len(chunks)} chunks of ≤{chunk_size}")
 
     all_tables: list = []
@@ -633,24 +1092,95 @@ def extract_unit_chunked(client, pdf_path: str, unit: dict, force_image: bool,
         print(f"        chunk {ci+1}/{len(chunks)} p{pr}: {len(ext.tables)} table(s)  "
               f"[{ut.get('prompt_tokens','?')}in/{ut.get('output_tokens','?')}out tok]")
 
-        # Merge: continued tables stitch onto the last open table; new tables append.
-        # A true continuation has no title (rows resume under the same columns).
-        # A new date-period table has a title even when continued_from_previous=True.
+        # Merge: continued tables stitch onto the last open table only when ALL hold:
+        # same columns, no title, AND first substantive row is not a new section/date header.
         for t in ext.tables:
-            if (t.continued_from_previous and all_tables
-                    and len(all_tables[-1].columns) == len(t.columns)
-                    and not t.title.strip()):
+            first_sub = next((r for r in t.rows if r.row_type not in ("note",)), None)
+            is_true_continuation = (
+                t.continued_from_previous
+                and all_tables
+                and len(all_tables[-1].columns) == len(t.columns)
+                and not t.title.strip()
+                and first_sub is not None
+                and first_sub.row_type not in ("section_header", "sub_header")
+            )
+            if is_true_continuation:
                 all_tables[-1].rows.extend(t.rows)
             else:
                 all_tables.append(t)
 
+        # Save partial progress after each chunk to parsed.partial.json (NOT
+        # parsed.json) so a crash leaves no file that the cache-load path would
+        # treat as a complete result.
+        if save_audit and all_tables:
+            udir = os.path.join(AUDIT_DIR, unit["unit_id"])
+            os.makedirs(udir, exist_ok=True)
+            partial_ext = Extraction(tables=all_tables)
+            with open(os.path.join(udir, "parsed.partial.json"), "w") as f:
+                f.write(partial_ext.model_dump_json(indent=2))
+            with open(os.path.join(udir, "meta.json"), "w") as f:
+                json.dump({"unit_id": unit["unit_id"], "pages": pages,
+                           "partial": True, "chunks_completed": ci + 1}, f)
+
     # Return a combined Extraction object and merged meta
     combined_ext = Extraction(tables=all_tables)
+
+    # Validate combined result across the full page range — this is the path
+    # where dropped pages show up (e.g. page-40 table missing from a 7-page section)
+    sids = tuple(lf["section_id"] for lf in unit.get("leaves", []))
+    span_issues   = validate_spans(combined_ext)
+    number_issues = validate_numbers(combined_ext, pdf_path, pages, section_ids=sids)
+    label_issues  = validate_labels(combined_ext)
+    if span_issues:
+        print(f"  ⚠  span violations in {unit['unit_id']} (combined):")
+        for s in span_issues:
+            print(s)
+    if number_issues:
+        print(f"  ⚠  number recall in {unit['unit_id']} (combined, {len(number_issues)} issues):")
+        for s in number_issues[:5]:
+            print(s)
+        if len(number_issues) > 5:
+            print(f"     … and {len(number_issues)-5} more")
+    if label_issues:
+        print(f"  ⚠  row-shift / duplicate labels in {unit['unit_id']} (combined):")
+        for s in label_issues:
+            print(s)
+
     combined_meta = {
-        "unit_id": unit["unit_id"], "pages": pages, "type": "spanning",
+        "unit_id":  unit["unit_id"], "pages": pages, "type": "spanning",
         "image_used": True, "usage": combined_usage,
-        "chunks": len(chunks),
+        "chunks":   len(chunks),
+        "document": os.path.basename(pdf_path),
+        "bank":     INSTITUTION,
+        "doc_date": DOC_DATE,
+        "model":    MODEL,
+        "prompt_hash": _PROMPT_HASH,
+        "section_ids":    [lf["section_id"] for lf in unit.get("leaves", [])],
+        "section_titles": [lf.get("title", "") for lf in unit.get("leaves", [])],
+        "n_tables": len(all_tables),
+        "n_rows":   sum(len(t.rows) for t in all_tables),
+        "partial":  False,   # complete — safe to use as resume cache
+        "validation": {
+            "span_issues":   span_issues,
+            "number_issues": number_issues,
+            "label_issues":  label_issues,
+        },
     }
+    # Atomically promote parsed.partial.json → parsed.json only after all chunks
+    # succeed. Write to a .tmp first so a kill during the write also leaves no
+    # partial parsed.json for the cache-load path to pick up.
+    if save_audit:
+        udir = os.path.join(AUDIT_DIR, unit["unit_id"])
+        os.makedirs(udir, exist_ok=True)
+        tmp_path = os.path.join(udir, "parsed.json.tmp")
+        with open(tmp_path, "w") as f:
+            f.write(combined_ext.model_dump_json(indent=2))
+        os.replace(tmp_path, os.path.join(udir, "parsed.json"))
+        partial_path = os.path.join(udir, "parsed.partial.json")
+        if os.path.exists(partial_path):
+            os.remove(partial_path)
+        with open(os.path.join(udir, "meta.json"), "w") as f:
+            json.dump(combined_meta, f, indent=2)
     return combined_ext, combined_meta
 
 # ===========================================================================
@@ -690,7 +1220,7 @@ def write_table(ws, start_row: int, t: GTable) -> int:
     ncols = nbase + len(cols)
     r = start_row
 
-    base_headers = ["unique_row_id", "hierarchy_level", "parent_row_id", t.label_header or "Label"]
+    base_headers = META_HEADERS[:-1] + [t.label_header or META_HEADERS[-1]]
     has_group = any(c.group for c in cols)
 
     if has_group:
@@ -733,11 +1263,25 @@ def write_table(ws, start_row: int, t: GTable) -> int:
         indent = "    " * max(0, row.level - 1) if not is_header else ""
         ws.cell(r, 4, indent + row.label)
         col_cursor = nbase + 1
-        for v in row.values:
-            cell = ws.cell(r, col_cursor, coerce(v))
-            if isinstance(cell.value, (int, float)):
+        for gcell in row.values:
+            # Support legacy plain-string values from old cached parsed.json
+            if isinstance(gcell, str):
+                gcell = GCell.from_str(gcell)
+            cell = ws.cell(r, col_cursor, coerce(gcell.value))
+            state = gcell.cell_state
+            if state == "grey":
+                cell.fill = PatternFill("solid", fgColor=LIGHT_GREY)
+            elif state == "nil":
+                cell.value = "-"
+                cell.alignment = Alignment(horizontal="center")
+            elif state == "zero":
+                cell.value = 0
                 cell.number_format = NUM_FMT
                 cell.alignment = Alignment(horizontal="right")
+            elif state == "reported" and isinstance(cell.value, (int, float)):
+                cell.number_format = NUM_FMT
+                cell.alignment = Alignment(horizontal="right")
+            # empty / reported-string: default left alignment, no fill
             col_cursor += 1
 
         # row-type styling
@@ -865,8 +1409,6 @@ def _describe_call(label: str, image_used: bool, bank: str) -> str:
         desc += " +image"
     return desc.strip()
 
-
-API_LOG_XLSX = str(Path(__file__).parent.parent / "outputs" / "pillar3" / "API_Log.xlsx")
 
 _API_LOG_HEADERS = [
     "#", "Run date", "Bank", "Section label", "Description",
@@ -1008,7 +1550,12 @@ def table_sheet_name(used: set, section_id: str, table_n: int) -> str:
 def load_index() -> list[dict]:
     if os.path.exists(INDEX_PATH):
         try:
-            return json.load(open(INDEX_PATH))
+            idx = json.load(open(INDEX_PATH))
+            # Normalise legacy entries that used "first_tab" instead of "sheet"
+            for e in idx:
+                if "sheet" not in e and "first_tab" in e:
+                    e["sheet"] = e["first_tab"]
+            return idx
         except Exception:
             return []
     return []
@@ -1049,8 +1596,10 @@ def rebuild_contents(wb, idx: list[dict]):
         ws.cell(r, 2, e["title"])
         ws.cell(r, 3, e.get("pages", "")).alignment = Alignment(horizontal="center")
         ws.cell(r, 4, e.get("n_tables", "")).alignment = Alignment(horizontal="center")
-        link = ws.cell(r, 5, e["sheet"])
-        link.hyperlink = f"#'{e['sheet']}'!A1"
+        sname = e.get("sheet") or e.get("first_tab", "")
+        link = ws.cell(r, 5, sname)
+        if sname and sname in wb.sheetnames:
+            link.hyperlink = f"#'{sname}'!A1"
         link.font = Font(color="0000CC", underline="single")
         r += 1
 
@@ -1083,35 +1632,26 @@ def group_key(section: dict) -> str:
     return f"{part}.{num0}" if part else num0
 
 def build_units(leaves: list[dict]) -> list[dict]:
-    """Turn the leaf sections into typed extraction units:
-      - a page owned by >1 leaf  -> ONE 'multiple' unit (tables routed by title),
-      - a leaf's uniquely-owned pages -> 'single' (1 page) or 'spanning' (>1 page).
-    Every physical page belongs to exactly one unit, so no page is called twice.
+    """One unit per leaf section. Pages = full page range of that section.
+    If two sections share a page, that page is sent in both calls — simpler
+    and more correct than shared-page routing which caused cross-group bugs.
     """
-    owners: dict[int, list[dict]] = defaultdict(list)
-    for s in leaves:
-        for p in range(int(s["start_page"]), int(s["end_page"]) + 1):
-            owners[p].append(s)
-
     units: list[dict] = []
-    for p in sorted(owners):                          # shared pages -> multiple
-        if len(owners[p]) > 1:
-            # tag each leaf as continuing (started on an earlier page) vs starting
-            tagged = [{"leaf": lf, "continuing": lf["start_page"] < p}
-                      for lf in owners[p]]
-            units.append({"type": "multiple", "pages": [p], "leaves": owners[p],
-                          "leaves_tagged": tagged, "unit_id": f"p{p}_multi"})
-    for s in leaves:                                  # uniquely-owned runs
-        own = [p for p in range(int(s["start_page"]), int(s["end_page"]) + 1)
-               if len(owners[p]) == 1]
-        for run in _contig(own):
-            typ = "single" if len(run) == 1 else "spanning"
-            uid = f"{s['section_id'].replace('.', '_')}_p{run[0]}" + (f"-{run[-1]}" if len(run) > 1 else "")
-            units.append({"type": typ, "pages": run, "leaves": [s], "unit_id": uid})
-
-    units.sort(key=lambda u: (u["pages"][0], 0 if u["type"] == "multiple" else 1))
-    for u in units:                                   # group by top-level section (part-aware)
-        u["group"] = group_key(u["leaves"][0])
+    for i, s in enumerate(leaves):
+        pages = list(range(int(s["start_page"]), int(s["end_page"]) + 1))
+        typ = "single" if len(pages) == 1 else "spanning"
+        sid_slug = s["section_id"].replace(".", "_")
+        p_str = str(pages[0]) + (f"-{pages[-1]}" if len(pages) > 1 else "")
+        uid = f"{sid_slug}_p{p_str}"
+        units.append({
+            "type":     typ,
+            "pages":    pages,
+            "leaves":   [s],
+            "unit_id":  uid,
+            "group":    group_key(s),
+            "next_leaf": leaves[i + 1] if i + 1 < len(leaves) else None,
+        })
+    units.sort(key=lambda u: u["pages"][0])
     return units
 
 def load_sections() -> tuple[dict, list[dict]]:
@@ -1120,7 +1660,12 @@ def load_sections() -> tuple[dict, list[dict]]:
     if not os.path.exists(TOC_PATH):
         sys.exit(f"{TOC_PATH} not found — run:  python build_toc.py <pdf>")
     toc = json.load(open(TOC_PATH))
-    _PART_ORD = {None: 0, "A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
+    # Build part ordering from actual parts in the document, alphabetically.
+    # None (no part) sorts first alongside "A".
+    all_parts = sorted({s.get("part") for s in toc.get("sections", []) if s.get("part")})
+    _PART_ORD = {None: 0}
+    for i, p in enumerate(all_parts):
+        _PART_ORD[p] = i
     secs = sorted(toc.get("sections", []),
                   key=lambda s: (int(s["start_page"]),
                                  _PART_ORD.get(s.get("part"), 0),
@@ -1134,6 +1679,20 @@ def _title_score(table_title: str, leaf_title: str) -> float:
     """Token-overlap fraction of the leaf title covered by the table title."""
     tt, lt = _norm_words(table_title), _norm_words(leaf_title)
     return len(tt & lt) / (len(lt) or 1)
+
+def drop_next_section_tables(tables: list, unit: dict) -> list:
+    nl = unit.get("next_leaf")
+    if not nl or int(nl["start_page"]) != unit["pages"][-1]:
+        return tables
+    own = unit["leaves"][0]["title"]
+    kept = []
+    for t in tables:
+        if _title_score(t.title, nl["title"]) > _title_score(t.title, own):
+            print(f"   ✂ dropped '{t.title[:40]}' — belongs to next "
+                  f"section {nl['section_id']}")
+        else:
+            kept.append(t)
+    return kept
 
 def route_tables(tables: list, leaves: list[dict]) -> list[tuple]:
     """Assign each table on a shared page to one subsection leaf.
@@ -1224,6 +1783,8 @@ def main():
     ap.add_argument("--doc-date", help="override the source-line date (e.g. '31 December 2025')")
     ap.add_argument("--chunk-pages", type=int, default=2, metavar="N",
                     help="max pages per Gemini call for spanning sections (default 2; use 0 to disable chunking)")
+    ap.add_argument("--workers", type=int, default=5, metavar="N",
+                    help="max concurrent section groups (default 5; use 1 for sequential)")
     args = ap.parse_args()
 
     if not os.path.exists(args.pdf):
@@ -1252,7 +1813,9 @@ def main():
     out_dir        = os.path.dirname(os.path.abspath(out_path))
     USAGE_LOG_PATH = os.path.join(out_dir, f"{bank_slug}_api_usage.jsonl")
     COST_LOG_PATH  = os.path.join(out_dir, f"{bank_slug}_cost_summary.json")
-    AUDIT_DIR      = os.path.join(out_dir, "audit", bank_slug)
+    # Folder hierarchy: audit/{bank}/{doc_stem}/  e.g. audit/dbs/DBS_1Q26_Pillar3/
+    doc_stem  = Path(args.pdf).stem   # "DBS_1Q26_Pillar3" from "DBS_1Q26_Pillar3.pdf"
+    AUDIT_DIR = os.path.join(out_dir, "audit", bank_slug, doc_stem)
     if bank:
         INSTITUTION  = BANKS[bank]["institution"]
         BRAND_COLOUR = BANKS[bank]["brand"]
@@ -1291,6 +1854,11 @@ def main():
     for u in units:
         groups.setdefault(u["group"], []).append(u)
 
+    # A 'multiple' unit whose leaves span more than one top-level group must
+    # appear in every group it contributes to — otherwise the group that owns
+    # the unit runs it, but sibling groups never see the tables routed to them.
+    # e.g. A_3+A_4_p5 is assigned group=A.3 but also has a leaf in A.4.
+
     # --dry-run: print the call plan and exit (no client, no API, no key needed)
     if args.dry_run:
         sel = [(g, us) for g, us in groups.items()
@@ -1312,40 +1880,12 @@ def main():
         # per-table tabs are named "{sid} Table N" — any such tab counts as done
         return any(nm == sid or nm.startswith(f"{sid} -") or nm.startswith(f"{sid} Table ") for nm in wb.sheetnames)
 
-    section_tables: dict[str, list[GTable]] = defaultdict(list)
-    started = args.start_section is None
-
-    for gnum, gunits in groups.items():
-        group_leaves = [s for s in sections if group_key(s) == gnum]
-        # also include any leaves that appear in this group's units but have a
-        # different group_key (e.g. sections 3+4 both on p7 — unit group="3" but
-        # section 4 has group_key="4"; it must still be reachable via --section 4)
-        unit_leaf_ids = {lf["section_id"] for u in gunits for lf in u["leaves"]}
-        extra_leaves = [s for s in sections if s["section_id"] in unit_leaf_ids
-                        and s not in group_leaves]
-        group_leaves = group_leaves + extra_leaves
-        leaf_ids_in_group = {s["section_id"] for s in group_leaves}
-
-        # --section can target a whole group ("12") or one leaf ("12.3")
-        if args.section and not (args.section == gnum or args.section in leaf_ids_in_group):
-            continue
-        if not started:
-            if gnum == args.start_section:
-                started = True
-            else:
-                continue
-        # resume: skip a group whose tabs already exist (unless --force / --section)
-        if not args.force and not args.section and group_leaves and all(_tab_exists(s["section_id"]) for s in group_leaves):
-            print(f"⏭️  group {gnum} already present — skip (use --force to redo)")
-            continue
-
-        print(f"\n##### Section {gnum}  ({len(gunits)} unit(s) -> {len(group_leaves)} subsection tab(s))")
-
-        # if --section targets a specific leaf (e.g. "18.4" / "A.12.2.5"), only fire its unit;
-        # if it targets a whole group (e.g. "18" / "A.12"), fire all units in the group.
-        leaf_target = args.section if (args.section and args.section in leaf_ids_in_group) else None
-
-        # 1) fire each unit with its SHAPE-SPECIFIC prompt
+    # ── Per-group extraction function (runs in thread pool) ──────────────────
+    # Returns {section_id: [GTable, ...]} for one group.
+    # Units within a group run sequentially (chunked sections have ordering deps).
+    def _extract_group(gnum: str, gunits: list, group_leaves: list,
+                       leaf_target: str | None) -> dict[str, list]:
+        grp_tables: dict[str, list] = defaultdict(list)
         for u in gunits:
             if leaf_target and not any(lf["section_id"] == leaf_target for lf in u["leaves"]):
                 continue
@@ -1356,24 +1896,63 @@ def main():
                     not page_has_table_structure(args.pdf, u["pages"][0])):
                 print(f"   • [{u['type']:8}] p{pr:<7} {leaf_ids}  — narrative, skipped (no call)")
                 continue
-            # resume: skip API call if audit already exists for this unit (unless --force)
             audit_exists = os.path.exists(os.path.join(AUDIT_DIR, u["unit_id"], "parsed.json"))
             if not args.force and not args.no_audit and audit_exists:
-                # reload from saved audit instead of re-calling
                 try:
+                    saved_meta_path = os.path.join(AUDIT_DIR, u["unit_id"], "meta.json")
+                    if os.path.exists(saved_meta_path):
+                        saved_meta = json.load(open(saved_meta_path))
+                        # Reject partial cache (crashed mid-chunk run)
+                        if saved_meta.get("partial"):
+                            print(f"   • [{u['type']:8}] p{pr:<7} {leaf_ids}  — partial cache, re-extracting")
+                            audit_exists = False
+                            raise StopIteration
+                        cached_doc = saved_meta.get("document", "")
+                        current_doc = os.path.basename(args.pdf)
+                        if cached_doc and cached_doc != current_doc:
+                            print(f"   • [{u['type']:8}] p{pr:<7} {leaf_ids}  — cache mismatch "
+                                  f"(cached={cached_doc} current={current_doc}), re-extracting")
+                            audit_exists = False
+                            raise StopIteration  # skip to live call
+                        # Invalidate if the cached page list doesn't match the unit's pages —
+                        # catches partial-chunk caches that survived a crash before the fix.
+                        cached_pages_meta = saved_meta.get("pages")
+                        if cached_pages_meta is None or cached_pages_meta != u["pages"]:
+                            print(f"   • [{u['type']:8}] p{pr:<7} {leaf_ids}  — cache mismatch "
+                                  f"(cached pages={cached_pages_meta} current={u['pages']}), re-extracting")
+                            audit_exists = False
+                            raise StopIteration
+                        # Invalidate if the prompt has changed since the cache was written,
+                        # or if the cache predates prompt_hash tracking (legacy cache).
+                        cached_hash = saved_meta.get("prompt_hash")
+                        if cached_hash is None or cached_hash != _PROMPT_HASH:
+                            reason = "legacy cache (no prompt_hash)" if cached_hash is None \
+                                     else f"prompt changed ({cached_hash} → {_PROMPT_HASH})"
+                            print(f"   • [{u['type']:8}] p{pr:<7} {leaf_ids}  — {reason}, re-extracting")
+                            audit_exists = False
+                            raise StopIteration
                     saved = json.load(open(os.path.join(AUDIT_DIR, u["unit_id"], "parsed.json")))
-                    ext = Extraction(**saved)
-                    print(f"   • [{u['type']:8}] p{pr:<7} {leaf_ids}  — resumed from audit (no call)")
-                except Exception:
-                    pass  # fall through to live call if audit is corrupt
-                else:
-                    # bucket the tables same as a live call would
-                    if u["type"] == "multiple":
-                        for t, lf, method, sc, flagged in route_tables(ext.tables, u["leaves"]):
-                            section_tables[lf["section_id"]].append(t)
+                    ext = _normalise_cell_states(Extraction(**saved))
+                    # Validate cache on load — surfaces stale/poisoned results immediately
+                    cached_pages = saved_meta.get("pages", u["pages"]) if os.path.exists(saved_meta_path) else u["pages"]
+                    num_issues = validate_numbers(ext, args.pdf, cached_pages)
+                    if num_issues:
+                        print(f"   • [{u['type']:8}] p{pr:<7} {leaf_ids}  — resumed from audit "
+                              f"(⚠ {len(num_issues)} number issues in cache)")
                     else:
-                        bucket = section_tables[u["leaves"][0]["section_id"]]
-                        for t in ext.tables:
+                        print(f"   • [{u['type']:8}] p{pr:<7} {leaf_ids}  — resumed from audit (no call)")
+                except StopIteration:
+                    pass
+                except Exception:
+                    pass
+                else:
+                    tables = drop_next_section_tables(_apply_transforms(ext.tables), u)
+                    if u["type"] == "multiple":
+                        for t, lf, method, sc, flagged in route_tables(tables, u["leaves"]):
+                            grp_tables[lf["section_id"]].append(t)
+                    else:
+                        bucket = grp_tables[u["leaves"][0]["section_id"]]
+                        for t in tables:
                             if (t.continued_from_previous and bucket
                                     and len(bucket[-1].columns) == len(t.columns)
                                     and not t.title.strip()):
@@ -1392,36 +1971,154 @@ def main():
             except Exception as e:
                 print(f"     ❌ FAILED: {e}")
                 continue
-            if u["type"] == "multiple":                  # split this page across its subsection tabs
-                for t, lf, method, sc, flagged in route_tables(ext.tables, u["leaves"]):
-                    section_tables[lf["section_id"]].append(t)
+            tables = drop_next_section_tables(_apply_transforms(ext.tables), u)
+            if u["type"] == "multiple":
+                for t, lf, method, sc, flagged in route_tables(tables, u["leaves"]):
+                    grp_tables[lf["section_id"]].append(t)
                     mark = "⚠ " if flagged else "  "
                     print(f"        {mark}→ [{method:5} {sc:.2f}] '{t.title[:30]}'  →  tab {lf['section_id']}")
-                if len(ext.tables) != len({lf["section_id"] for lf in u["leaves"]}):
-                    print(f"        ⚠ {len(ext.tables)} table(s) vs {len(u['leaves'])} subsection(s) on this page "
-                          f"— check the flagged routings above")
-            else:                                        # single / spanning -> the one leaf (all tables)
-                bucket = section_tables[u["leaves"][0]["section_id"]]
-                for t in ext.tables:
-                    # stitch a cross-page continuation back onto the previous table;
-                    # a new date-period table has a title — don't merge it
-                    if (t.continued_from_previous and bucket
-                            and len(bucket[-1].columns) == len(t.columns)
-                            and not t.title.strip()):
+                if len(tables) != len({lf["section_id"] for lf in u["leaves"]}):
+                    print(f"        ⚠ {len(tables)} table(s) vs {len(u['leaves'])} subsection(s) on this page")
+            else:
+                bucket = grp_tables[u["leaves"][0]["section_id"]]
+                for t in tables:
+                    first_sub = next((r for r in t.rows if r.row_type not in ("note",)), None)
+                    is_true_continuation = (
+                        t.continued_from_previous and bucket
+                        and len(bucket[-1].columns) == len(t.columns)
+                        and not t.title.strip()
+                        and first_sub is not None
+                        and first_sub.row_type not in ("section_header", "sub_header")
+                    )
+                    if is_true_continuation:
                         bucket[-1].rows.extend(t.rows)
                     else:
                         bucket.append(t)
                 if u["type"] == "spanning":
-                    print(f"        ({len(ext.tables)} table(s) returned across pages {'+'.join(map(str,u['pages']))})")
+                    print(f"        ({len(tables)} table(s) kept across pages {'+'.join(map(str,u['pages']))})")
             ut, tag = meta["usage"], (" +img" if meta["image_used"] else "")
-            print(f"     ✓ {len(ext.tables)} table(s){tag}  "
+            print(f"     ✓ {len(tables)} table(s){tag}  "
                   f"[{ut.get('prompt_tokens','?')}in/{ut.get('output_tokens','?')}out/"
                   f"{ut.get('thinking_tokens','?')}think tok]")
+        return dict(grp_tables)
+
+    # ── Build the ordered list of groups to process ───────────────────────────
+    section_tables: dict[str, list[GTable]] = defaultdict(list)
+    started = args.start_section is None
+
+    # Resolve which groups to process and in what order
+    # Build ordered list of (gnum, gunits, group_leaves, leaf_target) to process
+    ordered_groups: list[tuple] = []
+    for gnum, gunits in groups.items():
+        group_leaves = [s for s in sections if group_key(s) == gnum]
+        unit_leaf_ids = {lf["section_id"] for u in gunits for lf in u["leaves"]}
+        extra_leaves = [s for s in sections if s["section_id"] in unit_leaf_ids
+                        and s not in group_leaves]
+        group_leaves = group_leaves + extra_leaves
+        leaf_ids_in_group = {s["section_id"] for s in group_leaves}
+
+        if args.section and not (args.section == gnum or args.section in leaf_ids_in_group):
+            continue
+        if not started:
+            if gnum == args.start_section:
+                started = True
+            else:
+                continue
+        if not args.force and not args.section and group_leaves and all(_tab_exists(s["section_id"]) for s in group_leaves):
+            print(f"⏭️  group {gnum} already present — skip (use --force to redo)")
+            continue
+
+        leaf_target = args.section if (args.section and args.section in leaf_ids_in_group) else None
+        ordered_groups.append((gnum, gunits, group_leaves, leaf_target))
+
+    # ── --force: delete audit cache + Excel tabs for targeted sections ──────────
+    # --section 9.4 --force: deletes only 9.4's audit folder(s) and tabs.
+    # Full --force (no --section): clears all targeted groups.
+    if args.force:
+        if args.section:
+            # --section X --force: clear only X's audit and tab.
+            # Sibling sections in the same group reload from their existing cache.
+            sids_to_clear = {args.section}
+        else:
+            # --force (no --section): clear all sections in every targeted group.
+            sids_to_clear = {
+                lf["section_id"]
+                for _, _, group_leaves, _ in ordered_groups
+                for lf in group_leaves
+            }
+        # Delete audit folders whose unit_id starts with any targeted section_id slug
+        for sid in sids_to_clear:
+            sid_slug = sid.replace(".", "_")
+            audit_bank_dir = Path(AUDIT_DIR)
+            if audit_bank_dir.exists():
+                for unit_dir in list(audit_bank_dir.iterdir()):
+                    if unit_dir.is_dir() and unit_dir.name.startswith(sid_slug):
+                        import shutil
+                        shutil.rmtree(unit_dir)
+                        print(f"   🗑  --force deleted audit '{unit_dir.name}'")
+        # Delete Excel tabs for targeted sections
+        for sname in list(wb.sheetnames):
+            if sname in ("Contents", "Cost"):
+                continue
+            for sid in sids_to_clear:
+                if (sname == sid or
+                        sname.startswith(f"{sid} Table ") or
+                        sname.startswith(f"{sid} -")):
+                    wb.remove(wb[sname])
+                    used_names.discard(sname)
+                    print(f"   🗑  --force cleared tab '{sname}'")
+                    break
+
+    # ── Parallel extraction: groups run concurrently, rendering is serial ─────
+    # Secondary units (shared pages owned by another group) are excluded from
+    # the pool — they read from audit after the pool exits, guaranteeing the
+    # primary group has already written its parsed.json.
+    n_workers = 1 if args.section else args.workers
+    print(f"\n⚡ extracting {len(ordered_groups)} group(s) with {n_workers} worker(s)")
+
+    group_results: dict[str, dict] = {}  # gnum -> {section_id: [GTable]}
+
+    with ThreadPoolExecutor(max_workers=n_workers) as pool:
+        futures = {
+            pool.submit(_extract_group, gnum, gunits, group_leaves, leaf_target): gnum
+            for gnum, gunits, group_leaves, leaf_target in ordered_groups
+        }
+        for fut in as_completed(futures):
+            gnum = futures[fut]
+            try:
+                group_results[gnum] = fut.result()
+            except Exception as e:
+                print(f"  ❌ group {gnum} failed: {e}")
+                group_results[gnum] = {}
+
+    # ── Serial rendering: write tabs in document order ────────────────────────
+    for gnum, gunits, group_leaves, leaf_target in ordered_groups:
+        grp_tables = group_results.get(gnum, {})
+        for sid, tables in grp_tables.items():
+            section_tables[sid].extend(tables)
+
+        print(f"\n##### Section {gnum}  ({len(gunits)} unit(s) -> {len(group_leaves)} subsection tab(s))")
 
         # 2) write one tab per table (not per subsection)
         for lf in group_leaves:
             sid, title = lf["section_id"], lf["title"]
             tables = section_tables.get(sid, [])
+
+            # Sibling sections skipped by leaf_target: reload from their audit cache
+            # so their existing tabs are preserved and re-rendered correctly.
+            if not tables and _tab_exists(sid):
+                sid_slug = sid.replace(".", "_")
+                for unit_dir in Path(AUDIT_DIR).glob(f"{sid_slug}_*"):
+                    pj = unit_dir / "parsed.json"
+                    if pj.exists():
+                        try:
+                            ext = Extraction(**json.load(open(pj)))
+                            tables = _apply_transforms(ext.tables)
+                            print(f"   • {sid} — sibling, reloaded from audit cache")
+                        except Exception:
+                            pass
+                        break
+
             if not tables:
                 print(f"   · {sid} '{title[:34]}' — no tables, no tab")
                 continue
@@ -1437,12 +2134,17 @@ def main():
                     continue
                 written_tables.append(t)
             total = len(written_tables)
+            # Remove ALL existing tabs for this section before writing new ones
+            # so stale tabs from a previous run don't cause (2)-suffix collisions
+            for existing_sname in list(wb.sheetnames):
+                if (existing_sname.startswith(f"{sid} Table ") or
+                        existing_sname.startswith(f"{sid} -") or
+                        existing_sname == sid):
+                    wb.remove(wb[existing_sname])
+                    used_names.discard(existing_sname)
             for ti, t in enumerate(written_tables, start=1):
                 table_label = t.title or f"Table {ti}"
                 sname = table_sheet_name(used_names, sid, ti)
-                if sname in wb.sheetnames:
-                    wb.remove(wb[sname]); used_names.discard(sname)
-                    sname = table_sheet_name(used_names, sid, ti)
                 ws = wb.create_sheet(title=sname)
                 cursor = 4   # rows 1-3 are header banner; data starts at row 4
                 cursor = write_table(ws, cursor, t)
@@ -1476,6 +2178,29 @@ def main():
             print(f"   🗑  removed stale tab '{sname}'")
 
         save_index(idx)
+        # ── Reorder all tabs into document order after each group ────────────
+        _PART_SORT = {None: 0, "A": 1, "B": 2, "C": 3, "D": 4, "E": 5}
+        def _sort_key(name):
+            if name == "Contents": return (-1, 0, [], 0)
+            if name == "Cost":     return (9999, 0, [], 0)
+            m = re.match(r'^([A-Z])\.(\d+(?:\.\d+)*)(?:\s+Table\s+(\d+))?', name)
+            if m:  # DBS part-structured: A.5.2 Table 1
+                part  = _PART_SORT.get(m.group(1), 9)
+                parts = [int(x) for x in m.group(2).split(".")]
+                tnum  = int(m.group(3)) if m.group(3) else 0
+                return (0, part, parts, tnum)
+            m = re.match(r'^(\d+(?:\.\d+)*)(?:\s+Table\s+(\d+))?', name)
+            if m:  # OCBC/UOB plain numbered: 9.4 Table 1
+                parts = [int(x) for x in m.group(1).split(".")]
+                tnum  = int(m.group(2)) if m.group(2) else 0
+                return (0, 0, parts, tnum)
+            return (1, 0, [], 0)
+        ordered_names = sorted(wb.sheetnames, key=_sort_key)
+        for i, sname in enumerate(ordered_names):
+            current_pos = wb.sheetnames.index(sname)
+            if current_pos != i:
+                wb.move_sheet(sname, offset=i - current_pos)
+
         rebuild_contents(wb, idx)
         wb.save(out_path)
         print(f"   💾 saved {out_path}  |  run so far: {_run_usage['calls']} calls, "

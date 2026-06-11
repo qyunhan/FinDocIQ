@@ -5,8 +5,59 @@
 **Scope:** DBS, OCBC, UOB — Pillar 3, LCR, Press Releases, Performance Highlights  
 **Author:** Yunhan  
 **Team / Context:** UOB AI Innovation Group  
-**Last Updated:** May 2026  
+**Last Updated:** 2026-06-11  
 **Status:** Active Development
+
+**Next free experiment number: P3-E-20 / CFO-E-16**
+*(Legacy unprefixed entries run E-01..E-15. Prefixed P3-E-xx / CFO-E-xx start at 16.)*
+
+---
+
+### P3-E-16 — Checkpoint/Cache Filename Split ● ADOPTED / 2026-06-10
+
+| | |
+|---|---|
+| **Problem** | `extract_unit_chunked` wrote partial chunk results to `parsed.json`, so a crash-then-resume silently loaded an incomplete result as if it were complete — no signal, wrong data. |
+| **Method** | Three changes: (1) mid-loop saves go to `parsed.partial.json` only; (2) final write is `os.replace(tmp_path, parsed.json)` (atomic); (3) cache-load invalidates if `meta.json["partial"] == True`. |
+| **Outcome** | A crash after chunk 2 leaves `parsed.partial.json` present and `parsed.json` absent. Resume detects partial and re-extracts. No silent data loss. |
+| **Decision** | Adopted. Checkpoint and cache never share a filename — this is now a hard design principle. |
+| **Learning** | Atomic rename is the only safe pattern for cache writes in a pipeline that can crash mid-write. Partial state must be named differently from complete state so the resume path can distinguish them without reading content. |
+
+---
+
+### P3-E-17 — Prompt-Hash Cache Invalidation ● ADOPTED / 2026-06-10
+
+| | |
+|---|---|
+| **Problem** | Cached `parsed.json` files were reused even after the extraction prompt changed, silently serving stale results that no longer matched the current prompt's instructions. |
+| **Method** | Added `_PROMPT_HASH = hashlib.sha1(_PROMPT.encode()).hexdigest()[:8]` computed once at import. Written to `meta.json["prompt_hash"]`. Cache-load path rejects any cache where `prompt_hash` is absent (legacy) or doesn't match. |
+| **Outcome** | Prompt change → all caches invalidate on next run, triggering re-extraction. Legacy caches without the field also invalidate cleanly. |
+| **Decision** | Adopted. Schema validity (Pydantic) does not imply semantic correctness against the current prompt — prompt versioning is a separate concern. |
+| **Learning** | Any cached artefact that depends on a prompt must carry the prompt's version. "Schema valid" and "extracted under this prompt" are different invariants. |
+
+---
+
+### P3-E-18 — Literal Enums + Migration Hooks for GCell/GRow ● ADOPTED / 2026-06-10
+
+| | |
+|---|---|
+| **Problem** | `GCell.cell_state` and `GRow.row_type` were free-form `str` fields — Gemini's structured output mode had no constraint to enforce, and legacy `parsed.json` files used deprecated state names (`"suppressed"`, etc.). |
+| **Method** | Changed both to `Literal[...]` types, causing Pydantic to emit `"enum"` arrays in the JSON schema → Gemini does real constrained decoding. Added `@model_validator(mode="before")` hooks (not `model_validate` classmethods — those are NOT called during nested `Extraction(**data)` validation) to migrate legacy names before field validation. |
+| **Outcome** | All 4 acceptance cases pass: schema has enums, legacy names migrate, invalid names raise ValidationError, plain-string values in old parsed.json upgrade correctly. |
+| **Decision** | Adopted. `model_validator(mode="before")` is the correct hook for migration — it runs on raw input before Pydantic's field validation, regardless of call site. |
+| **Learning** | `model_validate` classmethod overrides are NOT called during nested model construction (`Extraction(**data)`). Only `@model_validator(mode="before")` hooks fire at all call sites. Leaving a dead `model_validate` override next to a live `model_validator` is a trap for the next reader. |
+
+---
+
+### P3-E-19 — Prompt is a Prior; Code is the Contract ● ADOPTED / 2026-06-11
+
+| | |
+|---|---|
+| **Problem** | Three prompt rules that Gemini consistently ignored under structured-output pressure: (1) "different date periods = different tables" — Gemini returned stacked date blocks in one table. (2) "rows belong to section X" boundary anchors — Gemini included next-section tables in the current unit's response. (3) `fill_parents` in the prompt — Gemini's parent assignments were wrong in 38% of level≥2 rows. |
+| **Method** | Implemented three deterministic post-extraction transforms applied to every table before the Excel writer: `split_date_blocks` (splits on ≥2 date section_headers), `fill_parents` (level-walk with synthetic id assignment), `drop_next_section_tables` (title-score filter, fires only on shared boundary pages). All applied via `_apply_transforms` at all 5 consumption points (cache-resume ×2, fresh extraction ×2, sibling reload). |
+| **Outcome** | OCBC 9.4 "Analysed by Geography" correctly splits into 2 tables. Two "Credit Quality of Restructured Exposures" tables (belonging to 9.5) correctly dropped from 9.4 output (✂ printed). Parent fields correct for all level≥2 rows in cached data. |
+| **Decision** | Adopted as a design principle: prompt anchors are priors, not guarantees. Any structure that is deterministically computable from the extraction output must be enforced in code, not trusted from the model. |
+| **Learning** | The failure mode is silent: the model returns valid JSON that passes schema validation but violates structural invariants the prompt stated. The only reliable enforcement is a post-extraction code layer that does not depend on model compliance. |
 
 ### Purpose of this Document
 This log records all experiments, methodology decisions, failure analyses, and structural learnings
